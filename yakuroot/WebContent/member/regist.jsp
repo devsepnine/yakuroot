@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<jsp:include page="/template/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/yakuroot/css/common.css">
 
 
@@ -8,7 +9,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     $(function(){
-        $("input[type=button]").click(findAddress);
+        $("input[name=postcode_find]").click(findAddress);
     });
 
     function findAddress() {
@@ -67,7 +68,7 @@ s
 		// m_id 입력창에  blur 이벤트가 발생하면 ajax 통신으로 중복검사 수행
 		// 요청 url : /member/id_check.do
 
-		$("input[name=m_id]").blur(function() {
+		$("input[name=id_check_btn]").click(function() {
 			$.ajax({
 				url : "id_check.do",
 				data : {
@@ -84,6 +85,12 @@ s
 				}
 			});
 		});
+		
+		$("select[name=email_address]").change(function(){
+			$("#m_email_address").val($(this).val())
+			
+			console.log($(this).val())
+		});
 	});
 </script>
 <style>
@@ -91,6 +98,7 @@ s
 .form.form-label>fieldset {
 	width: 650px;
 	text-align: left;
+	margin-top : 100px;
 }
 
 
@@ -104,8 +112,11 @@ s
 	width : 130px;
 	margin-left : 20px;
 }
-
-
+.table input[name=id_check_btn]{
+	width : 110px;
+	margin-left : 20px;
+	text-align : center;
+}
 </style>
 <div align="center">
 
@@ -119,6 +130,7 @@ s
 							<td><label for="m_id">ID</label></td>
 							<td>
 								<input type="text" name="m_id" id="m_id" placeholder="ID를 입력하세요" required>
+								<input type="button" value="중복확인" name="id_check_btn">
 							</td>
 						</tr>
 						
@@ -153,11 +165,11 @@ s
 						<tr>
 							<td><label for="m_email">EMAIL</label></td>
 							<td>
-								<input type="email" name="m_email" id="m_email" placeholder="EMAIL을 입력하세요">
+								<input type="text" name="m_email" id="m_email" placeholder="EMAIL을 입력하세요">
 									<span>@</span>
 									<input type="text" name="m_email_address" id="m_email_address">
 									<select name="email_address">
-										<option value="write">직접입력</option>
+										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
 										<option value="daum.net">daum.net</option>
 										<option value="gmail.com">gmail.com</option>
@@ -207,11 +219,6 @@ s
 
 
 	</form>
-
-
-
-
-
 
 </div>
 
