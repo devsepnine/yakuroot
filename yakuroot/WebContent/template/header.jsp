@@ -28,11 +28,15 @@
         })
     </script>
     <style>
+    
         body{
             margin: 0;
         }
+/*************************************************
+         헤더
+         ***************************************/
         header{
-            background-color: rgb(35,0,66);
+            background-color: rgb(16,17,47);
             border-bottom: 3px solid red;
             height: 150px;
         }
@@ -47,11 +51,18 @@
             margin-inline-end: 0px;
             padding-inline-start: 40px;
         }
+/************************************ 
+				상단 메뉴 폰트 
+********************************************************/
         .menubox a{
             text-decoration: none;
             color: white;
+            font-weight:bold;
             font-size: 30px;  
         }
+/******************************************************
+         서브메뉴 
+         *************************************/
         .sub_menu{
             display: none;
             position: absolute;
@@ -59,7 +70,7 @@
             left: 0px;
             width: 100%;
             font-size: 20px;
-            background-color: rgba(0,0,0,0.3)
+            background-color: rgba(0,0,255,0.9)
         }
         .sub_menu ul{
             width: 1200px;
@@ -71,6 +82,7 @@
             padding-inline-start: 40px;
             display: inline-block;
         }
+/*         서브메뉴 폰트 */
         .sub_menu a{
             color: black;
         }
@@ -90,7 +102,7 @@
                 <tbody>
                     <tr>
                         <td rowspan="2"><a class="" href="#"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
-                        <td></td>
+                        <td style="text-align: right;"><a href="#">로그인</a><a href = "#">회원가입</a><a href = "#">고객센터</a></td>
                     </tr>
                     <tr>
                         <td>
