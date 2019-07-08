@@ -34,6 +34,9 @@
         body{
             margin: 0;
         }
+        a{
+        	text-decoration: none;
+        }
 /*************************************************
          헤더
          ***************************************/
@@ -68,11 +71,11 @@
         .sub_menu{
             display: none;
             position: absolute;
-            top: 153px;
+            top: 150px;
             left: 0px;
             width: 100%;
             font-size: 20px;
-            background-color: rgba(0,0,255,0.9)
+            background-color: rgba(0,222,222,0.9)
         }
         .sub_menu ul{
             width: 1200px;
@@ -95,6 +98,9 @@
         .top_m{
             padding-bottom: 60px;
         }
+        .nav_sub > a{
+        	color:white;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +110,7 @@
                 <tbody>
                     <tr>
                         <td rowspan="2"><a class="" href="#"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
-                        <td style="text-align: right;"><a href="#">로그인</a><a href = "#">회원가입</a><a href = "#">고객센터</a></td>
+                        <td style="text-align: right;"><span class="nav_sub"><a href="#">로그인</a><a href = "#">회원가입</a><a href = "#">고객센터</a></span></td>
                     </tr>
                     <tr>
                         <td>
