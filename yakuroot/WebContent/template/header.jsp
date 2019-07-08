@@ -96,8 +96,14 @@
         .top_m{
             padding-bottom: 60px;
         }
+/*         서브메뉴 디자인 */
         .nav_sub > a{
         	color:white;
+        	background-color: red;
+        	margin-left: 0.5rem;
+        	border-radius: 20px;
+        	padding-left: 0.3rem;
+        	padding-right: 0.3rem;
         }
     </style>
 </head>
