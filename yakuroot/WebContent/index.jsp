@@ -89,7 +89,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <td rowspan="2"><a class="" href="#"><img src="/img/baseball.png" width="200px" alt=""></a></td>
+                        <td rowspan="2"><a class="" href="#"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
                         <td></td>
                     </tr>
                     <tr>
