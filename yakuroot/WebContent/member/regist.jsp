@@ -16,7 +16,6 @@
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-s
                 // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var addr = ''; // 주소 변수
@@ -55,9 +54,9 @@ s
                 // document.querySelector("input[name=detailaddr]").focus();
 
                 // 이 코드는 jquery.js 를 먼저 불러온 경우만 사용 가능
-                $("input[name=postcode]").val(data.zonecode);
-                $("input[name=addr1]").val(addr);
-                $("input[name=addr2]").focus();
+                $("input[name=m_postcode]").val(data.zonecode);
+                $("input[name=m_addr1]").val(addr);
+                $("input[name=m_addr2]").focus();
             }
         }).open();
     }
@@ -90,6 +89,14 @@ s
 			$("#m_email_address").val($(this).val())
 			
 			console.log($(this).val())
+			
+			 //if($(this).val() == ""){
+			if(!$(this).val()){
+                 $(this).prev().prop("disabled", false);
+             }
+             else{
+            	 $(this).prev().prop("disabled", true);
+             }
 		});
 	});
 </script>
@@ -167,7 +174,7 @@ s
 							<td>
 								<input type="text" name="m_email" id="m_email" placeholder="EMAIL을 입력하세요">
 									<span>@</span>
-									<input type="text" name="m_email_address" id="m_email_address">
+									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$">
 									<select name="email_address">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
@@ -180,17 +187,17 @@ s
 						<tr>
 							<td><label for="m_addr">ADDRESS</label></td>
 							<td>
-								<input type="text" name="postcode" placeholder="우편번호" >
+								<input type="text" name="m_postcode" placeholder="우편번호" >
 									<input type="button" value="우편번호 찾기" name="postcode_find"><br>
-									<input type="text" name="addr1" placeholder="주소"><br>
-									<input type="text" name="addr2" placeholder="상세주소">
+									<input type="text" name="m_addr1" placeholder="주소"><br>
+									<input type="text" name="m_addr2" placeholder="상세주소">
 							</td>
 						</tr>
 						
 						<tr>
 							<td><label for="m_fav">MY TEAM</label></td>
 							<td>
-								<select name="fav">
+								<select name="m_fav">
 									<option value="none">선택 안함</option>
 									<option value="doosan">두산베어스</option>
 									<option value="sk">SK와이번즈</option>

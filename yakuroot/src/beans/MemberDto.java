@@ -15,7 +15,6 @@ public class MemberDto {
 	private String m_addr1;
 	private String m_addr2;
 	private String m_fav;
-	private String m_resdata;
 	private String m_auth;
 	private String m_regist;
 	private String m_lasttime;
@@ -23,26 +22,22 @@ public class MemberDto {
 	
 
 
-	
+
 
 	@Override
 	public String toString() {
 		return "MemberDto [m_no=" + m_no + ", m_id=" + m_id + ", m_pw=" + m_pw + ", m_name=" + m_name + ", m_birth="
 				+ m_birth + ", m_phone=" + m_phone + ", m_email=" + m_email + ", m_postcode=" + m_postcode
-				+ ", m_addr1=" + m_addr1 + ", m_addr2=" + m_addr2 + ", m_fav=" + m_fav + ", m_resdata=" + m_resdata
-				+ ", m_auth=" + m_auth + ", m_regist=" + m_regist + ", m_lasttime=" + m_lasttime + "]";
+				+ ", m_addr1=" + m_addr1 + ", m_addr2=" + m_addr2 + ", m_fav=" + m_fav + ", m_auth=" + m_auth
+				+ ", m_regist=" + m_regist + ", m_lasttime=" + m_lasttime + "]";
 	}
 
 
-
-
-
+	
 
 	public MemberDto() {
 		super();
 	}
-
-
 
 
 
@@ -58,7 +53,6 @@ public class MemberDto {
 		this.setM_addr1(rs.getString("m_addr1"));
 		this.setM_addr2(rs.getString("m_addr2"));
 		this.setM_fav(rs.getString("m_fav"));
-		this.setM_resdata(rs.getString("m_resdata"));
 		this.setM_auth(rs.getString("m_auth"));
 		this.setM_regist(rs.getString("m_regist"));
 		this.setM_lasttime(rs.getString("m_lasttime"));
@@ -267,24 +261,6 @@ public class MemberDto {
 
 
 
-	public String getM_resdata() {
-		return m_resdata;
-	}
-
-
-
-
-
-
-	public void setM_resdata(String m_resdata) {
-		this.m_resdata = m_resdata;
-	}
-
-
-
-
-
-
 	public String getM_auth() {
 		return m_auth;
 	}
@@ -333,7 +309,6 @@ public class MemberDto {
 	public void setM_lasttime(String m_lasttime) {
 		this.m_lasttime = m_lasttime;
 	}
-
 
 
 	
