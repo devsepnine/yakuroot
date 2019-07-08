@@ -114,8 +114,8 @@
             <table class="menu_table">
                 <tbody>
                     <tr>
-                        <td rowspan="2"><a class="" href="#"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
-                        <td style="text-align: right;padding-top:0.2rem;"><span class="nav_sub"><a href="#">로그인</a><a href = "#">회원가입</a><a href = "#">고객센터</a></span></td>
+                        <td rowspan="2"><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
+                        <td style="text-align: right;padding-top:0.2rem;"><span class="nav_sub"><a href="#">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.jsp">회원가입</a><a href = "#">고객센터</a></span></td>
                     </tr>
                     <tr>
                         <td>
