@@ -102,19 +102,20 @@
         	background-color: red;
         	margin-left: 0.5rem;
         	border-radius: 20px;
-        	padding-left: 0.3rem;
-        	padding-right: 0.3rem;
+        	padding: 0.2rem;
+        	padding-left: 0.5rem;
+        	padding-right: 0.5rem;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <table>
+            <table class="menu_table">
                 <tbody>
                     <tr>
                         <td rowspan="2"><a class="" href="#"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
-                        <td style="text-align: right;"><span class="nav_sub"><a href="#">로그인</a><a href = "#">회원가입</a><a href = "#">고객센터</a></span></td>
+                        <td style="text-align: right;padding-top:0.2rem;"><span class="nav_sub"><a href="#">로그인</a><a href = "#">회원가입</a><a href = "#">고객센터</a></span></td>
                     </tr>
                     <tr>
                         <td>
