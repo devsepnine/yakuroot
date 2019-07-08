@@ -5,8 +5,6 @@
 <head>
     <title>YAKUROOT</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    
     <script>
         $(function(){
             // $('.top_m').click(function(){
@@ -29,8 +27,8 @@
             })
         })
     </script>
-    <style>
     
+    <style>
         body{
             margin: 0;
         }
