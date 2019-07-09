@@ -8,7 +8,9 @@
 
 		<!-- 답글일 경우 parent값을 전달 -->
 		<%-- 	<%if(request.getParameter("parent")!=null){%> --%>
-		<%   String id = (String) session.getAttribute("login"); %>
+		<%
+			String login = (String) session.getAttribute("login");
+		%>
 		<%
 			if (request.getParameterMap().containsKey("f_parent")) {
 		%>
@@ -31,7 +33,7 @@
 			<option value="kia">KIA타이거즈</option>
 		</select> <br> <br> 글 제목: <input type="text" name="f_title" required
 			placeholder="제목" size="60"> <input type="hidden"
-			name="f_writer" required value="<%=id%>"> <br> <br>
+			name="f_writer" value="<%=login%>"> <br> <br>
 		<textarea name="f_content" required
 			style="width: 500px; height: 300px;"> </textarea>
 		<br> <br>

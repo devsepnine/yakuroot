@@ -94,11 +94,11 @@ margin : auto;
 	<div>
 		<div>
 			<div style="text-align: center;">
-				<form action="list.do" method="get" align="center">
+				<form action="f_list.do" method="get" align="center">
 					<select name="type">
-						<option value="title">제목</option>
-						<option value="conten">내용</option>
-						<option value="writer">작성자</option>
+						<option value="f_title">제목</option>
+						<option value="f_head">팀</option>
+						<option value="f_writer">작성자</option>
 					</select> <input type="text" name="keyword" placeholder="검색어"
 						required="required">
 					<button type="submit" class="btn btn-outline-primary">검색</button>
