@@ -91,3 +91,132 @@ origin CONSTRAINT fk_comments_board_no references f_board(f_no)on delete cascade
 /************************************************************
 						  도영
 ************************************************************/
+
+--[선수 테이블]player
+--선수 테이블 삭제
+drop table player;
+--선수 테이블 생성
+create table player(
+p_no number primary key,--선수 고유 번호
+p_club_no number constraint fk_club1 references club(c_no) on delete cascade,--선수 구단 고유 번호로 외래키 받기
+p_club varchar2(300) not null,--선수 소속 구단 로고
+p_photo varchar2(300) not null,--선수 프로필 사진
+p_name varchar2(30) not null,--선수 이름
+p_bnum number(3) not null,--선수 등번호
+p_birth varchar2(10) not null,--선수 생일
+p_height number(3) not null,--선수 키
+p_weight number(3) not null,--선수 몸무게
+p_position varchar2(9) not null,--선수 포지션
+p_last_five varchar2(300) not null--선수 최근 5경기 성적
+);
+--선수 테이블 시퀀스 삭제
+drop sequence player_seq;
+--선수 테이블 시퀀스 생성
+create sequence player_seq;
+
+
+---------------------------------------------------------------------
+--[타자 시즌 성적 테이블]batter_season_score
+--타자 시즌 성적 테이블 삭제
+drop table batter_season_score;
+--타자 시즌 성적 테이블 생성
+create table batter_season_score(
+p_no number primary key,--선수 고유 번호(기본 키)
+fk_p_no number constraint fk_player1 references player(p_no) on delete cascade,--타자 시즌 성적 선수 고유 번호로 외래키 받기
+p_batting_average number not null,--타율
+p_game number not null,--경기수
+p_bat number not null,--타수
+p_hit number not null,--안타
+p_home_run number not null,--홈런
+p_score number not null,--득점
+p_stolen_base number not null,--도루
+p_fail_stolen_base number not null,--도루실패
+p_strike_out number not null,--삼진
+p_dead_ball number not null,--4사구
+p_on_base number not null,--출루율
+p_long_bat number not null,--장타율
+p_ops number not null,--OPS
+p_score_bat number not null--득점권 타율
+);
+--타자 시즌 성적 테이블 시퀀스 삭제
+drop sequence batter_seq;
+--타자 시즌 성적 테이블 시퀀스 생성
+create sequence batter_seq;
+
+
+---------------------------------------------------------------------
+--[투수 시즌 성적 테이블]pitcher_season_score
+--투수 시즌 성적 테이블 삭제
+drop table pitcher_season_score;
+--투수 시즌 성적 테이블 생성
+create table pitcher_season_score(
+p_no number primary key,--선수 고유 번호(기본 키)
+fk_p_no number constraint fk_player2 references player(p_no) on delete cascade,--투수 시즌 성적 선수 고유 번호로 외래키 받기
+p_era number not null,--투수 ERA
+p_game number not null,--투수 경기수
+p_standing number not null,--투수 선발 경기수
+p_shutouts number not null,--투수 완투
+p_win number not null,--투수 승
+p_loss number not null,--투수 패
+p_save number not null,--투수 세이브
+p_hold number not null,--투수 홀드
+p_victory number not null,--투수 승률
+p_inning number not null,--투수 이닝
+p_hit_rate number not null,--투수 피안타율
+p_strike_out number not null,--투수 삼진
+p_dead_ball number not null,--투수 4사구
+p_loss_point number not null,--투수 실점
+p_self_defense number not null,--투수 자책점
+p_wip number not null--선수 WIP
+);
+--투수 시즌 성적 테이블 시퀀스 삭제
+drop sequence pitcher_seq;
+--투수 시즌 성적 테이블 시퀀스 생성
+create sequence pitcher_seq;
+
+
+---------------------------------------------------------------------
+--[구단 테이블]club
+--구단 테이블 삭제
+drop table club;
+--구단 테이블 생성
+create table club(
+c_no number primary key,--구단 고유 번호
+c_name varchar2(30) not null,--구단 이름
+c_photo varchar2(300) not null,--구단 로고
+c_club varchar2(300) not null,--구단 소개
+c_stadium varchar2(300) not null--구단 홈 경기장 소개
+);
+--구단 테이블 시퀀스 삭제
+drop sequence club_seq;
+--구단 테이블 시퀀스 생성
+create sequence club_seq;
+
+
+---------------------------------------------------------------------
+--[구단 시즌 성적 테이블]club_season_score
+--구단 시즌 성적 테이블 삭제
+drop table club_season_score;
+--구단 시즌 성적 테이블 생성
+create table club_season_score(
+c_no number primary key,--구단 고유 번호(기본 키)
+fk_c_no number constraint fk_club2 references club(c_no) on delete cascade,--구단 시즌 성적 구단 고유 번호로 외래키 받기
+c_game number not null,--구단 경기수
+c_win number not null,--구단 승
+c_loss number not null,--구단 패
+c_draw number not null,--구단 무승부
+c_victory number not null,--구단 승률
+c_gap number not null,--구단 게임차
+c_last_ten varchar2(16) not null,--구단 최근 10경기 성적
+c_continue varchar2(5) not null--구단 연소 경기 성적
+);
+--구단 시즌 성적 테이블 시퀀스 삭제
+drop sequence club_season_score_seq;
+--구단 시즌 성적 테이블 시퀀스 생성
+create sequence club_season_score_seq;
+
+
+---------------------------------------------------------------------
+
+
+
