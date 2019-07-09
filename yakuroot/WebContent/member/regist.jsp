@@ -86,7 +86,7 @@
 		});
 		
 		//이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
-		$("select[name=email_address]").change(function(){
+		$("#email_address").change(function(){
 			$("#m_email_address").val($(this).val())
 			
 			console.log($(this).val())
@@ -209,10 +209,9 @@
 <script>
         function checkEmail(){
             var m_email = document.querySelector("#m_email").value;
-            var regex = /^[a-z0-9]{8,15]$/;
+            var regex = /^[a-z0-9]{8,15}$/;
             
             var result = regex.test(m_email);
-//             console.log(result, typeof result);
             
             var div = document.querySelector(".m_emailD");
 
@@ -221,7 +220,6 @@
             }
             else {
                 div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
-                
             }
         }
 </script>
@@ -237,7 +235,7 @@
 							<td><label for="m_id">ID</label></td>
 							<td>
 								<input onblur="checkId();" type="text" name="m_id" id="m_id" required>
-								<input align = "center" type="button" value="중복확인" name="id_check_btn">
+								<input type="button" value="중복확인" name="id_check_btn">
 								<div class="m_idD"></div>
 							</td>
 							
@@ -280,7 +278,7 @@
 								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" pattern="^[a-z0-9]{8,15]$">
 									<span>@</span>
 									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$">
-									<select name="email_address">
+									<select id="email_address">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
 										<option value="daum.net">daum.net</option>

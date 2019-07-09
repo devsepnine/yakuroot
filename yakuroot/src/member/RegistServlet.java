@@ -43,8 +43,7 @@ public class RegistServlet extends HttpServlet {
 			String m_addr1 = req.getParameter("m_addr1");
 			String m_addr2 = req.getParameter("m_addr2");
 			String m_fav = req.getParameter("m_fav");
-			System.out.println(m_addr1);
-			System.out.println(m_addr2);
+			
 
 			
 			

@@ -91,3 +91,4 @@ origin CONSTRAINT fk_comments_board_no references f_board(f_no)on delete cascade
 /************************************************************
 						  도영
 ************************************************************/
+
