@@ -8,8 +8,6 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-
 import f_board.beans.f_boardDto;
 
 public class f_boardDao {
@@ -29,9 +27,9 @@ public class f_boardDao {
 		int no = rs.getInt(1);
 		ps.close();
 
-		// 2 ´ä±ÛÀÏ °æ¿ì ¼Ò¼Ó±ÛÀÇ team ¹øÈ£¸¦ ¹Ì¸® ±¸ÇÔ
+		// 2 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò¼Ó±ï¿½ï¿½ï¿½ team ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int f_team;
-		if (bdto.getF_parent() > 0) {// ´ä±Û
+		if (bdto.getF_parent() > 0) {// ï¿½ï¿½ï¿½
 			sql = "select f_team from f_board where f_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, bdto.getF_parent());
@@ -39,21 +37,21 @@ public class f_boardDao {
 			rs.next();
 			f_team = rs.getInt("f_team");
 			ps.close();
-		} else {// »õ±Û
+		} else {// ï¿½ï¿½ï¿½ï¿½
 			f_team = no;
 		}
 
-		// ÇöÀç µé¾î°¥ °Ô½Ã±ÛÀÇ ¹øÈ£
-		// 1¹ø¿¡¼­ ±¸ÇÑ ¹øÈ£¸¦ ´ëÀÀÇÏ¿© °Ô½Ã±Û Ãß°¡
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+		// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ß°ï¿½
 		sql = "insert into f_board values(" + "?,?,?,?,?,0,sysdate,?,"
 				+ "(select nvl(f_depth,0)+1 from f_board where f_no=?),?)";
-		// nvl(Ç×¸ñ,°ª):Ç×¸ñÀÌnullÀÏ¶§ °ªÀ¸·Î Ä¡È¯
-		// nvl(depth+1,0):depth+1ÀÌ nullÀÌ¸é 0À¸·Î ¹Ù²Þ
-		// --no¸¦ »óÀ§°³³ä , parent¸¦ ÇÏÀ§°³³äÀ¸·Î ¿¬°á
+		// nvl(ï¿½×¸ï¿½,ï¿½ï¿½):ï¿½×¸ï¿½ï¿½ï¿½nullï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¡È¯
+		// nvl(depth+1,0):depth+1ï¿½ï¿½ nullï¿½Ì¸ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
+		// --noï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , parentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		// connect by prior no = parent
-		// --parent°¡ nullÀÎ Ç×¸ñºÎÅÍ ÁøÇà
+		// --parentï¿½ï¿½ nullï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		// start with parent is null
-		// --Á¤·Ä¼ø¼­´Â no ¿ª¼øÀ¸·Î ÁøÇà
+		// --ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ no ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		// order siblings by no desc;
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -67,7 +65,7 @@ public class f_boardDao {
 			ps.setInt(6, bdto.getF_parent());
 		}
 		ps.setInt(7, bdto.getF_parent());
-		ps.setInt(8, f_team);// 2¹ø¿¡¼­ °è»êÇÑ team°ª
+		ps.setInt(8, f_team);// 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ teamï¿½ï¿½
 
 		System.out.println(bdto);
 		ps.execute();
@@ -131,7 +129,7 @@ public class f_boardDao {
 		ps.setInt(2, end);
 		ResultSet rs = ps.executeQuery();
 
-		List<f_boardDto> list = new ArrayList<f_boardDto>(); // ºñ¾îÀÖ´Â ¸®½ºÆ® ÁØºñ
+		List<f_boardDto> list = new ArrayList<f_boardDto>(); // ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Øºï¿½
 		while (rs.next()) {
 			// rs->PersonDto->list
 			f_boardDto bdto1 = new f_boardDto();
@@ -178,7 +176,7 @@ public class f_boardDao {
 		
 		con.close();
 	}
-	public f_boardDto edit(f_boardDto bdto) throws Exception{//È¸¿øÁ¤º¸ °Ë»ö ¸Þ¼Òµå
+	public f_boardDto edit(f_boardDto bdto) throws Exception{//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½Þ¼Òµï¿½
 		Connection con = this.getConnection();		
 		String sql="update f_board set f_head = ?, f_title = ?, f_content = ? where f_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -187,7 +185,6 @@ public class f_boardDao {
 		ps.setString(3, bdto.getF_content());
 		ps.setInt(4, bdto.getF_no());
 		ps.execute();	
-		
 		con.close();
 		return bdto;
 		}

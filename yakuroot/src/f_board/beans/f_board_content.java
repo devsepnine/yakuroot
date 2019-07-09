@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import comment.beans.CommentDao;
+import comment.beans.CommentDto;
 import f_board.beans.f_boardDao;
 import f_board.beans.f_boardDto;
 //import comment.beans.CommentDao;
@@ -21,23 +23,22 @@ public class f_board_content extends HttpServlet{
 		try {
 			int f_no = Integer.parseInt(req.getParameter("no"));
 			f_boardDao bdao = new f_boardDao();
-			//if(³»°¡ ¾´ ±ÛÀÌ ¾Æ´Ï¸é¼­ Ã³À½ ÀÐÀ» ‹š){
+			//if(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸é¼­ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½){
 				
 			bdao.readone(f_no);
 			//}
 			f_boardDto bdto = bdao.get(f_no);
-			//ÄÚµå Ãß°¡:ÇöÀç ±ÛÀÇ ÀÛ¼ºÀÚ°¡ º»ÀÎÀÎÁö È®ÀÎÇÏ´Â ÄÚµå
+			//ï¿½Úµï¿½ ï¿½ß°ï¿½:ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½
 //			boolean my = bdto.getWriter().equals(req.getSession().getAttribute("ok"));
-//			System.out.println(bdto);
-			//ÀÌ ±ÛÀÇ ´ñ±Û ¸ñ·ÏÀ» ºÒ·¯¿À´Â ÄÚµå
-//			CommentDao cdao = new CommentDao();
-//			List<CommentDto> list = cdao.get(no);
-//			paging p = new paging(req);
-//			p.calculate();
+			//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
+			CommentDao cdao = new CommentDao();
+			List<CommentDto> list = cdao.get(f_no);
+			paging p = new paging(req);
+			p.calculate();
 
-//			req.setAttribute("list2", list);
+			req.setAttribute("list2", list);
 //			req.setAttribute("my", my);
-//			req.setAttribute("p", p);
+			req.setAttribute("p", p);
 			req.setAttribute("bdto", bdto);	
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/board/f_content.jsp");
