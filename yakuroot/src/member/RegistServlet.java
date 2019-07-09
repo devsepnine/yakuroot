@@ -38,7 +38,7 @@ public class RegistServlet extends HttpServlet {
 			String m_name = req.getParameter("m_name");
 			String m_birth = req.getParameter("m_birth");
 			String m_phone = req.getParameter("m_phone");
-			String m_email = req.getParameter("m_email") +"@" + req.getParameter("m_email_address");
+			String m_email = req.getParameter("m_email") +"@" + req.getParameter("m_email_address").toLowerCase();
 			String m_postcode = req.getParameter("m_postcode");
 			String m_addr1 = req.getParameter("m_addr1");
 			String m_addr2 = req.getParameter("m_addr2");
