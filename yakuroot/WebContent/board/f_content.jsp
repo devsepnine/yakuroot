@@ -91,10 +91,10 @@
 					<tr>
 						<td colspan="3" align="reft">
 							<h4>
-								<%-- <c:if test="${my}"> --%>
+								<c:if test="${login}">
 								<button class="btn btn-outline-primary"><a href="f_edit.do?f_no=${bdto.f_no}">글 수정</a></button>
 								<a href="f_delete.do?no=${bdto.f_no}"><button class="btn btn-outline-primary">글 삭제</button></a>
-								<%-- </c:if> --%>
+								</c:if>
 							</h4>
 
 						</td>
