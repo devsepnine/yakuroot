@@ -27,6 +27,28 @@ grant connect, resource to yakuroot;
 						  나연
 ************************************************************/
 
+--회원 테이블
+DROP TABLE MEMBER;
+CREATE TABLE member(
+m_no NUMBER PRIMARY KEY,
+m_id VARCHAR2(15) NOT NULL UNIQUE,
+m_pw VARCHAR2(15) NOT NULL,
+m_name VARCHAR2(21) NOT NULL,
+m_birth VARCHAR2(10),
+m_phone VARCHAR2(13) NOT NULL,  --  -2개포함 13자리
+m_email VARCHAR2(30) NOT NULL UNIQUE,
+m_postcode VARCHAR2(7),
+m_addr1 VARCHAR2(60),
+m_addr2 VARCHAR2(60),
+m_fav VARCHAR2(10),
+m_auth VARCHAR2(9) DEFAULT '일반' NOT NULL  CHECK(m_auth IN('일반', '관리자')),
+m_regist DATE DEFAULT SYSDATE NOT NULL,
+m_lasttime DATE DEFAULT SYSDATE NOT NULL
+);
+
+--회원 시퀀스
+DROP SEQUENCE MEMBER_SEQ;
+CREATE SEQUENCE MEMBER_SEQ;
 
 
 /************************************************************
