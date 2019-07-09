@@ -104,7 +104,7 @@
 <style>
 
 .form.form-label>fieldset {
-	width: 750px;
+	width: 650px;
 	text-align: left;
 	margin-top : 100px;
 }

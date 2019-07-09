@@ -1,4 +1,4 @@
-package beans;
+package m_beans;
 
 
 import java.sql.Connection;
