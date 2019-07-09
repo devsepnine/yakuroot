@@ -6,6 +6,10 @@
 						주석 필수
 						  SATRT!
 ************************************************************/
+----서비스 포트 확인 및 변경
+select dbms_xdb.gethttpport() from dual;
+
+exec dbms_xdb.sethttpport(9090);
 ---------------------------------------------yakuroot 아이디 생성
 create user yakuroot identified by baseball;
 ---------------------------------------------권한 부여
