@@ -7,4 +7,4 @@
  <h3><a href="login.jsp">로그인</a></h3>
  <h3><a href="<../">메인</a></h3>
  
- <jsp:include page= "/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/footer.jsp"></jsp:include>

@@ -10,6 +10,7 @@
 	width: 350px;
 	text-align: left;
 	margin-top : 100px;
+	margin-bottom : 100px;
 }
 
 input[name=m_id], input[name=m_pw]{
@@ -30,7 +31,7 @@ input[name=m_id], input[name=m_pw]{
 	<form action="${pageContext.request.contextPath}/member/login.do" method="post" class="form form-label">
 		<fieldset>
 			<legend>LOGIN</legend>
-				<table border=1 width=300px  class="table table-noline">
+				<table border=1 width=300px class="table table-noline">
 					<tbody>
 						<tr>
 						<td class="error" colspan="2" height="30">
@@ -78,4 +79,4 @@ input[name=m_id], input[name=m_pw]{
 
 </div>
 
-<%-- <jsp:include page="/template/footer.jsp"></jsp:include> --%>
+<jsp:include page="/template/footer.jsp"></jsp:include>

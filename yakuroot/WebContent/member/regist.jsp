@@ -107,6 +107,7 @@
 	width: 650px;
 	text-align: left;
 	margin-top : 100px;
+	margin-bottom : 100px;
 }
 
 
@@ -333,5 +334,5 @@
 
 </div>
 
-
+<jsp:include page="/template/footer.jsp"></jsp:include>
 
