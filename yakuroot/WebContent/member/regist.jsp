@@ -226,7 +226,7 @@
         }
 </script>
 <div align="center">
-
+   
 
 	<form action="regist.do" method="post" class="form form-label">
 		<fieldset>
