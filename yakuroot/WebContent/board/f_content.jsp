@@ -10,7 +10,19 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
+	$(function(){
 
+		$('.su').hide();
+		$('.btn').click(function(e){
+			e.preventDefault();
+			$(this).parent().prevAll('.content').toggle();
+			$(this).parent().prevAll('.su').toggle();
+			$(this).parent().prevAll('.btn').toggle();
+			if($(this.text()=='수정'))
+			$(this).text('취소');
+			else
+			$(this).text('수정');
+	});		
 </script>
 <div align="center">
 	<h1>${bdto.f_title}</h1>
@@ -66,18 +78,15 @@
 												</c:if> ${cdto.date} <br> ${cdto.content}
 												<hr></td>
 											<td width="80%" class="su">
-												<form action="comments_su.do" method="post">
+												<form action="comment_su.do" method="post">
 													<input type="hidden" name="no" value="${cdto.no}">
 													<input type="hidden" name="origin" value="${bdto.f_no}">
 													<textarea rows="4" cols="95" name="content">${cdto.content}</textarea>
 													<input type="submit" value="수정">
 												</form>
 											</td>
-											<!-- 본인 글일때만 표시 -->
-											<td width="5%"><c:if test="${cdto.writer==ok}">
-													<a href="#" class="btn">수정</a>
-												</c:if></td>
-											<td width="5%"><c:if test="${cdto.writer==ok}">
+											<!-- 본인 글일때만 표시 -->	
+											<td width="10%"><c:if test="${cdto.writer==ok}">
 													<a href="c_delete.do?no=${cdto.no}" class="su-del">삭제</a>
 												</c:if></td>
 										</tr>
@@ -91,7 +100,7 @@
 					<tr>
 						<td colspan="3" align="right">
 						<button class="btn btn-outline-primary"><a href="f_write.do">글쓰기</a></button>
-						<button class="btn btn-outline-primary"><a href="f_write.do?parent=${bdto.f_no}">답글쓰기</a></button></td>
+						<button class="btn btn-outline-primary"><a href="f_write.do?f_parent=${bdto.f_no}">답글쓰기</a></button></td>
 					</tr>
 					<tr>
 						<td colspan="3" align="reft">
