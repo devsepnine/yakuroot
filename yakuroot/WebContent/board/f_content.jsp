@@ -7,22 +7,8 @@
 <!-- 자유게시판 글 내용 jsp -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script>
-	$(function(){
-
-		$('.su').hide();
-		$('.btn').click(function(e){
-			e.preventDefault();
-			$(this).parent().prevAll('.content').toggle();
-			$(this).parent().prevAll('.su').toggle();
-			$(this).parent().prevAll('.btn').toggle();
-			if($(this.text()=='수정'))
-			$(this).text('취소');
-			else
-			$(this).text('수정');
-	});		
+<script>	
 </script>
 <div align="center">
 	<h1>${bdto.f_title}</h1>
@@ -86,7 +72,7 @@
 												</form>
 											</td>
 											<!-- 본인 글일때만 표시 -->	
-											<td width="10%"><c:if test="${cdto.writer==ok}">
+											<td width="10%"><c:if test="${cdto.writer==login}">
 													<a href="c_delete.do?no=${cdto.no}" class="su-del">삭제</a>
 												</c:if></td>
 										</tr>

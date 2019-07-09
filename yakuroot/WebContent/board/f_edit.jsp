@@ -18,17 +18,17 @@ div {
 						<tr>
 							<th width="20%">말머리</th>
 							<td align="center"><select name="f_head">
-									<option value='잡담'>잡담</option>
-									<option value='한화'>한화</option>
-									<option value='sk'>sk</option>
-									<option value='kt'>kt</option>
-									<option value='삼성'>삼성</option>
-									<option value='두산'>두산</option>
-									<option value='키움'>키움</option>
-									<option value='lg'>lg</option>
-									<option value='nc'>nc</option>
-									<option value='롯데'>롯데</option>
-									<option value='kia'>kia</option>
+									<option value="talk">잡담</option>
+									<option value="hanhwa">한화이글즈</option>
+									<option value="sk">SK와이번즈</option>
+									<option value="kt">KT위즈</option>
+									<option value="samsung">삼성라이온즈</option>
+									<option value="doosan">두산베어스</option>
+									<option value="kiwoom">키움히어로즈</option>
+									<option value="lg">LG트윈스</option>
+									<option value="nc">NC다이노스</option>
+									<option value="lotte">롯데자이언트</option>
+									<option value="kia">KIA타이거즈</option>
 							</select></td>
 						</tr>
 						<tr>

@@ -26,10 +26,9 @@ public class f_boardDao {
 		rs.next();
 		int no = rs.getInt(1);
 		ps.close();
-
-		// 2 ����� ��� �Ҽӱ��� team ��ȣ�� �̸� ����
+		
 		int f_team;
-		if (bdto.getF_parent() > 0) {// ���
+		if (bdto.getF_parent() > 0) {
 			sql = "select f_team from f_board where f_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, bdto.getF_parent());
@@ -37,22 +36,12 @@ public class f_boardDao {
 			rs.next();
 			f_team = rs.getInt("f_team");
 			ps.close();
-		} else {// ����
+		} else {
 			f_team = no;
 		}
+	
+		sql = "insert into f_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from f_board where f_no=?),?)";
 
-		// ���� �� �Խñ��� ��ȣ
-		// 1������ ���� ��ȣ�� �����Ͽ� �Խñ� �߰�
-		sql = "insert into f_board values(" + "?,?,?,?,?,0,sysdate,?,"
-				+ "(select nvl(f_depth,0)+1 from f_board where f_no=?),?)";
-		// nvl(�׸�,��):�׸���null�϶� ������ ġȯ
-		// nvl(depth+1,0):depth+1�� null�̸� 0���� �ٲ�
-		// --no�� �������� , parent�� ������������ ����
-		// connect by prior no = parent
-		// --parent�� null�� �׸���� ����
-		// start with parent is null
-		// --���ļ����� no �������� ����
-		// order siblings by no desc;
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ps.setString(2, bdto.getF_head());
@@ -65,7 +54,7 @@ public class f_boardDao {
 			ps.setInt(6, bdto.getF_parent());
 		}
 		ps.setInt(7, bdto.getF_parent());
-		ps.setInt(8, f_team);// 2������ ����� team��
+		ps.setInt(8, f_team);
 
 		System.out.println(bdto);
 		ps.execute();
@@ -98,7 +87,7 @@ public class f_boardDao {
 		Connection con = getConnection();
 
 		String sql = "select * from (" + "select rownum rn, A.* from (" + "select * from f_board where " + type
-				+ " like '%'||?||'%' " + "order by when desc" + ") A" + ") where rn between ? and ?";
+				+ " like '%'||?||'%' " + "order by f_when desc" + ") A" + ") where rn between ? and ?";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
