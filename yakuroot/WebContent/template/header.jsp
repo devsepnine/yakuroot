@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +120,14 @@
                 <tbody>
                     <tr>
                         <td rowspan="2"><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
+                        <c:choose>
+                        	<c:when test="${empty login}">
                         <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
+                        </c:when>
+                        <c:otherwise>
+                        <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그아웃</a><a href = "#">회원정보</a><a href = "#">고객센터</a></div></td>
+                        </c:otherwise>
+                        </c:choose>
                     </tr>
                     <tr>
                         <td>
@@ -181,3 +189,4 @@
             </table>
         </nav>
     </header>
+    <br><br>

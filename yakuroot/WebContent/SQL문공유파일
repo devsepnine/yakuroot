@@ -57,7 +57,7 @@ CREATE SEQUENCE MEMBER_SEQ;
 
 
 ----------------------------------
-자유게시판 테이블
+--자유게시판 테이블
 
 create SEQUENCE f_board_seq;
 create table f_board(
@@ -74,7 +74,7 @@ f_team number
 );
 
 ---------------------------
-자유게시판 댓글 테이블
+--자유게시판 댓글 테이블
 
 create SEQUENCE f_com_seq;
 
