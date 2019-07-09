@@ -119,7 +119,7 @@
                 <tbody>
                     <tr>
                         <td rowspan="2"><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
-                        <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="#">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.jsp">회원가입</a><a href = "#">고객센터</a></div></td>
+                        <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
                     </tr>
                     <tr>
                         <td>
