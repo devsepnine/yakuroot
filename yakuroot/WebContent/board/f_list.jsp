@@ -2,15 +2,6 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>	
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-
-<!-- 자유게시판 리스트 jsp -->
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>자유 게시판</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
 th {
 	text-align: center;
@@ -19,22 +10,20 @@ th {
 margin : auto;
 }
 </style>
-</head>
 
-<body>
 	<!-- 글 목록 테이블 -->
-	<div class="container">
-		<div class="row">
-			<div class="col col-md-9">
-				<table class="table">
+	<div>
+		<div>
+			<div style="width:1200px; margin:auto;">
+				<table border="1" style="margin:auto; width:1100px">
 					<thead>
 						<tr>
-							<th width="100">번호</th>
-							<th width="150">말머리</th>
-							<th width="550">제목</th>
-							<th width="150">작성자</th>
-							<th width="150">작성일</th>
-							<th width="100">조회</th>
+							<th width="100px">번호</th>
+							<th width="150px">말머리</th>
+							<th width="550px">제목</th>
+							<th width="150px">작성자</th>
+							<th width="150px">작성일</th>
+							<th width="100px">조회</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -102,9 +91,9 @@ margin : auto;
 		</h4>
 	</div>
 	<!-- 글 검색 테이블 -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
+	<div>
+		<div>
+			<div style="text-align: center;">
 				<form action="list.do" method="get" align="center">
 					<select name="type">
 						<option value="title">제목</option>
@@ -117,7 +106,5 @@ margin : auto;
 			</div>
 		</div>
 	</div>
-</body>
 
-</html>
 <jsp:include page="/template/footer.jsp"></jsp:include>
