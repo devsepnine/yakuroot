@@ -21,15 +21,15 @@ public class f_board_content extends HttpServlet{
 		try {
 			int f_no = Integer.parseInt(req.getParameter("no"));
 			f_boardDao bdao = new f_boardDao();
-			//if(³»°¡ ¾´ ±ÛÀÌ ¾Æ´Ï¸é¼­ Ã³À½ ÀĞÀ» ‹š){
+			//if(ë‚´ê°€ ì“´ ê¸€ì´ ì•„ë‹ˆë©´ì„œ ì²˜ìŒ ì½ì„ ë–„){
 				
 			bdao.readone(f_no);
 			//}
 			f_boardDto bdto = bdao.get(f_no);
-			//ÄÚµå Ãß°¡:ÇöÀç ±ÛÀÇ ÀÛ¼ºÀÚ°¡ º»ÀÎÀÎÁö È®ÀÎÇÏ´Â ÄÚµå
+			//ì½”ë“œ ì¶”ê°€:í˜„ì¬ ê¸€ì˜ ì‘ì„±ìê°€ ë³¸ì¸ì¸ì§€ í™•ì¸í•˜ëŠ” ì½”ë“œ
 //			boolean my = bdto.getWriter().equals(req.getSession().getAttribute("ok"));
 //			System.out.println(bdto);
-			//ÀÌ ±ÛÀÇ ´ñ±Û ¸ñ·ÏÀ» ºÒ·¯¿À´Â ÄÚµå
+			//ì´ ê¸€ì˜ ëŒ“ê¸€ ëª©ë¡ì„ ë¶ˆëŸ¬ì˜¤ëŠ” ì½”ë“œ
 //			CommentDao cdao = new CommentDao();
 //			List<CommentDto> list = cdao.get(no);
 //			paging p = new paging(req);

@@ -105,11 +105,11 @@ public class f_boardDto {
 	public String getTime() {
 		return f_when.substring(11,16);
 	}
-//	½Ã°£¸¸ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå getTime
+//	ì‹œê°„ë§Œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ getTime
 	public String setWhen(String when) {
 		return this.f_when = when;
 	}
-//	¿À´ÃÀÎÁö ¾Æ´ÑÁö ÆÇÁ¤ÇÏ¿© ÀÚµ¿ ½Ã°£ ¹İÈ¯
+//	ì˜¤ëŠ˜ì¸ì§€ ì•„ë‹Œì§€ íŒì •í•˜ì—¬ ìë™ ì‹œê°„ ë°˜í™˜
 	public String getAuto() {
 		Date d = new Date();
 		Format f = new SimpleDateFormat("yyyy-MM-dd");

@@ -11,27 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import beans.MemberDao;
 import beans.MemberDto;
 
-//Å¬¶óÀÌ¾ğÆ®ÀÇ ¾ÆÀÌµğ Áßº¹È®ÀÎ ºñµ¿±â ¿äÃ»À» Ã³¸®ÇÏ´Â ¼­ºí¸´
-// - µé¾î¿À´Â µ¥ÀÌÅÍ : »ç¿ëÀÚÀÇ ÀÌ¸ŞÀÏ(email)
-// - ³»º¸³¾ µ¥ÀÌÅÍ : »ç¿ë°¡´É(Y), »ç¿ëÁß(N)
-@WebServlet(urlPatterns="/member/id_check.do") //¼­ºí¸´ ÁÖ¼Ò´Â /·Î ½ÃÀÛÇØ¾ßµÊ
+//í´ë¼ì´ì–¸íŠ¸ì˜ ì•„ì´ë”” ì¤‘ë³µí™•ì¸ ë¹„ë™ê¸° ìš”ì²­ì„ ì²˜ë¦¬í•˜ëŠ” ì„œë¸”ë¦¿
+// - ë“¤ì–´ì˜¤ëŠ” ë°ì´í„° : ì‚¬ìš©ìì˜ ì´ë©”ì¼(email)
+// - ë‚´ë³´ë‚¼ ë°ì´í„° : ì‚¬ìš©ê°€ëŠ¥(Y), ì‚¬ìš©ì¤‘(N)
+@WebServlet(urlPatterns="/member/id_check.do") //ì„œë¸”ë¦¿ ì£¼ì†ŒëŠ” /ë¡œ ì‹œì‘í•´ì•¼ë¨
 public class IdCheckServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-//			ÀÔ·Â
-			//³»Á¤º¸¿¡¼­ get¸Ş¼Òµå·Î ¾ÆÀÌµğ ³ÖÀ¸¸é Á¤º¸°¡Á®¿À´Â°Å ÀÖ´Âµ¥
-			//°Å±â¼­ getÇßÀ»¶§ Á¤º¸ÀÖÀ¸¸é »ç¿ëÇÏ°íÀÖ´Â ¾ÆÀÌµğÀÌ°í Á¤º¸ ¾øÀ¸¸é »ç¿ë°¡´ÉÇÑ ¾ÆÀÌµğ ÀÌ·¸°Ô ÆÇ´Ü
+//			ì…ë ¥
+			//ë‚´ì •ë³´ì—ì„œ getë©”ì†Œë“œë¡œ ì•„ì´ë”” ë„£ìœ¼ë©´ ì •ë³´ê°€ì ¸ì˜¤ëŠ”ê±° ìˆëŠ”ë°
+			//ê±°ê¸°ì„œ getí–ˆì„ë•Œ ì •ë³´ìˆìœ¼ë©´ ì‚¬ìš©í•˜ê³ ìˆëŠ” ì•„ì´ë””ì´ê³  ì •ë³´ ì—†ìœ¼ë©´ ì‚¬ìš©ê°€ëŠ¥í•œ ì•„ì´ë”” ì´ë ‡ê²Œ íŒë‹¨
 			
 			String m_id = req.getParameter("m_id");
 			
-//			Ã³¸®
+//			ì²˜ë¦¬
 			MemberDao mdao = new MemberDao();
 			MemberDto mdto = mdao.get(m_id);
-			//null ÀÏ¶§ Y ¸¦ ³»º¸³»¾ßÇÔ  Y °¡ »ç¿ë°¡´ÉÇÑ°Å´Ï±î
+			//null ì¼ë•Œ Y ë¥¼ ë‚´ë³´ë‚´ì•¼í•¨  Y ê°€ ì‚¬ìš©ê°€ëŠ¥í•œê±°ë‹ˆê¹Œ
 			
-//			Ãâ·Â
+//			ì¶œë ¥
 			resp.setContentType("text/plain");
 			if(mdto == null) {
 				resp.getWriter().print("Y");				

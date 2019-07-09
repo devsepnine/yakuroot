@@ -29,9 +29,9 @@ public class f_boardDao {
 		int no = rs.getInt(1);
 		ps.close();
 
-		// 2 ´ä±ÛÀÏ °æ¿ì ¼Ò¼Ó±ÛÀÇ team ¹øÈ£¸¦ ¹Ì¸® ±¸ÇÔ
+		// 2 ë‹µê¸€ì¼ ê²½ìš° ì†Œì†ê¸€ì˜ team ë²ˆí˜¸ë¥¼ ë¯¸ë¦¬ êµ¬í•¨
 		int f_team;
-		if (bdto.getF_parent() > 0) {// ´ä±Û
+		if (bdto.getF_parent() > 0) {// ë‹µê¸€
 			sql = "select f_team from f_board where f_no = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, bdto.getF_parent());
@@ -39,21 +39,21 @@ public class f_boardDao {
 			rs.next();
 			f_team = rs.getInt("f_team");
 			ps.close();
-		} else {// »õ±Û
+		} else {// ìƒˆê¸€
 			f_team = no;
 		}
 
-		// ÇöÀç µé¾î°¥ °Ô½Ã±ÛÀÇ ¹øÈ£
-		// 1¹ø¿¡¼­ ±¸ÇÑ ¹øÈ£¸¦ ´ëÀÀÇÏ¿© °Ô½Ã±Û Ãß°¡
+		// í˜„ì¬ ë“¤ì–´ê°ˆ ê²Œì‹œê¸€ì˜ ë²ˆí˜¸
+		// 1ë²ˆì—ì„œ êµ¬í•œ ë²ˆí˜¸ë¥¼ ëŒ€ì‘í•˜ì—¬ ê²Œì‹œê¸€ ì¶”ê°€
 		sql = "insert into f_board values(" + "?,?,?,?,?,0,sysdate,?,"
 				+ "(select nvl(f_depth,0)+1 from f_board where f_no=?),?)";
-		// nvl(Ç×¸ñ,°ª):Ç×¸ñÀÌnullÀÏ¶§ °ªÀ¸·Î Ä¡È¯
-		// nvl(depth+1,0):depth+1ÀÌ nullÀÌ¸é 0À¸·Î ¹Ù²Ş
-		// --no¸¦ »óÀ§°³³ä , parent¸¦ ÇÏÀ§°³³äÀ¸·Î ¿¬°á
+		// nvl(í•­ëª©,ê°’):í•­ëª©ì´nullì¼ë•Œ ê°’ìœ¼ë¡œ ì¹˜í™˜
+		// nvl(depth+1,0):depth+1ì´ nullì´ë©´ 0ìœ¼ë¡œ ë°”ê¿ˆ
+		// --noë¥¼ ìƒìœ„ê°œë… , parentë¥¼ í•˜ìœ„ê°œë…ìœ¼ë¡œ ì—°ê²°
 		// connect by prior no = parent
-		// --parent°¡ nullÀÎ Ç×¸ñºÎÅÍ ÁøÇà
+		// --parentê°€ nullì¸ í•­ëª©ë¶€í„° ì§„í–‰
 		// start with parent is null
-		// --Á¤·Ä¼ø¼­´Â no ¿ª¼øÀ¸·Î ÁøÇà
+		// --ì •ë ¬ìˆœì„œëŠ” no ì—­ìˆœìœ¼ë¡œ ì§„í–‰
 		// order siblings by no desc;
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -67,7 +67,7 @@ public class f_boardDao {
 			ps.setInt(6, bdto.getF_parent());
 		}
 		ps.setInt(7, bdto.getF_parent());
-		ps.setInt(8, f_team);// 2¹ø¿¡¼­ °è»êÇÑ team°ª
+		ps.setInt(8, f_team);// 2ë²ˆì—ì„œ ê³„ì‚°í•œ teamê°’
 
 		System.out.println(bdto);
 		ps.execute();
@@ -131,7 +131,7 @@ public class f_boardDao {
 		ps.setInt(2, end);
 		ResultSet rs = ps.executeQuery();
 
-		List<f_boardDto> list = new ArrayList<f_boardDto>(); // ºñ¾îÀÖ´Â ¸®½ºÆ® ÁØºñ
+		List<f_boardDto> list = new ArrayList<f_boardDto>(); // ë¹„ì–´ìˆëŠ” ë¦¬ìŠ¤íŠ¸ ì¤€ë¹„
 		while (rs.next()) {
 			// rs->PersonDto->list
 			f_boardDto bdto1 = new f_boardDto();
@@ -178,7 +178,7 @@ public class f_boardDao {
 		
 		con.close();
 	}
-	public f_boardDto edit(f_boardDto bdto) throws Exception{//È¸¿øÁ¤º¸ °Ë»ö ¸Ş¼Òµå
+	public f_boardDto edit(f_boardDto bdto) throws Exception{//íšŒì›ì •ë³´ ê²€ìƒ‰ ë©”ì†Œë“œ
 		Connection con = this.getConnection();		
 		String sql="update f_board set f_head = ?, f_title = ?, f_content = ? where f_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
