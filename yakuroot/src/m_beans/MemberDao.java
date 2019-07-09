@@ -1,4 +1,4 @@
-package beans;
+package m_beans;
 
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MemberDao {
 	
-//	¿¬°á¸¸ Ã³¸®ÇØ¼­ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+//	ì—°ê²°ë§Œ ì²˜ë¦¬í•´ì„œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 	public Connection getConnection() throws Exception{
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection con = DriverManager.getConnection(
@@ -21,11 +21,11 @@ public class MemberDao {
 
 	
 	
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	public void regist(MemberDto mdto) throws Exception {
 		Connection con = this.getConnection();
 		
-		String sql = "insert into member values (member_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ÀÏ¹İ', sysdate, sysdate)";
+		String sql = "insert into member values (member_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'ì¼ë°˜', sysdate, sysdate)";
 				PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, mdto.getM_id());
 		ps.setString(2, mdto.getM_pw());
@@ -46,7 +46,7 @@ public class MemberDao {
 	
 	
 	
-	//·Î±×ÀÎ
+	//ë¡œê·¸ì¸
 	public boolean login(MemberDto mdto) throws Exception {
 		Connection con = this.getConnection();
 
@@ -67,7 +67,7 @@ public class MemberDao {
 	
 	
 	
-	//¾ÆÀÌµğ Ã£±â
+	//ì•„ì´ë”” ì°¾ê¸°
 	public String find_id(MemberDto mdto) throws Exception {
         Connection con = this.getConnection();
         
@@ -93,7 +93,7 @@ public class MemberDao {
 	
 	
 	
-	//ºñ¹Ğ¹øÈ£ Ã£±â
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
 	public boolean find_pw(MemberDto mdto) throws Exception {
 		Connection con = this.getConnection();
 		
@@ -113,7 +113,7 @@ public class MemberDao {
 	
 	
 	
-	//ºñ¹Ğ¹øÈ£ º¯°æ
+	//ë¹„ë°€ë²ˆí˜¸ ë³€ê²½
 	public void change_pw(MemberDto mdto) throws Exception {
 		Connection con = this.getConnection();
 		
@@ -129,7 +129,7 @@ public class MemberDao {
 	
 	
 	
-	//Á¤º¸ ¼öÁ¤
+	//ì •ë³´ ìˆ˜ì •
 	public void change_info(MemberDto mdto) throws Exception {
 		Connection con = this.getConnection();
 
@@ -151,7 +151,7 @@ public class MemberDao {
 	
 	
 	
-	//°ü¸®ÀÚ Á¤º¸ ¼öÁ¤
+	//ê´€ë¦¬ì ì •ë³´ ìˆ˜ì •
 	public void edit_info(MemberDto mdto) throws Exception {
 		
 		Connection con = this.getConnection();
@@ -173,7 +173,7 @@ public class MemberDao {
 		con.close();
 		
 	}
-	//³» Á¤º¸ È®ÀÎ
+	//ë‚´ ì •ë³´ í™•ì¸
 	public MemberDto get(String m_id) throws Exception{
 		Connection con = getConnection();
 		
@@ -196,7 +196,7 @@ public class MemberDao {
 	}
 	
 	
-	//È¸¿ø Å»Åğ
+	//íšŒì› íƒˆí‡´
 	public void exit(String m_id) throws Exception {
 		Connection con = this.getConnection();
 		
@@ -211,7 +211,7 @@ public class MemberDao {
 	
 	
 	
-	//ÃÖÁ¾ Á¢¼ÓÀÏ ¼öÁ¤
+	//ìµœì¢… ì ‘ì†ì¼ ìˆ˜ì •
 	public void lasttime(String m_id) throws Exception {
 		Connection con = this.getConnection();
 		
@@ -228,7 +228,7 @@ public class MemberDao {
 	
 	
 	
-	//°ü¸®ÀÚ È¸¿ø °Ë»ö
+	//ê´€ë¦¬ì íšŒì› ê²€ìƒ‰
 	public List<MemberDto> search(String type, String keyword) throws Exception {
 		Connection con = this.getConnection();
 		

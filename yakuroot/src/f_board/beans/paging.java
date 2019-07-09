@@ -10,13 +10,13 @@ import f_board.beans.f_boardDto;
 
 /**
  * 
- * ÀÌ Å¬·¡½º´Â ÆäÀÌÂ¡ Ã³¸®¸¦ ¼öÇàÇÏ´Â Å¬·¡½ºÀÔ´Ï´Ù
- * ¿äÃ»Á¤º¸[°Ë»öºĞ·ù °Ë»ö¾î ÆäÀÌÁö¹øÈ£ ÆäÀÌÁö Å©±â ºí·Ï Å©±â]¸¦ Àü´Ş¹Ş¾Æ
- * ´ÙÀ½ Á¤º¸¸¦ °è»êÇÕ´Ï´Ù
- * 1.½ÃÀÛ/Á¾·á ºí·Ï¹øÈ£
- * 2.½ÃÀÛ/Á¾·á °Ô½Ã±Û ¼ø¼­
- * 3.ÆäÀÌÁö ÀÌµ¿½Ã ÇÊ¿äÇÑ ÆÄ¶ó¹ÌÅÍ ¹®ÀÚ¿­
- * 4.°Ô½Ã±Û °¹¼ö
+ * ì´ í´ë˜ìŠ¤ëŠ” í˜ì´ì§• ì²˜ë¦¬ë¥¼ ìˆ˜í–‰í•˜ëŠ” í´ë˜ìŠ¤ì…ë‹ˆë‹¤
+ * ìš”ì²­ì •ë³´[ê²€ìƒ‰ë¶„ë¥˜ ê²€ìƒ‰ì–´ í˜ì´ì§€ë²ˆí˜¸ í˜ì´ì§€ í¬ê¸° ë¸”ë¡ í¬ê¸°]ë¥¼ ì „ë‹¬ë°›ì•„
+ * ë‹¤ìŒ ì •ë³´ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤
+ * 1.ì‹œì‘/ì¢…ë£Œ ë¸”ë¡ë²ˆí˜¸
+ * 2.ì‹œì‘/ì¢…ë£Œ ê²Œì‹œê¸€ ìˆœì„œ
+ * 3.í˜ì´ì§€ ì´ë™ì‹œ í•„ìš”í•œ íŒŒë¼ë¯¸í„° ë¬¸ìì—´
+ * 4.ê²Œì‹œê¸€ ê°¯ìˆ˜
  *
  */
 
@@ -24,10 +24,10 @@ public class paging {
 	private String type;
 	private String keyword;
 	private String pstr;
-	private int psize = 10;//ÆäÀÌÁö Ç¥½Ã±Û °³¼ö
-	private int bsize = 10;//ÆäÀÌÁö Ç¥½Ã¹øÈ£ °³¼ö
+	private int psize = 10;//í˜ì´ì§€ í‘œì‹œê¸€ ê°œìˆ˜
+	private int bsize = 10;//í˜ì´ì§€ í‘œì‹œë²ˆí˜¸ ê°œìˆ˜
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public paging(HttpServletRequest request) {
 		this.type = request.getParameter("type");
 		this.keyword = request.getParameter("keyword");
@@ -36,14 +36,14 @@ public class paging {
 	
 	private boolean search;
 	private int pno;
-	private int end;//¸¶Áö¸·ÆäÀÌÁö
-	private int start;//½ÃÀÛÆäÀÌÁö
-	private int count;//ÀüÃ¼°Ô½Ã±Û
-	private int pageCount;//ÀüÃ¼ÆäÀÌÁö¼ö
-	private int startBlock;//½ÃÀÛºí·Ï
-	private int endBlock; //Á¾·áºí·Ï
+	private int end;//ë§ˆì§€ë§‰í˜ì´ì§€
+	private int start;//ì‹œì‘í˜ì´ì§€
+	private int count;//ì „ì²´ê²Œì‹œê¸€
+	private int pageCount;//ì „ì²´í˜ì´ì§€ìˆ˜
+	private int startBlock;//ì‹œì‘ë¸”ë¡
+	private int endBlock; //ì¢…ë£Œë¸”ë¡
 	private String query;
-	private List<f_boardDto> list; //µ¥ÀÌÅÍ°¡ ÀúÀåµÈ ¸ñ·Ï
+	private List<f_boardDto> list; //ë°ì´í„°ê°€ ì €ì¥ëœ ëª©ë¡
 	public void calculate() throws Exception{
        	this.search = type!=null&&keyword!=null;
 
@@ -64,16 +64,16 @@ public class paging {
       	if (endBlock>pageCount){
       		endBlock=pageCount;
       	}
-      	//type,keyword ¸ğµÎ nullÀÌ ¾Æ´Ï¸é °Ë»ö, ¾Æ´Ï¸é ¸ñ·Ï
+      	//type,keyword ëª¨ë‘ nullì´ ì•„ë‹ˆë©´ ê²€ìƒ‰, ì•„ë‹ˆë©´ ëª©ë¡
       	if(search){
       		list = bdao.search(type,keyword,start,end); 				
       	}else{
       		list = bdao.list(start,end);
       	}
       	
-      	//°Ë»ö¾î À¯Áö¸¦ À§ÇØ °Ë»öÀÏ¶§¿Í ¾Æ´Ò¶§ÀÇ Ã·ºÎµÇ´Â ÆÄ¶ó¹ÌÅÍ Ã³¸®
-      	//¸ñ·Ï:°Ë»ö¾î Ã³¸® x
-      	//°Ë»ö:&type=??&keyword=?? ÇüÅÂÀÇ ÆÄ¶ó¹ÌÅÍ¸¦ »ı¼º
+      	//ê²€ìƒ‰ì–´ ìœ ì§€ë¥¼ ìœ„í•´ ê²€ìƒ‰ì¼ë•Œì™€ ì•„ë‹ë•Œì˜ ì²¨ë¶€ë˜ëŠ” íŒŒë¼ë¯¸í„° ì²˜ë¦¬
+      	//ëª©ë¡:ê²€ìƒ‰ì–´ ì²˜ë¦¬ x
+      	//ê²€ìƒ‰:&type=??&keyword=?? í˜•íƒœì˜ íŒŒë¼ë¯¸í„°ë¥¼ ìƒì„±
       	if (search) {
       		String tmp = URLEncoder.encode(type,"UTF-8");
       		this.query = "&type="+tmp+"&keyword="+keyword;
@@ -87,39 +87,39 @@ public class paging {
 				+ count + ", pageCount=" + pageCount + ", startBlock=" + startBlock + ", endBlock=" + endBlock + "]";
 	}
 
-	//getter ¸Ş¼Òµå¸¦ ¿øÇÏ´Â ¸¸Å­ ±¸Çö
+	//getter ë©”ì†Œë“œë¥¼ ì›í•˜ëŠ” ë§Œí¼ êµ¬í˜„
 	public List<f_boardDto> getList() {
 		return list;
 	}
-	//Ã¹ ÆäÀÌÁö ÀÎÁö È®ÀÎ ÇÒ ¼ö ÀÖ´Â getter
-	public boolean isFirstBlock() { //Ã¹ ºí·ÏÀÎÁö È®ÀÎ
+	//ì²« í˜ì´ì§€ ì¸ì§€ í™•ì¸ í•  ìˆ˜ ìˆëŠ” getter
+	public boolean isFirstBlock() { //ì²« ë¸”ë¡ì¸ì§€ í™•ì¸
 		return this.startBlock ==1;
 	}
-	public boolean isFirstPage() { //Ã¹ ÆäÀÌÁöÀÎÁö È®ÀÎ
+	public boolean isFirstPage() { //ì²« í˜ì´ì§€ì¸ì§€ í™•ì¸
 		return this.pno ==1;
 	}
-	public boolean isLastBlock() { // ¸¶Áö¸· ºí·ÏÀÎÁö È®ÀÎ
+	public boolean isLastBlock() { // ë§ˆì§€ë§‰ ë¸”ë¡ì¸ì§€ í™•ì¸
 		return this.endBlock ==this.pageCount;
 	}
-	public boolean isLastPage() { //¸¶Áö¸· ÆäÀÌÁöÀÎÁö È®ÀÎ
+	public boolean isLastPage() { //ë§ˆì§€ë§‰ í˜ì´ì§€ì¸ì§€ í™•ì¸
 		return this.pno == this.pageCount;
 	}
-	public String getNextBlock() {//´ÙÀ½ ºí·ÏÀ¸·Î
+	public String getNextBlock() {//ë‹¤ìŒ ë¸”ë¡ìœ¼ë¡œ
 		return "pno="+(endBlock+1)+query;
 	}
-	public String getNextPage() {//´ÙÀ½ ÆäÀÌÁö·Î
+	public String getNextPage() {//ë‹¤ìŒ í˜ì´ì§€ë¡œ
 		return "pno="+(pno+1)+query;
 	}
-	public String getPrevPage() {//ÀÌÀü ÆäÀÌÁö·Î
+	public String getPrevPage() {//ì´ì „ í˜ì´ì§€ë¡œ
 		return "pno="+(pno-1)+query;
 	}
-	public String getPrevBlcok() {//ÀÌÀü ºí·ÏÀ¸·Î
+	public String getPrevBlcok() {//ì´ì „ ë¸”ë¡ìœ¼ë¡œ
 		return "pno="+(startBlock-1)+query;
 	}
-	public boolean isCurrentPage(int i) {//ÇöÀç ÆäÀÌÁöÀÎÁö
+	public boolean isCurrentPage(int i) {//í˜„ì¬ í˜ì´ì§€ì¸ì§€
 		return pno==i;
 	}
-	public String getPage(int i) {//i ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â À§ÇÑ geter
+	public String getPage(int i) {//i í˜ì´ì§€ë¡œ ì´ë™í•˜ê¸° ìœ„í•œ geter
 		return "pno="+i+query;
 	}
 

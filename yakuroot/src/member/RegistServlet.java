@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.MemberDao;
-import beans.MemberDto;
+import m_beans.MemberDao;
+import m_beans.MemberDto;
 
 @WebServlet(urlPatterns = "/member/regist.do")
 public class RegistServlet extends HttpServlet {
 
-	// GET ¹æ½Ä -> °¡ÀÔÆäÀÌÁö·Î ¿¬°á
+	// GET ë°©ì‹ -> ê°€ì…í˜ì´ì§€ë¡œ ì—°ê²°
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("regist.jsp");
@@ -23,7 +23,7 @@ public class RegistServlet extends HttpServlet {
 		dispatcher.forward(req, resp);
 	}
 
-	// POST ¹æ½Ä -> µî·Ï Ã³¸® ÈÄ °á°ú ÆäÀÌÁö·Î ÀÌµ¿
+	// POST ë°©ì‹ -> ë“±ë¡ ì²˜ë¦¬ í›„ ê²°ê³¼ í˜ì´ì§€ë¡œ ì´ë™
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
