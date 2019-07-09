@@ -16,7 +16,6 @@
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-s
                 // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var addr = ''; // 주소 변수
@@ -55,9 +54,9 @@ s
                 // document.querySelector("input[name=detailaddr]").focus();
 
                 // 이 코드는 jquery.js 를 먼저 불러온 경우만 사용 가능
-                $("input[name=postcode]").val(data.zonecode);
-                $("input[name=addr1]").val(addr);
-                $("input[name=addr2]").focus();
+                $("input[name=m_postcode]").val(data.zonecode);
+                $("input[name=m_addr1]").val(addr);
+                $("input[name=m_addr2]").focus();
             }
         }).open();
     }
@@ -86,17 +85,26 @@ s
 			});
 		});
 		
+		//이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
 		$("select[name=email_address]").change(function(){
 			$("#m_email_address").val($(this).val())
 			
 			console.log($(this).val())
+			
+			 //if($(this).val() == ""){
+			if(!$(this).val()){
+                 $(this).prev().prop("disabled", false);
+             }
+             else{
+            	 $(this).prev().prop("disabled", true);
+             }
 		});
 	});
 </script>
 <style>
 
 .form.form-label>fieldset {
-	width: 650px;
+	width: 750px;
 	text-align: left;
 	margin-top : 100px;
 }
@@ -106,7 +114,7 @@ s
 	width : auto;
 }
 .table input{
-	width : 180px;
+	width : 190px;
 }
 .table input[name=postcode_find], input[name=registbtn]{
 	width : 130px;
@@ -118,8 +126,107 @@ s
 	text-align : center;
 }
 </style>
-<div align="center">
+<script>
+        function checkId(){
+            var m_id = document.querySelector("#m_id").value;
+            var regex = /^[a-z0-9]{8,15}$/;
+            
+            var result = regex.test(m_id);
+//             console.log(m_id);
+//             console.log(result, typeof result);
+            
+            var div = document.querySelector(".m_idD");
 
+            if(result) {
+                div.innerHTML = ""
+                $("input[name=id_check_btn]").prop("disabled", false)
+                								.css("background-color", "#1E3269");
+            }
+            else {
+                div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
+                $("input[name=id_check_btn]").prop("disabled", true)
+                								.css("background-color", "lightgray");
+            }
+        }
+</script>
+<script>
+        function checkPw(){
+            var m_pw = document.querySelector("#m_pw").value;
+            var regex = /^[a-zA-Z0-9!@#$\-_]{8,15}$/;
+            
+            var result = regex.test(m_pw);
+//             console.log(result, typeof result);
+            
+            var div = document.querySelector(".m_pwD");
+
+            if(result) {
+                div.innerHTML = ""
+            }
+            else {
+                div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 대소문자, 숫자, 특수문자(!@#$-_)로 입력해주세요</font>"
+                
+            }
+        }
+</script>
+<script>
+        function checkName(){
+            var m_name = document.querySelector("#m_name").value;
+            var regex = /^[가-힣]{2,7}$/;
+            
+            var result = regex.test(m_name);
+//             console.log(result, typeof result);
+            
+            var div = document.querySelector(".m_nameD");
+
+            if(result) {
+                div.innerHTML = ""
+            }
+            else {
+                div.innerHTML = "<font color = 'gray' size = '2'>2~7자의 한글로 입력해주세요</font>"
+                
+            }
+        }
+</script>
+<script>
+        function checkPhone(){
+            var m_phone = document.querySelector("#m_phone").value;
+            var regex = /^01[016-9]-[0-9]{3,4}-[0-9]{4}$/;
+            
+            var result = regex.test(m_phone);
+//             console.log(result, typeof result);
+            
+            var div = document.querySelector(".m_phoneD");
+
+            if(result) {
+                div.innerHTML = ""
+            }
+            else {
+                div.innerHTML = "<font color = 'gray' size = '2'> -포함 숫자로 입력해주세요</font>"
+                
+            }
+        }
+</script>
+<script>
+        function checkEmail(){
+            var m_email = document.querySelector("#m_email").value;
+            var regex = /^[a-z0-9]{8,15]$/;
+            
+            var result = regex.test(m_email);
+//             console.log(result, typeof result);
+            
+            var div = document.querySelector(".m_emailD");
+
+            if(result) {
+                div.innerHTML = ""
+            }
+            else {
+                div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
+                
+            }
+        }
+</script>
+<div align="center">
+   
 
 	<form action="regist.do" method="post" class="form form-label">
 		<fieldset>
@@ -129,22 +236,26 @@ s
 						<tr>
 							<td><label for="m_id">ID</label></td>
 							<td>
-								<input type="text" name="m_id" id="m_id" placeholder="ID를 입력하세요" required>
-								<input type="button" value="중복확인" name="id_check_btn">
+								<input onblur="checkId();" type="text" name="m_id" id="m_id" required>
+								<input align = "center" type="button" value="중복확인" name="id_check_btn">
+								<div class="m_idD"></div>
 							</td>
+							
 						</tr>
 						
 						<tr>
 							<td><label for="m_pw">PASSWORD</label></td>
 							<td>
-								<input type="password" name="m_pw" id="m_pw" placeholder="PASSWORD를 입력하세요" required>
+								<input onblur="checkPw();" type="password" name="m_pw" id="m_pw" required>
+								<div class="m_pwD"></div>
 							</td>
 						</tr>
 						
 						<tr>
 							<td><label for="m_name">NAME</label></td>
 							<td>
-								<input type="text" name="m_name" id="m_name" placeholder="이름을 입력하세요" required>
+								<input onblur="checkName();" type="text" name="m_name" id="m_name"  required>
+								<div class="m_nameD"></div>
 							</td>
 						</tr>
 						
@@ -158,39 +269,41 @@ s
 						<tr>
 							<td><label for="m_phone">PHONE</label></td>
 							<td>
-								<input type="tel" name="m_phone" id="m_phone" placeholder="전화번호( -포함)를 입력하세요">
+								<input onblur="checkPhone();" type="tel" name="m_phone" id="m_phone" >
+								<div class="m_phoneD"></div>
 							</td>
 						</tr>
 						
 						<tr>
 							<td><label for="m_email">EMAIL</label></td>
 							<td>
-								<input type="text" name="m_email" id="m_email" placeholder="EMAIL을 입력하세요">
+								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" pattern="^[a-z0-9]{8,15]$">
 									<span>@</span>
-									<input type="text" name="m_email_address" id="m_email_address">
+									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$">
 									<select name="email_address">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
 										<option value="daum.net">daum.net</option>
 										<option value="gmail.com">gmail.com</option>
 									</select>
+								<div class="m_emailD"></div>
 							</td>
 						</tr>
 						
 						<tr>
 							<td><label for="m_addr">ADDRESS</label></td>
 							<td>
-								<input type="text" name="postcode" placeholder="우편번호" >
+								<input type="text" name="m_postcode" placeholder="우편번호" >
 									<input type="button" value="우편번호 찾기" name="postcode_find"><br>
-									<input type="text" name="addr1" placeholder="주소"><br>
-									<input type="text" name="addr2" placeholder="상세주소">
+									<input type="text" name="m_addr1" placeholder="주소"><br>
+									<input type="text" name="m_addr2" placeholder="상세주소">
 							</td>
 						</tr>
 						
 						<tr>
 							<td><label for="m_fav">MY TEAM</label></td>
 							<td>
-								<select name="fav">
+								<select name="m_fav">
 									<option value="none">선택 안함</option>
 									<option value="doosan">두산베어스</option>
 									<option value="sk">SK와이번즈</option>
