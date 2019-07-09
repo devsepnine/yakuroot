@@ -43,9 +43,10 @@
 					<tr>
 						<td colspan="2">
 							<form action="f_comments.do" method="post">
-								<input type="hidden" name="f_origin" value="${bdto.f_no}">
+								<input type="hidden" name="origin" value="${bdto.f_no}">
+								<input type="hidden" name="writer" value="${bdto.f_writer}">
 								<textarea rows="4" cols="100" placeholder="댓글입력"
-									name="f_content"></textarea>
+									name="content"></textarea>
 								<button class="btn btn-outline-primary" type="submit">등록</button>
 							</form>
 						</td>
@@ -59,25 +60,25 @@
 									<c:forEach var="cdto" items="${list2}">
 										<tr>
 											<td width="90%" class="content"><font color="blue"
-												size="5">${cdto.f_writer}</font> <c:if
-													test="${cdto.f_writer==bdto.f_writer}">
+												size="5">${cdto.writer}</font> <c:if
+													test="${cdto.writer==bdto.f_writer}">
 													<font color="red">(작성자)</font>
-												</c:if> ${cdto.f_date} <br> ${cdto.f_content}
+												</c:if> ${cdto.date} <br> ${cdto.content}
 												<hr></td>
 											<td width="80%" class="su">
 												<form action="comments_su.do" method="post">
-													<input type="hidden" name="no" value="${cdto.f_no}">
+													<input type="hidden" name="no" value="${cdto.no}">
 													<input type="hidden" name="origin" value="${bdto.f_no}">
-													<textarea rows="4" cols="95" name="content">${cdto.f_content}</textarea>
+													<textarea rows="4" cols="95" name="content">${cdto.content}</textarea>
 													<input type="submit" value="수정">
 												</form>
 											</td>
 											<!-- 본인 글일때만 표시 -->
-											<td width="5%"><c:if test="${cdto.f_writer==ok}">
+											<td width="5%"><c:if test="${cdto.writer==ok}">
 													<a href="#" class="btn">수정</a>
 												</c:if></td>
-											<td width="5%"><c:if test="${cdto.f_writer==ok}">
-													<a href="c_delete.do?no=${cdto.f_no}" class="su-del">삭제</a>
+											<td width="5%"><c:if test="${cdto.writer==ok}">
+													<a href="c_delete.do?no=${cdto.no}" class="su-del">삭제</a>
 												</c:if></td>
 										</tr>
 									</c:forEach>
@@ -89,14 +90,14 @@
 					<%--댓글 입력 영역 --%>
 					<tr>
 						<td colspan="3" align="right">
-						<button class="btn btn-outline-primary"><a href="f_write.jsp">글쓰기</a></button>
-						<button class="btn btn-outline-primary"><a href="f_write.jsp?parent=${bdto.f_no}">답글쓰기</a></button></td>
+						<button class="btn btn-outline-primary"><a href="f_write.do">글쓰기</a></button>
+						<button class="btn btn-outline-primary"><a href="f_write.do?parent=${bdto.f_no}">답글쓰기</a></button></td>
 					</tr>
 					<tr>
 						<td colspan="3" align="reft">
 							<h4>
 								<%-- <c:if test="${my}"> --%>
-								<button class="btn btn-outline-primary"><a href="f_edit.jsp?f_no=${bdto.f_no}">글 수정</a></button>
+								<button class="btn btn-outline-primary"><a href="f_edit.do?f_no=${bdto.f_no}">글 수정</a></button>
 								<a href="f_delete.do?no=${bdto.f_no}"><button class="btn btn-outline-primary">글 삭제</button></a>
 								<%-- </c:if> --%>
 							</h4>

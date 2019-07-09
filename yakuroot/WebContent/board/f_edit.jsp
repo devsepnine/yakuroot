@@ -18,17 +18,17 @@ div {
 						<tr>
 							<th width="20%">말머리</th>
 							<td align="center"><select name="f_head">
-									<option value="잡담">잡담</option>
-									<option value="한화">한화</option>
-									<option value="sk">sk</option>
-									<option value="kt">kt</option>
-									<option value="삼성">삼성</option>
-									<option value="두산">두산</option>
-									<option value="키움">키움</option>
-									<option value="lg">lg</option>
-									<option value="nc">nc</option>
-									<option value="롯데">롯데</option>
-									<option value="kia">kia</option>
+									<option value='잡담'>잡담</option>
+									<option value='한화'>한화</option>
+									<option value='sk'>sk</option>
+									<option value='kt'>kt</option>
+									<option value='삼성'>삼성</option>
+									<option value='두산'>두산</option>
+									<option value='키움'>키움</option>
+									<option value='lg'>lg</option>
+									<option value='nc'>nc</option>
+									<option value='롯데'>롯데</option>
+									<option value='kia'>kia</option>
 							</select></td>
 						</tr>
 						<tr>
@@ -40,7 +40,7 @@ div {
 						<tr>
 							<th width="20%">내용</th>
 							<td><textarea name="f_content" required
-									value="${bdto.f_content}" style="width: 500px; height: 250px;"></textarea></td>
+									value="${bdto.f_content}" style="width: 500px; height: 250px;">${bdto.f_content}</textarea></td>
 						</tr>
 				</tbody>
 			</table>
