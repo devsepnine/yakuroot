@@ -50,7 +50,7 @@
 									<a href ="../"><input  type="button" value="MAIN" name="index"></a>
 								</td>
 								<td align = "center">
-									<a href ="yakuroot/member/login.do"><input type="button" value="LOGIN" name="login"></a>
+									<a href ="login.do"><input type="button" value="LOGIN" name="login"></a>
 								</td>
 							</tr>
 						</tbody>
