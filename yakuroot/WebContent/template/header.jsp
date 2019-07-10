@@ -144,14 +144,7 @@
                                     </div>
                                 </li>
                                 <li class="menu2">
-                                    <a href="#" class="top_m" title="경기일정">경기일정</a>
-                                    <div class="sub_menus">
-                                        <ul>
-                                            <li>경기메뉴1</li>
-                                            <li>경기메뉴2</li>
-                                            <li>경기메뉴3</li>
-                                        </ul>
-                                    </div>
+                                    <a href="<%=request.getContextPath()%>/match/match.do" title="경기일정">경기일정</a>
                                 </li>
                                 <li class="menu3">
                                     <a href="#" class="top_m" title="이벤트">이벤트</a>
