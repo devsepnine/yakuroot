@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
    <jsp:include page="/template/header.jsp"></jsp:include>
-   <link rel="stylesheet" type="text/css" href="/yakuroot/css/common.css">
+
 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  	
@@ -13,6 +13,7 @@
 		text-align: left;
 		margin-top : 100px;
 		margin-bottom : 100px;
+		padding : 30px;
 	}
 	
  	</style>
@@ -20,7 +21,7 @@
    	<div align="center">
 		<form class="form form-label">
 			<fieldset>
-				<legend>FIND ID</legend>
+				<legend>FIND ID RESULT</legend>
 					<table class="table table-noline" style="width:100%">
 						<tbody>
 							<tr>
