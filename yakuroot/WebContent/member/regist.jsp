@@ -250,7 +250,7 @@
 							</td>
 						</tr>
 						
-						<tr>
+						<tr> 
 							<td><label for="m_name">NAME</label></td>
 							<td>
 								<input onblur="checkName();" type="text" name="m_name" id="m_name"  required>

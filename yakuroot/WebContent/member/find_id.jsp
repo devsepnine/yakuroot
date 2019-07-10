@@ -30,7 +30,7 @@ input[name=m_name], input[name=m_phone], input[name=m_birth]{
 	<form action="${pageContext.request.contextPath}/member/find_id.do" method="post" class="form form-label">
 		<fieldset>
 			<legend>FIND ID</legend>
-				<table border=1 class="table table-noline">
+				<table  class="table table-noline">
 					<tbody>
 						<tr>
 							<td class="error" colspan="2" height="30">
