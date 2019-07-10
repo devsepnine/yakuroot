@@ -1,5 +1,8 @@
 package player.beans;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class PlayerDto {
 	private int p_no;//선수 고유 번호
 	private String p_club;//선수 소속 구단 로고
@@ -12,8 +15,37 @@ public class PlayerDto {
 	private String p_position;//선수 포지션
 	private String p_last_five;//선수 최근 5경기 기록
 	private String p_season_score;//선수 시즌 경기 기록
-	private double p_batting_averagee;//선수 타율
-	private int p_game;//선수 경기 수
+		
+	
+	public PlayerDto(ResultSet rs) throws SQLException {
+		this.setP_no(rs.getInt("p_no"));
+		this.setP_club(rs.getString("p_club"));
+		this.setP_photo(rs.getString("p_photo"));
+		this.setP_name(rs.getString("p_name"));
+		this.setP_bnum(rs.getInt("p_bnum"));
+		this.setP_birth(rs.getString("p_birth"));
+		this.setP_height(rs.getInt("p_height"));
+		this.setP_weight(rs.getInt("p_weight"));
+		this.setP_position(rs.getString("p_position"));
+		this.setP_last_five(rs.getString("p_last_five"));
+		this.setP_season_score(rs.getString("p_season_score"));
+	}
+		
+		
+	@Override
+	public String toString() {
+		return "PlayerDto [p_no=" + p_no + ", p_club=" + p_club + ", p_photo=" + p_photo + ", p_name=" + p_name
+				+ ", p_bnum=" + p_bnum + ", p_birth=" + p_birth + ", p_height=" + p_height + ", p_weight=" + p_weight
+				+ ", p_position=" + p_position + ", p_last_five=" + p_last_five + ", p_season_score=" + p_season_score
+				+ "]";
+	}
+
+
+	public PlayerDto() {
+		super();
+	}
+	
+	
 	public int getP_no() {
 		return p_no;
 	}
@@ -80,27 +112,5 @@ public class PlayerDto {
 	public void setP_season_score(String p_season_score) {
 		this.p_season_score = p_season_score;
 	}
-	public double getP_batting_averagee() {
-		return p_batting_averagee;
-	}
-	public void setP_batting_averagee(double p_batting_averagee) {
-		this.p_batting_averagee = p_batting_averagee;
-	}
-	public int getP_game() {
-		return p_game;
-	}
-	public void setP_game(int p_game) {
-		this.p_game = p_game;
-	}
-	@Override
-	public String toString() {
-		return "PlayerDto [p_no=" + p_no + ", p_club=" + p_club + ", p_photo=" + p_photo + ", p_name=" + p_name
-				+ ", p_bnum=" + p_bnum + ", p_birth=" + p_birth + ", p_height=" + p_height + ", p_weight=" + p_weight
-				+ ", p_position=" + p_position + ", p_last_five=" + p_last_five + ", p_season_score=" + p_season_score
-				+ ", p_batting_averagee=" + p_batting_averagee + ", p_game=" + p_game + "]";
-	}
-	public PlayerDto() {
-		super();
-	}
-	
+		
 }

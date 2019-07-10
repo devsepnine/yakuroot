@@ -1,5 +1,8 @@
 package club.beans;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class ClubSeasonScoreDto {
 	private int c_game;//구단 경기수
 	private int c_win;//구단 승
@@ -7,7 +10,32 @@ public class ClubSeasonScoreDto {
 	private int c_draw;//구단 무승부
 	private double c_victory;//구단 승률
 	private String c_last_ten;//구단 최근 10경기 성적
-	private String c_contineu;//구단 연속 성적
+	private String c_continue;//구단 연속 성적
+	
+	
+	public ClubSeasonScoreDto(ResultSet rs) throws SQLException {
+		this.setC_game(rs.getInt("c_game"));
+		this.setC_win(rs.getInt("c_win"));
+		this.setC_loss(rs.getInt("c_loss"));
+		this.setC_draw(rs.getInt("c_draw"));
+		this.setC_victory(rs.getDouble("c_victory"));
+		this.setC_last_ten(rs.getString("c_last_ten"));
+		this.setC_contineu(rs.getString("c_continue"));
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "ClubSeasonScoreDto [c_game=" + c_game + ", c_win=" + c_win + ", c_loss=" + c_loss + ", c_draw=" + c_draw
+				+ ", c_victory=" + c_victory + ", c_last_ten=" + c_last_ten + ", c_continue=" + c_continue + "]";
+	}
+	
+	
+	public ClubSeasonScoreDto() {
+		super();
+	}
+	
+	
 	public int getC_game() {
 		return c_game;
 	}
@@ -45,18 +73,11 @@ public class ClubSeasonScoreDto {
 		this.c_last_ten = c_last_ten;
 	}
 	public String getC_contineu() {
-		return c_contineu;
+		return c_continue;
 	}
 	public void setC_contineu(String c_contineu) {
-		this.c_contineu = c_contineu;
+		this.c_continue = c_contineu;
 	}
-	@Override
-	public String toString() {
-		return "ClubSeasonScoreDto [c_game=" + c_game + ", c_win=" + c_win + ", c_loss=" + c_loss + ", c_draw=" + c_draw
-				+ ", c_victory=" + c_victory + ", c_last_ten=" + c_last_ten + ", c_contineu=" + c_contineu + "]";
-	}
-	public ClubSeasonScoreDto() {
-		super();
-	}
+	
 	
 }

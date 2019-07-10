@@ -1,5 +1,8 @@
 package player.beans;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class PitcherDto {
 	private double p_era;//투수 ERA
 	private int p_standing;//투수 선발 경기
@@ -14,6 +17,39 @@ public class PitcherDto {
 	private int p_loss_point;//실점
 	private int p_self_defense;//투수 자책점
 	private double p_wip;//투수 WIP
+	
+	
+	public PitcherDto(ResultSet rs) throws SQLException {
+		this.setP_era(rs.getDouble("p_era"));
+		this.setP_standing(rs.getInt("p_standing"));
+		this.setP_shutouts(rs.getInt("p_shutouts"));
+		this.setP_win(rs.getInt("p_win"));
+		this.setP_loss(rs.getInt("p_loss"));
+		this.setP_save(rs.getInt("p_save"));
+		this.setP_hold(rs.getInt("p_hold"));
+		this.setP_victory(rs.getDouble("p_victory"));
+		this.setP_inning(rs.getString("p_inning"));
+		this.setP_hit_rate(rs.getDouble("p_hit_rate"));
+		this.setP_loss(rs.getInt("p_loss_point"));
+		this.setP_self_defense(rs.getInt("p_self_defense"));
+		this.setP_wip(rs.getDouble("p_wip"));
+	}
+	
+	
+	public PitcherDto() {
+		super();
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "PitcherDto [p_era=" + p_era + ", p_standing=" + p_standing + ", p_shutouts=" + p_shutouts + ", p_win="
+				+ p_win + ", p_loss=" + p_loss + ", p_save=" + p_save + ", p_hold=" + p_hold + ", p_victory="
+				+ p_victory + ", p_inning=" + p_inning + ", p_hit_rate=" + p_hit_rate + ", p_loss_point=" + p_loss_point
+				+ ", p_self_defense=" + p_self_defense + ", p_wip=" + p_wip + "]";
+	}
+	
+	
 	public double getP_era() {
 		return p_era;
 	}
@@ -92,15 +128,6 @@ public class PitcherDto {
 	public void setP_wip(double p_wip) {
 		this.p_wip = p_wip;
 	}
-	@Override
-	public String toString() {
-		return "PitcherDto [p_era=" + p_era + ", p_standing=" + p_standing + ", p_shutouts=" + p_shutouts + ", p_win="
-				+ p_win + ", p_loss=" + p_loss + ", p_save=" + p_save + ", p_hold=" + p_hold + ", p_victory="
-				+ p_victory + ", p_inning=" + p_inning + ", p_hit_rate=" + p_hit_rate + ", p_loss_point=" + p_loss_point
-				+ ", p_self_defense=" + p_self_defense + ", p_wip=" + p_wip + "]";
-	}
-	public PitcherDto() {
-		super();
-	}
+	
 	
 }
