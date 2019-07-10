@@ -64,10 +64,8 @@ input[name=m_id], input[name=m_pw]{
 						</td>
 						</tr>
 						<tr>
-<!-- 						<td><a href="find_id.do">ID찾기</a></td> -->
 						<td colspan = "2" align = "center" >
-						<input  type="button" value="ID 찾기" name="find_id">
-<!-- 						<td><a href="find_pw.jsp">PW찾기</a></td> -->
+						<input type="button" value="ID 찾기" name="find_id">
 						<input type="button" value="PW 찾기" name="find_pw">
 						</td>
 						</tr>
