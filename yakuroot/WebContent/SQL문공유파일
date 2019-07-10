@@ -54,45 +54,23 @@ CREATE SEQUENCE MEMBER_SEQ;
 /************************************************************
 						  동근
 ************************************************************/
---공지사항 게시판 테이블
-create table notice_board(
-n_no number primary key,
-n_head varchar2(21)not null check(n_head in ('공지사항')),
-n_title varchar2(60)not null,
-n_writer constraint nk_writer references member(m_no),
-n_content varchar2(4000)not null,
-n_read number default 0 not null,
-n_when date default sysdate not null
-);
-
-create SEQUENCE n_board_seq;
-
-
---공지사항 코멘트 테이블
-create table n_comments(
-no number primary key,
-writer CONSTRAINT nk_comments_member_id REFERENCES member(m_no)on delete cascade,
-content varchar2(4000)not null,
-when date default sysdate not null,
-origin CONSTRAINT nk_comments_board_no references notice_board(n_no)on delete cascade
-);
-
-create SEQUENCE n_com_seq;
-
-
---자유게시판 코멘트 테이블
-create table f_comments(
-no number primary key,
-writer CONSTRAINT fk_comments_member_id REFERENCES member(m_id)on delete cascade,
-content varchar2(4000)not null,
-when date default sysdate not null,
-origin CONSTRAINT fk_comments_board_no references f_board(f_no)on delete cascade
-);
-
-create SEQUENCE f_com_seq;
+drop table n_comments;
+drop table f_comments;
+drop table f_board;
+drop table notice_board;
+drop sequence f_board_seq;
+drop sequence f_com_seq;
+drop sequence n_board_seq;
+drop sequence n_com_seq;
+--원래 있던 테이블 전부 삭제
 
 create SEQUENCE f_board_seq;
---자유게시판 테이블
+create SEQUENCE f_com_seq;
+create SEQUENCE n_board_seq;
+create SEQUENCE n_com_seq;
+
+--시퀀스 생성
+
 create table f_board(
 f_no number primary key,
 f_head varchar2(21)not null check(f_head in ('talk','doosan','sk','kiwoom','lg','nc','kt','samsung','kia','hanhwa','lotte')),
@@ -105,8 +83,40 @@ f_parent number,
 f_depth number,
 f_team number
 );
+--자유게시판 테이블 생성
 
+create table f_comments(
+no number primary key,
+writer CONSTRAINT fk_comments_member_id REFERENCES member(m_id)on delete cascade,
+content varchar2(4000)not null,
+when date default sysdate not null,
+origin CONSTRAINT fk_comments_board_no references f_board(f_no)on delete cascade
+);
+--자유게시판 코멘트 테이블 생성
 
+create table notice_board(
+n_no number primary key,
+n_head varchar2(21)not null check(n_head in ('공지사항')),
+n_title varchar2(60)not null,
+n_writer constraint nk_writer references member(m_id),
+n_content varchar2(4000)not null,
+n_read number default 0 not null,
+n_when date default sysdate not null,
+f_parent number,
+f_depth number,
+f_team number
+);
+--공지게시판 테이블 생성
+
+create table n_comments(
+no number primary key,
+writer CONSTRAINT nk_comments_member_id REFERENCES member(m_id)on delete cascade,
+content varchar2(4000)not null,
+when date default sysdate not null,
+origin CONSTRAINT nk_comments_board_no references notice_board(n_no)on delete cascade
+);
+
+--공지게시판 코멘트 테이블 생성
 
 /************************************************************
 						  도영
