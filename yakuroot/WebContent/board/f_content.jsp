@@ -105,9 +105,9 @@
 	</div>
 </div>
 <hr>
-<%-- <c:if test="${my}"> --%>
 
-<%-- </c:if> --%>
-<br>
+<jsp:include page="/board/listpart.jsp"></jsp:include>
+
+
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
