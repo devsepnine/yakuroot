@@ -80,7 +80,7 @@
 												</c:if> ${cdto.date} <br> ${cdto.content}
 												<hr></td>
 											<td width="80%" class="su">
-												<form action="comment_su.do" method="post">
+												<form action="n_comment_su.do" method="post">
 													<input type="hidden" name="no" value="${cdto.no}">
 													<input type="hidden" name="origin" value="${ndto.n_no}">
 													<textarea rows="4" cols="60" name="content">${cdto.content}</textarea>
@@ -90,13 +90,13 @@
 											<!-- 본인 글이거나 관리자 일때만 표시 -->
 											<td width="5%"><c:if test="${cdto.writer==login}">
 													<a href="#" class="btn">수정</a></td>
-											<td width="5%"><a href="c_delete.do?no=${cdto.no}"
+											<td width="5%"><a href="nc_delete.do?no=${cdto.no}"
 												class="su-del">삭제</a> </c:if></td>
 										</tr>
 										</c:forEach>
 					<tr>
 										<td colspan="2" align="center">
-											<form action="f_comments.do" method="post">
+											<form action="n_comments.do" method="post">
 												<input type="hidden" name="origin" value="${ndto.n_no}">
 												<input type="hidden" name="writer" value="${login}">
 												<textarea rows="4" cols="50" placeholder="댓글입력"
@@ -119,7 +119,7 @@
 									<button>
 										<a href="notice_edit.do?n_no=${ndto.n_no}">글 수정</a>
 									</button>
-									<a href="n_delete.do?no=${ndto.n_no}"><button>글 삭제</button></a>
+									<a href="n_delete.do?n_no=${ndto.n_no}"><button>글 삭제</button></a>
 								</c:if>
 							</h4>
 						</td>

@@ -1,0 +1,104 @@
+package notice_comment.beans;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CommentDao {
+	
+		public Connection getConnection() throws Exception {
+			Class.forName("oracle.jdbc.OracleDriver");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "yakuroot", "baseball");
+			return con;
+		}
+
+	
+	public int write(CommentDto cdto)throws Exception {//��� ��� �޼ҵ�
+		Connection con = this.getConnection();
+		String sql = "select n_com_seq.nextval from dual";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int no = rs.getInt(1);
+		ps.close();
+		sql = "insert into n_comments values(?,?,?,sysdate,?)";
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		ps.setString(2, cdto.getWriter());
+		ps.setString(3, cdto.getContent());
+		ps.setInt(4, cdto.getOrigin());
+		ps.execute();
+		con.close();
+
+		return no;
+	}
+	public List<CommentDto> get(int origin) throws Exception {
+		Connection con = this.getConnection();
+		String sql = "select * from n_comments where origin = ? order by when asc";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, origin);
+		ResultSet rs = ps.executeQuery();
+		List<CommentDto> list = new ArrayList<CommentDto>();
+			while(rs.next()) {
+				CommentDto cdto1 = new CommentDto();
+				cdto1.setData(rs);
+				list.add(cdto1);		
+			}
+		con.close();
+
+		return list;
+
+	}
+	public List<CommentDto> list(int start,int end) throws Exception {//����Ʈ ��� �޼ҵ�
+		Connection con = this.getConnection();
+		String sql = "select * from (select a.*, rownum as rnum from (select * from n_comments order by no desc)a) where rnum between ? and ? ";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, end);
+		ResultSet rs = ps.executeQuery();
+
+		List<CommentDto> list = new ArrayList<CommentDto>(); // ����ִ� ����Ʈ �غ�
+		while (rs.next()) {
+			// rs->PersonDto->list
+			CommentDto cdto = new CommentDto();
+			cdto.setData(rs);
+			list.add(cdto);
+		}
+		con.close();
+		return list;
+	}
+	public int delete(int no) throws Exception{
+		Connection con = this.getConnection();
+		String sql = "select origin from n_comments where no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int origin = rs.getInt("origin");
+		ps.close(); 
+		sql = "delete n_comments where no = ?";
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		ps.execute();	
+		con.close();
+		
+		return origin;
+	}
+	public CommentDto edit(CommentDto cdto) throws Exception{//ȸ������ �˻� �޼ҵ�
+		Connection con = this.getConnection();		
+		String sql="update n_comments set "
+				+ "content = ? where no = ? ";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, cdto.getContent());
+		ps.setInt(2, cdto.getNo());
+		ps.execute();	
+		
+		con.close();
+		return cdto;
+		}
+	
+}
