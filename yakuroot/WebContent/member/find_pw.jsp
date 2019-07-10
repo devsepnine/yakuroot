@@ -29,6 +29,7 @@
 
 <div align="center">
 	<form action="${pageContext.request.contextPath}/member/find_pw.do" method="post" class="form form-label">
+	
 		<fieldset>
 			<legend>FIND PW</legend>
 				<table  class="table table-noline">

@@ -99,7 +99,7 @@
  	
  	<div align="center">
 	<form action="${pageContext.request.contextPath}/member/change_pw.do" method="post" class="form form-label">
- 	<input type="hidden" name = "m_id"  value="${login}" required>
+ 	<input type="hidden" name = "m_id"  value="<%=request.getParameter("m_id")%>" required>
 		<fieldset>
 			<legend>CHANGE PW</legend>
 				<table  class="table table-noline">
