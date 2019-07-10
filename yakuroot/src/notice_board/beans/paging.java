@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import f_board.beans.f_boardDao;
-import f_board.beans.f_boardDto;
+import notice_board.beans.n_boardDao;
+import notice_board.beans.n_boardDto;
 
 /**
  * 
@@ -43,7 +43,7 @@ public class paging {
 	private int startBlock;//시작블록
 	private int endBlock; //종료블록
 	private String query;
-	private List<f_boardDto> list; //데이터가 저장된 목록
+	private List<n_boardDto> list; //데이터가 저장된 목록
 	public void calculate() throws Exception{
        	this.search = type!=null&&keyword!=null;
 
@@ -55,8 +55,8 @@ public class paging {
       	}      	
       	this.end = pno*psize;
       	this.start = end - (psize-1);
-      	f_boardDao bdao = new f_boardDao();      	
-      	this.count = bdao.getCount(type,keyword);     	
+      	n_boardDao ndao = new n_boardDao();      	
+      	this.count = ndao.getCount(type,keyword);     	
       	this.pageCount = (count + psize-1)/psize;
       	
       	this.startBlock = ((pno-1)/bsize*bsize)+1;
@@ -66,9 +66,9 @@ public class paging {
       	}
       	//type,keyword 모두 null이 아니면 검색, 아니면 목록
       	if(search){
-      		list = bdao.search(type,keyword,start,end); 				
+      		list = ndao.search(type,keyword,start,end); 				
       	}else{
-      		list = bdao.list(start,end);
+      		list = ndao.list(start,end);
       	}
       	
       	//검색어 유지를 위해 검색일때와 아닐때의 첨부되는 파라미터 처리
@@ -88,7 +88,7 @@ public class paging {
 	}
 
 	//getter 메소드를 원하는 만큼 구현
-	public List<f_boardDto> getList() {
+	public List<n_boardDto> getList() {
 		return list;
 	}
 	//첫 페이지 인지 확인 할 수 있는 getter

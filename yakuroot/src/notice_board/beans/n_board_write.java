@@ -35,7 +35,7 @@ public class n_board_write extends HttpServlet{
 			ndto.setN_content(n_content);
 			ndao.write(ndto);
 			
-			resp.sendRedirect(req.getContextPath()+"/board/n_list.do");
+			resp.sendRedirect(req.getContextPath()+"/board/notice_list.do");
 			
 			
 			

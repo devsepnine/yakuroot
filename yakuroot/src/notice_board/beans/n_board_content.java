@@ -16,22 +16,23 @@ import notice_board.beans.paging;
 import m_beans.MemberDao;
 import m_beans.MemberDto;
 
-@WebServlet(urlPatterns = "/board/n_content.do")
+@WebServlet(urlPatterns = "/board/notice_content.do")
 public class n_board_content extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			//글 번호를 조회하여 내용을 저장
 			int no = Integer.parseInt(req.getParameter("no"));
-			String id = (String) req.getSession().getAttribute("login");
 			n_boardDao ndao = new n_boardDao();
-			MemberDao mdao = new MemberDao();
 
 			ndao.readone(no);
 
 			n_boardDto ndto = ndao.get(no);
-			MemberDto mdto = mdao.get(id);
+			
+			
+			MemberDao mdao = new MemberDao();
 			boolean my = ndto.getN_writer().equals(req.getSession().getAttribute("login"));
-			boolean admin = mdto.getM_auth().equals(req.getSession().getAttribute("auth"));
+
 			
 
 //			CommentDao cdao = new CommentDao();
@@ -43,9 +44,9 @@ public class n_board_content extends HttpServlet {
 			req.setAttribute("login", my);
 			req.setAttribute("ndto", ndto);
 			req.setAttribute("p", p);
-			req.setAttribute("admin", admin);
+//			req.setAttribute("admin", admin);
 
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/board/n_content.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/board/notice_content.jsp");
 			dispatcher.forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,21 @@ public class n_boardDao {
 		rs.next();
 		int no = rs.getInt(1);
 		ps.close();
+		
+		int n_team;
+		if (ndto.getN_parent() > 0) {
+			sql = "select n_team from notice_board where n_no = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, ndto.getN_parent());
+			rs = ps.executeQuery();
+			rs.next();
+			n_team = rs.getInt("n_team");
+			ps.close();
+		} else {
+			n_team = no;
+		}
 
-		sql = "insert into notice_board values(?,?,?,?,?,0,sysdate)";
+		sql = "insert into notice_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from notice_board where n_no=?),?)";
 
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -35,6 +49,13 @@ public class n_boardDao {
 		ps.setString(3, ndto.getN_title());
 		ps.setString(4, ndto.getN_writer());
 		ps.setString(5, ndto.getN_content());
+		if (ndto.getN_parent() == 0) {
+			ps.setNull(6, Types.INTEGER);
+		} else {
+			ps.setInt(6, ndto.getN_parent());
+		}
+		ps.setInt(7, ndto.getN_parent());
+		ps.setInt(8, n_team);
 
 		System.out.println(ndto);
 		ps.execute();
@@ -94,8 +115,8 @@ public class n_boardDao {
 	public List<n_boardDto> list(int start, int end) throws Exception {//공지사항 리스트 출력 메소드
 		Connection con = this.getConnection();
 		String sql = "select * from (select a.*, rownum as rnum from (select * from notice_board "
-				+ "connect by prior n_no = n_parent start with n_parent is null "
-				+ "order siblings by n_team desc, n_no asc)a) where rnum between ? and ? ";
+				+ "connect by prior n_no = f_parent start with f_parent is null "
+				+ "order siblings by f_team desc, n_no asc)a) where rnum between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);
@@ -138,4 +159,23 @@ public class n_boardDao {
 		con.close();
 		return list;
 	}
+	public int getCount(String type, String keyword) throws Exception {
+		Connection con = getConnection();
+		boolean search = type != null && keyword != null;
+
+		String sql = "select count(*) from notice_board";
+		if (search) {
+			sql += " where " + type + " like '%'||?||'%'";
+		}
+		PreparedStatement ps = con.prepareStatement(sql);
+		if (search) {
+			ps.setString(1, keyword);
+		}
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		con.close();
+		return count;
+}
+	
 }
