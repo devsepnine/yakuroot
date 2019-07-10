@@ -8,8 +8,8 @@
 			<font> 세션ID : <%=session.getId() %></font><br>
 			<font> 신규세션 ? : <%=session.isNew() %></font><br>
 			<font> 로그인 상태 : ${sessionScope.login != null } , ${not empty login}, <%=session.getAttribute("login") != null %></font><br>
-			<font> 로그인한 사용자 : ${login} 권한 : ${auth}</font> <br>
-			<font> 관리자 입니까 ? ${auth eq "관리자"}</font>
+			<font> 로그인한 사용자 : ${sessionScope.login} 권한 : ${sessionScope.auth}</font> <br>
+			<font> 관리자 입니까 ? ${sessionScope.auth eq "관리자"}</font>
 		</span>
 	</div>
 </body>
