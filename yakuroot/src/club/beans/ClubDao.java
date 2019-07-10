@@ -11,6 +11,7 @@ public class ClubDao {
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "yakuroot", "baseball");
 		return con;
 	}
+//  구단 데이터 넣는 메소드
 	
 //	구단 데이터 불러오는 메소드
 	
