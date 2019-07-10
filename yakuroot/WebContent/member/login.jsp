@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/yakuroot/css/common.css">
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <style>
 
@@ -11,6 +11,7 @@
 	text-align: left;
 	margin-top : 100px;
 	margin-bottom : 100px;
+	padding : 10px;
 }
 
 input[name=m_id], input[name=m_pw]{

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/yakuroot/css/common.css">
+
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -10,7 +10,7 @@
 <script>
 	$(function(){
 		$("input[name=registbtn]").prop("disabled", true)
-									.css("background-color", "lightgray");;
+									.css("background-color", "lightgray");
 	});
 	
 </script>
@@ -88,7 +88,7 @@
 					} else {
 						window.alert("사용 가능한 아이디입니다")
 						$("input[name=registbtn]").prop("disabled", false)
-													.css("background-color", "#1E3269");;
+													.css("background-color", "#1E3269");
 					}
 				}
 			});
@@ -117,6 +117,7 @@
 	text-align: left;
 	margin-top : 100px;
 	margin-bottom : 100px;
+	padding : 30px;
 }
 
 
@@ -286,8 +287,9 @@
 							<td><label for="m_email">EMAIL</label></td>
 							<td>
 								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" pattern="^[a-z0-9]{8,15}$" required>
+								
 									<span>@</span>
-									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$" >
+									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$" required >
 									<select id="email_address">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
@@ -304,7 +306,7 @@
 								<input type="text" name="m_postcode" placeholder="우편번호" required >
 									<input type="button" value="우편번호 찾기" name="postcode_find"><br>
 									<input type="text" name="m_addr1" placeholder="주소" required ><br>
-									<input type="text" name="m_addr2" placeholder="상세주소">
+									<input type="text" name="m_addr2" placeholder="상세주소" >
 							</td>
 						</tr>
 						

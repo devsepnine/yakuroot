@@ -2,14 +2,13 @@
     pageEncoding="UTF-8"%>
 
  <jsp:include page="/template/header.jsp"></jsp:include>
-
  
  
  
  <style>
 
 	.form.form-label>fieldset {
-		width: 300px;
+		width: 330px;
 		text-align: center;
 		margin-top : 100px;
 		margin-bottom : 100px;
@@ -21,7 +20,7 @@
  <div align="center">
 	 <form class="form form-label">
 			<fieldset>
-				<legend>REGIST</legend>
+				<legend>CHANGE PW RESULT</legend>
 					<table width = 100% class="table table-noline">
 						<tbody>
 							<tr>
@@ -32,7 +31,7 @@
 							</tr>
 							<tr>
 								<td colspan = "2">
-									회원가입을 축하합니다!!
+									비밀번호가 변경되었습니다.
 								</td>
 							</tr>
 							<tr height = "30">
