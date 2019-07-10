@@ -15,7 +15,7 @@
 	padding : 30px;
 }
 
-input[name=m_name], input[name=m_phone], input[name=m_birth]{
+ input[name=m_id], input[name=m_name], input[name=m_phone]{
 	width : 200px;
 }
 
@@ -28,9 +28,9 @@ input[name=m_name], input[name=m_phone], input[name=m_birth]{
 </style>
 
 <div align="center">
-	<form action="${pageContext.request.contextPath}/member/find_id.do" method="post" class="form form-label">
+	<form action="${pageContext.request.contextPath}/member/find_pw.do" method="post" class="form form-label">
 		<fieldset>
-			<legend>FIND ID</legend>
+			<legend>FIND PW</legend>
 				<table  class="table table-noline">
 					<tbody>
 						<tr>
@@ -41,6 +41,12 @@ input[name=m_name], input[name=m_phone], input[name=m_birth]{
 							</td>
 						</tr>
 						<tr>
+						<tr>
+							<td><label for="m_id">ID</label></td>
+							<td>
+								<input type="text" name="m_id" id="m_id" placeholder="ID를 입력하세요" required>
+							</td>
+						</tr>
 							<td><label for="m_name">NAME</label></td>
 							<td>
 								<input type="text" name="m_name" id="m_name" placeholder="이름을 입력하세요" required>
@@ -53,14 +59,8 @@ input[name=m_name], input[name=m_phone], input[name=m_birth]{
 							</td>
 						</tr>
 						<tr>
-							<td><label for="m_birth">BIRTH</label></td>
-							<td>
-								<input type="date" name="m_birth" id="m_birth" value="2019-07-08" required>
-							</td>
-						</tr>
-						<tr>
 							<td colspan="2" align ="right">
-					   			<input type="submit" value="ID 찾기">
+					   			<input type="submit" value="PW 찾기">
 					   		</td>
 						</tr>
 					</tbody>
