@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="/template/header.jsp"></jsp:include>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
+<jsp:include page="/template/header.jsp"></jsp:include>
 
 <!-- 자유게시판 글 내용 jsp -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>	
 </script>
@@ -14,10 +12,10 @@
 	<h1>${bdto.f_title}</h1>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 offset-md-3">
-			<table class="table">
+<div align="center">
+	<div>
+		<div>
+			<table>
 				<tbody>
 					<tr>
 						<th width="10%">작성자</th>
@@ -39,13 +37,15 @@
 						<th>댓글 ${list2.size()}</th>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td>
+						</td>
+						<td>
 							<form action="f_comments.do" method="post">
 								<input type="hidden" name="origin" value="${bdto.f_no}">
 								<input type="hidden" name="writer" value="${bdto.f_writer}">
-								<textarea rows="4" cols="100" placeholder="댓글입력"
+								<textarea rows="4" cols="50" placeholder="댓글입력"
 									name="content"></textarea>
-								<button class="btn btn-outline-primary" type="submit">등록</button>
+								<button type="submit">등록</button>
 							</form>
 						</td>
 					</tr>
@@ -63,16 +63,16 @@
 													<font color="red">(작성자)</font>
 												</c:if> ${cdto.date} <br> ${cdto.content}
 												<hr></td>
-											<td width="80%" class="su">
+											<td width="80%">
 												<form action="comment_su.do" method="post">
 													<input type="hidden" name="no" value="${cdto.no}">
 													<input type="hidden" name="origin" value="${bdto.f_no}">
-													<textarea rows="4" cols="95" name="content">${cdto.content}</textarea>
+													<textarea rows="4" cols="60" name="content">${cdto.content}</textarea>
 													<input type="submit" value="수정">
 												</form>
 											</td>
-											<!-- 본인 글일때만 표시 -->	
-											<td width="10%"><c:if test="${cdto.writer==login}">
+											<!-- 본인 글이거나 관리자 일때만 표시 -->	
+											<td width="10%"><c:if test="${cdto.writer==login||mdto.m_auth==admin}">
 													<a href="c_delete.do?no=${cdto.no}" class="su-del">삭제</a>
 												</c:if></td>
 										</tr>
@@ -85,15 +85,15 @@
 					<%--댓글 입력 영역 --%>
 					<tr>
 						<td colspan="3" align="right">
-						<button class="btn btn-outline-primary"><a href="f_write.do">글쓰기</a></button>
-						<button class="btn btn-outline-primary"><a href="f_write.do?f_parent=${bdto.f_no}">답글쓰기</a></button></td>
+						<button><a href="f_write.do">글쓰기</a></button>
+						<button><a href="f_write.do?f_parent=${bdto.f_no}">답글쓰기</a></button></td>
 					</tr>
 					<tr>
 						<td colspan="3" align="reft">
 							<h4>
-								<c:if test="${login}">
-								<button class="btn btn-outline-primary"><a href="f_edit.do?f_no=${bdto.f_no}">글 수정</a></button>
-								<a href="f_delete.do?no=${bdto.f_no}"><button class="btn btn-outline-primary">글 삭제</button></a>
+								<c:if test="${bdto.f_writer==login||mdto.m_auth==admin}">
+								<button><a href="f_edit.do?f_no=${bdto.f_no}">글 수정</a></button>
+								<a href="f_delete.do?no=${bdto.f_no}"><button>글 삭제</button></a>
 								</c:if>
 							</h4>
 

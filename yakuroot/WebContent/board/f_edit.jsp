@@ -1,7 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="/template/header.jsp"></jsp:include>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="/template/header.jsp"></jsp:include>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="../js/ckeditor.js"></script>
+    <script>
+        $(function(){
+            ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            })
+        });
+     </script>
+     <style>
+     .ck-editor__editable{
+     min-height:480px;
+     }
+     </style>
 <style>
 div {
 	margin: auto;
@@ -33,14 +49,20 @@ div {
 						</tr>
 						<tr>
 							<th width="20%">글 제목</th>
-							<td><input type="text" name="f_title" required
+							<td>
+							<div align="center">
+							<input type="text" name="f_title" required
 								value="${bdto.f_title}" style="width: 500px; height: 25px;">
+							</div>
 							</td>
 						</tr>
 						<tr>
 							<th width="20%">내용</th>
-							<td><textarea name="f_content" required
-									value="${bdto.f_content}" style="width: 500px; height: 250px;">${bdto.f_content}</textarea></td>
+							<td>
+							<div style="width: 1000px;">
+								<textarea name="f_content" required id="editor" value="${bdto.f_content}">${bdto.f_content}></textarea>
+							</div>
+							</td>
 						</tr>
 				</tbody>
 			</table>

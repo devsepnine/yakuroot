@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="/template/header.jsp"></jsp:include>	
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="/template/header.jsp"></jsp:include>	
 <style>
 th {
 	text-align: center;
@@ -54,7 +54,7 @@ margin : auto;
 						<tr>
 							<td colspan="6" align="right">
 								<button class="btn btn-outline-primary">
-									<a href="f_write.jsp">글쓰기</a>
+									<a href="f_write.do">글쓰기</a>
 								</button>
 							</td>
 						</tr>
