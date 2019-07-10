@@ -1,5 +1,8 @@
 package club.beans;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class ClubDto {
 	private int c_no;//구단 고유 번호
 	private String c_name;//구단 이름
@@ -7,7 +10,37 @@ public class ClubDto {
 	private String c_club;//구단 소개
 	private String c_player;//구단 선수 소개
 	private String c_stadium;//구단 홈 경기장 소개
-	private String c_reseration;//구단 경기 예매
+	private String c_year;//구단 창단 년도
+	private String c_born;//구단 연고지
+	private String c_map;//홈 경기장 지도 좌표
+	
+	
+	public ClubDto(ResultSet rs) throws SQLException {
+		this.setC_no(rs.getInt("c_no"));
+		this.setC_name(rs.getString("c_name"));
+		this.setC_photo(rs.getString("c_photo"));
+		this.setC_club(rs.getString("c_club"));
+		this.setC_player(rs.getString("c_player"));
+		this.setC_stadium(rs.getString("c_stadium"));
+		this.setC_year(rs.getString("c_year"));
+		this.setC_born(rs.getString("c_born"));
+		this.setC_map(rs.getString("c_map"));
+	}
+	
+	
+	public ClubDto() {
+		super();
+	}
+
+
+	@Override
+	public String toString() {
+		return "ClubDto [c_no=" + c_no + ", c_name=" + c_name + ", c_photo=" + c_photo + ", c_club=" + c_club
+				+ ", c_player=" + c_player + ", c_stadium=" + c_stadium + ", c_year=" + c_year + ", c_born=" + c_born
+				+ ", c_map=" + c_map + "]";
+	}
+	
+	
 	public int getC_no() {
 		return c_no;
 	}
@@ -44,19 +77,25 @@ public class ClubDto {
 	public void setC_stadium(String c_stadium) {
 		this.c_stadium = c_stadium;
 	}
-	public String getC_reseration() {
-		return c_reseration;
+	public String getC_year() {
+		return c_year;
 	}
-	public void setC_reseration(String c_reseration) {
-		this.c_reseration = c_reseration;
+	public void setC_year(String c_year) {
+		this.c_year = c_year;
 	}
-	@Override
-	public String toString() {
-		return "ClucDto [c_no=" + c_no + ", c_name=" + c_name + ", c_photo=" + c_photo + ", c_club=" + c_club
-				+ ", c_player=" + c_player + ", c_stadium=" + c_stadium + ", c_reseration=" + c_reseration + "]";
+	public String getC_born() {
+		return c_born;
 	}
-	public ClubDto() {
-		super();
+	public void setC_born(String c_born) {
+		this.c_born = c_born;
 	}
+	public String getC_map() {
+		return c_map;
+	}
+	public void setC_map(String c_map) {
+		this.c_map = c_map;
+	}
+
+	
 	
 }
