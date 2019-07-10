@@ -8,6 +8,13 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
+	$(function(){
+		$("input[name=registbtn]").prop("disabled", true)
+									.css("background-color", "lightgray");;
+	});
+	
+</script>
+<script>
     $(function(){
         $("input[name=postcode_find]").click(findAddress);
     });
@@ -80,6 +87,8 @@
 						$("input[name=m_id]").select();
 					} else {
 						window.alert("사용 가능한 아이디입니다")
+						$("input[name=registbtn]").prop("disabled", false)
+													.css("background-color", "#1E3269");;
 					}
 				}
 			});
@@ -268,7 +277,7 @@
 						<tr>
 							<td><label for="m_phone">PHONE</label></td>
 							<td>
-								<input onblur="checkPhone();" type="tel" name="m_phone" id="m_phone" >
+								<input onblur="checkPhone();" type="tel" name="m_phone" id="m_phone" required>
 								<div class="m_phoneD"></div>
 							</td>
 						</tr>
@@ -276,9 +285,9 @@
 						<tr>
 							<td><label for="m_email">EMAIL</label></td>
 							<td>
-								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" pattern="^[a-z0-9]{8,15]$">
+								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" pattern="^[a-z0-9]{8,15}$" required>
 									<span>@</span>
-									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$">
+									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$" >
 									<select id="email_address">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
@@ -292,9 +301,9 @@
 						<tr>
 							<td><label for="m_addr">ADDRESS</label></td>
 							<td>
-								<input type="text" name="m_postcode" placeholder="우편번호" >
+								<input type="text" name="m_postcode" placeholder="우편번호" required >
 									<input type="button" value="우편번호 찾기" name="postcode_find"><br>
-									<input type="text" name="m_addr1" placeholder="주소"><br>
+									<input type="text" name="m_addr1" placeholder="주소" required ><br>
 									<input type="text" name="m_addr2" placeholder="상세주소">
 							</td>
 						</tr>
