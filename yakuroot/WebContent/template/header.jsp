@@ -177,8 +177,8 @@
                                     <a href="#" class="top_m" title="게시판">게시판</a>
                                     <div class="sub_menus">
                                         <ul>
+                                            <li><a href="<%=request.getContextPath()%>/board/notice_list.do">공지사항</a></li>
                                             <li><a href="<%=request.getContextPath()%>/board/f_list.do">자유게시판</a></li>
-                                            <li>게시판메뉴2</li>
                                             <li>게시판메뉴3</li>
                                         </ul>
                                     </div>
