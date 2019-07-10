@@ -244,7 +244,7 @@
 						<tr>
 							<td><label for="m_id">ID</label></td>
 							<td>
-								<input onblur="checkId();" type="text" name="m_id" id="m_id" required>
+								<input onblur="checkId();" type="text" name="m_id" id="m_id" pattern="^[a-z0-9]{8,15}$" required>
 								<input type="button" value="중복확인" name="id_check_btn">
 								<div class="m_idD"></div>
 							</td>
@@ -254,7 +254,7 @@
 						<tr>
 							<td><label for="m_pw">PASSWORD</label></td>
 							<td>
-								<input onblur="checkPw();" type="password" name="m_pw" id="m_pw" required>
+								<input onblur="checkPw();" type="password" name="m_pw" id="m_pw" pattern="^[a-zA-Z0-9!@#$\-_]{8,15}$" required>
 								<div class="m_pwD"></div>
 							</td>
 						</tr>
@@ -262,7 +262,7 @@
 						<tr> 
 							<td><label for="m_name">NAME</label></td>
 							<td>
-								<input onblur="checkName();" type="text" name="m_name" id="m_name"  required>
+								<input onblur="checkName();" type="text" name="m_name" id="m_name" pattern="^[가-힣]{2,7}$" required>
 								<div class="m_nameD"></div>
 							</td>
 						</tr>
@@ -277,7 +277,7 @@
 						<tr>
 							<td><label for="m_phone">PHONE</label></td>
 							<td>
-								<input onblur="checkPhone();" type="tel" name="m_phone" id="m_phone" required>
+								<input onblur="checkPhone();" type="tel" name="m_phone" id="m_phone"  pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
 								<div class="m_phoneD"></div>
 							</td>
 						</tr>
