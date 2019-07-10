@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="/template/header.jsp"></jsp:include>
 <style>
 th {
 	text-align: center;
@@ -32,11 +33,11 @@ th {
 							<th colspan="6">글이 없습니다</th>
 						</tr>
 					</c:if>
-					<c:forEach var="bdto" items="${p.getList()}">
+					<c:forEach var="ndto" items="${p.getList()}">
 						<tr>
 							<td>${ndto.n_no}</td>
 							<td>${ndto.n_head}</td>
-							<td><a href="n_content.do?no=${ndto.n_no}"> ${ndto.n_title}</a></td>
+							<td><a href="notice_content.do?no=${ndto.n_no}"> ${ndto.n_title}</a></td>
 							<td>${ndto.n_writer}</td>
 							<td>${ndto.date}</td>
 							<td>${ndto.n_read}</td>
@@ -46,7 +47,7 @@ th {
 				<tfoot>
 					<tr>
 						<td colspan="6" align="right">
-						<c:if test="${mdto.m_auth==admin}">
+						<c:if test="${auth eq '관리자'}">
 							<button>
 								<a href="notice_write.jsp">글쓰기</a>
 							</button>
@@ -100,3 +101,4 @@ th {
 		</div>
 	</div>
 </div>
+<jsp:include page="/template/footer.jsp"></jsp:include>

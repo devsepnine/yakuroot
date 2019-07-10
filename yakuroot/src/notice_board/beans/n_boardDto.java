@@ -14,8 +14,10 @@ public class n_boardDto {
 	private String n_content;
 	private int n_read;
 	private String n_when;
+	private int n_parent;
+	private int n_depth;
 	public n_boardDto(int n_no, String n_head, String n_title, String n_writer, String n_content, int n_read,
-			String n_when) {
+			String n_when, int n_parent, int n_depth, int n_team) {
 		super();
 		this.n_no = n_no;
 		this.n_head = n_head;
@@ -24,10 +26,34 @@ public class n_boardDto {
 		this.n_content = n_content;
 		this.n_read = n_read;
 		this.n_when = n_when;
+		this.n_parent = n_parent;
+		this.n_depth = n_depth;
+		this.n_team = n_team;
 	}
+	public int getN_parent() {
+		return n_parent;
+	}
+	public void setN_parent(int n_parent) {
+		this.n_parent = n_parent;
+	}
+	public int getN_depth() {
+		return n_depth;
+	}
+	public void setN_depth(int n_depth) {
+		this.n_depth = n_depth;
+	}
+	public int getN_team() {
+		return n_team;
+	}
+	public void setN_team(int n_team) {
+		this.n_team = n_team;
+	}
+	private int n_team;
+	
 	public n_boardDto() {
 		super();
 	}
+	
 	@Override
 	public String toString() {
 		return "n_boardDto [n_no=" + n_no + ", n_head=" + n_head + ", n_title=" + n_title + ", n_writer=" + n_writer

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice_board.beans.paging;
-@WebServlet(urlPatterns="/notice_list.do")
+@WebServlet(urlPatterns="/board/notice_list.do")
 public class n_board_list extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
