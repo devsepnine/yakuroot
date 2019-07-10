@@ -50,7 +50,9 @@ public class LoginServlet extends HttpServlet {
 				mdto = mdao.get(m_id);
 				
 				req.getSession().setAttribute("login", mdto.getM_id());
+				req.getSession().setAttribute("auth", mdto.getM_auth());
 				
+				String m_auth = mdto.getM_auth();
 				
 				mdao.lasttime(mdto.getM_id());
 				
