@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" type="text/css" href="/yakuroot/css/common.css">
 <head>
     <title>YAKUROOT</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
