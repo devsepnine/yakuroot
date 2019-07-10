@@ -20,7 +20,20 @@ grant connect, resource to yakuroot;
 /************************************************************
 						  현술
 ************************************************************/
-
+--경기일정 테이블 및 시퀀스
+create table match(
+matach_no number primary key,
+m_date date not null,
+m_time varchar2(8) not null,
+m_team1 constraint fk_club1 references club(c_no)
+on delete set null,
+m_team2 constraint fk_club2 references club(c_no)
+on delete set null,
+m_point1 number,
+m_point2 number,
+m_stadium varchar2(50));
+--시퀀스
+create sequence match_seq;
 
 
 /************************************************************
