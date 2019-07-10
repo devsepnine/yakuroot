@@ -63,10 +63,10 @@ th {
 <div align="center">
 	<h4>
 		<c:if test="${not p.isFirstBlock()}">
-			<a href="n_list.do?${p.getPrevBlcok()}">&lt;&lt;</a>
+			<a href="notice_list.do?${p.getPrevBlcok()}">&lt;&lt;</a>
 		</c:if>
 		<c:if test="${not p.isFirstPage()}">
-			<a href="n_list.do?${p.getPrevPage()}">&lt;</a>
+			<a href="notice_list.do?${p.getPrevPage()}">&lt;</a>
 		</c:if>
 		<c:forEach var="i" begin="${p.getStartBlock()}"
 			end="${p.getEndBlock()}">
@@ -75,15 +75,15 @@ th {
 					<font color="red">${i}</font>
 				</c:when>
 				<c:otherwise>
-					<a href="n_list.do?${p.getPage(i)}">${i}</a>
+					<a href="notice_list.do?${p.getPage(i)}">${i}</a>
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 		<c:if test="${not p.isLastPage()}">
-			<a href="n_list.do?${p.getNextPage()}">&gt;</a>
+			<a href="notice_list.do?${p.getNextPage()}">&gt;</a>
 		</c:if>
 		<c:if test="${not p.isLastBlock()}">
-			<a href="n_list.do?${p.getNextBlock()}">&gt;&gt;</a>
+			<a href="notice_list.do?${p.getNextBlock()}">&gt;&gt;</a>
 		</c:if>
 	</h4>
 </div>
@@ -91,7 +91,7 @@ th {
 <div>
 	<div>
 		<div style="text-align: center;">
-			<form action="n_list.do" method="post" align="center">
+			<form action="notice_list.do" method="post" align="center">
 				<select name="type">
 					<option value="n_title">제목</option>
 				</select> <input type="text" name="keyword" placeholder="검색어"

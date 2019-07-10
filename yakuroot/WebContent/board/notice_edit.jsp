@@ -33,9 +33,11 @@ div {
 						<input type="hidden" name="n_no" value="${ndto.n_no}">
 						<tr>
 							<th width="20%">말머리</th>
-							<td align="center"><select name="n_head">
-									<option value="공지사항">공지</option>
-							</select></td>
+								<td align="center">
+									<select name="n_head">
+										<option value="공지사항">공지</option>
+									</select>
+								</td>
 						</tr>
 						<tr>
 							<th width="20%">글 제목</th>
