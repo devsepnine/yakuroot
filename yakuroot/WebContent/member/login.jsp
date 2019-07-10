@@ -66,8 +66,8 @@ input[name=m_id], input[name=m_pw]{
 						</tr>
 						<tr>
 							<td colspan = "2" align = "center" >
-								<a href ="yakuroot/member/find_id.do"><input type="button" value="ID 찾기" name="find_id"></a>
-								<a href ="yakuroot/member/find_pw.do"><input type="button" value="PW 찾기" name="find_pw"></a>
+								<a href ="<%=request.getContextPath() %>/member/find_id.do"><input type="button" value="ID 찾기" name="find_id"></a>
+								<a href ="find_pw.do"><input type="button" value="PW 찾기" name="find_pw"></a>
 							</td>
 						</tr>
 					</tbody>

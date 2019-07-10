@@ -42,7 +42,7 @@
 									<a href ="../"><input  type="button" value="MAIN" name="index"></a>
 								</td>
 								<td>
-									<a href ="yakuroot/member/login.do"><input  type="button" value="LOGIN" name="index"></a>
+									<a href ="login.do"><input  type="button" value="LOGIN" name="index"></a>
 								</td>
 							</tr>
 							<tr>
