@@ -115,7 +115,7 @@
 					<tr>
 						<td colspan="3" align="reft">
 							<h4>
-								<c:if test="${login eq true}">
+								<c:if test="${my eq true}">
 									<button>
 										<a href="notice_edit.do?n_no=${ndto.n_no}">글 수정</a>
 									</button>
