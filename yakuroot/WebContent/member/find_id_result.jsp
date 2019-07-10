@@ -47,10 +47,10 @@
 							</tr>
 							<tr>
 								<td align = "center">
-									<a href ="../"><input  type="button" value="MAIN" name="index"></a>
+									<a href ="login.do"><input type="button" value="LOGIN" name="login"></a>
 								</td>
 								<td align = "center">
-									<a href ="login.do"><input type="button" value="LOGIN" name="login"></a>
+									<a href ="find_pw.do"><input  type="button" value="FIND PW" name="index"></a>
 								</td>
 							</tr>
 						</tbody>
