@@ -20,16 +20,14 @@ public class f_board_content extends HttpServlet{
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			int no = Integer.parseInt(req.getParameter("no"));
-			String auth = req.getParameter("m_no");
 			f_boardDao bdao = new f_boardDao();
-			MemberDao mdao = new MemberDao();
-			
-			bdao.readone(no);
+		
+			bdao.readone(no);//조회수 증가용
+					
 			
 			f_boardDto bdto = bdao.get(no);
-			MemberDto mdto = mdao.get(auth);
+			//글 쓴사람과 내가 동일한가를 묻는 코드
 			boolean my = bdto.getF_writer().equals(req.getSession().getAttribute("login"));
-			boolean admin = mdto.getM_auth().equals(req.getSession().getAttribute("auth"));
 			
 			CommentDao cdao = new CommentDao();
 			List<CommentDto> list = cdao.get(no);
@@ -37,10 +35,9 @@ public class f_board_content extends HttpServlet{
 			p.calculate();
 			
 			req.setAttribute("list2", list);
-			req.setAttribute("login", my);
+			req.setAttribute("my", my);
 			req.setAttribute("bdto", bdto);
 			req.setAttribute("p", p);
-			req.setAttribute("admin", admin);
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/board/f_content.jsp");
 			dispatcher.forward(req, resp);	

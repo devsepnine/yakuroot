@@ -22,23 +22,24 @@ public class n_board_content extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			int no = Integer.parseInt(req.getParameter("no"));
-			String auth = req.getParameter("m_no");
+			String id = (String) req.getSession().getAttribute("login");
 			n_boardDao ndao = new n_boardDao();
 			MemberDao mdao = new MemberDao();
 
 			ndao.readone(no);
 
 			n_boardDto ndto = ndao.get(no);
-			MemberDto mdto = mdao.get(auth);
+			MemberDto mdto = mdao.get(id);
 			boolean my = ndto.getN_writer().equals(req.getSession().getAttribute("login"));
 			boolean admin = mdto.getM_auth().equals(req.getSession().getAttribute("auth"));
+			
 
-			CommentDao cdao = new CommentDao();
-			List<CommentDto> list = cdao.get(no);
+//			CommentDao cdao = new CommentDao();
+//			List<CommentDto> list = cdao.get(no);
 			paging p = new paging(req);
 			p.calculate();
 
-			req.setAttribute("list2", list);
+//			req.setAttribute("list2", list);
 			req.setAttribute("login", my);
 			req.setAttribute("ndto", ndto);
 			req.setAttribute("p", p);

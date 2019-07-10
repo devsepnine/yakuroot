@@ -17,16 +17,13 @@
      min-height:480px;
      }
      </style>
-
-<!-- 공지게시판 글 쓰기 jsp -->
-<div align="center">
-	<form action="notice_write.do" method="post">
-
-		<!-- 답글일 경우 parent값을 전달 -->
-		<%-- 	<%if(request.getParameter("parent")!=null){%> --%>
 		<%
 			String login = (String) session.getAttribute("login");
 		%>
+
+<!-- 공지게시판 글 쓰기 jsp -->
+<div align="center">
+	<form action="n_write.do" method="post">
 		말머리:<select name="n_head">
 					<option value="공지사항">공지사항</option>
 				</select> 
@@ -35,7 +32,7 @@
 			글 제목: <input type="text" name="n_title" required
 			placeholder="제목" size="60"> 
 			<input type="hidden"
-			name="n_writer" value="<%=login%>">
+			name="n_writer" value="${login}">
 			<br>
 			<br>
 			
