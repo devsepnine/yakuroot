@@ -56,8 +56,6 @@
             
             var result = m_pw1 == m_pw2;
             
-            console.log(result);
-
             
             var div = document.querySelector(".m_pwD2");
 			
