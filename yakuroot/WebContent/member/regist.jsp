@@ -12,8 +12,8 @@
 		$("input[name=registbtn]").prop("disabled", true)
 									.css("background-color", "lightgray");
 		
-		$("input[name=m_postcode]").prop("disabled", true);
-		$("input[name=m_addr1]").prop("disabled", true);
+// 		$("input[name=m_postcode]").prop("disabled", true);
+// 		$("input[name=m_addr1]").prop("disabled", true);
 	});
 	
 </script>
@@ -306,9 +306,9 @@
 						<tr>
 							<td><label for="m_addr">ADDRESS</label></td>
 							<td>
-								<input type="text" name="m_postcode" placeholder="우편번호" required >
+								<input type="text" name="m_postcode" placeholder="우편번호" required readonly >
 									<input type="button" value="우편번호 찾기" name="postcode_find"><br>
-									<input type="text" name="m_addr1" placeholder="주소" required ><br>
+									<input type="text" name="m_addr1" placeholder="주소" required readonly ><br>
 									<input type="text" name="m_addr2" placeholder="상세주소" >
 							</td>
 						</tr>
