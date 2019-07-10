@@ -11,6 +11,9 @@
 	$(function(){
 		$("input[name=registbtn]").prop("disabled", true)
 									.css("background-color", "lightgray");
+		
+		$("input[name=m_postcode]").prop("disabled", true);
+		$("input[name=m_addr1]").prop("disabled", true);
 	});
 	
 </script>
