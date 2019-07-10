@@ -133,12 +133,12 @@
                         <td>
                             <ul class="menubox">
                                 <li class="menu1">
-                                    <a href="#" class="top_m" title="구단소개">구단소개</a>
+                                    <a href="#" class="top_m" title="구단소개">K B O</a>
                                     <div class="sub_menus">
                                         <ul>
-                                            <li>구단메뉴1</li>
-                                            <li>구단메뉴2</li>
-                                            <li>구단메뉴3</li>
+                                            <li><a href="<%=request.getContextPath()%>/club/select_club.jsp">구단 소개</a></li>
+                                            <li>구장 소개</li>
+                                            <li>선수 소개</li>
                                         </ul>
                                     </div>
                                 </li>
