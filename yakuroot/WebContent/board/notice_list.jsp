@@ -48,7 +48,7 @@ th {
 						<td colspan="6" align="right">
 						<c:if test="${mdto.m_auth==admin}">
 							<button>
-								<a href="notice_write.do">글쓰기</a>
+								<a href="notice_write.jsp">글쓰기</a>
 							</button>
 						</c:if>
 						</td>
@@ -90,7 +90,7 @@ th {
 <div>
 	<div>
 		<div style="text-align: center;">
-			<form action="n_list.do" method="get" align="center">
+			<form action="n_list.do" method="post" align="center">
 				<select name="type">
 					<option value="n_title">제목</option>
 				</select> <input type="text" name="keyword" placeholder="검색어"

@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import f_board.beans.f_boardDao;
-import f_board.beans.f_boardDto;
-@WebServlet(urlPatterns="/notice_write.do")
+import notice_board.beans.n_boardDao;
+import notice_board.beans.n_boardDto;
+@WebServlet(urlPatterns="/board/n_write.do")
 public class n_board_write extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/notice_write.jsp");
-		dispatcher.forward(req, resp);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/n_write.jsp");
+		dispatcher.forward(req, resp); 
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

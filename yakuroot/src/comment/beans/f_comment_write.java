@@ -24,7 +24,6 @@ public class f_comment_write extends HttpServlet{
 			CommentDao cdao = new CommentDao();
 			
 			cdao.write(cdto);
-			//���
 			resp.sendRedirect(req.getContextPath()+"/board/f_content.do?no="+cdto.getOrigin());
 				
 		}catch (Exception e) {
