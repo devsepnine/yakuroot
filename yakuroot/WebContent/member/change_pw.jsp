@@ -84,7 +84,7 @@
 		text-align: center;
 		margin-top : 100px;
 		margin-bottom : 100px;
-		padding : 30px;
+		padding : 20px;
 	}
 	
 	 input[name=m_pw], input[name=m_pw2]{
