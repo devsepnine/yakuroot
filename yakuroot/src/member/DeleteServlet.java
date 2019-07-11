@@ -24,7 +24,7 @@ public class DeleteServlet extends HttpServlet {
 			MemberDao mdao = new MemberDao();
 			mdao.exit(m_id);
 
-			resp.sendRedirect("goodbye.jsp");
+			resp.sendRedirect("delete.jsp");
 			
 		} catch (Exception e) {
 			resp.sendError(500);
