@@ -1,4 +1,4 @@
-package player;
+package player.servlet;
 
 public class Sample {
 
