@@ -39,6 +39,15 @@ m_stadium varchar2(50));
 drop table match;
 
 create sequence match_seq;
+-----------------MacthUp View 생성------------------------------
+create or replace view matchup as
+select 
+    m.match_no, m.m_date, c1.c_name as m_team1, m.m_point1, m.m_point2, c2.c_name as m_team2, m.m_stadium
+from match m
+    inner join club c1 on m.m_team1 = c1.c_no
+    inner join club c2 on m.m_team2 = c2.c_no
+order by 
+    m.match_no desc;
 
 
 /************************************************************
