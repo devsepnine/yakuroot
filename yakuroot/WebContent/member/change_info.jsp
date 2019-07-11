@@ -40,24 +40,20 @@
 					   		<td><input type="text" value="${mdto.m_id}"  readonly></td>
 					   		</tr>
 					   		<tr>
-					   		<th>PW</th>
-					   		<td><a href ="change_pw.do"><input type="button" value="CHANGE PW" name="change_pw"></td>
-					   		</tr>
-					   		<tr>
 					   		<th>NAME</th>
 					   		<td><input type="text" value="${mdto.m_name}"  readonly></td>
 					   		</tr>
 					   		<tr>
 					   		<th>BIRTH</th>
-					   		<td><input type="text" value="${mdto.m_birth}"  readonly></td>
+					   		<td><input type="text" value="${mdto.m_birth}" required></td>
 					   		</tr>
 					   		<tr>
 					   		<th>PHONE</th>
-					   		<td><input type="text" value="${mdto.m_phone}"  readonly></td>
+					   		<td><input type="text" value="${mdto.m_phone}" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required></td>
 					   		</tr>
 					   		<tr>
-					   		<th>EMAIL</th>
-					   		<td><input type="text" value="${mdto.m_email}"  readonly></td>
+					   		<th>EMAIL</th>  <%-- 이메일 한번에 받았는데 어떻게 어쩌고만 찍지...? --%>
+					   		<td><input type="text" value="${mdto.m_email}"  pattern="^[a-z0-9]{8,15}$" required></td>
 					   		</tr>
 					   		<tr>
 					   		<th>POST CODE</th>

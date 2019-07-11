@@ -317,7 +317,7 @@
 							<td><label for="m_fav">MY TEAM</label></td>
 							<td>
 								<select name="m_fav">
-									<option value="none">선택 안함</option>
+									<option value="선택안함">선택 안함</option>
 									<option value="doosan">두산베어스</option>
 									<option value="sk">SK와이번즈</option>
 									<option value="kiwoom">키움히어로즈</option>
