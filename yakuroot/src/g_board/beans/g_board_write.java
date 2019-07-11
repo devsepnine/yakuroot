@@ -27,7 +27,7 @@ public class g_board_write extends HttpServlet{
 		g_boardDao gdao = new g_boardDao();
 		
 		//아래 3개는 파일의 저장 형식
-		String path = "D:\\g_upload";
+		String path = "d:/g_upload";
 		int max = 10*1024*1024;
 		String enc = "UTF-8";
 		
