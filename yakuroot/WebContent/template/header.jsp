@@ -346,7 +346,7 @@ SETTINGS
                         <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
                         </c:when>
                         <c:otherwise>
-                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "#">회원정보</a><a href = "#">고객센터</a></div></td>
+                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "<%=request.getContextPath()%>/member/info.do">회원정보</a><a href = "#">고객센터</a></div></td>
                         </c:otherwise>
                         </c:choose>
                     </tr>
