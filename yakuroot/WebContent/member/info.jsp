@@ -72,7 +72,7 @@
 					   		<td><input type="text" value="${mdto.m_addr2}"  readonly></td>
 					   		</tr>
 					   		<tr>
-					   		<th>FAV</th>
+					   		<th>MY TEAM</th>
 					   		<td><input type="text" value="${mdto.m_fav}"  readonly></td>
 					   		</tr>
 					   		<tr>

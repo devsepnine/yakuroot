@@ -65,8 +65,20 @@
 							</td>
 							</tr>
 					   		<tr>
-					   		<th>FAV</th>
-					   		<td><input type="text" value="${mdto.m_fav}"  readonly></td>
+					   		<th>MY TEAM</th>
+					   		<td><select name="m_fav">
+									<option>선택 안함</option>
+									<option>두산베어스</option>
+									<option>SK와이번즈</option>
+									<option>키움히어로즈</option>
+									<option>LG트윈스</option>
+									<option>NC다이노스</option>
+									<option>KT위즈</option>
+									<option>삼성라이온즈</option>
+									<option>KIA타이거즈</option>
+									<option>한화이글즈</option>
+									<option>롯데자이언트</option>
+									</select></td>
 					   		</tr>
 					   		<tr>
 					   		<th>AUTH</th>
