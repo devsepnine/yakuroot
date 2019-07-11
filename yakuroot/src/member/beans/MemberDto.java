@@ -1,4 +1,4 @@
-package m_beans;
+package member.beans;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

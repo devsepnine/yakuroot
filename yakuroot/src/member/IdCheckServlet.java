@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import m_beans.MemberDao;
-import m_beans.MemberDto;
+import member.beans.MemberDao;
+import member.beans.MemberDto;
 
 //클라이언트의 아이디 중복확인 비동기 요청을 처리하는 서블릿
 // - 들어오는 데이터 : 사용자의 이메일(email)

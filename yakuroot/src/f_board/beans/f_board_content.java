@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import comment.beans.CommentDao;
 import comment.beans.CommentDto;
-import m_beans.MemberDao;
-import m_beans.MemberDto;
+import member.beans.MemberDao;
+import member.beans.MemberDto;
 @WebServlet(urlPatterns="/board/f_content.do")
 public class f_board_content extends HttpServlet{
 	@Override

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import m_beans.MemberDao;
-import m_beans.MemberDto;
+import member.beans.MemberDao;
+import member.beans.MemberDto;
 
 
 @WebServlet(urlPatterns = "/member/find_id.do")
