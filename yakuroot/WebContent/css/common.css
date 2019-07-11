@@ -1,20 +1,20 @@
 /************************************************************
-    ±âº» ÆùÆ® ¼³Á¤ / test Å×µÎ¸® ºÎ¿©
+    ê¸°ë³¸ í°íŠ¸ ì„¤ì • / test í…Œë‘ë¦¬ ë¶€ì—¬
 *************************************************************/
 @font-face {
-    font-family: littlebear;
+    font-family: bear;
     src: url("../font/bear.ttf");
 }
 
 * {
     box-sizing: border-box;
-    font-family: littlebear;
+    font-family: bear;
 }
 
-/* body¿¡ test°¡ ºÙ¾îÀÖ´Ù¸é ±× ¾È¿¡ ÀÖ´Â div¿¡ Å×µÎ¸® ºÎ¿©*/
-/* >´Â Á÷°è ÀÚ½Ä ÅÂ±×¸¦ ÀÇ¹Ì */
+/* bodyì— testê°€ ë¶™ì–´ìˆë‹¤ë©´ ê·¸ ì•ˆì— ìˆëŠ” divì— í…Œë‘ë¦¬ ë¶€ì—¬*/
+/* >ëŠ” ì§ê³„ ìì‹ íƒœê·¸ë¥¼ ì˜ë¯¸ */
 /* body[test] > div {*/
-/* ±×³É ¶ç¾î¾²±â·Î ¾²¸é ¸ğµçÀÚ½Ä ÅÂ±×¸¦ ÀÇ¹Ì*/
+/* ê·¸ëƒ¥ ë„ì–´ì“°ê¸°ë¡œ ì“°ë©´ ëª¨ë“ ìì‹ íƒœê·¸ë¥¼ ì˜ë¯¸*/
 body[test] div,
 body[test] p,
 body[test] span,
@@ -30,7 +30,7 @@ body[test] article {
 }
 
 /************************************************************
-    ÆäÀÌÁö ³×ºñ°ÔÀÌÅÍ ½ºÅ¸ÀÏ    
+    í˜ì´ì§€ ë„¤ë¹„ê²Œì´í„° ìŠ¤íƒ€ì¼    
 *************************************************************/
 .navigator {
     list-style: none;
@@ -43,7 +43,7 @@ body[test] article {
     color: white;
     padding;
     1rem;
-    /* ÃÖ¼Ò Æø ÁöÁ¤ : ³Ñ¾î°¥ °æ¿ì ´Ã¾î³² */
+    /* ìµœì†Œ í­ ì§€ì • : ë„˜ì–´ê°ˆ ê²½ìš° ëŠ˜ì–´ë‚¨ */
     min-width: 20px;
     text-align: center
 }
@@ -53,7 +53,7 @@ body[test] article {
 }
 
 /************************************************************
-   ¸Ş´º  
+   ë©”ë‰´  
 *************************************************************/
 .menu {
     width: 100%;
@@ -77,12 +77,12 @@ body[test] article {
 }
 
 .menu > li {
-    /* ´ë ¸Ş´º */
+    /* ëŒ€ ë©”ë‰´ */
     display: inline-block;
     width: 100px;
     text-align: center;
 
-    /* ÀÌ ½ºÅ¸ÀÏ Àû¿ë½Ã ... Ã³¸® */
+    /* ì´ ìŠ¤íƒ€ì¼ ì ìš©ì‹œ ... ì²˜ë¦¬ */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,7 +118,7 @@ body[test] article {
 }
 
 /************************************************************
-   Å×ÀÌºí
+   í…Œì´ë¸”
 *************************************************************/
 .table {
     border: 1px solid gray;
@@ -136,17 +136,17 @@ body[test] article {
     padding: 0.3rem;
 }
 
-/* table hover  ½ºÅ¸ÀÏ*/
+/* table hover  ìŠ¤íƒ€ì¼*/
 .table.table-hover > tbody > tr:hover {
     background-color: #EBF5FF;
 }
 
-/* ÁÙ¹«´Ì Å×ÀÌºí */
+/* ì¤„ë¬´ëŠ¬ í…Œì´ë¸” */
 .table.table-stripe > tbody > tr:nth-child(2n) {
     background-color: #EBF5FF;
 }
 
-/* ¼± ¾ø´Â Å×ÀÌºí */
+/* ì„  ì—†ëŠ” í…Œì´ë¸” */
 .table.table-noline,
 .table.table-noline > thead > tr > th,
 .table.table-noline > thead > tr > td,
@@ -157,7 +157,7 @@ body[test] article {
     border: none;
 }
 
-/* °¡·Î¼±¸¸ ÀÖ´Â Å×ÀÌºí */
+/* ê°€ë¡œì„ ë§Œ ìˆëŠ” í…Œì´ë¸” */
 . .table.table-hamburg {
     border-top: 1.5px solid black;
     border-bottom: 1.5px solid black;
@@ -184,7 +184,7 @@ body[test] article {
 
 
 /************************************************************
-   ³»¿ë Á¤·Ä
+   ë‚´ìš© ì •ë ¬
 *************************************************************/
 .text-left {
     text-align: left;
@@ -206,11 +206,11 @@ body[test] article {
 .form select,
 .form textarea {
     outline: none;
-    /* ÀÚµ¿¼±ÅÃÇÏ¸é ³ª¿À´Â Å×µÎ¸® ???*/
+    /* ìë™ì„ íƒí•˜ë©´ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ???*/
     padding: 0.5rem;
 }
 
-/* ÀÔ·ÂÃ¢ : input(submit, button, reset »©°í), select, textarea */
+/* ì…ë ¥ì°½ : input(submit, button, reset ë¹¼ê³ ), select, textarea */
 .form input:not([type=submit]):not([type=button]):not([type=reset]),
 .form select,
 .form textarea {
@@ -218,7 +218,7 @@ body[test] article {
     background-color: #DCEBFF;
 }
 
-/* ¹öÆ° : input(submit, button, reser) + button*/
+/* ë²„íŠ¼ : input(submit, button, reser) + button*/
 .form button,
 .form input[type=submit],
 .form input[type=button],
@@ -230,7 +230,7 @@ body[test] article {
 }
 
 
-/* ¼öÁ÷ Æû È®Àå ½ºÅ¸ÀÏ */
+/* ìˆ˜ì§ í¼ í™•ì¥ ìŠ¤íƒ€ì¼ */
 .form.form-vertical input:not([type=submit]):not([type=button]):not([type=reset]),
 .form.form-vertical select,
 .form.form-vertical textarea {
@@ -269,9 +269,9 @@ body[test] article {
 }
 
 /* 
-            form-group¿¡¼­ »ç¿ëÇÑ float¸¦ Á¤¸®ÇÏ´Â ½ºÅ¸ÀÏ
-             - ½ÇÁ¦·Î Á¸ÀçÇÏ´Â ¿µ¿ªÀÌ ¾Æ´Ô
-             - ½ÇÃ¼È­ ½ÃÅ² ´ÙÀ½ ½ºÅ¸ÀÏÀ» Àû¿ë
+            form-groupì—ì„œ ì‚¬ìš©í•œ floatë¥¼ ì •ë¦¬í•˜ëŠ” ìŠ¤íƒ€ì¼
+             - ì‹¤ì œë¡œ ì¡´ì¬í•˜ëŠ” ì˜ì—­ì´ ì•„ë‹˜
+             - ì‹¤ì²´í™” ì‹œí‚¨ ë‹¤ìŒ ìŠ¤íƒ€ì¼ì„ ì ìš©
         */
 .form.form-label .form-group::after {
     content: "";
@@ -306,22 +306,22 @@ body[test] article {
             padding:0.5rem 1rem;
         }
 /************************************************************
-    ±âº» ÆùÆ® ¼³Á¤ / test Å×µÎ¸® ºÎ¿©
+    ê¸°ë³¸ í°íŠ¸ ì„¤ì • / test í…Œë‘ë¦¬ ë¶€ì—¬
 *************************************************************/
 @font-face {
-    font-family: ¹ĞÅ©»çÅÁ;
-    src: url("../font/¹ĞÅ©»çÅÁ.ttf");
+    font-family: ë°€í¬ì‚¬íƒ•;
+    src: url("../font/ë°€í¬ì‚¬íƒ•.ttf");
 }
 
 * {
     box-sizing: border-box;
-    font-family: ¹ĞÅ©»çÅÁ;
+    font-family: ë°€í¬ì‚¬íƒ•;
 }
 
-/* body¿¡ test°¡ ºÙ¾îÀÖ´Ù¸é ±× ¾È¿¡ ÀÖ´Â div¿¡ Å×µÎ¸® ºÎ¿©*/
-/* >´Â Á÷°è ÀÚ½Ä ÅÂ±×¸¦ ÀÇ¹Ì */
+/* bodyì— testê°€ ë¶™ì–´ìˆë‹¤ë©´ ê·¸ ì•ˆì— ìˆëŠ” divì— í…Œë‘ë¦¬ ë¶€ì—¬*/
+/* >ëŠ” ì§ê³„ ìì‹ íƒœê·¸ë¥¼ ì˜ë¯¸ */
 /* body[test] > div {*/
-/* ±×³É ¶ç¾î¾²±â·Î ¾²¸é ¸ğµçÀÚ½Ä ÅÂ±×¸¦ ÀÇ¹Ì*/
+/* ê·¸ëƒ¥ ë„ì–´ì“°ê¸°ë¡œ ì“°ë©´ ëª¨ë“ ìì‹ íƒœê·¸ë¥¼ ì˜ë¯¸*/
 body[test] div,
 body[test] p,
 body[test] span,
@@ -337,7 +337,7 @@ body[test] article {
 }
 
 /************************************************************
-    ÆäÀÌÁö ³×ºñ°ÔÀÌÅÍ ½ºÅ¸ÀÏ    
+    í˜ì´ì§€ ë„¤ë¹„ê²Œì´í„° ìŠ¤íƒ€ì¼    
 *************************************************************/
 .navigator {
     list-style: none;
@@ -350,7 +350,7 @@ body[test] article {
     color: white;
     padding;
     1rem;
-    /* ÃÖ¼Ò Æø ÁöÁ¤ : ³Ñ¾î°¥ °æ¿ì ´Ã¾î³² */
+    /* ìµœì†Œ í­ ì§€ì • : ë„˜ì–´ê°ˆ ê²½ìš° ëŠ˜ì–´ë‚¨ */
     min-width: 20px;
     text-align: center
 }
@@ -360,7 +360,7 @@ body[test] article {
 }
 
 /************************************************************
-   ¸Ş´º  
+   ë©”ë‰´  
 *************************************************************/
 .menu {
     width: 100%;
@@ -384,12 +384,12 @@ body[test] article {
 }
 
 .menu > li {
-    /* ´ë ¸Ş´º */
+    /* ëŒ€ ë©”ë‰´ */
     display: inline-block;
     width: 100px;
     text-align: center;
 
-    /* ÀÌ ½ºÅ¸ÀÏ Àû¿ë½Ã ... Ã³¸® */
+    /* ì´ ìŠ¤íƒ€ì¼ ì ìš©ì‹œ ... ì²˜ë¦¬ */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -425,7 +425,7 @@ body[test] article {
 }
 
 /************************************************************
-   Å×ÀÌºí
+   í…Œì´ë¸”
 *************************************************************/
 .table {
     border: 1px solid gray;
@@ -443,17 +443,17 @@ body[test] article {
     padding: 0.3rem;
 }
 
-/* table hover  ½ºÅ¸ÀÏ*/
+/* table hover  ìŠ¤íƒ€ì¼*/
 .table.table-hover > tbody > tr:hover {
     background-color: #EBF5FF;
 }
 
-/* ÁÙ¹«´Ì Å×ÀÌºí */
+/* ì¤„ë¬´ëŠ¬ í…Œì´ë¸” */
 .table.table-stripe > tbody > tr:nth-child(2n) {
     background-color: #EBF5FF;
 }
 
-/* ¼± ¾ø´Â Å×ÀÌºí */
+/* ì„  ì—†ëŠ” í…Œì´ë¸” */
 .table.table-noline,
 .table.table-noline > thead > tr > th,
 .table.table-noline > thead > tr > td,
@@ -464,7 +464,7 @@ body[test] article {
     border: none;
 }
 
-/* °¡·Î¼±¸¸ ÀÖ´Â Å×ÀÌºí */
+/* ê°€ë¡œì„ ë§Œ ìˆëŠ” í…Œì´ë¸” */
 . .table.table-hamburg {
     border-top: 1.5px solid black;
     border-bottom: 1.5px solid black;
@@ -491,7 +491,7 @@ body[test] article {
 
 
 /************************************************************
-   ³»¿ë Á¤·Ä
+   ë‚´ìš© ì •ë ¬
 *************************************************************/
 .text-left {
     text-align: left;
@@ -513,11 +513,11 @@ body[test] article {
 .form select,
 .form textarea {
     outline: none;
-    /* ÀÚµ¿¼±ÅÃÇÏ¸é ³ª¿À´Â Å×µÎ¸® ???*/
+    /* ìë™ì„ íƒí•˜ë©´ ë‚˜ì˜¤ëŠ” í…Œë‘ë¦¬ ???*/
     padding: 0.5rem;
 }
 
-/* ÀÔ·ÂÃ¢ : input(submit, button, reset »©°í), select, textarea */
+/* ì…ë ¥ì°½ : input(submit, button, reset ë¹¼ê³ ), select, textarea */
 .form input:not([type=submit]):not([type=button]):not([type=reset]),
 .form select,
 .form textarea {
@@ -525,7 +525,7 @@ body[test] article {
     background-color: #DCEBFF;
 }
 
-/* ¹öÆ° : input(submit, button, reser) + button*/
+/* ë²„íŠ¼ : input(submit, button, reser) + button*/
 .form button,
 .form input[type=submit],
 .form input[type=button],
@@ -537,7 +537,7 @@ body[test] article {
 }
 
 
-/* ¼öÁ÷ Æû È®Àå ½ºÅ¸ÀÏ */
+/* ìˆ˜ì§ í¼ í™•ì¥ ìŠ¤íƒ€ì¼ */
 .form.form-vertical input:not([type=submit]):not([type=button]):not([type=reset]),
 .form.form-vertical select,
 .form.form-vertical textarea {
@@ -576,9 +576,9 @@ body[test] article {
 }
 
 /* 
-            form-group¿¡¼­ »ç¿ëÇÑ float¸¦ Á¤¸®ÇÏ´Â ½ºÅ¸ÀÏ
-             - ½ÇÁ¦·Î Á¸ÀçÇÏ´Â ¿µ¿ªÀÌ ¾Æ´Ô
-             - ½ÇÃ¼È­ ½ÃÅ² ´ÙÀ½ ½ºÅ¸ÀÏÀ» Àû¿ë
+            form-groupì—ì„œ ì‚¬ìš©í•œ floatë¥¼ ì •ë¦¬í•˜ëŠ” ìŠ¤íƒ€ì¼
+             - ì‹¤ì œë¡œ ì¡´ì¬í•˜ëŠ” ì˜ì—­ì´ ì•„ë‹˜
+             - ì‹¤ì²´í™” ì‹œí‚¨ ë‹¤ìŒ ìŠ¤íƒ€ì¼ì„ ì ìš©
         */
 .form.form-label .form-group::after {
     content: "";
