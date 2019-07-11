@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
+		<%
+			String login = (String) session.getAttribute("login");
+		%>
+		<%
+			if (request.getParameterMap().containsKey("g_parent")) {
+		%>
+		<input type="hidden" name="g_parent"
+			value="<%=request.getParameter("g_parent")%>">
+		<%
+			}
+		%>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="../js/ckeditor.js"></script>
 <script>
@@ -21,18 +32,7 @@
 <!-- 갤러리 글 쓰기 jsp -->
 <div align="center">
 
-	<form action="g_write.do" method="post">
-		<%
-			String login = (String) session.getAttribute("login");
-		%>
-		<%
-			if (request.getParameterMap().containsKey("g_parent")) {
-		%>
-		<input type="hidden" name="g_parent"
-			value="<%=request.getParameter("g_parent")%>">
-		<%
-			}
-		%>
+	<form action="g_write.do" method="post" enctype="multipart/form-data">
 		말머리:<select name="g_head">
 			<option value="talk">잡담</option>
 			<option value="hanhwa">한화이글즈</option>
