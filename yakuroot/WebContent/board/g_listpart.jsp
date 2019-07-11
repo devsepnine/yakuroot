@@ -48,7 +48,7 @@ margin : auto;
 					</tbody>
 					<tfoot>
 						<tr>
-						<c:if test="${login eq true}">
+						<c:if test="${login!=null}">
 							<td colspan="6" align="right">
 								<button>
 									<a href="g_write.do">글쓰기</a>

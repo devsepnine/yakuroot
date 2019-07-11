@@ -49,15 +49,15 @@ th {
 					</c:forEach>
 				</tbody>
 				<tfoot>
-					<tr>
-						<c:if test="${login eq true}">
+					<c:if test="${login eq true}">
+						<tr>
 							<td colspan="6" align="right">
 								<button class="btn btn-outline-primary">
 									<a href="f_write.do">글쓰기</a>
 								</button>
 							</td>
-						</c:if>
-					</tr>
+						</tr>
+					</c:if>
 				</tfoot>
 			</table>
 		</div>

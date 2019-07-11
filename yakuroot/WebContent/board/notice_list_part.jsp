@@ -45,13 +45,13 @@ th {
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="6" align="right">
 						<c:if test="${auth eq '관리자'}">
+						<td colspan="6" align="right">
 							<button>
 								<a href="notice_write.jsp">글쓰기</a>
 							</button>
-						</c:if>
 						</td>
+						</c:if>
 						
 					</tr>
 				</tfoot>

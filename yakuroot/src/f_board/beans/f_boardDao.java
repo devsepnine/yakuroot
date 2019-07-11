@@ -8,13 +8,26 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import f_board.beans.f_boardDto;
 
 public class f_boardDao {
+	static DataSource src;
+	static {
+		try {
+			Context ctx = new InitialContext();
+			src = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} catch (Exception e) {
+			System.err.println("dbcp err");
+			e.printStackTrace();
+		}
+	}
+
 	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "yakuroot", "baseball");
-		return con;
+		return src.getConnection();
 	}
 
 	public int write(f_boardDto bdto) throws Exception {
@@ -26,7 +39,7 @@ public class f_boardDao {
 		rs.next();
 		int no = rs.getInt(1);
 		ps.close();
-		
+
 		int f_team;
 		if (bdto.getF_parent() > 0) {
 			sql = "select f_team from f_board where f_no = ?";
@@ -39,7 +52,7 @@ public class f_boardDao {
 		} else {
 			f_team = no;
 		}
-	
+
 		sql = "insert into f_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from f_board where f_no=?),?)";
 
 		ps = con.prepareStatement(sql);
@@ -138,7 +151,7 @@ public class f_boardDao {
 		ResultSet rs = ps.executeQuery();
 
 		f_boardDto bdto1 = new f_boardDto();
-		
+
 		if (rs.next()) {
 			bdto1.setDate(rs);
 		} else {
@@ -147,34 +160,36 @@ public class f_boardDao {
 		con.close();
 		return bdto1;
 	}
-	public void readone(int no) throws Exception{
-		Connection con = this.getConnection();		
-		String sql="update f_board set "
-				+ "f_read = f_read + 1 where f_no = ?";
+
+	public void readone(int no) throws Exception {
+		Connection con = this.getConnection();
+		String sql = "update f_board set " + "f_read = f_read + 1 where f_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ps.execute();
 		con.close();
-}
-	public void delete(int no) throws Exception{
+	}
+
+	public void delete(int no) throws Exception {
 		Connection con = this.getConnection();
 		String sql = "delete f_board where f_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ps.execute();
-		
+
 		con.close();
 	}
-	public f_boardDto edit(f_boardDto bdto) throws Exception{//ȸ������ �˻� �޼ҵ�
-		Connection con = this.getConnection();		
-		String sql="update f_board set f_head = ?, f_title = ?, f_content = ? where f_no = ?";
+
+	public f_boardDto edit(f_boardDto bdto) throws Exception {// ȸ������ �˻� �޼ҵ�
+		Connection con = this.getConnection();
+		String sql = "update f_board set f_head = ?, f_title = ?, f_content = ? where f_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, bdto.getF_head());
 		ps.setString(2, bdto.getF_title());
 		ps.setString(3, bdto.getF_content());
 		ps.setInt(4, bdto.getF_no());
-		ps.execute();	
+		ps.execute();
 		con.close();
 		return bdto;
-		}
+	}
 }

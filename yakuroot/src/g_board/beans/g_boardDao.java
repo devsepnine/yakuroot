@@ -1,19 +1,30 @@
 package g_board.beans;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 
 public class g_boardDao {
-	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "yakuroot", "baseball");
-		return con;
+	static DataSource src;
+	static {
+		try {
+			Context ctx = new InitialContext();
+			src = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} catch (Exception e) {
+			System.err.println("dbcp err");
+			e.printStackTrace();
+		}
+	}
+	public Connection getConnection() throws Exception{
+		return src.getConnection();
 	}
 
 	public int write(g_boardDto gdto) throws Exception {
@@ -39,7 +50,8 @@ public class g_boardDao {
 			g_team = no;
 		}
 
-		sql = "insert into g_board values(?,?,?,?,?,0,sysdate,?,(select nvl(g_depth,0)+1 from g_board where g_no=?),?)";
+		sql = "insert into g_board values(?,?,?,?,?,0,sysdate,?,"
+				+ "(select nvl(g_depth,0)+1 from g_board where g_no=?),?),?,?,?,?";
 
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -54,6 +66,13 @@ public class g_boardDao {
 		}
 		ps.setInt(7, gdto.getG_parent());
 		ps.setInt(8, g_team);
+		if (gdto.getG_savename()!=null) {
+			ps.setString(9, gdto.getG_savename());
+			ps.setString(10, gdto.getG_uploadname());
+			ps.setLong(11, gdto.getG_len());
+			ps.setString(2, gdto.getG_type());
+		} 
+		
 
 		System.out.println(gdto);
 		ps.execute();
