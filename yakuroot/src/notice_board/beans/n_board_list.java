@@ -1,6 +1,7 @@
 package notice_board.beans;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice_board.beans.paging;
+import notice_comment.beans.CommentDao;
+import notice_comment.beans.CommentDto;
 @WebServlet(urlPatterns="/board/notice_list.do")
 public class n_board_list extends HttpServlet{
 	@Override
@@ -18,6 +21,7 @@ public class n_board_list extends HttpServlet{
 			paging p = new paging(req);
 			p.calculate();
 			req.setAttribute("p", p);
+			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/board/notice_list.jsp");
 			dispatcher.forward(req, resp);
 

@@ -1,5 +1,6 @@
 package f_board.beans;
 
+import java.net.URLEncoder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.Format;
@@ -86,6 +87,7 @@ public class f_boardDto {
 	public void setF_team(int f_team) {
 		this.f_team = f_team;
 	}
+
 	public void setDate(ResultSet rs) throws SQLException{
 		this.setF_no(rs.getInt("f_no"));
 		this.setF_head(rs.getString("f_head"));

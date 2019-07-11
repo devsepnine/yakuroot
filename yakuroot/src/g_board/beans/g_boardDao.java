@@ -194,5 +194,22 @@ public class g_boardDao {
 		con.close();
 		return gdto;
 		}
+	public g_boardDto getdown(String gdto) throws Exception {
+		Connection con = this.getConnection();
+		String sql = "select * from g_board where g_savename= ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, gdto);
+		ResultSet rs = ps.executeQuery();
+
+		g_boardDto gdto1 = new g_boardDto();
+
+		if (rs.next()) {
+			gdto1.setDate(rs);
+		} else {
+			gdto1 = null;
+		}
+		con.close();
+		return gdto1;
+	}
 
 }
