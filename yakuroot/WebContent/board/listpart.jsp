@@ -41,7 +41,7 @@ th {
 									<font color="black">☞</font>
 								</c:forEach> <c:if test="${bdto.f_depth > 0}">
 									<img src="/study/image/다운로드.jpg" width="30" height="20">
-								</c:if><a href="f_content.do?no=${bdto.f_no}"> ${bdto.f_title}</a></td>
+								</c:if><a href="f_content.do?no=${bdto.f_no}"> ${bdto.f_title}</a>[${list2.size()}]</td>
 							<td>${bdto.f_writer}</td>
 							<td>${bdto.date}</td>
 							<td>${bdto.f_read}</td>
@@ -49,15 +49,15 @@ th {
 					</c:forEach>
 				</tbody>
 				<tfoot>
-					<c:if test="${login eq true}">
 						<tr>
+					<c:if test="${login!=null}">
 							<td colspan="6" align="right">
 								<button class="btn btn-outline-primary">
 									<a href="f_write.do">글쓰기</a>
 								</button>
 							</td>
-						</tr>
 					</c:if>
+						</tr>
 				</tfoot>
 			</table>
 		</div>

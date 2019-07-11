@@ -50,16 +50,21 @@
 						<th width="10%">작성자</th>
 						<td>${gdto.g_writer}</td>
 					</tr>
+
 					<tr>
-						<th width="30%">내용</th>
-						<td style="width: 500px; height: 200px;">${gdto.g_content}</td>
+						<th width="40%">내용</th>
+						<td style="width: 500px; height: 200px;">
+						<img src="g_download.do?g_savename=${gdto.g_savename}">
+						<br>
+						${gdto.g_content}
+						</td>
 					</tr>
 					<tr>
 						<th width="20%">작성일</th>
 						<td>${gdto.g_when}</td>
 					</tr>
 					<tr>
-						<th width="20%">조회수</th>
+						<th width="10%">조회수</th>
 						<td>${gdto.g_read}</td>
 					</tr>
 					<tr>

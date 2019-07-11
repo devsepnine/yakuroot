@@ -1,5 +1,6 @@
 package g_board.beans;
 
+import java.net.URLEncoder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.Format;
@@ -132,6 +133,9 @@ public class g_boardDto {
 		this.setG_uploadname(rs.getString("g_uploadname"));
 		this.setG_len(rs.getLong("g_len"));
 		this.setG_type(rs.getString("g_type"));
+	}
+	public String getSendname() throws Exception{
+		return URLEncoder.encode(g_uploadname,"UTF-8");
 	}
 	public String getDate() {
 //		2019-06-18 12:18:07.0
