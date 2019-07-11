@@ -21,34 +21,34 @@
 			<tbody>
 				<tr>
 					<td>
-						<img href="#" src="../img/club_logo/lotte.png">
+						<a href="club_info.jps"><img  src="../img/club_logo/lotte.png"></a>
 						<br>
 						<br>
-						<a>롯데 자이언츠</a>
+						<a href="club_info.jps">롯데 자이언츠</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/samsung.png">
+						<a href="club_info.jps"><img src="../img/club_logo/samsung.png"></a>
 						<br>
 						<br>
-						<a>삼성 라이온즈</a>
+						<a href="club_info.jps">삼성 라이온즈</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/doosan.png">
+						<a href="club_info.jps"><img src="../img/club_logo/doosan.png"></a>
 						<br>
 						<br>
-						<a>두산 베어스</a>
+						<a href="club_info.jps">두산 베어스</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/kiwoom.png">
+						<a href="club_info.jps"><img src="../img/club_logo/kiwoom.png"></a>
 						<br>
 						<br>
-						<a>키움 히어로즈</a>
+						<a href="club_info.jps">키움 히어로즈</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/hanwha.png">
+						<a href="club_info.jps"><img src="../img/club_logo/hanwha.png"></a>
 						<br>
 						<br>
-						<a>한화 이글스</a>
+						<a href="club_info.jps">한화 이글스</a>
 					</td>
 				</tr>
 				<tr height = 50>
@@ -56,34 +56,34 @@
 				</tr>
 				<tr>
 					<td>
-						<img href="#" src="../img/club_logo/nc.png">
+						<a href="club_info.jps"><img src="../img/club_logo/nc.png"></a>
 						<br>
 						<br>
-						<a>NC 다이노스</a>
+						<a href="club_info.jps">NC 다이노스</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/lg.png">
+						<a href="club_info.jps"><img src="../img/club_logo/lg.png"></a>
 						<br>
 						<br>
-						<a>LG 트윈즈</a>
+						<a href="club_info.jps">LG 트윈즈</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/sk.png">
+						<a href="club_info.jps"><img src="../img/club_logo/sk.png"></a>
 						<br>
 						<br>
-						<a>SK 와이번스</a>
+						<a href="club_info.jps">SK 와이번스</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/kt.png">
+						<a href="club_info.jps"><img src="../img/club_logo/kt.png"></a>
 						<br>
 						<br>
-						KT 위즈
+						<a href="club_info.jps">KT 위즈</a>
 					</td>
 					<td>
-						<img href="#" src="../img/club_logo/kia.png">
+						<a href="club_info.jps"><img src="../img/club_logo/kia.png"></a>
 						<br>
 						<br>
-						<a>KIA 타이거즈</a>
+						<a href="club_info.jps">KIA 타이거즈</a>
 					</td>
 				</tr>
 			</tbody>
