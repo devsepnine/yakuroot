@@ -51,7 +51,7 @@ public class g_boardDao {
 		}
 
 		sql = "insert into g_board values(?,?,?,?,?,0,sysdate,?,"
-				+ "(select nvl(g_depth,0)+1 from g_board where g_no=?),?),?,?,?,?";
+				+ "(select nvl(g_depth,0)+1 from g_board where g_no=?),?,?,?,?,?)";
 
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -66,12 +66,11 @@ public class g_boardDao {
 		}
 		ps.setInt(7, gdto.getG_parent());
 		ps.setInt(8, g_team);
-		if (gdto.getG_savename()!=null) {
-			ps.setString(9, gdto.getG_savename());
-			ps.setString(10, gdto.getG_uploadname());
-			ps.setLong(11, gdto.getG_len());
-			ps.setString(2, gdto.getG_type());
-		} 
+		ps.setString(9, gdto.getG_savename());
+		ps.setString(10, gdto.getG_uploadname());
+		ps.setLong(11, gdto.getG_len());
+		ps.setString(12, gdto.getG_type());
+
 		
 
 		System.out.println(gdto);
