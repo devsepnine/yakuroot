@@ -11,7 +11,7 @@
         
         
         <tr>
-            <td rowspan="4" colspan="3">${cdto.c_photo}</td>
+            <td rowspan="4" colspan="3"><img style="width: 300" alt="" src="<%=request.getContextPath() %>/img/emblem/${cdto.c_photo}.png"></td>
             <td colspan="7">빈칸</td>
             
         </tr>
