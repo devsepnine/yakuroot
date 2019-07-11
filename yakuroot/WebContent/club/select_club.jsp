@@ -21,31 +21,31 @@
 			<tbody>
 				<tr>
 					<td>
-						<img src="../img/club_logo/lotte.png">
+						<img href="#" src="../img/club_logo/lotte.png">
 						<br>
 						<br>
 						<a>롯데 자이언츠</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/samsung.png">
+						<img href="#" src="../img/club_logo/samsung.png">
 						<br>
 						<br>
 						<a>삼성 라이온즈</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/doosan.png">
+						<img href="#" src="../img/club_logo/doosan.png">
 						<br>
 						<br>
 						<a>두산 베어스</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/kiwoom.png">
+						<img href="#" src="../img/club_logo/kiwoom.png">
 						<br>
 						<br>
 						<a>키움 히어로즈</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/hanwha.png">
+						<img href="#" src="../img/club_logo/hanwha.png">
 						<br>
 						<br>
 						<a>한화 이글스</a>
@@ -56,31 +56,31 @@
 				</tr>
 				<tr>
 					<td>
-						<img src="../img/club_logo/nc.png">
+						<img href="#" src="../img/club_logo/nc.png">
 						<br>
 						<br>
 						<a>NC 다이노스</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/lg.png">
+						<img href="#" src="../img/club_logo/lg.png">
 						<br>
 						<br>
 						<a>LG 트윈즈</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/sk.png">
+						<img href="#" src="../img/club_logo/sk.png">
 						<br>
 						<br>
 						<a>SK 와이번스</a>
 					</td>
 					<td>
-						<img src="../img/club_logo/kt.png">
+						<img href="#" src="../img/club_logo/kt.png">
 						<br>
 						<br>
 						KT 위즈
 					</td>
 					<td>
-						<img src="../img/club_logo/kia.png">
+						<img href="#" src="../img/club_logo/kia.png">
 						<br>
 						<br>
 						<a>KIA 타이거즈</a>

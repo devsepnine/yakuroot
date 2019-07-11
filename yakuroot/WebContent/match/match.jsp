@@ -24,7 +24,7 @@
 			<c:choose>
 				<c:when test="${empty matlist}">
 					<tr>
-						<th colspan="5"> 경기 일정이 없습니다.</th>
+						<th colspan="7"> 경기 일정이 없습니다.</th>
 					</tr>
 				</c:when>
 				<c:otherwise>
