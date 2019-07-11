@@ -295,6 +295,9 @@ c_victory number not null,--구단 승률
 c_gap number not null,--구단 게임차
 c_last_ten varchar2(16) not null,--구단 최근 10경기 성적
 c_continue varchar2(5) not null--구단 연소 경기 성적
+c_year varchar2(4) not null,--구단 창단 년도
+c_born varchar2(6) not null,--구단 연고지
+c_map varchar2(30) not null--홈 경기장 지도 좌표
 );
 --구단 시즌 성적 테이블 시퀀스 삭제
 drop sequence club_season_score_seq;
