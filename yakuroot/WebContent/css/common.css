@@ -2,13 +2,13 @@
     기본 폰트 설정 / test 테두리 부여
 *************************************************************/
 @font-face {
-    font-family: 밀크사탕;
-    src: url("../font/밀크사탕.ttf");
+    font-family: littlebear;
+    src: url("../font/bear.ttf");
 }
 
 * {
     box-sizing: border-box;
-    font-family: 밀크사탕;
+    font-family: littlebear;
 }
 
 /* body에 test가 붙어있다면 그 안에 있는 div에 테두리 부여*/
