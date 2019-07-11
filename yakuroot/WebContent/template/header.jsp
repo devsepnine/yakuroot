@@ -50,11 +50,10 @@
         }
         .menubox > li{
             display: inline-block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
-/*             padding-inline-start: 40px; */
         }
 /*******************************************************
 				상단 메뉴 폰트 
@@ -341,13 +340,13 @@ SETTINGS
             <table class="menu_table">
                 <tbody>
                     <tr>
-                        <td rowspan="2" style="text-align: right;"><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
+                        <td rowspan="2" style="text-align: right; "><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
                         <c:choose>
                         	<c:when test="${empty login}">
-                        <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
+                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
                         </c:when>
                         <c:otherwise>
-                        <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "#">회원정보</a><a href = "#">고객센터</a></div></td>
+                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "#">회원정보</a><a href = "#">고객센터</a></div></td>
                         </c:otherwise>
                         </c:choose>
                     </tr>
