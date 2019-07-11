@@ -34,8 +34,8 @@
 							<td>${matdto.m_date}</td>
 							<td>${matdto.m_team1}</td>
 							<td>${matdto.m_point1}</td>
-							<td>${matdto.m_team2}</td>
 							<td>${matdto.m_point2}</td>
+							<td>${matdto.m_team2}</td>
 							<td>${matdto.m_stadium}</td>
 						</tr>
 					</c:forEach>

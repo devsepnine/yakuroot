@@ -12,10 +12,14 @@
 select dbms_xdb.gethttpport() from dual;
 
 exec dbms_xdb.sethttpport(9090);
----------------------------------------------yakuroot 아이디 생성
+
+
+---------------------------------------------------yakuroot 아이디 생성
 create user yakuroot identified by baseball;
----------------------------------------------권한 부여
-grant connect, resource to yakuroot;
+---------------------------------------------------권한 부여
+grant connect, resource, create view to yakuroot;
+
+
 
 /************************************************************
 						  현술
