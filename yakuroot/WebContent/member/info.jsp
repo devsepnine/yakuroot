@@ -41,7 +41,7 @@
 					   		</tr>
 					   		<tr>
 					   		<th>PW</th>
-					   		<td><a href ="change_pw.do"><input type="button" value="CHANGE PW" name="change_pw"></td>
+					   		<td><a href ="change_pw.do"><input type="button" value="CHANGE PW" name="change_pw"></a></td>
 					   		</tr>
 					   		<tr>
 					   		<th>NAME</th>
