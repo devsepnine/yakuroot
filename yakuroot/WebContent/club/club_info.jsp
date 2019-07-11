@@ -10,61 +10,45 @@
         </tr>
         
         
-        <tr>
-            <td rowspan="4" colspan="3"><img style="width: 300" alt="" src="<%=request.getContextPath() %>/img/emblem/${cdto.c_photo}.png"></td>
-            <td colspan="7">빈칸</td>
+        <tr >
+            <td style="width: 210px" rowspan="4"><img style="width: 200px" alt="" src="<%=request.getContextPath() %>/img/emblem/${cdto.c_photo}.png"></td>
+            <td colspan="4">빈칸</td>
             
         </tr>
         <tr>
             <td></td>
-            <td>${cdto.c_name}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            
+            <td colspan="3">${cdto.c_name}</td>            
         </tr>
         <tr>
             <td></td>
-            <td>${cdto.c_year}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3">${cdto.c_year}</td>
         </tr>
         <tr>
             <td></td>
-            <td>${cdto.c_born}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3">${cdto.c_born}</td>
         </tr>
         
         
         
         <tr>
-            <td colspan="10">${cdto.c_club}</td>
+            <td colspan="5">${cdto.c_club}</td>
         </tr>
         
         
         <tr>
-            <td colspan="10">[찾아오시는 길]</td>
+            <td colspan="5">[찾아오시는 길]</td>
         </tr>
         <tr>
-            <td colspan="10">${cdto.c_map}</td>
+            <td colspan="5">${cdto.c_map}</td>
         </tr>
         
         
         
         <tr>
-            <td colspan="10">[구장 정보]</td>
+            <td colspan="5">[구장 정보]</td>
         </tr>
         <tr>
-            <td colspan="10">${cdto.c_stadium}</td>
+            <td colspan="5">${cdto.c_stadium}</td>
         </tr>
 
     </tbody>

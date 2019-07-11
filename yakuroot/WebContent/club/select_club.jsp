@@ -9,14 +9,14 @@
 	text-align: center;
 	margin-top : 100px;
 	margin-bottom : 100px;
+	background-color: none;
 }
 
 
 </style>
 <div  align="center" text-align="center">
-
 	<form class="form form-label">
-	  <fieldset style="border:none;">
+	  <fieldset style="border:none; background-color: none;">
 		<table  width = 100% class="table table-noline">
 			<tbody>
 				<tr>
