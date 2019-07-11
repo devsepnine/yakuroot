@@ -174,6 +174,16 @@ public class MemberDto {
 	public String getM_email() {
 		return m_email;
 	}
+	
+	public String getM_email_first() {
+		int n = m_email.indexOf("@");
+		return m_email.substring(0, n);
+	}
+	
+	public String getM_email_last() {
+		int n = m_email.indexOf("@");
+		return m_email.substring(n+1);
+	}
 
 
 
