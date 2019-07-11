@@ -11,7 +11,7 @@
 			text-align: left;
 			margin-top : 100px;
 			margin-bottom : 100px;
-			padding : 30px;
+			padding : 20px;
 			padding-right: 80px;
 		}
 		

@@ -120,7 +120,7 @@
 	text-align: left;
 	margin-top : 100px;
 	margin-bottom : 100px;
-	padding : 30px;
+	padding : 20px;
 }
 
 
@@ -295,9 +295,9 @@
 									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$" required >
 									<select id="email_address">
 										<option value="">직접입력</option>
-										<option value="naver.com">naver.com</option>
-										<option value="daum.net">daum.net</option>
-										<option value="gmail.com">gmail.com</option>
+										<option>naver.com</option>
+										<option>daum.net</option>
+										<option>gmail.com</option>
 									</select>
 								<div class="m_emailD"></div>
 							</td>
