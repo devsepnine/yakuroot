@@ -17,7 +17,7 @@ public class PlayerDto {
 	private String p_season_score;//선수 시즌 경기 기록
 		
 	
-	public PlayerDto(ResultSet rs) throws SQLException {
+	public void setData(ResultSet rs) throws SQLException {
 		this.setP_no(rs.getInt("p_no"));
 		this.setP_club(rs.getString("p_club"));
 		this.setP_photo(rs.getString("p_photo"));

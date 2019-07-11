@@ -20,7 +20,7 @@ public class BatterDto {
 	private double p_score_bat;//타자 득점권 타율
 	
 	
-	public BatterDto(ResultSet rs) throws SQLException {
+	public void setData(ResultSet rs) throws SQLException {
 		this.setP_batting_average(rs.getDouble("p_batting_average"));
 		this.setP_game(rs.getInt("p_game"));
 		this.setP_bat(rs.getInt("p_bat"));
