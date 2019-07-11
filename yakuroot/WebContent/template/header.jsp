@@ -343,7 +343,7 @@ SETTINGS
                         <td rowspan="2" style="text-align: right; "><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
                         <c:choose>
                         	<c:when test="${empty login}">
-                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
+                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/agree.jsp">회원가입</a><a href = "#">고객센터</a></div></td>
                         </c:when>
                         <c:otherwise>
                         <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "<%=request.getContextPath()%>/member/info.do">회원정보</a><a href = "#">고객센터</a></div></td>

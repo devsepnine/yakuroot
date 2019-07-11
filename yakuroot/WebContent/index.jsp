@@ -3,6 +3,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
     <section>
         <div style="width: 600px; margin: auto">
+
         	<h1>이리봐도 저리봐도 나연이 처럼 착한사람 없기때문에
         	도영이랑 현술오빠랑 동근이오빠는 행복할 것이다.
         	아니 행복 해야만 한다.
