@@ -94,6 +94,26 @@
             }
         }
 </script>
+<script>
+	$(function(){
+		$("#email_address").change(function(){
+			$("#m_email_address").val($(this).val())
+			
+		//		console.log($(this).val())
+			
+			 //if($(this).val() == ""){
+			if(!$(this).val()){
+		         $(this).prev().prop("readonly", false);
+		     }
+		     else{
+		    	 $(this).prev().prop("readonly", true);
+		     }
+		});
+		
+		//select 옵션값 선택되서 나오게 하는거
+		$("select[name=m_fav]").val("${mdto.m_fav}");
+	});
+</script>
    <style>
 
 		.form.form-label>fieldset {
@@ -153,9 +173,9 @@
 					   		<tr>
 					   		<th>EMAIL</th>  <%-- 이메일 한번에 받은거 @ 앞에서 끊어서 그것만 넣어주기 --%>
 					   		<td colspan="2">
-								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" value=${mdto.m_email} pattern="^[a-z0-9]{8,15}$" required>
+								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" value="${mdto.m_email_first}" pattern="^[a-z0-9]{8,15}$" required>
 									<span>@</span>
-									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$" required >
+									<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$"  value="${mdto.m_email_last}"  required >
 									<select id="email_address">
 										<option value="">직접입력</option>
 										<option>naver.com</option>
@@ -176,7 +196,7 @@
 							</tr>
 					   		<tr>
 					   		<th>MY TEAM</th>
-					   		<td colspan="2"><select name="m_fav" value="${mdto.m_fav}">
+					   		<td colspan="2"><select name="m_fav">
 									<option>선택 안함</option>
 									<option>두산베어스</option>
 									<option>SK와이번즈</option>
