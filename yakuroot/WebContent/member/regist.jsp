@@ -317,17 +317,17 @@
 							<td><label for="m_fav">MY TEAM</label></td>
 							<td>
 								<select name="m_fav">
-									<option value="선택안함">선택 안함</option>
-									<option value="doosan">두산베어스</option>
-									<option value="sk">SK와이번즈</option>
-									<option value="kiwoom">키움히어로즈</option>
-									<option value="lg">LG트윈스</option>
-									<option value="nc">NC다이노스</option>
-									<option value="kt">KT위즈</option>
-									<option value="samsung">삼성라이온즈</option>
-									<option value="kia">KIA타이거즈</option>
-									<option value="hanhwa">한화이글즈</option>
-									<option value="lotte">롯데자이언트</option>
+									<option>선택 안함</option>
+									<option>두산베어스</option>
+									<option>SK와이번즈</option>
+									<option>키움히어로즈</option>
+									<option>LG트윈스</option>
+									<option>NC다이노스</option>
+									<option>KT위즈</option>
+									<option>삼성라이온즈</option>
+									<option>KIA타이거즈</option>
+									<option>한화이글즈</option>
+									<option>롯데자이언트</option>
 									</select>
 							</td>
 						</tr>
