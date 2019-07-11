@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import match.beans.MatchDao;
-import match.beans.MatchDto;
+import match.beans.MatchupDao;
+import match.beans.MatchupDto;
 
-@WebServlet(urlPatterns="/match/match.do")
-public class matchs extends HttpServlet{
+@WebServlet(urlPatterns="/match/matchup.do")
+public class Match_up extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		MatchDao matdao = new MatchDao();
+		MatchupDao updao = new MatchupDao();
 		try {
-			List<MatchDto> matlist = matdao.getMatch();
+			List<MatchupDto> matlist = updao.getMatchup();
 			
 
 			req.setAttribute("matlist", matlist);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/match/match.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/match/match_up.jsp");
 			
 			dispatcher.forward(req, resp);
 			
