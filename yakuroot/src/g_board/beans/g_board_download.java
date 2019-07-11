@@ -41,7 +41,7 @@ public class g_board_download extends HttpServlet{
 		resp.setHeader("Content-Length", String.valueOf(gdto.getG_len()));
 		resp.setHeader("COntent-Description", "부연설명");
 		
-			File target = new File("D:\\workspace\\study\\WebContent\\image/"+gdto.getG_savename());
+			File target = new File("D:/g_upload/"+gdto.getG_savename());
 		
 		InputStream in = new FileInputStream(target);
 		OutputStream send = resp.getOutputStream();
