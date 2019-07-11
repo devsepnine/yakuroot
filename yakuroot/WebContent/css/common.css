@@ -1,20 +1,20 @@
 /************************************************************
-    ±âº» ÆùÆ® ¼³Á¤ / test Å×µÎ¸® ºÎ¿©
+    ï¿½âº» ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ / test ï¿½×µÎ¸ï¿½ ï¿½Î¿ï¿½
 *************************************************************/
 @font-face {
-    font-family: milk;
-    src: url("../font/milk.ttf");
+    font-family: littlebear;
+    src: url("../font/UTOIMAGE_ìœ í† ì´ë¯¸ì§€ë¦¬í‹€ë² ì–´_TTF.ttf");
 }
 
 * {
     box-sizing: border-box;
-    font-family: milk;
+    font-family: littlebear;
 }
 
-/* body¿¡ test°¡ ºÙ¾îÀÖ´Ù¸é ±× ¾È¿¡ ÀÖ´Â div¿¡ Å×µÎ¸® ºÎ¿©*/
-/* >´Â Á÷°è ÀÚ½Ä ÅÂ±×¸¦ ÀÇ¹Ì */
+/* bodyï¿½ï¿½ testï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ divï¿½ï¿½ ï¿½×µÎ¸ï¿½ ï¿½Î¿ï¿½*/
+/* >ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½Â±×¸ï¿½ ï¿½Ç¹ï¿½ */
 /* body[test] > div {*/
-/* ±×³É ¶ç¾î¾²±â·Î ¾²¸é ¸ðµçÀÚ½Ä ÅÂ±×¸¦ ÀÇ¹Ì*/
+/* ï¿½×³ï¿½ ï¿½ï¿½î¾²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ ï¿½Â±×¸ï¿½ ï¿½Ç¹ï¿½*/
 body[test] div,
 body[test] p,
 body[test] span,
@@ -30,7 +30,7 @@ body[test] article {
 }
 
 /************************************************************
-    ÆäÀÌÁö ³×ºñ°ÔÀÌÅÍ ½ºÅ¸ÀÏ    
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½    
 *************************************************************/
 .navigator {
     list-style: none;
@@ -43,7 +43,7 @@ body[test] article {
     color: white;
     padding;
     1rem;
-    /* ÃÖ¼Ò Æø ÁöÁ¤ : ³Ñ¾î°¥ °æ¿ì ´Ã¾î³² */
+    /* ï¿½Ö¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ñ¾î°¥ ï¿½ï¿½ï¿½ ï¿½Ã¾î³² */
     min-width: 20px;
     text-align: center
 }
@@ -53,7 +53,7 @@ body[test] article {
 }
 
 /************************************************************
-   ¸Þ´º  
+   ï¿½Þ´ï¿½  
 *************************************************************/
 .menu {
     width: 100%;
@@ -77,12 +77,12 @@ body[test] article {
 }
 
 .menu > li {
-    /* ´ë ¸Þ´º */
+    /* ï¿½ï¿½ ï¿½Þ´ï¿½ */
     display: inline-block;
     width: 100px;
     text-align: center;
 
-    /* ÀÌ ½ºÅ¸ÀÏ Àû¿ë½Ã ... Ã³¸® */
+    /* ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ... Ã³ï¿½ï¿½ */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,7 +118,7 @@ body[test] article {
 }
 
 /************************************************************
-   Å×ÀÌºí
+   ï¿½ï¿½ï¿½Ìºï¿½
 *************************************************************/
 .table {
 /*     border: 1px solid gray; */
@@ -136,17 +136,17 @@ body[test] article {
     padding: 0.3rem;
 }
 
-/* table hover  ½ºÅ¸ÀÏ*/
+/* table hover  ï¿½ï¿½Å¸ï¿½ï¿½*/
 .table.table-hover > tbody > tr:hover {
     background-color: #EBF5FF;
 }
 
-/* ÁÙ¹«´Ì Å×ÀÌºí */
+/* ï¿½Ù¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ */
 .table.table-stripe > tbody > tr:nth-child(2n) {
     background-color: #EBF5FF;
 }
 
-/* ¼± ¾ø´Â Å×ÀÌºí */
+/* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ */
 .table.table-noline,
 .table.table-noline > thead > tr > th,
 .table.table-noline > thead > tr > td,
@@ -157,7 +157,7 @@ body[test] article {
     border: none;
 }
 
-/* °¡·Î¼±¸¸ ÀÖ´Â Å×ÀÌºí */
+/* ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ */
 . .table.table-hamburg {
     border-top: 1.5px solid black;
     border-bottom: 1.5px solid black;
@@ -184,7 +184,7 @@ body[test] article {
 
 
 /************************************************************
-   ³»¿ë Á¤·Ä
+   ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 *************************************************************/
 .text-left {
     text-align: left;
@@ -206,11 +206,11 @@ body[test] article {
 .form select,
 .form textarea {
     outline: none;
-    /* ÀÚµ¿¼±ÅÃÇÏ¸é ³ª¿À´Â Å×µÎ¸® ???*/
+    /* ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×µÎ¸ï¿½ ???*/
     padding: 0.5rem;
 }
 
-/* ÀÔ·ÂÃ¢ : input(submit, button, reset »©°í), select, textarea */
+/* ï¿½Ô·ï¿½Ã¢ : input(submit, button, reset ï¿½ï¿½ï¿½ï¿½), select, textarea */
 .form input:not([type=submit]):not([type=button]):not([type=reset]),
 .form select,
 .form textarea {
@@ -218,7 +218,7 @@ body[test] article {
     background-color: #DCEBFF;
 }
 
-/* ¹öÆ° : input(submit, button, reser) + button*/
+/* ï¿½ï¿½Æ° : input(submit, button, reser) + button*/
 .form button,
 .form input[type=submit],
 .form input[type=button],
@@ -230,7 +230,7 @@ body[test] article {
 }
 
 
-/* ¼öÁ÷ Æû È®Àå ½ºÅ¸ÀÏ */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ */
 .form.form-vertical input:not([type=submit]):not([type=button]):not([type=reset]),
 .form.form-vertical select,
 .form.form-vertical textarea {
@@ -269,9 +269,9 @@ body[test] article {
 }
 
 /* 
-            form-group¿¡¼­ »ç¿ëÇÑ float¸¦ Á¤¸®ÇÏ´Â ½ºÅ¸ÀÏ
-             - ½ÇÁ¦·Î Á¸ÀçÇÏ´Â ¿µ¿ªÀÌ ¾Æ´Ô
-             - ½ÇÃ¼È­ ½ÃÅ² ´ÙÀ½ ½ºÅ¸ÀÏÀ» Àû¿ë
+            form-groupï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ floatï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
+             - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+             - ï¿½ï¿½Ã¼È­ ï¿½ï¿½Å² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         */
 .form.form-label .form-group::after {
     content: "";
