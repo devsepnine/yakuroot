@@ -5,7 +5,16 @@
     font-family: littlebear;
     src: url("../font/utobear.ttf");
 }
-
+body{
+	    background-color: rgb(239,233,217);
+}
+fieldset{
+	    background-color: white;
+}
+fieldset > legend{
+	    font-size: 30px;
+	    font-weight: bold;
+}
 * {
     box-sizing: border-box;
     font-family: littlebear;
