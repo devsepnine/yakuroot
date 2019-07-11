@@ -1,7 +1,6 @@
 package club.beans;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -38,21 +37,39 @@ public class ClubDao {
 	public void input(ClubDto cdto) throws Exception {
 		Connection con = getConnection();
 		
-		String sql = "insert into club values(culb_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into club values(culb_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, cdto.getC_name());
 		ps.setString(2, cdto.getC_photo());
 		ps.setString(3, cdto.getC_club());
-		ps.setString(4, cdto.getC_player());
-		ps.setString(5, cdto.getC_stadium());
-		ps.setString(6, cdto.getC_year());
-		ps.setString(7, cdto.getC_born());
-		ps.setString(8, cdto.getC_map());
+		ps.setString(4, cdto.getC_stadium());
+		ps.setString(5, cdto.getC_year());
+		ps.setString(6, cdto.getC_born());
+		ps.setString(7, cdto.getC_map());
 		
 		ps.execute();
 		con.close();
 	}
 //	구단 데이터 불러오는 메소드
+	public ClubDto get(int c_no) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = "select * from club where c_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, c_no);
+		ResultSet rs = ps.executeQuery();
+		
+		ClubDto cdto;
+		if(rs.next()) {
+			cdto = new ClubDto();
+			cdto.setData(rs);
+		}
+		else {
+			cdto = null;
+		}
+		con.close();
+		return cdto;
+	}
 	
 //	구단 소개 불러오는 메소드
 	

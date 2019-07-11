@@ -19,7 +19,7 @@ public class PitcherDto {
 	private double p_wip;//투수 WIP
 	
 	
-	public PitcherDto(ResultSet rs) throws SQLException {
+	public void setData(ResultSet rs) throws SQLException {
 		this.setP_era(rs.getDouble("p_era"));
 		this.setP_standing(rs.getInt("p_standing"));
 		this.setP_shutouts(rs.getInt("p_shutouts"));

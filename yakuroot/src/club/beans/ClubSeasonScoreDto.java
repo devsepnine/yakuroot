@@ -13,7 +13,7 @@ public class ClubSeasonScoreDto {
 	private String c_continue;//구단 연속 성적
 	
 	
-	public ClubSeasonScoreDto(ResultSet rs) throws SQLException {
+	public void setData(ResultSet rs) throws SQLException {
 		this.setC_game(rs.getInt("c_game"));
 		this.setC_win(rs.getInt("c_win"));
 		this.setC_loss(rs.getInt("c_loss"));
