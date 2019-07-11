@@ -54,7 +54,7 @@
             margin-block-end: 1em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
-            padding-inline-start: 40px;
+/*             padding-inline-start: 40px; */
         }
 /*******************************************************
 				상단 메뉴 폰트 
@@ -62,8 +62,12 @@
         .menubox a{
             text-decoration: none;
             color: white;
-            font-weight:bold;
-            font-size: 30px;  
+/*             font-weight:bold; */
+            font-size: 36px; 
+            margin-right: 2rem;
+        }
+        .menu_table{
+        	width:1200px;
         }
 /*******************************************************
          			서브메뉴 
@@ -117,13 +121,14 @@
 			헤드메뉴 호버 효과
 *********************************************************/
 
+
 .sm-link{
     --uismLinkDisplay: var(--smLinkDisplay, inline-flex);   
     --uismLinkTextColor: var(--smLinkTextColor);
     --uismLinkTextColorHover: var(--smLinkTextColorHover);  
     
     display: var(--uismLinkDisplay);
-    color: white;
+    color: var(--uismLinkTextColor);
     position: relative;
     overflow: hidden;
 }
@@ -181,7 +186,7 @@ a.sm-link{
 .sm-link_padding-all .sm-link__label::before,
 .sm-link_padding-all .sm-link__label::after{
   content: "";     
-    background-color: white;
+    background-color: var(--uismLinkLineColor);
   position: absolute; 
     opacity: 0;
     
@@ -201,6 +206,7 @@ a.sm-link{
 .sm-link_padding-bottom{
     --uismLinkLineWeight: var(--smLinkLineWeight, 2px);
     --uismLinkLineColor: var(--smLinkLineColor, #000);  
+    
     padding-bottom: var(--uismLinkLineWeight);  
     position: relative;
 }
@@ -215,7 +221,9 @@ a.sm-link{
   left: 0;
   bottom: 0;
 }
+
 /* sm-link_bg */ 
+
 .sm-link_bg {
     --uismLinkLineColor: var(--smLinkLineColor, #000);  
     --uismLinkTextColorHover: var(--smLinkTextColorHover, #fff);    
@@ -224,6 +232,7 @@ a.sm-link{
     padding: var(--uismLinkPadding);
     transition: color .3s ease-out;
 }
+
 .sm-link_bg::before, 
 .sm-link_bg::after{
   content: "";
@@ -233,42 +242,53 @@ a.sm-link{
     
     transition: transform .2s ease-out, opacity .2s ease-out .03s;
 }
+
 .sm-link_bg .sm-link__label{
   position: relative;
   z-index: 2;
 }
+
 .sm-link_bg:hover::before, 
 .sm-link_bg:hover::after{
   opacity: 1;
     transition-duration: .35s, .35s;
     transition-delay: 0s, 0s;
 }
+
 .sm-link_bg:hover{
     color: var(--uismLinkTextColorHover);
 }
+
 /* sm-link_text */ 
+
 .sm-link_text::before{
   content: attr(data-sm-link-text);
     color: var(--uismLinkTextColorHover);
   position: absolute;
 }
+
 .sm-link_text::before, 
 .sm-link_text .sm-link__label{
   transition-property: transform;
     transition-timing-function: cubic-bezier(.86, .6, .08, 1.01); 
     transition-duration: .3s;
 }
+
 .sm-link_text:hover::before,
 .sm-link_text:hover .sm-link__label{
     transition-duration: .4s;
 }
+
 /* effect 1 */
+
 .sm-link1::before{
   transform: translate3d(-105%, 0, 0);
 }
+
 .sm-link1::after{
   transform: translate3d(105%, 0, 0);
 }
+
 .sm-link1 .sm-link__label::before{
   transform: translate3d(0%, -100%, 0);
 }
@@ -276,6 +296,7 @@ a.sm-link{
 .sm-link1 .sm-link__label::after{
   transform: translate3d(0%, 100%, 0);
 }
+
 .sm-link1::before,
 .sm-link1::after,
 .sm-link1 .sm-link__label::before,
@@ -284,6 +305,7 @@ a.sm-link{
     transition-duration: .2s, .15s;
     transition-delay: 0s, .15s;
 }
+
 .sm-link1:hover::before,
 .sm-link1:hover::after,
 .sm-link1:hover .sm-link__label::before,
@@ -295,6 +317,21 @@ a.sm-link{
     transition-delay: 0s;
 }
 
+/*
+SETTINGS
+*/
+
+.sm-link{
+    --smLinkPadding: 10px 15px;
+    --smLinkLineWeight: 5px;
+    --smLinkLineColor: #ffffff;
+    --smLinkTextColor: #ffffff;
+    --smLinkTextColorHover: #1b255a;
+}
+
+.sm-link_bg{
+    --smLinkTextColorHover: #fff;
+}
 
     </style>
 </head>
@@ -304,7 +341,7 @@ a.sm-link{
             <table class="menu_table">
                 <tbody>
                     <tr>
-                        <td rowspan="2"><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
+                        <td rowspan="2" style="text-align: right;"><a class="" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath()%>/img/logo/baseball.png" width="200px" alt=""></a></td>
                         <c:choose>
                         	<c:when test="${empty login}">
                         <td style="text-align: right;padding-top:0.2rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/regist.do">회원가입</a><a href = "#">고객센터</a></div></td>
@@ -318,7 +355,7 @@ a.sm-link{
                         <td>
                             <ul class="menubox">
                                 <li class="menu1">
-                                    <a class="top_m sm-link sm-link_padding-all sm-link1" title="구단소개">K B O</a>
+                                    <a class="top_m sm-link sm-link_padding-all sm-link1" title="구단소개"><span class="sm-link__label">K B O</span></a>
                                     <div class="sub_menus">
                                         <ul>
                                             <li><a href="<%=request.getContextPath()%>/club/select_club.jsp">구단 소개</a></li>
@@ -328,10 +365,10 @@ a.sm-link{
                                     </div>
                                 </li>
                                 <li class="menu2">
-                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup.do" title="경기일정">경기일정</a>
+                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup.do" title="경기일정"><span class="sm-link__label">경기일정</span></a>
                                 </li>
                                 <li class="menu3">
-                                    <a class="top_m sm-link sm-link_padding-all sm-link1" title="이벤트">이벤트</a>
+                                    <a class="top_m sm-link sm-link_padding-all sm-link1" title="이벤트"><span class="sm-link__label">이벤트</span></a>
                                     <div class="sub_menus">
                                         <ul>
                                             <li>이벤트메뉴1</li>
@@ -341,17 +378,10 @@ a.sm-link{
                                     </div>
                                 </li>
                                 <li class="menu4">
-                                    <a href="#" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리">갤러리</a>
-                                    <div class="sub_menus">
-                                        <ul>
-                                            <li>갤메뉴1</li>
-                                            <li>갤메뉴2</li>
-                                            <li>갤메뉴3</li>
-                                        </ul>
-                                    </div>
+                                    <a href="<%=request.getContextPath()%>/board/g_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리"><span class="sm-link__label">갤러리</span></a>
                                 </li>
                                 <li class="menu5">
-                                    <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="게시판">게시판</a>
+                                    <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="게시판"><span class="sm-link__label">게시판</span></a>
                                     <div class="sub_menus">
                                         <ul>
                                             <li><a href="<%=request.getContextPath()%>/board/notice_list.do">공지사항</a></li>
