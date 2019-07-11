@@ -101,14 +101,14 @@
 		$("#email_address").change(function(){
 			$("#m_email_address").val($(this).val())
 			
-			console.log($(this).val())
+// 			console.log($(this).val())
 			
 			 //if($(this).val() == ""){
 			if(!$(this).val()){
-                 $(this).prev().prop("disabled", false);
+                 $(this).prev().prop("readonly", false);
              }
              else{
-            	 $(this).prev().prop("disabled", true);
+            	 $(this).prev().prop("readonly", true);
              }
 		});
 	});
