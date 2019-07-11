@@ -3,7 +3,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="../js/ckeditor.js"></script>
-    <script>
+<script>
         $(function(){
             ClassicEditor
             .create( document.querySelector( '#editor' ) )
@@ -12,14 +12,15 @@
             })
         });
      </script>
-     <style>
-     .ck-editor__editable{
-     min-height:480px;
-     }
-     </style>
+<style>
+.ck-editor__editable {
+	min-height: 480px;
+}
+</style>
 
 <!-- 갤러리 글 쓰기 jsp -->
 <div align="center">
+
 	<form action="g_write.do" method="post">
 		<%
 			String login = (String) session.getAttribute("login");
@@ -44,16 +45,20 @@
 			<option value="nc">NC다이노스</option>
 			<option value="lotte">롯데자이언트</option>
 			<option value="kia">KIA타이거즈</option>
-		</select> <br> <br> 글 제목: <input type="text" name="g_title" required
+			</select> 
+			<br> <br> 
+			글 제목: <input type="text" name="g_title" required
 			placeholder="제목" size="60"> <input type="hidden"
-			name="g_writer" value="<%=login%>"> <br> <br>
-			
-			<div style="width: 1000px;">
+			name="g_writer" value="<%=login%>"> 
+			<br> <br> 
+			<input type="file" name="gf" multiple> 
+			<br><br>
+		<div style="width: 1000px;">
 			<textarea name="g_content" required id="editor"> </textarea>
-			</div>
-			
-			<br> <br>
-			<button type="submit">글 쓰기</button>
+		</div>
+
+		<br> <br>
+		<button type="submit">글 쓰기</button>
 	</form>
 </div>
 

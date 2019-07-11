@@ -17,12 +17,42 @@ public class g_boardDto {
 	private int g_parent;
 	private int g_depth;
 	private int g_team;
+	private String g_savename;
+	private String g_uploadname;
+	private long g_len;
+	private String g_type;
 	
+
+	public String getG_savename() {
+		return g_savename;
+	}
+	public void setG_savename(String g_savename) {
+		this.g_savename = g_savename;
+	}
+	public String getG_uploadname() {
+		return g_uploadname;
+	}
+	public void setG_uploadname(String g_uploadname) {
+		this.g_uploadname = g_uploadname;
+	}
+	public long getG_len() {
+		return g_len;
+	}
+	public void setG_len(long g_len) {
+		this.g_len = g_len;
+	}
+	public String getG_type() {
+		return g_type;
+	}
+	public void setG_type(String g_type) {
+		this.g_type = g_type;
+	}
 	@Override
 	public String toString() {
 		return "g_boardDto [g_no=" + g_no + ", g_head=" + g_head + ", g_title=" + g_title + ", g_writer=" + g_writer
 				+ ", g_content=" + g_content + ", g_read=" + g_read + ", g_when=" + g_when + ", g_parent=" + g_parent
-				+ ", g_depth=" + g_depth + ", g_team=" + g_team + "]";
+				+ ", g_depth=" + g_depth + ", g_team=" + g_team + ", g_savename=" + g_savename + ", g_uploadname="
+				+ g_uploadname + ", g_len=" + g_len + ", g_type=" + g_type + "]";
 	}
 	public g_boardDto() {
 		super();
@@ -98,6 +128,10 @@ public class g_boardDto {
 		this.setG_parent(rs.getInt("g_parent"));
 		this.setG_depth(rs.getInt("g_depth"));
 		this.setG_team(rs.getInt("g_team"));
+		this.setG_savename(rs.getString("g_savename"));
+		this.setG_uploadname(rs.getString("g_uploadname"));
+		this.setG_len(rs.getLong("g_len"));
+		this.setG_type(rs.getString("g_type"));
 	}
 	public String getDate() {
 //		2019-06-18 12:18:07.0

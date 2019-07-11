@@ -8,14 +8,26 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import f_board.beans.f_boardDto;
 import notice_board.beans.n_boardDto;
 
 public class n_boardDao {
-	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "yakuroot", "baseball");
-		return con;
+	static DataSource src;
+	static {
+		try {
+			Context ctx = new InitialContext();
+			src = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} catch (Exception e) {
+			System.err.println("dbcp err");
+			e.printStackTrace();
+		}
+	}
+	public Connection getConnection() throws Exception{
+		return src.getConnection();
 	}
 
 	public int write(n_boardDto ndto) throws Exception {// 공지사항 입력 메소드
