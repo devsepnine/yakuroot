@@ -56,17 +56,14 @@
 					   		<td><input type="text" value="${mdto.m_email}"  pattern="^[a-z0-9]{8,15}$" required></td>
 					   		</tr>
 					   		<tr>
-					   		<th>POST CODE</th>
-					   		<td><input type="text" value="${mdto.m_postcode}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<th> MAIN ADDRESS</th>
-					   		<td><input type="text" value="${mdto.m_addr1}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<th>ADDRESS</th>
-					   		<td><input type="text" value="${mdto.m_addr2}"  readonly></td>
-					   		</tr>
+							<td><label for="m_addr">ADDRESS</label></td>
+							<td>
+								<input type="text" name="m_postcode" value="${mdto.m_postcode}"  required >
+									<input type="button" value="우편번호 찾기" name="postcode_find"><br>
+									<input type="text" name="m_addr1" value="${mdto.m_addr1}" required ><br>
+									<input type="text" name="m_addr2" value="${mdto.m_addr2}"  >
+							</td>
+							</tr>
 					   		<tr>
 					   		<th>FAV</th>
 					   		<td><input type="text" value="${mdto.m_fav}"  readonly></td>
