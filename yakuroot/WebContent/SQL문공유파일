@@ -70,18 +70,29 @@ CREATE SEQUENCE MEMBER_SEQ;
 ************************************************************/
 drop table n_comments;
 drop table f_comments;
+drop table g_comments;
 drop table f_board;
 drop table notice_board;
+drop table g_board;
 drop sequence f_board_seq;
 drop sequence f_com_seq;
 drop sequence n_board_seq;
 drop sequence n_com_seq;
+--갤러리 추가
+drop SEQUENCE g_board_seq;
+drop SEQUENCE g_com_seq;
+--추가
+
 --원래 있던 테이블 전부 삭제
 
 create SEQUENCE f_board_seq;
 create SEQUENCE f_com_seq;
 create SEQUENCE n_board_seq;
 create SEQUENCE n_com_seq;
+--갤러리 시퀀스 추가
+create SEQUENCE g_board_seq;
+create SEQUENCE g_com_seq;
+--추가
 
 --시퀀스 생성
 
@@ -131,6 +142,32 @@ origin CONSTRAINT nk_comments_board_no references notice_board(n_no)on delete ca
 );
 
 --공지게시판 코멘트 테이블 생성
+
+create table g_board(
+g_no number primary key,
+g_head varchar2(21)not null check(g_head in ('talk','doosan','sk','kiwoom','lg','nc','kt','samsung','kia','hanhwa','lotte')),
+g_title varchar2(60)not null,
+g_writer constraint gk_writer references member(m_id),
+g_content varchar2(4000)not null,
+g_read number default 0 not null,
+g_when date default sysdate not null,
+g_parent number,
+g_depth number,
+g_team number
+);
+
+--갤러리 테이블 생성
+
+create table g_comments(
+no number primary key,
+writer CONSTRAINT gk_comments_member_id REFERENCES member(m_id)on delete cascade,
+content varchar2(4000)not null,
+when date default sysdate not null,
+origin CONSTRAINT gk_comments_board_no references g_board(g_no)on delete cascade
+);
+
+--갤러리 코멘트 테이블 작성
+
 
 /************************************************************
 						  도영
