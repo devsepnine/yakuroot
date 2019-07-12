@@ -163,7 +163,7 @@ no number primary key,
 writer CONSTRAINT nk_comments_member_id REFERENCES member(m_id)on delete cascade,
 content varchar2(4000)not null,
 when date default sysdate not null,
-origin CONSTRAINT nk_comments_board_no references notice_board(n_no)on delete cascade
+origin CONSTRAINT nk_comments_board_no references notice_board(n_no) on delete cascade
 );
 
 --공지게시판 코멘트 테이블 생성
@@ -172,7 +172,7 @@ create table g_board(
 g_no number primary key,
 g_head varchar2(21)not null check(g_head in ('talk','doosan','sk','kiwoom','lg','nc','kt','samsung','kia','hanhwa','lotte')),
 g_title varchar2(60)not null,
-g_writer constraint gk_writer references member(m_id),
+g_writer constraint gk_writer references member(m_id) on delete cascade,
 g_content varchar2(4000)not null,
 g_read number default 0 not null,
 g_when date default sysdate not null,
