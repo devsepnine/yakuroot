@@ -53,6 +53,8 @@ public class ClubDao {
 		con.close();
 	}
 	
+	
+//	등록된 구단 목록 불러오는 리스트 메소드
 	public List<ClubDto> getClub() throws Exception{
 		Connection con = getConnection();
 		
