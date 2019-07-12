@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<div align="center">
+<div align="center" text-align="center">
 <table border='1' style="width: 600px" class="table table-noline">
     <tbody>
         <tr>
