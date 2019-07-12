@@ -12,7 +12,8 @@ public class f_boardDto {
 	public String toString() {
 		return "f_boardDto [f_no=" + f_no + ", f_head=" + f_head + ", f_title=" + f_title + ", f_writer=" + f_writer
 				+ ", f_content=" + f_content + ", f_read=" + f_read + ", f_when=" + f_when + ", f_parent=" + f_parent
-				+ ", f_depth=" + f_depth + ", f_team=" + f_team + "]";
+				+ ", f_depth=" + f_depth + ", f_team=" + f_team + ", f_savename=" + f_savename + ", f_uploadname="
+				+ f_uploadname + ", f_len=" + f_len + ", f_type=" + f_type + "]";
 	}
 	private int f_no;
 	private String f_head; 
@@ -24,6 +25,35 @@ public class f_boardDto {
 	private int f_parent;
 	private int f_depth;
 	private int f_team;
+	private String f_savename;
+	private String f_uploadname;
+	private long f_len;
+	private String f_type;
+
+	public String getF_savename() {
+		return f_savename;
+	}
+	public void setF_savename(String f_savename) {
+		this.f_savename = f_savename;
+	}
+	public String getF_uploadname() {
+		return f_uploadname;
+	}
+	public void setF_uploadname(String f_uploadname) {
+		this.f_uploadname = f_uploadname;
+	}
+	public long getF_len() {
+		return f_len;
+	}
+	public void setF_len(long f_len) {
+		this.f_len = f_len;
+	}
+	public String getF_type() {
+		return f_type;
+	}
+	public void setF_type(String f_type) {
+		this.f_type = f_type;
+	}
 	public f_boardDto() {
 		super();
 	}
@@ -99,6 +129,10 @@ public class f_boardDto {
 		this.setF_parent(rs.getInt("f_parent"));
 		this.setF_depth(rs.getInt("f_depth"));
 		this.setF_team(rs.getInt("f_team"));
+		this.setF_savename(rs.getString("f_savename"));
+		this.setF_uploadname(rs.getString("f_uploadname"));
+		this.setF_len(rs.getLong("f_len"));
+		this.setF_type(rs.getString("f_type"));
 	}
 	public String getDate() {
 //		2019-06-18 12:18:07.0

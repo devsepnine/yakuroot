@@ -51,7 +51,7 @@
 						<td>${bdto.f_writer}</td>
 					</tr>
 					<tr>
-						<th width="30%">내용</th>
+						<th width="20%">내용</th>
 						<td style="width: 500px; height: 200px;">${bdto.f_content}</td>
 					</tr>
 					<tr>
@@ -59,11 +59,7 @@
 						<td>${bdto.f_when}</td>
 					</tr>
 					<tr>
-						<th width="20%">조회수</th>
-						<td>${bdto.f_read}</td>
-					</tr>
-					<tr>
-						<th>댓글 ${list2.size()}</th>
+						<th colspan="2"><h4 align="left">댓글 ${list2.size()} // 조회수 ${bdto.f_read}</h4></th>
 					</tr>
 					<%--댓글 목록 표시 --%>
 					<tr>
@@ -96,13 +92,15 @@
 									</c:forEach>
 									<tr>
 										<td colspan="2" align="center">
+										<c:if test= "${login!=null}">
 											<form action="f_comments.do" method="post">
 												<input type="hidden" name="origin" value="${bdto.f_no}">
 												<input type="hidden" name="writer" value="${login}">
-												<textarea rows="4" cols="50" placeholder="댓글입력"
+												<textarea rows="5" cols="80" placeholder="댓글입력"
 													name="content"></textarea>
 												<button type="submit">등록</button>
 											</form>
+										</c:if>
 										</td>
 									</tr>
 									<%--댓글 1개 표시 영역 --%>
@@ -114,9 +112,11 @@
 					<tr>
 						<td colspan="3" align="reft">
 							<h4>
+							<c:if test= "${login!=null}">
 								<button>
 									<a href="f_write.do?f_parent=${bdto.f_no}">답글쓰기</a>
 								</button>
+							</c:if>
 								<c:if test="${my eq true}">
 									<button>
 										<a href="f_edit.do?f_no=${bdto.f_no}">글 수정</a>

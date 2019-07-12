@@ -53,7 +53,7 @@ public class f_boardDao {
 			f_team = no;
 		}
 
-		sql = "insert into f_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from f_board where f_no=?),?)";
+		sql = "insert into f_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from f_board where f_no=?),?,?,?,?,?)";
 
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -68,6 +68,10 @@ public class f_boardDao {
 		}
 		ps.setInt(7, bdto.getF_parent());
 		ps.setInt(8, f_team);
+		ps.setString(9, bdto.getF_savename());
+		ps.setString(10, bdto.getF_uploadname());
+		ps.setLong(11, bdto.getF_len());
+		ps.setString(12, bdto.getF_type());
 
 		System.out.println(bdto);
 		ps.execute();
