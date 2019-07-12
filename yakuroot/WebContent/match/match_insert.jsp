@@ -4,11 +4,29 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script>
+	$(function () {
+		document.getElementById('match_date').value = new Date().toISOString().substring(0, 10);
+		  
+		$(".match_add_btn").click(function(){
+			var team1 = $("select[name=team1]").val();
+			var team2 = $("select[name=team2]").val();
+			console.log(team1, team2);
+			if(team1 === team2){
+				window.alert("팀 이름은 같을 수 없습니다");
+			}
+			
+			$("form[name=match]").submit();
+		});
+		
+	});
+</script>
 	
-<div style="width: 1100px; margin: auto;">
-	<table style="width: 100%" border=1;>
-		<form action="" method="get">
+<div style="width: 1100px; margin: auto; text-align: center;">
+<h1> 경기 일정 추가 하기</h1>
+<form action="" method="post" name="match">
+	<table style="width: 100%;" border=1;>
+		
 		<thead>
 			<tr>
 				<th width="20%">날짜</th>
@@ -22,7 +40,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="date"></td>
+				<td><input type="date" name="date" id="match_date"></td>
 				<td>
 					<select name ="hour">
 						<c:forEach var="i" begin="1" end="24" step="1">
@@ -43,21 +61,28 @@
 					</c:forEach>
 					</select>
 				</td>
-				<td><input type="text"></td>
-				<td><input type="text"></td>
+				<td><input type="number" value="0" name="team1point" readonly></td>
+				<td><input type="number" value="0" name="team2point" readonly></td>
 				<td>
 				
-					<select name = "team1">
+					<select name = "team2">
 						<c:forEach var="cdto" items="${cdtolist}">
 							<option value="${cdto.c_no}">${cdto.c_name}</option>
 						</c:forEach>
 					</select></td>
 					
-				<td><input type="text"></td>
+				<td>
+					<select name = "stadium">
+						<c:forEach var="cdto" items="${cdtolist}">
+							<option value="${cdto.c_stadium}">${cdto.c_stadium}</option>
+						</c:forEach>
+					</select></td></td>
 			</tr>
 		</tbody>
-		</form>
+		
 	</table>
+	<button class="match_add_btn">경기 일정 추가</button>
+	</form>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
