@@ -140,7 +140,7 @@
 	</style>
    
    <div align = "center">
-	   <form action = "change_info.do" method = "post"class="form form-label">
+	   <form action = "change_info.do" method = "post" class="form form-label">
 			<fieldset>
 				<legend>[ ${mdto.m_id}님의 정보 수정 ]</legend>
 					<table width = 100% align = "center"  class="change_info" class="table table-noline">
