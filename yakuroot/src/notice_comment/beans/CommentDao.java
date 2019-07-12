@@ -43,8 +43,8 @@ public class CommentDao {
 		ps.setString(3, cdto.getContent());
 		ps.setInt(4, cdto.getOrigin());
 		ps.execute();
+		
 		con.close();
-
 		return no;
 	}
 	public List<CommentDto> get(int origin) throws Exception {

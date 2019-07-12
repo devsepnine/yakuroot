@@ -389,10 +389,22 @@ SETTINGS
                                         <ul>
                                             <li><a href="<%=request.getContextPath()%>/board/notice_list.do">공지사항</a></li>
                                             <li><a href="<%=request.getContextPath()%>/board/f_list.do">자유게시판</a></li>
-                                            <li>게시판메뉴3</li>
+                                            <li><a href="<%=request.getContextPath()%>/board/q_list.do">Q&A 게시판</a></li>
                                         </ul>
                                     </div>
                                 </li>
+                                <c:if test="${auth eq '관리자'}">
+                                <li class="menu6">
+                                    <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="관리자메뉴"><span class="sm-link__label">관리자메뉴</span></a>
+                                    <div class="sub_menus">
+                                        <ul>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴1</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴2</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴3</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                </c:if>
                             </ul>
                         </td>
                     </tr>

@@ -18,13 +18,14 @@
 				<th width="20%">시간</th>
 				<th colspan="4">경기</th>
 				<th width="20%">구장</th>
+				<th>예매</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:choose>
 				<c:when test="${empty matlist}">
 					<tr>
-						<th colspan="7"> 경기 일정이 없습니다.</th>
+						<th colspan="8"> 경기 일정이 없습니다.</th>
 					</tr>
 				</c:when>
 				<c:otherwise>
@@ -37,6 +38,7 @@
 							<td>${matdto.m_point2}</td>
 							<td>${matdto.m_team2}</td>
 							<td>${matdto.m_stadium}</td>
+							<td> 예매하기 </td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>
