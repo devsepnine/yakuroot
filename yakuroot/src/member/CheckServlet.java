@@ -27,8 +27,11 @@ public class CheckServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 
+			//인증을 위한 정보를 받는다
 			String m_id = (String) req.getSession().getAttribute("login");
 			String m_pw = req.getParameter("m_pw");
+			
+			//인증에 성공하면 보내야할 목적이를 받는다
 			String go = req.getParameter("go");
 			
 			
