@@ -115,6 +115,13 @@
         	padding-left: 0.5rem;
         	padding-right: 0.5rem;
         }
+        .sub_menus a{
+        	font-size: 20px;
+        	font-weight: bold;
+        }
+        .sub_menus a:hover{
+        	color: red;
+        }
         
 /*********************************************************
 			헤드메뉴 호버 효과
