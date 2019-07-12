@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <jsp:include page="/template/header.jsp"></jsp:include>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<divalign="center" text-align="center">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div align="center" text-align="center">
 <table border="1" align="center" text-align="center">
 			<thead>
 				<tr>
@@ -15,16 +16,16 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="cdto" items="${cdtolist}" >
+          
                 <tr>
                     <td><img src="../img/club_logo/${cdto.c_photo}.png"></td>
                     <td>${cdto.c_name}</td>
                     <td>${cdto.c_year}</td>
                     <td>${cdto.c_born}</td>
                     <td>${cdto.c_club}</td>
-                    <td><a href="club_list_edit.do?c_no=${cdto.c_no}"><button>내용 수정</button></td></a>
+                    <td><a href="club_list_edit.do?c_no=${cdto.c_no}"><button>수정 완료</button></td></a>
                 </tr>
-                </c:forEach>
+       
             </tbody>
         </table>
 </div>
