@@ -19,11 +19,23 @@ public class ChangeInfoServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			String m_id = (String) req.getSession().getAttribute("login");
+			
+			MemberDao mdao = new MemberDao();
+			MemberDto mdto = mdao.get(m_id);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("change_info.jsp");
+			req.setAttribute("mdto", mdto);
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("change_info.jsp");
+			
+			dispatcher.forward(req, resp);			
+		}
+		catch(Exception e){
+			resp.sendError(500);
+			e.printStackTrace();
+		}
 		
-		dispatcher.forward(req, resp);			
-	
 	}
 	
 	
@@ -38,7 +50,7 @@ public class ChangeInfoServlet extends HttpServlet{
 			MemberDto mdto = new MemberDto();
 			mdto.setM_id(m_id);
 			mdto.setM_phone(req.getParameter("m_phone"));
-			mdto.setM_email(req.getParameter("m_email"));
+			mdto.setM_email(req.getParameter("m_email") + "@" + req.getParameter("m_email_address"));
 			mdto.setM_postcode(req.getParameter("m_postcode"));
 			mdto.setM_addr1(req.getParameter("m_addr1"));
 			mdto.setM_addr2(req.getParameter("m_addr2"));
