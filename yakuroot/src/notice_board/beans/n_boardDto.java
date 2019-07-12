@@ -16,6 +16,36 @@ public class n_boardDto {
 	private String n_when;
 	private int n_parent;
 	private int n_depth;
+	private String n_savename;
+	private String n_uploadname;
+	private long n_len;
+	private String n_type;
+	
+
+	public String getN_savename() {
+		return n_savename;
+	}
+	public void setN_savename(String n_savename) {
+		this.n_savename = n_savename;
+	}
+	public String getN_uploadname() {
+		return n_uploadname;
+	}
+	public void setN_uploadname(String n_uploadname) {
+		this.n_uploadname = n_uploadname;
+	}
+	public long getN_len() {
+		return n_len;
+	}
+	public void setN_len(long n_len) {
+		this.n_len = n_len;
+	}
+	public String getN_type() {
+		return n_type;
+	}
+	public void setN_type(String n_type) {
+		this.n_type = n_type;
+	}
 	public n_boardDto(int n_no, String n_head, String n_title, String n_writer, String n_content, int n_read,
 			String n_when, int n_parent, int n_depth, int n_team) {
 		super();
@@ -57,7 +87,9 @@ public class n_boardDto {
 	@Override
 	public String toString() {
 		return "n_boardDto [n_no=" + n_no + ", n_head=" + n_head + ", n_title=" + n_title + ", n_writer=" + n_writer
-				+ ", n_content=" + n_content + ", n_read=" + n_read + ", n_when=" + n_when + "]";
+				+ ", n_content=" + n_content + ", n_read=" + n_read + ", n_when=" + n_when + ", n_parent=" + n_parent
+				+ ", n_depth=" + n_depth + ", n_savename=" + n_savename + ", n_uploadname=" + n_uploadname + ", n_len="
+				+ n_len + ", n_type=" + n_type + ", n_team=" + n_team + "]";
 	}
 	public int getN_no() {
 		return n_no;
