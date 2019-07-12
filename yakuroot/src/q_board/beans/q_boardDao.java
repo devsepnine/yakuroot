@@ -121,7 +121,9 @@ public class q_boardDao {
 		}
 		public List<q_boardDto> list(int start, int end) throws Exception {
 			Connection con = this.getConnection();
-			String sql = "select * from (select a.*, rownum as rnum from (select * from q_board "
+			String sql = "select q_no,q_head,q_title,q_writer,q_content,q_read,q_when,q_parent,q_depth,q_team,q_savename,q_uploadname,q_len,q_type,"
+					+ "(select count(*) from q_comments where origin = q_no) as q_count "
+					+ "from (select a.*, rownum as rnum from (select * from q_board "
 					+ "connect by prior q_no = q_parent start with q_parent is null "
 					+ "order siblings by q_team desc, q_no asc)a) where rnum between ? and ? ";
 
@@ -134,7 +136,7 @@ public class q_boardDao {
 			while (rs.next()) {
 				// rs->PersonDto->list
 				q_boardDto qdto1 = new q_boardDto();
-				qdto1.setDate(rs);
+				qdto1.setDateA(rs);
 				list.add(qdto1);
 			}
 			con.close();

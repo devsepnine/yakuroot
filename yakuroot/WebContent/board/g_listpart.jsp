@@ -39,7 +39,7 @@ margin : auto;
 									<a href="g_content.do?no=${gdto.g_no}">
 										${gdto.g_title}
 									</a>
-									[${list2.size()}]
+									[${gdto.g_count}]
 								</td>
 								<td>${gdto.g_writer}</td>
 								<td>${gdto.date}</td>

@@ -36,7 +36,7 @@ th {
 						<tr>
 							<td>${ndto.n_no}</td>
 							<td>${ndto.n_head}</td>
-							<td><a href="notice_content.do?no=${ndto.n_no}"> ${ndto.n_title}[${list2.size()}]</a></td>
+							<td><a href="notice_content.do?no=${ndto.n_no}"> ${ndto.n_title}[${ndto.n_count}]</a></td>
 							<td>${ndto.n_writer}</td>
 							<td>${ndto.date}</td>
 							<td>${ndto.n_read}</td>
