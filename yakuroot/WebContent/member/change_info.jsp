@@ -148,19 +148,19 @@
 					   		<tr>
 					   		<th>ID</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_id}"  readonly>
+						   			<input type="text" value="${mdto.m_id}" name="m_id"  readonly>
 						   		</td>
 					   		</tr>
 					   		<tr>
 					   		<th>NAME</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_name}"  readonly>
+						   			<input type="text" value="${mdto.m_name}" name="m_name" readonly>
 						   		</td>
 					   		</tr>
 					   		<tr>
 					   		<th>BIRTH</th>
 						   		<td colspan="2">
-						   			<input type="date" value="${mdto.m_birth}" required>
+						   			<input type="date" value="${mdto.m_birth}" name="m_birth" required>
 						   		</td>
 					   		</tr>
 					   		<tr>

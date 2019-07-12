@@ -30,7 +30,7 @@
 	
 	  <div align = "center">
 		<form action="check.do" method="post" class="form form-label">
-			<input type="hidden" name="pass" value="<%=request.getParameter("pass")%>">
+			<input type="hidden" name="go" value="<%=request.getParameter("go")%>">
 			<fieldset>
 				<legend>CHECK PASSWORD</legend>
 					<table border=1 class="table table-noline">

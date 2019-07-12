@@ -160,7 +160,9 @@ public class MemberDao {
 		ps.setString(5, mdto.getM_addr2());
 		ps.setString(6, mdto.getM_fav());
 		ps.setString(7, mdto.getM_id());
-
+		
+		
+		System.out.println(mdto);
 		ps.execute();
 
 		con.close();
