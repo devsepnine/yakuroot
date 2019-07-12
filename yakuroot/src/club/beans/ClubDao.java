@@ -54,24 +54,6 @@ public class ClubDao {
 	}
 	
 	
-//	등록된 구단 목록 불러오는 리스트 메소드
-	public List<ClubDto> getClub() throws Exception{
-		Connection con = getConnection();
-		
-		String sql = "select * from club";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ResultSet rs = ps.executeQuery();
-		ClubDto cdto;
-		List<ClubDto> list = new ArrayList<ClubDto>();
-		while(rs.next()) {
-			cdto = new ClubDto();
-			cdto.setData(rs);
-			list.add(cdto);
-		}
-		con.close();
-		return list;
-	}
-	
 //	구단 데이터 불러오는 메소드
 	public ClubDto get(int c_no) throws Exception {
 		Connection con = getConnection();
@@ -93,11 +75,42 @@ public class ClubDao {
 		return cdto;
 	}
 	
-//	구단 소개 불러오는 메소드
 	
-//	구단 소속 선수 불러오는 메소드
+//	등록된 구단 목록 불러오는 리스트 메소드
+	public List<ClubDto> getClub() throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select * from club";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		ClubDto cdto;
+		List<ClubDto> list = new ArrayList<ClubDto>();
+		while(rs.next()) {
+			cdto = new ClubDto();
+			cdto.setData(rs);
+			list.add(cdto);
+		}
+		con.close();
+		return list;
+	}
 	
-//	구단 홈 경기장 정보 불러오는 메소드
+	
+//	구단 리스트 수정하는 메소드
+	public void edit(ClubDto cdto) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = "update club set c_photo=?, c_name=?, c_year=?, c_born=?, c_club=? where c_no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, cdto.getC_photo());
+		ps.setString(2, cdto.getC_name());
+		ps.setString(3, cdto.getC_year());
+		ps.setString(4, cdto.getC_born());
+		ps.setString(5, cdto.getC_club());
+		ps.setInt(6, cdto.getC_no());
+		
+		ps.execute();
+		con.close();
+	}
 	
 //	음 뭔지 모르겠는데 하나 더 있어야 할 것 같은 메소드
 	
