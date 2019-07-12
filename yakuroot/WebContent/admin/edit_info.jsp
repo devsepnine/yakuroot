@@ -59,6 +59,25 @@
         }).open();
     }
 </script>
+<script>
+        function checkName(){
+            var m_name = document.querySelector("#m_name").value;
+            var regex = /^[가-힣]{2,7}$/;
+            
+            var result = regex.test(m_name);
+//             console.log(result, typeof result);
+            
+            var div = document.querySelector(".m_nameD");
+
+            if(result) {
+                div.innerHTML = ""
+            }
+            else {
+                div.innerHTML = "<font color = 'gray' size = '2'>2~7자의 한글로 입력해주세요</font>"
+                
+            }
+        }
+</script>
    <script>
         function checkEmail(){
             var m_email = document.querySelector("#m_email").value;
@@ -112,6 +131,7 @@
 		
 		//select 옵션값 선택되서 나오게 하는거
 		$("select[name=m_fav]").val("${mdto.m_fav}");
+		$("select[name=m_auth]").val("${mdto.m_auth}");
 	});
 </script>
    <style>
@@ -124,7 +144,7 @@
 			padding : 20px;
 		}
 		
-		.change_info td input{
+		.edit_info td input{
 			width : 180px;
 		}
 		
@@ -148,30 +168,37 @@
 					   		<tr>
 					   		<th>ID</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_id}" name="m_id"  readonly>
+						   			<input type="text" value="${mdto.m_id}"  readonly>
 						   		</td>
 					   		</tr>
 					   		<tr>
+							<th>PASSWORD</th>
+							<td>
+								<input type="button" value="임시 비밀번호 발급" name="sample_pw" style=" width: 140px;">
+							</td>
+							</tr>
+					   		<tr>
 					   		<th>NAME</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_name}" name="m_name" readonly>
+						   			<input type="text" value="${mdto.m_name}" onblur="checkName();" id="m_name" pattern="^[가-힣]{2,7}$" required>
+						   			<div class="m_nameD"></div>
 						   		</td>
 					   		</tr>
 					   		<tr>
 					   		<th>BIRTH</th>
 						   		<td colspan="2">
-						   			<input type="date" value="${mdto.m_birth}" name="m_birth" required>
+						   			<input type="date" value="${mdto.m_birth}" value = "sysdate" required>
 						   		</td>
 					   		</tr>
 					   		<tr>
-					   		<th>PHONE</th>
+					   		<th><label for="m_phone">PHONE</label></th>
 						   		<td colspan="2">
 						   			<input type="text" value="${mdto.m_phone}"  id="m_phone" onblur="checkPhone();" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
 						   			<div class="m_phoneD"></div>
 						   		</td>
 					   		</tr>
 					   		<tr>
-					   		<th>EMAIL</th>  <%-- 이메일 한번에 받은거 @ 앞에서 끊어서 그것만 넣어주기 --%>
+					   		<th><label for="m_email">EMAIL</label></th>  <%-- 이메일 한번에 받은거 @ 앞에서 끊어서 그것만 넣어주기 --%>
 					   		<td colspan="2">
 								<input onblur="checkEmail();" type="text" name="m_email" id="m_email" value="${mdto.m_email_first}" pattern="^[a-z0-9]{8,15}$" required>
 									<span>@</span>
@@ -186,7 +213,7 @@
 							</td>
 					   		</tr>
 					   		<tr>
-							<th>ADDRESS</th>
+							<th><label for="m_addr">ADDRESS</label></th>
 							<td colspan="2">
 								<input type="text" name="m_postcode" value="${mdto.m_postcode}"  required readonly >
 									<input type="button" value="우편번호 찾기" name="postcode_find" style="margin-left: 40px; width: 130px;"><br>
@@ -211,12 +238,22 @@
 									</select></td>
 					   		</tr>
 					   		
-					   		<td colspan="3" height="50px"></td>
-					   		</tr>
+					   		<tr>
+					   		<th>AUTH</th>
+						   		<td colspan="2">
+						   			<select name="m_auth">
+									<option>일반</option>
+									<option>관리자</option>
+									</select>
+						   		</td>
 					   		</tr>
 					   		<tr>
+					   			<td colspan="3" height="50px"></td>
+					   		</tr>
+					   		
+					   		<tr>
 							<td colspan="3" align ="right">
-					   			<input type="submit" value="정보 저장" name="change_info_btn" style="margin-right: 50px; width: 130px;">
+					   			<input type="submit" value="정보 저장" name="edit_info_btn" style="margin-right: 50px; width: 130px;">
 					   		</td>
 							</tr>
 					   		

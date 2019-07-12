@@ -45,6 +45,7 @@ public class MatchupDao {
 				MatchupDto updto = new MatchupDto(rs);
 				list.add(updto);
 			}
+			con.close();
 			return list;
 		}
 

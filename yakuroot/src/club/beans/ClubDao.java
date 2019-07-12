@@ -3,6 +3,8 @@ package club.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -50,6 +52,24 @@ public class ClubDao {
 		ps.execute();
 		con.close();
 	}
+	
+	public List<ClubDto> getClub() throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select * from club";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		ClubDto cdto;
+		List<ClubDto> list = new ArrayList<ClubDto>();
+		while(rs.next()) {
+			cdto = new ClubDto();
+			cdto.setData(rs);
+			list.add(cdto);
+		}
+		con.close();
+		return list;
+	}
+	
 //	구단 데이터 불러오는 메소드
 	public ClubDto get(int c_no) throws Exception {
 		Connection con = getConnection();

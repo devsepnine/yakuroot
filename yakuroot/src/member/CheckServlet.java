@@ -27,7 +27,7 @@ public class CheckServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 
-			String m_id = (String)req.getSession().getAttribute("login");
+			String m_id = (String) req.getSession().getAttribute("login");
 			String m_pw = req.getParameter("m_pw");
 			String go = req.getParameter("go");
 			

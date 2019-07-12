@@ -72,7 +72,7 @@ m_email VARCHAR2(30) NOT NULL,		--회원 이메일
 m_postcode VARCHAR2(7) NOT NULL,	--회원 우편번호
 m_addr1 VARCHAR2(60) NOT NULL,		--회원 주소
 m_addr2 VARCHAR2(60) NOT NULL,		--회원 상세주소
-m_fav VARCHAR2(10) NOT NULL,		--회원 응원팀
+m_fav VARCHAR2(30) NOT NULL,		--회원 응원팀
 m_auth VARCHAR2(9) DEFAULT '일반' NOT NULL  CHECK(m_auth IN('일반', '관리자')),		--회원 권한
 m_regist DATE DEFAULT SYSDATE NOT NULL,		--회원 가입일
 m_lasttime DATE DEFAULT SYSDATE NOT NULL	--회원 최종접속시간
