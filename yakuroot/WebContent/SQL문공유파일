@@ -32,9 +32,9 @@ create table match(
 match_no number primary key,
 m_date date not null,
 m_team1 constraint fk_team1 references club(c_no)
-on delete set null,
+on delete cascade,
 m_team2 constraint fk_team2 references club(c_no)
-on delete set null,
+on delete cascade,
 m_point1 number,
 m_point2 number,
 m_stadium varchar2(50));
@@ -120,7 +120,7 @@ create table f_board(
 f_no number primary key,
 f_head varchar2(21)not null check(f_head in ('talk','doosan','sk','kiwoom','lg','nc','kt','samsung','kia','hanhwa','lotte')),
 f_title varchar2(60)not null,
-f_writer constraint fk_writer references member(m_id),
+f_writer constraint fk_writer references member(m_id) on delete cascade,
 f_content varchar2(4000)not null,
 f_read number default 0 not null,
 f_when date default sysdate not null,
@@ -147,7 +147,7 @@ create table notice_board(
 n_no number primary key,
 n_head varchar2(21)not null check(n_head in ('공지사항')),
 n_title varchar2(60)not null,
-n_writer constraint nk_writer references member(m_id),
+n_writer constraint nk_writer references member(m_id) on delete cascade,
 n_content varchar2(4000)not null,
 n_read number default 0 not null,
 n_when date default sysdate not null,
@@ -207,7 +207,7 @@ create table q_board(
 q_no number primary key,
 q_head varchar2(21) not null check(q_head in ('QnA')),
 q_title varchar2(60)not null,
-q_writer constraint qk_writer references member(m_id),
+q_writer constraint qk_writer references member(m_id) on delete cascade,
 q_content varchar2(4000) not null,
 q_read number default 0 not null,
 q_when date default sysdate not null,
