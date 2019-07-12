@@ -3,7 +3,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div align="center">
-<table border='1' style="width: 600px">
+<table border='1' style="width: 600px" class="table table-noline">
     <tbody>
         <tr>
             <td colspan="10"></td>
@@ -12,7 +12,7 @@
         
         <tr ><!-- 구단 로고 사진 -->
             <td style="width: 210px" rowspan="4"><img style="width: 200px" alt="" src="<%=request.getContextPath() %>/img/emblem/${cdto.c_photo}.png"></td>
-            <td colspan="4">빈칸</td>
+            <td colspan="4"></td>
             
         </tr>
         <tr>
@@ -49,7 +49,7 @@
         </tr>
         <tr><!-- 홈 경기장 좌석표 -->
             <td colspan="5">
-            <img style="with: 500px" alt="" src="<%=request.getContextPath() %>/img/stadium/${cdto.c_photo}.png"><td>
+            <img style="with: 500px" alt="" src="<%=request.getContextPath() %>/img/stadium/${cdto.c_photo}.png">
         </tr>
 
     </tbody>

@@ -21,9 +21,10 @@ public class InfoServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
+			
 		String m_id = (String)req.getSession().getAttribute("login");
 	 	MemberDao mdao = new MemberDao();
-	 		MemberDto mdto = mdao.get(m_id);
+	 	MemberDto mdto = mdao.get(m_id);
 			
 		
 		req.setAttribute("mdto", mdto);

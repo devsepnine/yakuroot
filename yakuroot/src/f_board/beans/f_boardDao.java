@@ -196,4 +196,6 @@ public class f_boardDao {
 		con.close();
 		return bdto;
 	}
-}
+
+	}
+

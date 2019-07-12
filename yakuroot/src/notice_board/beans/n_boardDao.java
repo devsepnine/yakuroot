@@ -53,7 +53,7 @@ public class n_boardDao {
 			n_team = no;
 		}
 
-		sql = "insert into notice_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from notice_board where n_no=?),?)";
+		sql = "insert into notice_board values(?,?,?,?,?,0,sysdate,?,(select nvl(f_depth,0)+1 from notice_board where n_no=?),?,?,?,?,?)";
 
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
@@ -68,6 +68,10 @@ public class n_boardDao {
 		}
 		ps.setInt(7, ndto.getN_parent());
 		ps.setInt(8, n_team);
+		ps.setString(9, ndto.getN_savename());
+		ps.setString(10, ndto.getN_uploadname());
+		ps.setLong(11, ndto.getN_len());
+		ps.setString(12, ndto.getN_type());
 
 		System.out.println(ndto);
 		ps.execute();

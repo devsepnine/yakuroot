@@ -197,6 +197,35 @@ origin CONSTRAINT gk_comments_board_no references g_board(g_no)on delete cascade
 
 --갤러리 코멘트 테이블 작성
 
+--qna관련
+create SEQUENCE q_board_seq; 
+   
+create table q_board(
+q_no number primary key,
+q_head varchar2(21) not null check(q_head in ('QnA')),
+q_title varchar2(60)not null,
+q_writer constraint qk_writer references member(m_id),
+q_content varchar2(4000) not null,
+q_read number default 0 not null,
+q_when date default sysdate not null,
+q_parent number,
+q_depth number,
+q_team number,
+q_savename varchar2(256),
+q_uploadname varchar2(256),
+q_len number,
+q_type varchar2(30)
+);
+
+create table q_comments(
+no number primary key,
+writer CONSTRAINT qk_comments_member_id REFERENCES member(m_id)on delete cascade,
+content varchar2(4000)not null,
+when date default sysdate not null,
+origin CONSTRAINT qk_comments_board_no references q_board(q_no)on delete cascade
+);
+
+
 /************************************************************
 						  도영
 ************************************************************/

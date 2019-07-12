@@ -20,7 +20,7 @@
  <div align="center">
 	 <form class="form form-label">
 			<fieldset>
-				<legend>CHANGE PW RESULT</legend>
+				<legend>CHANGE INFO RESULT</legend>
 					<table width = 100% class="table table-noline">
 						<tbody>
 							<tr>
@@ -31,7 +31,7 @@
 							</tr>
 							<tr>
 								<td colspan = "2">
-									비밀번호가 변경되었습니다.
+									정보가 변경되었습니다.
 								</td>
 							</tr>
 							<tr height = "30">
