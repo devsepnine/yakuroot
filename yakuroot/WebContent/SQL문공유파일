@@ -92,25 +92,24 @@ drop table g_comments;
 drop table f_board;
 drop table notice_board;
 drop table g_board;
+
 drop sequence f_board_seq;
 drop sequence f_com_seq;
+
 drop sequence n_board_seq;
 drop sequence n_com_seq;
---갤러리 추가
+
 drop SEQUENCE g_board_seq;
 drop SEQUENCE g_com_seq;
---추가
-
---원래 있던 테이블 전부 삭제
 
 create SEQUENCE f_board_seq;
 create SEQUENCE f_com_seq;
+
 create SEQUENCE n_board_seq;
 create SEQUENCE n_com_seq;
---갤러리 시퀀스 추가
+
 create SEQUENCE g_board_seq;
 create SEQUENCE g_com_seq;
---추가
 
 --시퀀스 생성
 
@@ -124,7 +123,11 @@ f_read number default 0 not null,
 f_when date default sysdate not null,
 f_parent number,
 f_depth number,
-f_team number
+f_team number,
+f_savename varchar2(256),
+f_uploadname varchar2(256),
+f_len number,
+f_type varchar2(30)
 );
 --자유게시판 테이블 생성
 
@@ -147,7 +150,11 @@ n_read number default 0 not null,
 n_when date default sysdate not null,
 f_parent number,
 f_depth number,
-f_team number
+f_team number,
+f_savename varchar2(256),
+f_uploadname varchar2(256),
+f_len number,
+f_type varchar2(30)
 );
 --공지게시판 테이블 생성
 
@@ -171,7 +178,11 @@ g_read number default 0 not null,
 g_when date default sysdate not null,
 g_parent number,
 g_depth number,
-g_team number
+g_team number,
+g_savename varchar2(256),
+g_uploadname varchar2(256),
+g_len number,
+g_type varchar2(30)
 );
 
 --갤러리 테이블 생성
@@ -185,7 +196,6 @@ origin CONSTRAINT gk_comments_board_no references g_board(g_no)on delete cascade
 );
 
 --갤러리 코멘트 테이블 작성
-
 
 /************************************************************
 						  도영

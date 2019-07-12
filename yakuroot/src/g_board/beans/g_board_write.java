@@ -26,6 +26,22 @@ public class g_board_write extends HttpServlet{
 		//글을 읽어서 찍어주는 메소드
 		g_boardDao gdao = new g_boardDao();
 		
+		
+		String path2 = "D:\\g_upload"; //폴더 경로
+		File Folder2 = new File(path2);
+
+		// 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
+		if (!Folder2.exists()) {
+			try{
+			    Folder2.mkdir(); //폴더 생성합니다.
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+		}
+	    
+		
 		//아래 3개는 파일의 저장 형식
 		String path = "D:\\g_upload";
 		int max = 10*1024*1024;
