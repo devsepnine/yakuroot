@@ -19,9 +19,24 @@ public class EditInfoServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("edit_info.jsp");
-		
-		dispatcher.forward(req, resp);
+		try {
+			String m_id = (String)req.getParameter("m_id");
+			MemberDao mdao = new MemberDao();
+			MemberDto mdto = mdao.get(m_id);
+			
+			
+			req.setAttribute("mdto", mdto);
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("edit_info.jsp");
+			
+			
+			dispatcher.forward(req, resp);
+			
+		}
+		catch (Exception e) {
+			resp.sendError(500);
+			e.printStackTrace();
+		} 
 	}
 	
 	@Override

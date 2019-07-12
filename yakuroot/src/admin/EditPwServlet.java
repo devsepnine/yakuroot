@@ -2,6 +2,7 @@ package admin;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,18 +21,22 @@ public class EditPwServlet extends HttpServlet{
 
 		try {
 			
-		
-			String m_id = req.getParameter("m_id");
+			String m_id = (String)req.getParameter("m_id");
 			
 			MemberDto mdto = new MemberDto();
 			mdto.setM_id(m_id);
-			mdto.setM_pw(SamplePw.random(10));
+			String npw = SamplePw.random(10);
+			mdto.setM_pw(npw);
 			
 			MemberDao mdao = new MemberDao();
 			mdao.change_pw(mdto);
 			
+			req.setAttribute("sample_pw", npw );
+			RequestDispatcher dispatcher = req.getRequestDispatcher("edit_pw.jsp");
+			
+			
+			dispatcher.forward(req, resp);
 
-			resp.sendRedirect("eidt_pw.do?m_pw="+mdto.getM_pw());
 			
 		}
 		
