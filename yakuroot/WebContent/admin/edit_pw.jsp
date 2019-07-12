@@ -3,9 +3,6 @@
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<%
-	String sample_pw = request.getParameter("m_pw");
-%>
 
 <style>
 
@@ -33,10 +30,10 @@
 						<tbody>
 							<tr>
 								<td>
-									임시 비밀번호
+									임시 비밀번호가 발급되었습니다
 								</td>
 								<td>
-									<input type="text" name="m_pw" id="m_pw"  value="<%=sample_pw%>" readonly >
+									<input type="text" name="m_pw" id="m_pw"  value="${sample_pw}" readonly >
 								</td>
 							</tr>
 						</tbody>
