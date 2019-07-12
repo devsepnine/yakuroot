@@ -13,7 +13,7 @@ public class f_boardDto {
 		return "f_boardDto [f_no=" + f_no + ", f_head=" + f_head + ", f_title=" + f_title + ", f_writer=" + f_writer
 				+ ", f_content=" + f_content + ", f_read=" + f_read + ", f_when=" + f_when + ", f_parent=" + f_parent
 				+ ", f_depth=" + f_depth + ", f_team=" + f_team + ", f_savename=" + f_savename + ", f_uploadname="
-				+ f_uploadname + ", f_len=" + f_len + ", f_type=" + f_type + "]";
+				+ f_uploadname + ", f_len=" + f_len + ", f_type=" + f_type + ", f_count=" + f_count + "]";
 	}
 	private int f_no;
 	private String f_head; 
@@ -29,7 +29,14 @@ public class f_boardDto {
 	private String f_uploadname;
 	private long f_len;
 	private String f_type;
+	private int f_count;
 
+	public int getF_count() {
+		return f_count;
+	}
+	public void setF_count(int f_count) {
+		this.f_count = f_count;
+	}
 	public String getF_savename() {
 		return f_savename;
 	}
@@ -118,6 +125,23 @@ public class f_boardDto {
 		this.f_team = f_team;
 	}
 
+	public void setDateA(ResultSet rs) throws SQLException{
+		this.setF_no(rs.getInt("f_no"));
+		this.setF_head(rs.getString("f_head"));
+		this.setF_title(rs.getString("f_title"));
+		this.setF_writer(rs.getString("f_writer"));
+		this.setF_content(rs.getString("f_content"));
+		this.setF_when(rs.getString("f_when"));
+		this.setF_read(rs.getInt("f_read"));
+		this.setF_parent(rs.getInt("f_parent"));
+		this.setF_depth(rs.getInt("f_depth"));
+		this.setF_team(rs.getInt("f_team"));
+		this.setF_savename(rs.getString("f_savename"));
+		this.setF_uploadname(rs.getString("f_uploadname"));
+		this.setF_len(rs.getLong("f_len"));
+		this.setF_type(rs.getString("f_type"));
+		this.setF_count(rs.getInt("f_count"));
+	}
 	public void setDate(ResultSet rs) throws SQLException{
 		this.setF_no(rs.getInt("f_no"));
 		this.setF_head(rs.getString("f_head"));

@@ -54,7 +54,7 @@
 					<tr>
 						<th width="40%">내용</th>
 						<td style="width: 500px; height: 200px;">
-						<a href="q_download.do?q_savename=${qdto.q_savename}">다운</a>
+						<img src="q_download.do?q_savename=${qdto.q_savename}">
 						<br>
 						${qdto.q_content}
 						</td>

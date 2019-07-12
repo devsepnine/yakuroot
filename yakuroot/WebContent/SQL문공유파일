@@ -111,6 +111,9 @@ create SEQUENCE n_com_seq;
 create SEQUENCE g_board_seq;
 create SEQUENCE g_com_seq;
 
+create SEQUENCE q_board_seq;
+create SEQUENCE q_com_seq;
+
 --시퀀스 생성
 
 create table f_board(

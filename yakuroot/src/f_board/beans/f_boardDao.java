@@ -126,7 +126,9 @@ public class f_boardDao {
 
 	public List<f_boardDto> list(int start, int end) throws Exception {
 		Connection con = this.getConnection();
-		String sql = "select * from (select a.*, rownum as rnum from (select * from f_board "
+		String sql = "select f_no,f_head,f_title,f_writer,f_content,f_read,f_when,f_parent,f_depth,f_team,f_savename,f_uploadname,f_len,f_type,"
+				+ "(select count(*) from f_comments where origin = f_no) as f_count "
+				+ "from (select a.*, rownum as rnum from (select * from f_board "
 				+ "connect by prior f_no = f_parent start with f_parent is null "
 				+ "order siblings by f_team desc, f_no asc)a) where rnum between ? and ? ";
 
@@ -135,11 +137,11 @@ public class f_boardDao {
 		ps.setInt(2, end);
 		ResultSet rs = ps.executeQuery();
 
-		List<f_boardDto> list = new ArrayList<f_boardDto>(); // ����ִ� ����Ʈ �غ�
+		List<f_boardDto> list = new ArrayList<f_boardDto>(); 
 		while (rs.next()) {
 			// rs->PersonDto->list
 			f_boardDto bdto1 = new f_boardDto();
-			bdto1.setDate(rs);
+			bdto1.setDateA(rs);
 			list.add(bdto1);
 		}
 		con.close();

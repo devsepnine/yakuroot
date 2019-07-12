@@ -22,8 +22,15 @@ public class g_boardDto {
 	private String g_uploadname;
 	private long g_len;
 	private String g_type;
+	private int g_count;
 	
 
+	public int getG_count() {
+		return g_count;
+	}
+	public void setG_count(int g_count) {
+		this.g_count = g_count;
+	}
 	public String getG_savename() {
 		return g_savename;
 	}
@@ -53,7 +60,7 @@ public class g_boardDto {
 		return "g_boardDto [g_no=" + g_no + ", g_head=" + g_head + ", g_title=" + g_title + ", g_writer=" + g_writer
 				+ ", g_content=" + g_content + ", g_read=" + g_read + ", g_when=" + g_when + ", g_parent=" + g_parent
 				+ ", g_depth=" + g_depth + ", g_team=" + g_team + ", g_savename=" + g_savename + ", g_uploadname="
-				+ g_uploadname + ", g_len=" + g_len + ", g_type=" + g_type + "]";
+				+ g_uploadname + ", g_len=" + g_len + ", g_type=" + g_type + ", g_count=" + g_count + "]";
 	}
 	public g_boardDto() {
 		super();
@@ -117,6 +124,24 @@ public class g_boardDto {
 	}
 	public void setG_team(int g_team) {
 		this.g_team = g_team;
+	}
+	public void setDateA(ResultSet rs) throws SQLException{
+		this.setG_no(rs.getInt("g_no"));
+		this.setG_head(rs.getString("g_head"));
+		this.setG_title(rs.getString("g_title"));
+		this.setG_writer(rs.getString("g_writer"));
+		this.setG_content(rs.getString("g_content"));
+		this.setG_when(rs.getString("g_when"));
+		this.setG_read(rs.getInt("g_read"));
+		this.setG_parent(rs.getInt("g_parent"));
+		this.setG_depth(rs.getInt("g_depth"));
+		this.setG_team(rs.getInt("g_team"));
+		this.setG_savename(rs.getString("g_savename"));
+		this.setG_uploadname(rs.getString("g_uploadname"));
+		this.setG_len(rs.getLong("g_len"));
+		this.setG_type(rs.getString("g_type"));
+		this.setG_count(rs.getInt("g_count"));
+
 	}
 	public void setDate(ResultSet rs) throws SQLException{
 		this.setG_no(rs.getInt("g_no"));

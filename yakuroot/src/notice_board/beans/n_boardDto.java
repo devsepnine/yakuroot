@@ -1,5 +1,6 @@
 package notice_board.beans;
 
+import java.net.URLEncoder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.Format;
@@ -14,82 +15,20 @@ public class n_boardDto {
 	private String n_content;
 	private int n_read;
 	private String n_when;
-	private int n_parent;
-	private int n_depth;
+	private int f_parent;
+	private int f_depth;
+	private int f_team;
 	private String n_savename;
 	private String n_uploadname;
-	private long n_len;
-	private String n_type;
-	
-
-	public String getN_savename() {
-		return n_savename;
-	}
-	public void setN_savename(String n_savename) {
-		this.n_savename = n_savename;
-	}
-	public String getN_uploadname() {
-		return n_uploadname;
-	}
-	public void setN_uploadname(String n_uploadname) {
-		this.n_uploadname = n_uploadname;
-	}
-	public long getN_len() {
-		return n_len;
-	}
-	public void setN_len(long n_len) {
-		this.n_len = n_len;
-	}
-	public String getN_type() {
-		return n_type;
-	}
-	public void setN_type(String n_type) {
-		this.n_type = n_type;
-	}
-	public n_boardDto(int n_no, String n_head, String n_title, String n_writer, String n_content, int n_read,
-			String n_when, int n_parent, int n_depth, int n_team) {
-		super();
-		this.n_no = n_no;
-		this.n_head = n_head;
-		this.n_title = n_title;
-		this.n_writer = n_writer;
-		this.n_content = n_content;
-		this.n_read = n_read;
-		this.n_when = n_when;
-		this.n_parent = n_parent;
-		this.n_depth = n_depth;
-		this.n_team = n_team;
-	}
-	public int getN_parent() {
-		return n_parent;
-	}
-	public void setN_parent(int n_parent) {
-		this.n_parent = n_parent;
-	}
-	public int getN_depth() {
-		return n_depth;
-	}
-	public void setN_depth(int n_depth) {
-		this.n_depth = n_depth;
-	}
-	public int getN_team() {
-		return n_team;
-	}
-	public void setN_team(int n_team) {
-		this.n_team = n_team;
-	}
-	private int n_team;
-	
 	public n_boardDto() {
 		super();
 	}
-	
 	@Override
 	public String toString() {
 		return "n_boardDto [n_no=" + n_no + ", n_head=" + n_head + ", n_title=" + n_title + ", n_writer=" + n_writer
-				+ ", n_content=" + n_content + ", n_read=" + n_read + ", n_when=" + n_when + ", n_parent=" + n_parent
-				+ ", n_depth=" + n_depth + ", n_savename=" + n_savename + ", n_uploadname=" + n_uploadname + ", n_len="
-				+ n_len + ", n_type=" + n_type + ", n_team=" + n_team + "]";
+				+ ", n_content=" + n_content + ", n_read=" + n_read + ", n_when=" + n_when + ", f_parent=" + f_parent
+				+ ", f_depth=" + f_depth + ", f_team=" + f_team + ", n_savename=" + n_savename + ", n_uploadname="
+				+ n_uploadname + ", n_len=" + n_len + ", n_type=" + n_type + ", n_count=" + n_count + "]";
 	}
 	public int getN_no() {
 		return n_no;
@@ -133,6 +72,58 @@ public class n_boardDto {
 	public void setN_when(String n_when) {
 		this.n_when = n_when;
 	}
+	public int getF_parent() {
+		return f_parent;
+	}
+	public void setF_parent(int f_parent) {
+		this.f_parent = f_parent;
+	}
+	public int getF_depth() {
+		return f_depth;
+	}
+	public void setF_depth(int f_depth) {
+		this.f_depth = f_depth;
+	}
+	public int getF_team() {
+		return f_team;
+	}
+	public void setF_team(int f_team) {
+		this.f_team = f_team;
+	}
+	public String getN_savename() {
+		return n_savename;
+	}
+	public void setN_savename(String n_savename) {
+		this.n_savename = n_savename;
+	}
+	public String getN_uploadname() {
+		return n_uploadname;
+	}
+	public void setN_uploadname(String n_uploadname) {
+		this.n_uploadname = n_uploadname;
+	}
+	public long getN_len() {
+		return n_len;
+	}
+	public void setN_len(long n_len) {
+		this.n_len = n_len;
+	}
+	public String getN_type() {
+		return n_type;
+	}
+	public void setN_type(String n_type) {
+		this.n_type = n_type;
+	}
+	public int getN_count() {
+		return n_count;
+	}
+	public void setN_count(int n_count) {
+		this.n_count = n_count;
+	}
+	private long n_len;
+	private String n_type;
+	private int n_count;
+	
 	public void setDate(ResultSet rs) throws SQLException{
 		this.setN_no(rs.getInt("n_no"));
 		this.setN_head(rs.getString("n_head"));
@@ -141,6 +132,28 @@ public class n_boardDto {
 		this.setN_content(rs.getString("n_content"));
 		this.setN_when(rs.getString("n_when"));
 		this.setN_read(rs.getInt("n_read"));
+		this.setN_savename(rs.getString("n_savename"));
+		this.setN_uploadname(rs.getString("n_uploadname"));
+		this.setN_len(rs.getLong("n_len"));
+		this.setN_type(rs.getString("n_type"));
+	}
+	public void setDateA(ResultSet rs) throws SQLException{
+		this.setN_no(rs.getInt("n_no"));
+		this.setN_head(rs.getString("n_head"));
+		this.setN_title(rs.getString("n_title"));
+		this.setN_writer(rs.getString("n_writer"));
+		this.setN_content(rs.getString("n_content"));
+		this.setN_when(rs.getString("n_when"));
+		this.setN_read(rs.getInt("n_read"));
+		this.setF_parent(rs.getInt("f_parent"));
+		this.setF_depth(rs.getInt("f_depth"));
+		this.setF_team(rs.getInt("f_team"));
+		this.setN_savename(rs.getString("n_savename"));
+		this.setN_uploadname(rs.getString("n_uploadname"));
+		this.setN_len(rs.getLong("n_len"));
+		this.setN_type(rs.getString("n_type"));
+		this.setN_count(rs.getInt("n_count"));
+		
 	}
 	public String getDate() {
 //		2019-06-18 12:18:07.0
@@ -161,7 +174,11 @@ public class n_boardDto {
 			return this.getTime();
 		}else {
 			return this.getDate();
-		}
+		}	
+		
 }
+	public String getSendname() throws Exception{
+		return URLEncoder.encode(n_uploadname,"UTF-8");
+	}
 
 }

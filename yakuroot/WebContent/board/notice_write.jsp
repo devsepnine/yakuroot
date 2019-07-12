@@ -23,7 +23,7 @@
 
 <!-- 공지게시판 글 쓰기 jsp -->
 <div align="center">
-	<form action="n_write.do" method="post">
+	<form action="n_write.do" method="post" enctype="multipart/form-data">
 		말머리:<select name="n_head">
 					<option value="공지사항">공지사항</option>
 				</select> 
@@ -35,7 +35,7 @@
 			name="n_writer" value="${login}">
 			<br>
 			<br>
-			
+			<input type="file" name="nf" multiple> 
 			<div style="width: 1000px;">
 			<textarea name="n_content" required id="editor"> </textarea>
 			</div>

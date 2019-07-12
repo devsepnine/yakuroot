@@ -52,7 +52,9 @@
 					</tr>
 					<tr>
 						<th width="30%">내용</th>
-						<td style="width: 500px; height: 200px;">${ndto.n_content}</td>
+						<td style="width: 500px; height: 200px;">
+						<img src="n_download.do?n_savename=${ndto.n_savename}">
+						${ndto.n_content}</td>
 					</tr>
 					<tr>	
 						<th width="20%">작성일</th>
