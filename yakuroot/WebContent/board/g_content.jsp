@@ -64,11 +64,7 @@
 						<td>${gdto.g_when}</td>
 					</tr>
 					<tr>
-						<th width="10%">조회수</th>
-						<td>${gdto.g_read}</td>
-					</tr>
-					<tr>
-						<th>댓글 ${list2.size()}</th>
+						<th colspan="2"><h4 align="left">댓글 ${list2.size()}//조회수 ${gdto.g_read}</h4></th>
 					</tr>
 					<%--댓글 목록 표시 --%>
 					<tr>
