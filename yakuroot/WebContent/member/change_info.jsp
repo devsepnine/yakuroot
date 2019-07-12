@@ -166,7 +166,7 @@
 					   		<tr>
 					   		<th>PHONE</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_phone}"  id="m_phone" onblur="checkPhone();" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
+						   			<input type="text" value="${mdto.m_phone}"  id="m_phone"  name="m_phone" onblur="checkPhone();" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
 						   			<div class="m_phoneD"></div>
 						   		</td>
 					   		</tr>
