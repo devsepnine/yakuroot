@@ -3,6 +3,7 @@ package match.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +37,18 @@ public class MatchDao {
 		}
 		
 //		경기일정 추가하는 메소드
-		public void setMatch(MatchDto matdto) {
-			
+		public void setMatch(MatchDto matdto) throws Exception {
+			Connection con = getConnection();
+			String sql = "insert into match values(match_seq.nextval, to_date(?, 'YYYY/MM/DD HH24:MI:SS'), ?, ?, ?, ?, ?)";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, matdto.getM_date());
+			pstmt.setInt(2, matdto.getM_team1());
+			pstmt.setInt(3, matdto.getM_team2());
+			pstmt.setInt(4, matdto.getM_point1());
+			pstmt.setInt(5, matdto.getM_point2());
+			pstmt.setString(6, matdto.getM_stadium());
+			pstmt.execute();
+			con.close();
 			
 		}
 		
@@ -52,6 +63,7 @@ public class MatchDao {
 				MatchDto matdto = new MatchDto(rs);
 				list.add(matdto);
 			}
+			con.close();
 			return list;
 		}
 }

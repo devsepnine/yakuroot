@@ -43,6 +43,9 @@
 			</c:choose>
 		</tbody>
 	</table>
+	<c:if test="${auth eq '관리자'}">
+		<a href="match_insert"><button>경기일정 추가하기</button></a>
+	</c:if>
 </div>
 
 
