@@ -41,7 +41,7 @@
 					   		</tr>
 					   		<tr>
 					   		<th>PW</th>
-					   		<td><a href ="change_pw.do"><input type="button" value="CHANGE PW" name="change_pw"></a></td>
+					   		<td><a href ="check.do?go=change_pw.do"><input type="button" value="CHANGE PW" name="change_pw"></a></td>
 					   		</tr>
 					   		<tr>
 					   		<th>NAME</th>
@@ -91,8 +91,8 @@
 					   		<td colspan="2" height="50px"></td>
 					   		</tr>
 					   		<tr>
-					   		<td><a href ="change_info.do"><input type="button" value="내 정보 수정" name="change_info"></a></td>
-					   		<td><a href ="delete.do"><input type="button" value="회원 탈퇴" name="delete"></a></td>
+					   		<td><a href ="check.do?go=change_info.do"><input type="button" value="내 정보 수정" name="change_info"></a></td>
+					   		<td><a href ="check.do?go=delete.do"><input type="button" value="회원 탈퇴" name="delete"></a></td>
 					   		</tr>
 						</tbody>
 					</table>
