@@ -39,6 +39,7 @@ margin : auto;
 									<a href="q_content.do?no=${qdto.q_no}">
 										${qdto.q_title}
 									</a>
+									[${qdto.q_count}]
 								</td>
 								<td>${qdto.q_writer}</td>
 								<td>${qdto.date}</td>

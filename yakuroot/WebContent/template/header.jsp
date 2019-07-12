@@ -353,7 +353,7 @@ SETTINGS
                         <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/login.do">로그인</a><a href = "<%=request.getContextPath()%>/member/agree.jsp">회원가입</a></div></td>
                         </c:when>
                         <c:otherwise>
-                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "<%=request.getContextPath()%>/member/info.do">회원정보</a>
+                        <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "<%=request.getContextPath()%>/member/info.do">${login }</a>
                         <c:if test="${auth eq '관리자' }">
                         <a href = "#">관리자페이지</a>
                         </c:if>
@@ -369,8 +369,8 @@ SETTINGS
                                     <div class="sub_menus">
                                         <ul>
                                             <li><a href="<%=request.getContextPath()%>/club/select_club.jsp">구단 소개</a></li>
-                                            <li>구장 소개</li>
-                                            <li>선수 소개</li>
+                                            <li><a>선수 소개</a></li>
+                                            <li><a>시즌 기록</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -405,9 +405,13 @@ SETTINGS
                                     <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="관리자메뉴"><span class="sm-link__label">관리자메뉴</span></a>
                                     <div class="sub_menus">
                                         <ul>
-                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴1</a></li>
-                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴2</a></li>
-                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴3</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/admin/search.do">회원 관리</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/club/club_list.do">팀리스트 관리</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/match/match_insert">경기일정 추가</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴4</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴5</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴6</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴7</a></li>
                                         </ul>
                                     </div>
                                 </li>

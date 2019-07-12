@@ -43,7 +43,8 @@ th {
 								</c:forEach> <c:if test="${bdto.f_depth > 0}">
 									<img src="/study/image/다운로드.jpg" width="30" height="20">
 								</c:if>
-								<a href="f_content.do?no=${bdto.f_no}"> ${bdto.f_title}</a>[]</td>
+								<a href="f_content.do?no=${bdto.f_no}"> ${bdto.f_title}</a>
+								[${bdto.f_count}]</td>
 							<td>${bdto.f_writer}</td>
 							<td>${bdto.date}</td>
 							<td>${bdto.f_read}</td>

@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import f_board.beans.f_boardDto;
+import g_board.beans.g_boardDto;
 import notice_board.beans.n_boardDto;
 
 public class n_boardDao {
@@ -41,10 +42,10 @@ public class n_boardDao {
 		ps.close();
 		
 		int n_team;
-		if (ndto.getN_parent() > 0) {
+		if (ndto.getF_parent() > 0) {
 			sql = "select n_team from notice_board where n_no = ?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, ndto.getN_parent());
+			ps.setInt(1, ndto.getF_parent());
 			rs = ps.executeQuery();
 			rs.next();
 			n_team = rs.getInt("n_team");
@@ -61,12 +62,12 @@ public class n_boardDao {
 		ps.setString(3, ndto.getN_title());
 		ps.setString(4, ndto.getN_writer());
 		ps.setString(5, ndto.getN_content());
-		if (ndto.getN_parent() == 0) {
+		if (ndto.getF_parent() == 0) {
 			ps.setNull(6, Types.INTEGER);
 		} else {
-			ps.setInt(6, ndto.getN_parent());
+			ps.setInt(6, ndto.getF_parent());
 		}
-		ps.setInt(7, ndto.getN_parent());
+		ps.setInt(7, ndto.getF_parent());
 		ps.setInt(8, n_team);
 		ps.setString(9, ndto.getN_savename());
 		ps.setString(10, ndto.getN_uploadname());
@@ -130,7 +131,9 @@ public class n_boardDao {
 	}
 	public List<n_boardDto> list(int start, int end) throws Exception {//공지사항 리스트 출력 메소드
 		Connection con = this.getConnection();
-		String sql = "select * from (select a.*, rownum as rnum from (select * from notice_board "
+		String sql = "select n_no,n_head,n_title,n_writer,n_content,n_read,n_when,f_parent,f_depth,f_team,n_savename,n_uploadname,n_len,n_type,"
+				+ "(select count(*) from n_comments where origin = n_no) as n_count "
+				+ "from (select a.*, rownum as rnum from (select * from notice_board "
 				+ "connect by prior n_no = f_parent start with f_parent is null "
 				+ "order siblings by f_team desc, n_no asc)a) where rnum between ? and ? ";
 
@@ -143,7 +146,7 @@ public class n_boardDao {
 		while (rs.next()) {
 			// rs->PersonDto->list
 			n_boardDto ndto1 = new n_boardDto();
-			ndto1.setDate(rs);
+			ndto1.setDateA(rs);
 			list.add(ndto1);
 		}
 		con.close();
@@ -193,5 +196,22 @@ public class n_boardDao {
 		con.close();
 		return count;
 }
+	public n_boardDto getdown(String ndto) throws Exception {
+		Connection con = this.getConnection();
+		String sql = "select * from notice_board where n_savename= ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, ndto);
+		ResultSet rs = ps.executeQuery();
+
+		n_boardDto ndto1 = new n_boardDto();
+
+		if (rs.next()) {
+			ndto1.setDate(rs);
+		} else {
+			ndto1 = null;
+		}
+		con.close();
+		return ndto1;
+	}
 	
 }

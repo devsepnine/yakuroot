@@ -22,12 +22,19 @@ public class q_boardDto {
 	private String q_uploadname;
 	private long q_len;
 	private String q_type;
+	private int q_count;
+	public int getQ_count() {
+		return q_count;
+	}
+	public void setQ_count(int q_count) {
+		this.q_count = q_count;
+	}
 	@Override
 	public String toString() {
 		return "q_boardDto [q_no=" + q_no + ", q_head=" + q_head + ", q_title=" + q_title + ", q_writer=" + q_writer
 				+ ", q_content=" + q_content + ", q_read=" + q_read + ", q_when=" + q_when + ", q_parent=" + q_parent
 				+ ", q_depth=" + q_depth + ", q_team=" + q_team + ", q_savename=" + q_savename + ", q_uploadname="
-				+ q_uploadname + ", q_len=" + q_len + ", q_type=" + q_type + "]";
+				+ q_uploadname + ", q_len=" + q_len + ", q_type=" + q_type + ", q_count=" + q_count + "]";
 	}
 	public q_boardDto() {
 		super();
@@ -131,6 +138,25 @@ public class q_boardDto {
 		this.setQ_uploadname(rs.getString("q_uploadname"));
 		this.setQ_len(rs.getLong("q_len"));
 		this.setQ_type(rs.getString("q_type"));
+		
+	}
+	public void setDateA(ResultSet rs) throws SQLException{
+		this.setQ_no(rs.getInt("q_no"));
+		this.setQ_head(rs.getString("q_head"));
+		this.setQ_title(rs.getString("q_title"));
+		this.setQ_writer(rs.getString("q_writer"));
+		this.setQ_content(rs.getString("q_content"));
+		this.setQ_when(rs.getString("q_when"));
+		this.setQ_read(rs.getInt("q_read"));
+		this.setQ_parent(rs.getInt("q_parent"));
+		this.setQ_depth(rs.getInt("q_depth"));
+		this.setQ_team(rs.getInt("q_team"));
+		this.setQ_savename(rs.getString("q_savename"));
+		this.setQ_uploadname(rs.getString("q_uploadname"));
+		this.setQ_len(rs.getLong("q_len"));
+		this.setQ_type(rs.getString("q_type"));
+		this.setQ_count(rs.getInt("q_count"));
+		
 	}
 	public String getSendname() throws Exception{
 		return URLEncoder.encode(q_uploadname,"UTF-8");

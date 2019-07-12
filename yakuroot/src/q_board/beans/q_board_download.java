@@ -23,8 +23,8 @@ public class q_board_download extends HttpServlet{
 			
 			resp.reset();
 			
-			resp.setHeader("Content-Type", "application/octet-stream; charset=UTF-8");
-//		 	resp.setHeader("Content-Type", "image/jpg; charset=UTF-8");
+//			resp.setHeader("Content-Type", "application/octet-stream; charset=UTF-8");
+		 	resp.setHeader("Content-Type", "image/jpg; charset=UTF-8");
 			resp.setHeader("Content-Disposition", "attachment; filename="+qdto.getSendname());
 			resp.setHeader("Content-Length", String.valueOf(qdto.getQ_len()));
 			resp.setHeader("COntent-Description", "부연설명");
