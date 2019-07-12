@@ -1,4 +1,4 @@
-package comment.beans;
+package q_comment.beans;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.sql.DataSource;
 
 public class CommentDao {
@@ -31,13 +30,13 @@ public class CommentDao {
 	
 	public int write(CommentDto cdto)throws Exception {//��� ��� �޼ҵ�
 		Connection con = this.getConnection();
-		String sql = "select f_com_seq.nextval from dual";
+		String sql = "select q_com_seq.nextval from dual";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 		int no = rs.getInt(1);
 		ps.close();
-		sql = "insert into f_comments values(?,?,?,sysdate,?)";
+		sql = "insert into q_comments values(?,?,?,sysdate,?)";
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ps.setString(2, cdto.getWriter());
@@ -50,7 +49,7 @@ public class CommentDao {
 	}
 	public List<CommentDto> get(int origin) throws Exception {
 		Connection con = this.getConnection();
-		String sql = "select * from f_comments where origin = ? order by when asc";
+		String sql = "select * from q_comments where origin = ? order by when asc";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, origin);
 		ResultSet rs = ps.executeQuery();
@@ -67,7 +66,7 @@ public class CommentDao {
 	}
 	public List<CommentDto> list(int start,int end) throws Exception {//����Ʈ ��� �޼ҵ�
 		Connection con = this.getConnection();
-		String sql = "select * from (select a.*, rownum as rnum from (select * from f_comments order by no desc)a) where rnum between ? and ? ";
+		String sql = "select * from (select a.*, rownum as rnum from (select * from q_comments order by no desc)a) where rnum between ? and ? ";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);
@@ -86,14 +85,14 @@ public class CommentDao {
 	}
 	public int delete(int no) throws Exception{
 		Connection con = this.getConnection();
-		String sql = "select origin from f_comments where no = ?";
+		String sql = "select origin from q_comments where no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 		int origin = rs.getInt("origin");
 		ps.close(); 
-		sql = "delete f_comments where no = ?";
+		sql = "delete q_comments where no = ?";
 		ps = con.prepareStatement(sql);
 		ps.setInt(1, no);
 		ps.execute();	
@@ -103,7 +102,7 @@ public class CommentDao {
 	}
 	public CommentDto edit(CommentDto cdto) throws Exception{//ȸ������ �˻� �޼ҵ�
 		Connection con = this.getConnection();		
-		String sql="update f_comments set "
+		String sql="update q_comments set "
 				+ "content = ? where no = ? ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, cdto.getContent());
@@ -113,7 +112,5 @@ public class CommentDao {
 		con.close();
 		return cdto;
 		}
-
-
 	
 }

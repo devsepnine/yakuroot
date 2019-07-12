@@ -3,7 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <jsp:include page="/template/header.jsp"></jsp:include>
-<!-- 공지사항 글 내용 jsp -->
+
+<!-- 자유게시판 글 내용 jsp -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
 	$(function() {
@@ -37,29 +38,33 @@
 	});
 </script>
 <div align="center">
+	<h1>${qdto.q_title}</h1>
+</div>
+
+<div align="center">
 	<div>
 		<div>
 			<table border="1">
 				<tbody>
 					<tr>
-						<div align="center">
-							<h1>${ndto.n_title}</h1>
-						</div>
-					</tr>
-					<tr>
 						<th width="10%">작성자</th>
-						<td>${ndto.n_writer}</td>
+						<td>${qdto.q_writer}</td>
+					</tr>
+
+					<tr>
+						<th width="40%">내용</th>
+						<td style="width: 500px; height: 200px;">
+						<a href="q_download.do?q_savename=${qdto.q_savename}">다운</a>
+						<br>
+						${qdto.q_content}
+						</td>
 					</tr>
 					<tr>
-						<th width="30%">내용</th>
-						<td style="width: 500px; height: 200px;">${ndto.n_content}</td>
-					</tr>
-					<tr>	
 						<th width="20%">작성일</th>
-						<td>${ndto.n_when}</td>
+						<td>${qdto.q_when}</td>
 					</tr>
 					<tr>
-						<th colspan="2"><h4 align="left">댓글 ${list2.size()} // 조회수 ${ndto.n_read}</h4></th>
+						<th colspan="2"><h4 align="left">댓글 ${list2.size()}//조회수 ${qdto.q_read}</h4></th>
 					</tr>
 					<%--댓글 목록 표시 --%>
 					<tr>
@@ -71,14 +76,14 @@
 										<tr>
 											<td width="90%" class="content"><font color="blue"
 												size="5">${cdto.writer}</font> <c:if
-													test="${cdto.writer==ndto.n_writer}">
+													test="${cdto.writer==qdto.q_writer}">
 													<font color="red">(작성자)</font>
 												</c:if> ${cdto.date} <br> ${cdto.content}
 												<hr></td>
 											<td width="80%" class="su">
-												<form action="n_comment_su.do" method="post">
+												<form action="q_comment_su.do" method="post">
 													<input type="hidden" name="no" value="${cdto.no}">
-													<input type="hidden" name="origin" value="${ndto.n_no}">
+													<input type="hidden" name="origin" value="${qdto.q_no}">
 													<textarea rows="4" cols="60" name="content">${cdto.content}</textarea>
 													<input type="submit" value="수정">
 												</form>
@@ -86,23 +91,22 @@
 											<!-- 본인 글이거나 관리자 일때만 표시 -->
 											<td width="5%"><c:if test="${cdto.writer==login}">
 													<a href="#" class="btn">수정</a></td>
-											<td width="5%"><a href="nc_delete.do?no=${cdto.no}"
+											<td width="5%"><a href="qc_delete.do?no=${cdto.no}"
 												class="su-del">삭제</a> </c:if></td>
 										</tr>
-										</c:forEach>
-					<tr>
+									</c:forEach>
+									<tr>
 										<td colspan="2" align="center">
-											<form action="n_comments.do" method="post">
-												<input type="hidden" name="origin" value="${ndto.n_no}">
+											<form action="q_comment.do" method="post">
+												<input type="hidden" name="origin" value="${qdto.q_no}">
 												<input type="hidden" name="writer" value="${login}">
 												<textarea rows="4" cols="50" placeholder="댓글입력"
-														name="content"></textarea>
+													name="content"></textarea>
 												<button type="submit">등록</button>
 											</form>
 										</td>
 									</tr>
 									<%--댓글 1개 표시 영역 --%>
-								
 								</tbody>
 							</table>
 						</td>
@@ -113,9 +117,9 @@
 							<h4>
 								<c:if test="${my eq true}">
 									<button>
-										<a href="notice_edit.do?n_no=${ndto.n_no}">글 수정</a>
+										<a href="q_edit.do?f_no=${qdto.q_no}">글 수정</a>
 									</button>
-									<a href="n_delete.do?n_no=${ndto.n_no}"><button>글 삭제</button></a>
+									<a href="q_delete.do?no=${qdto.q_no}"><button>글 삭제</button></a>
 								</c:if>
 							</h4>
 						</td>
@@ -126,4 +130,5 @@
 	</div>
 </div>
 <hr>
+
 <jsp:include page="/template/footer.jsp"></jsp:include>

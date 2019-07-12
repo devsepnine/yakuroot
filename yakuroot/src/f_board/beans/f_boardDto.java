@@ -134,6 +134,7 @@ public class f_boardDto {
 		this.setF_len(rs.getLong("f_len"));
 		this.setF_type(rs.getString("f_type"));
 	}
+	
 	public String getDate() {
 //		2019-06-18 12:18:07.0
 		return f_when.substring(0,10);

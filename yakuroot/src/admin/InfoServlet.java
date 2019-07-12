@@ -1,4 +1,4 @@
-package member;
+package admin;
 
 import java.io.IOException;
 
@@ -12,19 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
-
-@WebServlet(urlPatterns="/member/info.do")
+@WebServlet(urlPatterns="/admin/info.do")
 public class InfoServlet extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-			
-		String m_id = (String)req.getSession().getAttribute("login");
+		String m_id = (String)req.getParameter("m_id");
 	 	MemberDao mdao = new MemberDao();
-	 	MemberDto mdto = mdao.get(m_id);
+	 		MemberDto mdto = mdao.get(m_id);
 			
 		
 		req.setAttribute("mdto", mdto);

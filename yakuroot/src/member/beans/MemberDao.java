@@ -134,7 +134,7 @@ public class MemberDao {
 	//비밀번호 변경
 	public void change_pw(MemberDto mdto) throws Exception {
 		Connection con = this.getConnection();
-		
+		System.out.println(mdto);
 		String sql = "update member set m_pw = ? where m_id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, mdto.getM_pw());
@@ -160,7 +160,9 @@ public class MemberDao {
 		ps.setString(5, mdto.getM_addr2());
 		ps.setString(6, mdto.getM_fav());
 		ps.setString(7, mdto.getM_id());
-
+		
+		
+		System.out.println(mdto);
 		ps.execute();
 
 		con.close();
@@ -251,7 +253,7 @@ public class MemberDao {
 	public List<MemberDto> search(String type, String keyword) throws Exception {
 		Connection con = this.getConnection();
 		
-		String sql = "select * from member where "+type+" like '%' || ? || '%' order by no ";
+		String sql = "select * from member where "+type+" like '%' || ? || '%' order by m_no ";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
 		

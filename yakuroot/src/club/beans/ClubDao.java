@@ -68,6 +68,7 @@ public class ClubDao {
 			cdto.setData(rs);
 			list.add(cdto);
 		}
+		con.close();
 		return list;
 	}
 	
