@@ -26,9 +26,6 @@ public class RegistServlet extends HttpServlet {
 	// POST 방식 -> 등록 처리 후 결과 페이지로 이동
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/plain");
-
 		try {
 			req.setCharacterEncoding("UTF-8");
 
@@ -51,7 +48,7 @@ public class RegistServlet extends HttpServlet {
 			//regist로 회원가입
 			MemberDao mdao = new MemberDao();
 			mdao.regist(mdto);
-
+			
 			//회원가입 후 회원가입 결과 페이지로 이동
 			RequestDispatcher dispatcher = req.getRequestDispatcher("regist_result.jsp");
 			

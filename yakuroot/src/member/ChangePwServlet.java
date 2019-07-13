@@ -25,6 +25,7 @@ public class ChangePwServlet  extends HttpServlet{
 		dispatcher.forward(req, resp);
 	}
 	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	

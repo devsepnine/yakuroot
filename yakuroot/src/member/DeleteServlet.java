@@ -15,6 +15,7 @@ import member.beans.MemberDao;
 @WebServlet(urlPatterns = "/member/delete.do")
 public class DeleteServlet extends HttpServlet {
 
+	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
