@@ -13,9 +13,6 @@ public class PlayerDto {
 	private int p_height;//선수 키
 	private int p_weight;//선수 몸무게
 	private String p_position;//선수 포지션
-	private String p_last_five;//선수 최근 5경기 기록
-	private String p_season_score;//선수 시즌 경기 기록
-		
 	
 	public void setData(ResultSet rs) throws SQLException {
 		this.setP_no(rs.getInt("p_no"));
@@ -27,25 +24,17 @@ public class PlayerDto {
 		this.setP_height(rs.getInt("p_height"));
 		this.setP_weight(rs.getInt("p_weight"));
 		this.setP_position(rs.getString("p_position"));
-		this.setP_last_five(rs.getString("p_last_five"));
-		this.setP_season_score(rs.getString("p_season_score"));
 	}
-		
-		
+	
+	public PlayerDto() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "PlayerDto [p_no=" + p_no + ", p_club=" + p_club + ", p_photo=" + p_photo + ", p_name=" + p_name
 				+ ", p_bnum=" + p_bnum + ", p_birth=" + p_birth + ", p_height=" + p_height + ", p_weight=" + p_weight
-				+ ", p_position=" + p_position + ", p_last_five=" + p_last_five + ", p_season_score=" + p_season_score
-				+ "]";
+				+ ", p_position=" + p_position + "]";
 	}
-
-
-	public PlayerDto() {
-		super();
-	}
-	
-	
 	public int getP_no() {
 		return p_no;
 	}
@@ -100,17 +89,6 @@ public class PlayerDto {
 	public void setP_position(String p_position) {
 		this.p_position = p_position;
 	}
-	public String getP_last_five() {
-		return p_last_five;
-	}
-	public void setP_last_five(String p_last_five) {
-		this.p_last_five = p_last_five;
-	}
-	public String getP_season_score() {
-		return p_season_score;
-	}
-	public void setP_season_score(String p_season_score) {
-		this.p_season_score = p_season_score;
-	}
+	
 		
 }

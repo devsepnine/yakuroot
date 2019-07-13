@@ -254,6 +254,7 @@ p_last_five varchar2(300) not null--선수 최근 5경기 성적
 drop sequence player_seq;
 --선수 테이블 시퀀스 생성
 create sequence player_seq;
+alter table player drop column p_last_five;--선수 최근 5경기 성적 칼럼 삭제
 
 
 ---------------------------------------------------------------------
