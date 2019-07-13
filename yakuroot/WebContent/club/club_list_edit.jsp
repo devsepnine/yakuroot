@@ -4,8 +4,16 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<style>
+	.form #save{
+		width : 60px;
+		padding : 0.5rem 1rem;
+	}
+</style>
+
 <div align = "center">
-	   <form action = "club_list_edit.do" method = "post" >
+	   <form action = "club_list_edit.do" method = "post" class="form">
 				<table border="1" align="center" text-align="center">
 							<thead>
 								<tr>
@@ -27,7 +35,7 @@
 				                    <td><input type="text" value="${cdto.c_club}" name="c_club"></td>
 				                    <input type="hidden" value="${cdto.c_no}"name="c_no">
 				                  
-				                    <td><input type="submit" value="저장"></td>
+				                    <td text-align="center"><input type="submit" id="save" value="저장"></td>
 				                </tr>
 				       
 				            </tbody>
