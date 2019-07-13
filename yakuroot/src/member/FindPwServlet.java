@@ -13,20 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
-
 @WebServlet(urlPatterns = "/member/find_pw.do")
 public class FindPwServlet extends HttpServlet{
 
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("find_pw.jsp");
 		
-		
 		dispatcher.forward(req, resp);
 	}
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

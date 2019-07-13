@@ -48,13 +48,12 @@ public class RegistServlet extends HttpServlet {
 			MemberDao mdao = new MemberDao();
 			mdao.regist(mdto);
 			
-			
-			
 			//회원가입 후 회원가입 결과 페이지로 이동
 			RequestDispatcher dispatcher = req.getRequestDispatcher("regist_result.jsp");
 			
 			dispatcher.forward(req, resp);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			resp.sendError(500);
 			e.printStackTrace();
 		}

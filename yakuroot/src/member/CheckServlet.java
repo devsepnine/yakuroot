@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
-
 @WebServlet(urlPatterns="/member/check.do")
 public class CheckServlet extends HttpServlet{
 
@@ -34,7 +32,6 @@ public class CheckServlet extends HttpServlet{
 			
 			//인증에 성공하면 보내야할 목적지를 받는다
 			String go = req.getParameter("go");
-			
 			
 			MemberDto mdto = new MemberDto();
 			mdto.setM_id(m_id);

@@ -19,9 +19,8 @@ public class IdCheckServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		try {
-			//get했을때 정보있으면 사용하고있는 아이디이고 정보 없으면 사용가능한 아이디 이렇게 판단
+			//get했을때 정보있으면 사용하고있는 아이디이고 정보 없으면 사용가능한 아이디 이런식으로 판단
 			
 			//파라미터에서 아이디 받아오기
 			String m_id = req.getParameter("m_id");
