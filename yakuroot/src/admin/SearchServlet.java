@@ -21,7 +21,7 @@ public class SearchServlet extends HttpServlet{
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-			//파라미터로 검색 타입과, 검색 키워드 가져오기
+			//파라미터로 타입, 키워드 가져오기
 			String type = req.getParameter("type");
 			String keyword = req.getParameter("keyword");
 			
