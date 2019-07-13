@@ -30,8 +30,6 @@ public class ChangeInfoServlet extends HttpServlet{
 		try {
 			//세션에서 본인 아이디 가져오기
 			String m_id = (String) req.getSession().getAttribute("login");
-		
-			req.setCharacterEncoding("UTF-8");
 			
 			//입력 받은값 mdto에 저장
 			MemberDto mdto = new MemberDto();
