@@ -19,34 +19,19 @@ public class ChangeInfoServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-			String m_id = (String) req.getSession().getAttribute("login");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("change_info.jsp");
 			
-			MemberDao mdao = new MemberDao();
-			MemberDto mdto = mdao.get(m_id);
-		
-			req.setAttribute("mdto", mdto);
-			
-			RequestDispatcher dispatcher = req.getRequestDispatcher("change_info.jsp");
-			
-			dispatcher.forward(req, resp);			
-		}
-		catch(Exception e){
-			resp.sendError(500);
-			e.printStackTrace();
-		}
-		
+		dispatcher.forward(req, resp);			
 	}
-	
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		try {
+			//세션에서 본인 아이디 가져오기
 			String m_id = (String) req.getSession().getAttribute("login");
-		
-			req.setCharacterEncoding("UTF-8");
+			
+			//입력 받은값 mdto에 저장
 			MemberDto mdto = new MemberDto();
 			mdto.setM_id(m_id);
 			mdto.setM_phone(req.getParameter("m_phone"));
@@ -56,20 +41,18 @@ public class ChangeInfoServlet extends HttpServlet{
 			mdto.setM_addr2(req.getParameter("m_addr2"));
 			mdto.setM_fav(req.getParameter("m_fav"));
 			
+			//change_info로 회원정보 수정
 			MemberDao mdao = new MemberDao();
 			mdao.change_info(mdto);
 			
-			
+			//수정후에 정보 변경 결과 페이지로 이동
 			RequestDispatcher dispatcher = req.getRequestDispatcher("change_info_result.jsp");
 			
 			dispatcher.forward(req, resp);
-			
 		}
 		catch(Exception e) {
 			resp.sendError(500);
 			e.printStackTrace();
 		}
-	
 	}
-
 }
