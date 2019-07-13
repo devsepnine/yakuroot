@@ -12,7 +12,7 @@
 	}
 </style>
 
-<div align = "center">
+<div align = "center" text-align = "center">
 	   <form action = "club_list_edit.do" method = "post" class="form">
 				<table border="1" align="center" text-align="center">
 							<thead>
