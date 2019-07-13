@@ -369,7 +369,7 @@ SETTINGS
                                     <div class="sub_menus">
                                         <ul>
                                             <li><a href="<%=request.getContextPath()%>/club/select_club.jsp">구단 소개</a></li>
-                                            <li><a>선수 소개</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/player/player_select_club.jsp">선수 소개</a></li>
                                             <li><a>시즌 기록</a></li>
                                         </ul>
                                     </div>
