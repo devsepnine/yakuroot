@@ -286,7 +286,9 @@ a.sm-link{
 }
 
 /* effect 1 */
-
+.sm-link__label:hover{
+	text-shadow: 1px 1px 2px black, 0px 0px 8px white;
+}
 .sm-link1::before{
   transform: translate3d(-105%, 0, 0);
 }
