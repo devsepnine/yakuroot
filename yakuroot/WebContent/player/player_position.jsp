@@ -22,9 +22,16 @@
 	<br><br><br>
 <div>
 	<form action="">
-		<table>
-			<c:forEach var="cdto" items="${cdtolist}" >
-				
+		<table align="center">
+		<!-- 5개씩 끊어서 반복하고 싶은데 어떻게 해야할 지 나는 모르겠다 -->
+			<c:forEach var="cdto" items="${cdtolist}" ><!-- 반복문 이렇게 쓰는거 맞나..? -->
+				<tr>
+					<td>
+						<a href="#"><img src="#"></a>
+						<br><br>
+						<a href="#">${pdto.p_name}</a>
+					</td>
+				</tr>
 			</c:forEach>
 		</table>
 	</form>
