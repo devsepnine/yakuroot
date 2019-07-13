@@ -4,6 +4,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <script>
+
 	//프로그램 시작시 체크박스에 이벤트 설정
 	//      체크되면 버튼 비활성화 해제
 	//      체크 풀리면 버튼 비활성화 설정
@@ -27,12 +28,15 @@
 			}
 		});
 	});
+	
 </script>
 
 <style>
+
 	textarea {
 		padding: 10px;
 	}
+	
 </style>
 
 <div align = "center">
