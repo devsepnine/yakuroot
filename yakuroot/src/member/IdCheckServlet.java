@@ -28,7 +28,7 @@ public class IdCheckServlet extends HttpServlet{
 			
 			//get으로 id 정보 확인
 			MemberDao mdao = new MemberDao();
-			MemberDto mdto = mdao.get(req.getParameter("m_id"));
+			MemberDto mdto = mdao.get(m_id);
 			
 			resp.setContentType("text/plain");
 			

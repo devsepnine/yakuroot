@@ -3,6 +3,11 @@
     
 	<jsp:include page="/template/header.jsp"></jsp:include>
 	
+	<%
+	session.removeAttribute("login");
+	%>
+	
+	
 	<style>
 		p {
 			font-size: 50px;

@@ -27,7 +27,6 @@ public class RegistServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			req.setCharacterEncoding("UTF-8");
 
 			//이메일은  @기준 앞뒤로 따로 받고 합쳐서 m_email에 저장
 			String m_email = req.getParameter("m_email") +"@" + req.getParameter("m_email_address").toLowerCase();
@@ -48,6 +47,8 @@ public class RegistServlet extends HttpServlet {
 			//regist로 회원가입
 			MemberDao mdao = new MemberDao();
 			mdao.regist(mdto);
+			
+			
 			
 			//회원가입 후 회원가입 결과 페이지로 이동
 			RequestDispatcher dispatcher = req.getRequestDispatcher("regist_result.jsp");
