@@ -27,7 +27,6 @@ public class RegistServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			req.setCharacterEncoding("UTF-8");
 
 			//이메일은  @기준 앞뒤로 따로 받고 합쳐서 m_email에 저장
 			String m_email = req.getParameter("m_email") +"@" + req.getParameter("m_email_address").toLowerCase();
