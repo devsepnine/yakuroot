@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
-
 @WebServlet(urlPatterns = "/member/change_pw.do")
 public class ChangePwServlet  extends HttpServlet{
 	
@@ -24,7 +22,6 @@ public class ChangePwServlet  extends HttpServlet{
 			
 		dispatcher.forward(req, resp);
 	}
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

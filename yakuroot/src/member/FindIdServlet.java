@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
 @WebServlet(urlPatterns = "/member/find_id.do")
 public class FindIdServlet extends HttpServlet{
 	
@@ -24,10 +23,8 @@ public class FindIdServlet extends HttpServlet{
 		dispatcher.forward(req, resp);
 	}
 	
-	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		try {
 			req.setCharacterEncoding("UTF-8");
 
@@ -56,7 +53,8 @@ public class FindIdServlet extends HttpServlet{
 				RequestDispatcher dispatcher = req.getRequestDispatcher("find_id.jsp?error");
 				dispatcher.forward(req, resp);
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			resp.sendError(500);
 			e.printStackTrace();
 		}

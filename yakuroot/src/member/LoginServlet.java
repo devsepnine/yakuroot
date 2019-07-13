@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
 @WebServlet(urlPatterns = "/member/login.do")
 public class LoginServlet extends HttpServlet {
 	
@@ -23,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		
 		dispatcher.forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
@@ -32,7 +31,6 @@ public class LoginServlet extends HttpServlet {
 			//파라미터에서 m_id,saveID값  저장
 			String m_id = req.getParameter("m_id");
 			String rememberId = req.getParameter("saveID");
-			
 			
 			//입력 받은 값 mdto에 저장
 			MemberDto mdto = new MemberDto();
@@ -82,8 +80,8 @@ public class LoginServlet extends HttpServlet {
 				dispatcher.forward(req, resp);
 			}
 				
-
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			resp.sendError(500);
 			e.printStackTrace();
 		}

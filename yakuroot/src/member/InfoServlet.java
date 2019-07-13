@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import member.beans.MemberDao;
 import member.beans.MemberDto;
 
-
-
 @WebServlet(urlPatterns="/member/info.do")
 public class InfoServlet extends HttpServlet {
 
