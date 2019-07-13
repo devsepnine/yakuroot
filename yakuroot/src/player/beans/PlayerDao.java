@@ -2,6 +2,8 @@ package player.beans;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -32,6 +34,52 @@ public class PlayerDao {
 			return src.getConnection();
 		}
 	
+//		선수 데이터 넣는 메소드
+		public void input(PlayerDto pdto) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "insert into player values(player_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, pdto.getP_club());
+			ps.setString(2, pdto.getP_photo());
+			ps.setString(3, pdto.getP_name());
+			ps.setInt(4, pdto.getP_bnum());
+			ps.setString(5, pdto.getP_birth());
+			ps.setInt(6, pdto.getP_height());
+			ps.setInt(7, pdto.getP_weight());
+			ps.setString(8, pdto.getP_position());
+			
+			ps.execute();
+			con.close();
+		}
+		
+//		선수 데이터 불러오는 메소드
+		public PlayerDto get(int p_no) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "select * from player where p_no = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, p_no);
+			ResultSet rs = ps.executeQuery();
+			
+			PlayerDto pdto;
+			if(rs.next()) {
+				pdto = new PlayerDto();
+				pdto.setData(rs);
+			}
+			else {
+				pdto = null;
+			}
+			con.close();
+			return pdto;
+		}
+		
+//		등록된 선수 목록 불러오는 리스트 메소드
+		
+		
+		
+		
+		
 //	선수 프로필 데이터 불러오는 메소드
 	
 //	타자 데이터 불러오는 메소드
