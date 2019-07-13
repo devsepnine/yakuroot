@@ -5,7 +5,7 @@
 				type="javax.sql.DataSource" 
 				auth="Container"
 				driverClassName="oracle.jdbc.OracleDriver"
-				url="jdbc:oracle:thin:@192.168.30.42:1521:xe"
+				url="jdbc:oracle:thin:@n0chatt3r.mynetgear.com:9090:xe"
 				username="yakuroot"
 				password="baseball"
 				maxActive="20"
