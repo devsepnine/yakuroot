@@ -32,44 +32,30 @@ public class RegistServlet extends HttpServlet {
 		try {
 			req.setCharacterEncoding("UTF-8");
 
-			
-			String m_id = req.getParameter("m_id");
-			String m_pw = req.getParameter("m_pw");
-			String m_name = req.getParameter("m_name");
-			String m_birth = req.getParameter("m_birth");
-			String m_phone = req.getParameter("m_phone");
+			//이메일은  @기준 앞뒤로 따로 받고 합쳐서 m_email에 저장
 			String m_email = req.getParameter("m_email") +"@" + req.getParameter("m_email_address").toLowerCase();
-			String m_postcode = req.getParameter("m_postcode");
-			String m_addr1 = req.getParameter("m_addr1");
-			String m_addr2 = req.getParameter("m_addr2");
-			String m_fav = req.getParameter("m_fav");
 			
-
-			
-			
+			//입력받은 값을 mdto에 저장
 			MemberDto mdto = new MemberDto();
-			mdto.setM_id(m_id);
-			mdto.setM_pw(m_pw);
-			mdto.setM_name(m_name);
-			mdto.setM_birth(m_birth);
-			mdto.setM_phone(m_phone);
+			mdto.setM_id(req.getParameter("m_id"));
+			mdto.setM_pw(req.getParameter("m_pw"));
+			mdto.setM_name(req.getParameter("m_name"));
+			mdto.setM_birth(req.getParameter("m_birth"));
+			mdto.setM_phone(req.getParameter("m_phone"));
 			mdto.setM_email(m_email);
-			mdto.setM_postcode(m_postcode);
-			mdto.setM_addr1(m_addr1);
-			mdto.setM_addr2(m_addr2);
-			mdto.setM_fav(m_fav);
+			mdto.setM_postcode(req.getParameter("m_postcode"));
+			mdto.setM_addr1(req.getParameter("m_addr1"));
+			mdto.setM_addr2(req.getParameter("m_addr2"));
+			mdto.setM_fav(req.getParameter("m_fav"));
 
-			
+			//regist로 회원가입
 			MemberDao mdao = new MemberDao();
 			mdao.regist(mdto);
 
-			
+			//회원가입 후 회원가입 결과 페이지로 이동
 			RequestDispatcher dispatcher = req.getRequestDispatcher("regist_result.jsp");
-
 			
 			dispatcher.forward(req, resp);
-
-			
 		} catch (Exception e) {
 			resp.sendError(500);
 			e.printStackTrace();

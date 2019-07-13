@@ -23,30 +23,27 @@ public class ChangePwServlet  extends HttpServlet{
 		RequestDispatcher dispatcher = req.getRequestDispatcher("change_pw.jsp");
 			
 		dispatcher.forward(req, resp);
-
 	}
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		try {
-			
+			//세션에서 본인 아이디 가져오기
 			String m_id = (String) req.getSession().getAttribute("login");
 			
 			req.setCharacterEncoding("UTF-8");
 			
-			
+			//입력한 비밀번호 mdto에 저장
 			MemberDto mdto = new MemberDto();
 			mdto.setM_id(m_id);
 			mdto.setM_pw(req.getParameter("m_pw"));
-			 
 
+			//change_pw로 비밀번호 변경
 			MemberDao mdao = new MemberDao();
 			mdao.change_pw(mdto);
 			
-			
-
+			//비밀번호 변경 후 결과 페이지로 이동
 			RequestDispatcher dispatcher = req.getRequestDispatcher("change_pw_result.jsp");
 			
 			dispatcher.forward(req, resp);
@@ -55,8 +52,6 @@ public class ChangePwServlet  extends HttpServlet{
 		catch(Exception e) {
 			resp.sendError(500);
 			e.printStackTrace();
-		
 		}
 	}
-
 }

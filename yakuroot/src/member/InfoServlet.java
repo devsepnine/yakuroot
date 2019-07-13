@@ -21,19 +21,19 @@ public class InfoServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
+			//세션에서 본인 아이디 가져오기
+			String m_id = (String)req.getSession().getAttribute("login");
 			
-		String m_id = (String)req.getSession().getAttribute("login");
-	 	MemberDao mdao = new MemberDao();
-	 	MemberDto mdto = mdao.get(m_id);
+			//get으로 정보 가져오기
+		 	MemberDao mdao = new MemberDao();
+		 	MemberDto mdto = mdao.get(m_id);
+		 	 
+			req.setAttribute("mdto", mdto);
 			
-		
-		req.setAttribute("mdto", mdto);
-			
-		RequestDispatcher dispatcher = req.getRequestDispatcher("info.jsp");
-			
-		dispatcher.forward(req, resp);
-		
-		
+			//정보 출력 창으로 이동
+			RequestDispatcher dispatcher = req.getRequestDispatcher("info.jsp");
+				
+			dispatcher.forward(req, resp);
 		}
 		catch (Exception e) {
 			resp.sendError(500);
