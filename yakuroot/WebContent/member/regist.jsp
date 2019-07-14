@@ -3,21 +3,17 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
+	
+	//가입버튼 비활성화
 	$(function(){
 		$("input[name=registbtn]").prop("disabled", true)
 									.css("background-color", "lightgray");
-		
-// 		$("input[name=m_postcode]").prop("disabled", true);
-// 		$("input[name=m_addr1]").prop("disabled", true);
 	});
 	
-</script>
-<script>
+	//주소 입력
     $(function(){
         $("input[name=postcode_find]").click(findAddress);
     });
@@ -70,13 +66,11 @@
             }
         }).open();
     }
-</script>
-<script>
+	
+    
+	// m_id 입력창에 click 이벤트가 발생하면 ajax 통신으로 중복검사 수행
+	// 요청 url : /member/id_check.do
 	$(function() {
-
-		// m_id 입력창에  blur 이벤트가 발생하면 ajax 통신으로 중복검사 수행
-		// 요청 url : /member/id_check.do
-
 		$("input[name=id_check_btn]").click(function() {
 			$.ajax({
 				url : "id_check.do",
@@ -88,7 +82,9 @@
 					if (resp == "N") {
 						window.alert("이미 사용중인 아이디입니다");
 						$("input[name=m_id]").select();
-					} else {
+					}
+					//중복검사해서 사용할 수 있는 아이디이면 가입버튼 활성화
+					else {
 						window.alert("사용 가능한 아이디입니다")
 						$("input[name=registbtn]").prop("disabled", false)
 													.css("background-color", "#1E3269");
@@ -101,18 +97,125 @@
 		$("#email_address").change(function(){
 			$("#m_email_address").val($(this).val())
 			
-// 			console.log($(this).val())
-			
 			 //if($(this).val() == ""){
+			//선책 옵션에서 직접입력을 선택하면 입력창 활성화시켜서 직접 입력받고
 			if(!$(this).val()){
                  $(this).prev().prop("readonly", false);
              }
+			//선택 옵션에서 직접입력 제외하고 선택하면 입력창에 value값 찍어주고 수정못하게 비활성화
              else{
             	 $(this).prev().prop("readonly", true);
              }
 		});
 	});
+	
+	//아이디 검사 후 형식에 안맞을시 보조메세지 출력
+    function checkId(){
+        var m_id = document.querySelector("#m_id").value;
+        var regex = /^[a-z0-9]{8,15}$/;
+        
+      //정규표현식으로 m_id값 검사
+        var result = regex.test(m_id);
+        
+        var div = document.querySelector(".m_idD");
+		
+        //형식에 맞으면 중복확인 버튼 활성화
+        if(result) {
+            div.innerHTML = ""
+            $("input[name=id_check_btn]").prop("disabled", false)
+            								.css("background-color", "#1E3269");
+        }
+        //형식에 안맞으면 메세지 출력, 중복확인 버튼 비활성화
+        else {
+            div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
+            $("input[name=id_check_btn]").prop("disabled", true)
+            								.css("background-color", "lightgray");
+        }
+    }
+	
+	//비밀번호 검사 후 형식에 안맞을시 보조메세지 출력	
+    function checkPw(){
+        var m_pw = document.querySelector("#m_pw").value;
+        var regex = /^[a-zA-Z0-9!@#$\-_]{8,15}$/;
+        
+      //정규표현식으로 m_pw값 검사
+        var result = regex.test(m_pw);
+        
+        var div = document.querySelector(".m_pwD");
+
+        if(result) {
+            div.innerHTML = ""
+        }
+        
+		//m_pw가 형식에 맞지 않으면 메세지 춮력
+        else {
+            div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 대소문자, 숫자, 특수문자(!@#$-_)로 입력해주세요</font>"
+            
+        }
+    }
+	
+	//비밀번호 검사 후 형식에 안맞을시 보조메세지 출력
+    function checkName(){
+        var m_name = document.querySelector("#m_name").value;
+        var regex = /^[가-힣]{2,7}$/;
+        
+      	//정규표현식으로 m_name값 검사
+        var result = regex.test(m_name);
+        
+        var div = document.querySelector(".m_nameD");
+
+        if(result) {
+            div.innerHTML = ""
+        }
+        
+      	//m_name이 형식에 맞지 않으면 메세지 춮력
+        else {
+            div.innerHTML = "<font color = 'gray' size = '2'>2~7자의 한글로 입력해주세요</font>"
+        }
+    }
+
+  //핸드폰 번호 검사 후 형식에 안맞을시 보조메세지 출력
+    function checkPhone(){
+        var m_phone = document.querySelector("#m_phone").value;
+        var regex = /^01[016-9]-[0-9]{3,4}-[0-9]{4}$/;
+        
+      	//정규표현식으로 m_phone값 검사
+        var result = regex.test(m_phone);
+        
+        var div = document.querySelector(".m_phoneD");
+
+        if(result) {
+            div.innerHTML = ""
+        }
+        
+      	//m_phone이 형식에 맞지 않으면 메세지 춮력
+        else {
+            div.innerHTML = "<font color = 'gray' size = '2'> -포함 숫자로 입력해주세요</font>"
+            
+        }
+    }
+
+  	//이메일 검사 후 형식에 안맞을시 보조메세지 출력
+    function checkEmail(){
+        var m_email = document.querySelector("#m_email").value;
+        var regex = /^[a-z0-9]{8,15}$/;
+        
+      	//정규표현식으로 m_email값 검사
+        var result = regex.test(m_email);
+        
+        var div = document.querySelector(".m_emailD");
+
+        if(result) {
+            div.innerHTML = ""
+        }
+      	//m_email이 형식에 맞지 않으면 메세지 춮력
+        else {
+            div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
+        }
+    }
+		
 </script>
+
 <style>
 
 .form.form-label>fieldset {
@@ -139,107 +242,10 @@
 	margin-left : 20px;
 	text-align : center;
 }
+
 </style>
-<script>
-        function checkId(){
-            var m_id = document.querySelector("#m_id").value;
-            var regex = /^[a-z0-9]{8,15}$/;
-            
-            var result = regex.test(m_id);
-//             console.log(m_id);
-//             console.log(result, typeof result);
-            
-            var div = document.querySelector(".m_idD");
 
-            if(result) {
-                div.innerHTML = ""
-                $("input[name=id_check_btn]").prop("disabled", false)
-                								.css("background-color", "#1E3269");
-            }
-            else {
-                div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
-                $("input[name=id_check_btn]").prop("disabled", true)
-                								.css("background-color", "lightgray");
-            }
-        }
-</script>
-<script>
-        function checkPw(){
-            var m_pw = document.querySelector("#m_pw").value;
-            var regex = /^[a-zA-Z0-9!@#$\-_]{8,15}$/;
-            
-            var result = regex.test(m_pw);
-//             console.log(result, typeof result);
-            
-            var div = document.querySelector(".m_pwD");
-
-            if(result) {
-                div.innerHTML = ""
-            }
-            else {
-                div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 대소문자, 숫자, 특수문자(!@#$-_)로 입력해주세요</font>"
-                
-            }
-        }
-</script>
-<script>
-        function checkName(){
-            var m_name = document.querySelector("#m_name").value;
-            var regex = /^[가-힣]{2,7}$/;
-            
-            var result = regex.test(m_name);
-//             console.log(result, typeof result);
-            
-            var div = document.querySelector(".m_nameD");
-
-            if(result) {
-                div.innerHTML = ""
-            }
-            else {
-                div.innerHTML = "<font color = 'gray' size = '2'>2~7자의 한글로 입력해주세요</font>"
-                
-            }
-        }
-</script>
-<script>
-        function checkPhone(){
-            var m_phone = document.querySelector("#m_phone").value;
-            var regex = /^01[016-9]-[0-9]{3,4}-[0-9]{4}$/;
-            
-            var result = regex.test(m_phone);
-//             console.log(result, typeof result);
-            
-            var div = document.querySelector(".m_phoneD");
-
-            if(result) {
-                div.innerHTML = ""
-            }
-            else {
-                div.innerHTML = "<font color = 'gray' size = '2'> -포함 숫자로 입력해주세요</font>"
-                
-            }
-        }
-</script>
-<script>
-        function checkEmail(){
-            var m_email = document.querySelector("#m_email").value;
-            var regex = /^[a-z0-9]{8,15}$/;
-            
-            var result = regex.test(m_email);
-            
-            var div = document.querySelector(".m_emailD");
-
-            if(result) {
-                div.innerHTML = ""
-            }
-            else {
-                div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
-            }
-        }
-</script>
 <div align="center">
-   
-
 	<form action="regist.do" method="post" class="form form-label">
 		<fieldset>
 			<legend>REGIST</legend>
@@ -252,9 +258,7 @@
 								<input type="button" value="중복확인" name="id_check_btn">
 								<div class="m_idD"></div>
 							</td>
-							
 						</tr>
-						
 						<tr>
 							<td><label for="m_pw">PASSWORD</label></td>
 							<td>
@@ -262,7 +266,6 @@
 								<div class="m_pwD"></div>
 							</td>
 						</tr>
-						
 						<tr> 
 							<td><label for="m_name">NAME</label></td>
 							<td>
@@ -270,14 +273,12 @@
 								<div class="m_nameD"></div>
 							</td>
 						</tr>
-						
 						<tr>
 							<td><label for="m_birth">BIRTH</label></td>
 							<td>
 								<input type="date" name="m_birth" id="m_birth" value="2019-07-08" required>
 							</td>
 						</tr>
-						
 						<tr>
 							<td><label for="m_phone">PHONE</label></td>
 							<td>
@@ -285,7 +286,6 @@
 								<div class="m_phoneD"></div>
 							</td>
 						</tr>
-						
 						<tr>
 							<td><label for="m_email">EMAIL</label></td>
 							<td>
@@ -302,7 +302,6 @@
 								<div class="m_emailD"></div>
 							</td>
 						</tr>
-						
 						<tr>
 							<td><label for="m_addr">ADDRESS</label></td>
 							<td>
@@ -312,7 +311,6 @@
 									<input type="text" name="m_addr2" placeholder="상세주소" >
 							</td>
 						</tr>
-						
 						<tr>
 							<td><label for="m_fav">MY TEAM</label></td>
 							<td>
@@ -338,14 +336,8 @@
 						</tr>
 					</tbody>
 				</table>
-			
-
-
 		</fieldset>
-
-
 	</form>
-
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

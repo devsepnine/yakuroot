@@ -65,13 +65,17 @@
 		var m_email = document.querySelector("#m_email").value;
 		var regex = /^[a-z0-9]{8,15}$/;
 
+		//정규표현식으로 m_email값 검사
 		var result = regex.test(m_email);
 
 		var div = document.querySelector(".m_emailD");
 
 		if (result) {
 			div.innerHTML = ""
-		} else {
+		}
+		
+		//m_email이 형식에 맞지 않으면 메세지 춮력
+		else {
 			div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
 		}
 	}
@@ -81,13 +85,17 @@
 		var m_phone = document.querySelector("#m_phone").value;
 		var regex = /^01[016-9]-[0-9]{3,4}-[0-9]{4}$/;
 
+		//정규표현식으로 m_phone값 검사
 		var result = regex.test(m_phone);
 
 		var div = document.querySelector(".m_phoneD");
 
 		if (result) {
 			div.innerHTML = ""
-		} else {
+		}
+		
+		//m_phone이 형식에 맞지 않으면 메세지 춮력
+		else {
 			div.innerHTML = "<font color = 'gray' size = '2'> -포함 숫자로 입력해주세요</font>"
 		}
 	}
