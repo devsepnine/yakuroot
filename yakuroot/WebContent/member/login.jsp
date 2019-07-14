@@ -24,11 +24,9 @@ input[name=m_id], input[name=m_pw]{
 	text-align : center;
 }
 
-
 </style>
 
 <div align="center">
- 
 	<form action="${pageContext.request.contextPath}/member/login.do" method="post" class="form form-label">
 		<fieldset>
 			<legend>LOGIN</legend>
@@ -73,9 +71,7 @@ input[name=m_id], input[name=m_pw]{
 					</tbody>
 				</table>
 		</fieldset>
-
 	</form>
-
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

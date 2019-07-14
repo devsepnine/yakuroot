@@ -68,4 +68,5 @@ input[name=m_name], input[name=m_phone], input[name=m_birth]{
 		</fieldset>
 	</form>
 </div>
+
 <jsp:include page= "/template/footer.jsp"></jsp:include>
