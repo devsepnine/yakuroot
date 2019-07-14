@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-   
-
-   
 <jsp:include page="/template/header.jsp"></jsp:include>
 
  <script>
+ 
  	// 비밀번호 확인창, 변경하기 버튼 비활성화
 	$(function(){
 		$("input[name=m_pw2]").prop("readonly", true)
@@ -81,6 +79,7 @@
 	    div.innerHTML = "<font color = 'gray' size = '2'>비밀번호가 일치하지 않습니다</font>"
 	    }
 	}
+	
 </script>
  	
  <style>
@@ -99,7 +98,6 @@
 
 </style>
 
- 	
  	<div align="center">
 	<form action="${pageContext.request.contextPath}/member/change_pw.do" method="post" class="form form-label">
 		<fieldset>
