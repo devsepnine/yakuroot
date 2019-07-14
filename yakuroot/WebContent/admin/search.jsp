@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
-    
+      
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <style>
@@ -19,10 +18,12 @@
 </style>
 
 <script>
+
 	$(function(){
 		
 		$("select[name=type]").val("${param.type}");
 	});
+	
 </script>
 <div align="center">
 	<form action="search.do" method="get" >
@@ -43,13 +44,12 @@
 <hr>
 
 <c:choose>
-
 	<c:when test="${empty list}">
 		<div align = "center">
 			<h2>[ 검색 결과가 존재하지 않습니다 ]</h2>
 		</div>
 	</c:when>
-	
+
 	<c:otherwise>
 	<div align = "center">
 		<form class="form form-label">

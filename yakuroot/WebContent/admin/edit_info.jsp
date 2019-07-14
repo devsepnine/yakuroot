@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- 
    <jsp:include page="/template/header.jsp"></jsp:include>
    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
    <script>
+   
+   	
     $(function(){
         $("input[name=postcode_find]").click(findAddress);
     });
@@ -58,31 +59,33 @@
             }
         }).open();
     }
-</script>
-<script>
+
+ 		 //이름 검사 후 형식에 안맞을시 보조메세지 출력
         function checkName(){
             var m_name = document.querySelector("#m_name").value;
             var regex = /^[가-힣]{2,7}$/;
             
+        	//정규표현식으로 m_name값 검사
             var result = regex.test(m_name);
-//             console.log(result, typeof result);
             
             var div = document.querySelector(".m_nameD");
 
             if(result) {
                 div.innerHTML = ""
             }
+          	
+            //m_name이 형식에 맞지 않으면 메세지 춮력
             else {
                 div.innerHTML = "<font color = 'gray' size = '2'>2~7자의 한글로 입력해주세요</font>"
-                
             }
         }
-</script>
-   <script>
+
+     	 //이메일 검사 후 형식에 안맞을시 보조메세지 출력
         function checkEmail(){
             var m_email = document.querySelector("#m_email").value;
             var regex = /^[a-z0-9]{8,15}$/;
             
+        	//정규표현식으로 m_email값 검사
             var result = regex.test(m_email);
             
             var div = document.querySelector(".m_emailD");
@@ -90,16 +93,19 @@
             if(result) {
                 div.innerHTML = ""
             }
+            
+          	//m_email이 형식에 맞지 않으면 메세지 춮력
             else {
                 div.innerHTML = "<font color = 'gray' size = '2'>8~15자의 영문 소문자, 숫자로 입력해주세요</font>"
             }
         }
-	</script>
-	<script>
+
+     	 //핸드폰 번호 검사 후 형식에 안맞을시 보조메세지 출력
         function checkPhone(){
             var m_phone = document.querySelector("#m_phone").value;
             var regex = /^01[016-9]-[0-9]{3,4}-[0-9]{4}$/;
             
+        	  //정규표현식으로 m_phone값 검사
             var result = regex.test(m_phone);
             
             var div = document.querySelector(".m_phoneD");
@@ -107,23 +113,25 @@
             if(result) {
                 div.innerHTML = ""
             }
+            
+          	//m_phone이 형식에 맞지 않으면 메세지 춮력
             else {
                 div.innerHTML = "<font color = 'gray' size = '2'> -포함 숫자로 입력해주세요</font>"
                 
             }
         }
-</script>
-<script>
+
+    //이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
 	$(function(){
 		$("#email_address").change(function(){
 			$("#m_email_address").val($(this).val())
 			
-		//		console.log($(this).val())
-			
-			 //if($(this).val() == ""){
+			//if($(this).val() == ""){
+			//선책 옵션에서 직접입력을 선택하면 입력창 활성화시켜서 직접 입력받고
 			if(!$(this).val()){
 		         $(this).prev().prop("readonly", false);
 		     }
+			//선택 옵션에서 직접입력 제외하고 선택하면 입력창에 value값 찍어주고 수정못하게 비활성화
 		     else{
 		    	 $(this).prev().prop("readonly", true);
 		     }
@@ -168,32 +176,32 @@
 					   		<tr>
 					   		<th>ID</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_id}"  readonly>
+						   			<input type="text" name="m_id" value="${mdto.m_id}"  readonly>
 						   		</td>
 					   		</tr>
 					   		<tr>
 							<th>PASSWORD</th>
 							<td>
-								<input type="button" value="임시 비밀번호 발급" name="sample_pw" style=" width: 140px;">
+								<input type="button" name = "m_pw"value="임시 비밀번호 발급" name="sample_pw" style=" width: 140px;">
 							</td>
 							</tr>
 					   		<tr>
 					   		<th>NAME</th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_name}" onblur="checkName();" id="m_name" pattern="^[가-힣]{2,7}$" required>
+						   			<input type="text" name = "m_name" value="${mdto.m_name}" onblur="checkName();" id="m_name" pattern="^[가-힣]{2,7}$" required>
 						   			<div class="m_nameD"></div>
 						   		</td>
 					   		</tr>
 					   		<tr>
 					   		<th>BIRTH</th>
 						   		<td colspan="2">
-						   			<input type="date" value="${mdto.m_birth}" value = "sysdate" required>
+						   			<input type="date"  name = "m_birth" value="${mdto.m_birth}" value = "sysdate" required>
 						   		</td>
 					   		</tr>
 					   		<tr>
 					   		<th><label for="m_phone">PHONE</label></th>
 						   		<td colspan="2">
-						   			<input type="text" value="${mdto.m_phone}"  id="m_phone" onblur="checkPhone();" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
+						   			<input type="text" name = "m_phone" value="${mdto.m_phone}"  id="m_phone" onblur="checkPhone();" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
 						   			<div class="m_phoneD"></div>
 						   		</td>
 					   		</tr>
@@ -262,8 +270,6 @@
 			</fieldset>
 		</form>
 	</div>
-   
-  
    
    <jsp:include page="/template/footer.jsp"></jsp:include>
  

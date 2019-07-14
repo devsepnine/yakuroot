@@ -11,6 +11,8 @@
 	$(function(){
 		$("input[name=registbtn]").prop("disabled", true)
 									.css("background-color", "lightgray");
+		$("input[name=id_check_btn]").prop("disabled", true)
+									.css("background-color", "lightgray");
 	});
 	
 	//주소 입력
@@ -154,7 +156,7 @@
         }
     }
 	
-	//비밀번호 검사 후 형식에 안맞을시 보조메세지 출력
+	//이름 검사 후 형식에 안맞을시 보조메세지 출력
     function checkName(){
         var m_name = document.querySelector("#m_name").value;
         var regex = /^[가-힣]{2,7}$/;
