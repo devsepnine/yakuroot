@@ -23,6 +23,7 @@
                     <th>창단년도</th>
                     <th>연고지</th>
                     <th>구단 소개글</th>
+                    <th>구장 좌표</th>
                     <th>비고</th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                     <td>${cdto.c_year}</td><!-- 구단 창단년도 -->
                     <td>${cdto.c_born}</td><!-- 구단 연고지 -->
                     <td>${cdto.c_club}</td><!-- 구단 소개글 -->
+                    <td>${cdto.c_map}</td><!-- 구장 좌표 -->
                     <td text-align="center"><a href="club_list_edit.do?c_no=${cdto.c_no}"><input type="button"  id= "edit" value="수정"></a></td><!-- 수정 버튼 -->
                 </tr>
                 </c:forEach>
