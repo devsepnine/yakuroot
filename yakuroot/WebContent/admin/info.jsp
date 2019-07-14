@@ -2,13 +2,6 @@
 <%@page import="member.beans.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
- <%
- 	String m_id = request.getParameter("m_id");
- 	MemberDao mdao = new MemberDao();
- 	MemberDto mdto = mdao.get(m_id); 
- %>
-
  
    <jsp:include page="/template/header.jsp"></jsp:include>
    

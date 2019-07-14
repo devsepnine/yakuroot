@@ -1,7 +1,14 @@
+<%@page import="member.beans.MemberDto"%>
+<%@page import="member.beans.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+<% 
+	String m_id = request.getParameter("m_id");
+	MemberDao mdao = new MemberDao();
+	MemberDto mdto = mdao.get(m_id);
+%>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -139,7 +146,7 @@
 </style>
 
 <div align="center">
-	<form action="change_info.do" method="post" class="form form-label">
+	<form action="${pageContext.request.contextPath}/member/change_info.do" method="post" class="form form-label">
 		<fieldset>
 			<legend>[ ${mdto.m_id}님의 정보 수정 ]</legend>
 			<table width=100% align="center" class="change_info"

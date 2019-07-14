@@ -1,5 +1,6 @@
 package member;
 
+import java.io.Console;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -37,6 +38,8 @@ public class ChangeInfoServlet extends HttpServlet{
 			mdto.setM_addr1(req.getParameter("m_addr1"));
 			mdto.setM_addr2(req.getParameter("m_addr2"));
 			mdto.setM_fav(req.getParameter("m_fav"));
+			
+			System.out.println(mdto);
 			
 			//change_info로 회원정보 수정
 			MemberDao mdao = new MemberDao();

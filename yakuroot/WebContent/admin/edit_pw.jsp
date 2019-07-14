@@ -3,7 +3,6 @@
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-
 <style>
 
 .form.form-label>fieldset {
@@ -13,8 +12,6 @@
 	margin-bottom : 100px;
 	padding : 20px;
 }
-
-
 
 .table input{
 	width : 250px;
