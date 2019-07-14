@@ -52,7 +52,7 @@ body[test] article {
     color: white;
     padding;
     1rem;
-    /* �ּ� �� ���� : �Ѿ ��� �þ */
+      /* 최소 폭 지정 : 넘어갈 경우 늘어남 */
     min-width: 20px;
     text-align: center
 }
@@ -318,6 +318,6 @@ body[test] article {
         }
 
 
-/*  Start http://localhost:8080/yakuroot*/
+/*  Start http://localhost:8080/yakuroot   */
 *{cursor: url(http://cur.cursors-4u.net/sports/spo-4/spo389.cur), auto !important;}
-/* End http://localhost:8080/yakuroot/ */
+/*  End http://localhost:8080/yakuroot/   */
