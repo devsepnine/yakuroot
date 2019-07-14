@@ -168,7 +168,7 @@
 	</style>
    
    <div align = "center">
-	   <form action = "change_info.do" method = "post"class="form form-label">
+	   <form action = "edit_info.do" method = "post"class="form form-label">
 			<fieldset>
 				<legend>[ ${mdto.m_id}님의 정보 수정 ]</legend>
 					<table width = 100% align = "center"  class="change_info" class="table table-noline">
@@ -221,7 +221,7 @@
 							</td>
 					   		</tr>
 					   		<tr>
-							<th><label for="m_addr">ADDRESS</label></th>
+							<th>ADDRESS</th>
 							<td colspan="2">
 								<input type="text" name="m_postcode" value="${mdto.m_postcode}"  required readonly >
 									<input type="button" value="우편번호 찾기" name="postcode_find" style="margin-left: 40px; width: 130px;"><br>
@@ -270,6 +270,6 @@
 			</fieldset>
 		</form>
 	</div>
-   
+		
    <jsp:include page="/template/footer.jsp"></jsp:include>
  

@@ -1,6 +1,5 @@
 package member;
 
-import java.io.Console;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -18,9 +17,23 @@ public class ChangeInfoServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("change_info.jsp");
+		try {
+			String m_id = (String) req.getSession().getAttribute("login");
 			
-		dispatcher.forward(req, resp);			
+			MemberDao mdao = new MemberDao();
+			
+			MemberDto mdto = mdao.get(m_id);
+			
+			req.setAttribute("mdto", mdto);
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("change_info.jsp");
+			
+			dispatcher.forward(req, resp);			
+		}
+		catch(Exception e) {
+			resp.sendError(500);
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

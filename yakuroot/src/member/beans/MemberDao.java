@@ -188,7 +188,7 @@ public class MemberDao {
 		ps.setString(8, mdto.getM_fav());
 		ps.setString(9, mdto.getM_auth());
 		ps.setString(10, mdto.getM_id());
-
+		
 		ps.execute();
 
 		con.close();
