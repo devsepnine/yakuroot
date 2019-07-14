@@ -38,7 +38,7 @@
 		<table align="center">
 			<tbody>
 				<!-- 5개씩 끊어서 반복하고 싶은데 어떻게 해야할 지 나는 모르겠다 -->
-				<c:forEach var="cdto" items="${pdtolist}">
+				<c:forEach var="cdto" items="${pdtolist}"><!-- pdtolist는 무엇인가...?club에서 쓰던거 보고하긴 햇ㄴ느데 이게 뭔지 모르겠다... -->
 					<!-- 반복문 이렇게 쓰는거 맞나..? -->
 					<tr>
 						<td><a href="#"><img src="#"></a> <br>
