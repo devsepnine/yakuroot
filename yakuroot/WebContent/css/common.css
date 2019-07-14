@@ -1,5 +1,5 @@
 /************************************************************
-    湲곕낯 �룿�듃 �꽕�젙 / test �뀒�몢由� 遺��뿬
+    기본 폰트 설정 / test 테두리 부여
 *************************************************************/
 @font-face {
     font-family: littlebear;
@@ -20,10 +20,10 @@ fieldset > legend{
     font-family: littlebear;
 }
 
-/* body�뿉 test媛� 遺숈뼱�엳�떎硫� 洹� �븞�뿉 �엳�뒗 div�뿉 �뀒�몢由� 遺��뿬*/
-/* >�뒗 吏곴퀎 �옄�떇 �깭洹몃�� �쓽誘� */
+/* body에 test가 붙어있다면 그 안에 있는 div에 테두리 부여*/
+/* >는 직계 자식 태그를 의미 */
 /* body[test] > div {*/
-/* 洹몃깷 �쓣�뼱�벐湲곕줈 �벐硫� 紐⑤뱺�옄�떇 �깭洹몃�� �쓽誘�*/
+/* 그냥 띄어쓰기로 쓰면 모든자식 태그를 의미*/
 body[test] div,
 body[test] p,
 body[test] span,
@@ -39,7 +39,7 @@ body[test] article {
 }
 
 /************************************************************
-    �럹�씠吏� �꽕鍮꾧쾶�씠�꽣 �뒪���씪    
+    페이지 네비게이터 스타일    
 *************************************************************/
 .navigator {
     list-style: none;
@@ -52,7 +52,7 @@ body[test] article {
     color: white;
     padding;
     1rem;
-    /* 占쌍쇽옙 占쏙옙 占쏙옙占쏙옙 : 占싼어갈 占쏙옙占� 占시어남 */
+    /* �ּ� �� ���� : �Ѿ ��� �þ */
     min-width: 20px;
     text-align: center
 }
@@ -62,7 +62,7 @@ body[test] article {
 }
 
 /************************************************************
-   硫붾돱  
+   메뉴  
 *************************************************************/
 .menu {
     width: 100%;
@@ -86,12 +86,12 @@ body[test] article {
 }
 
 .menu > li {
-    /* �� 硫붾돱 */
+    /* 대 메뉴 */
     display: inline-block;
     width: 100px;
     text-align: center;
 
-     /* �씠 �뒪���씪 �쟻�슜�떆 ... 泥섎━ */
+     /* 이 스타일 적용시 ... 처리 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -127,7 +127,7 @@ body[test] article {
 }
 
 /************************************************************
-   �뀒�씠釉�
+   테이블
 *************************************************************/
 .table {
 /*     border: 1px solid gray; */
@@ -145,18 +145,18 @@ body[test] article {
     padding: 0.3rem;
 }
 
-/* table hover  �뒪���씪*/
+/* table hover  스타일*/
 .table.table-hover > tbody > tr:hover {
     background-color: #EBF5FF;
 }
 
-/* 以꾨Т�뒳 �뀒�씠釉� */
+/* 줄무늬 테이블 */
 .table.table-stripe > tbody > tr:nth-child(2n) {
     background-color: #EBF5FF;
 }
 
 
-/* �꽑 �뾾�뒗 �뀒�씠釉� */
+/* 선 없는 테이블 */
 .table.table-noline,
 .table.table-noline > thead > tr > th,
 .table.table-noline > thead > tr > td,
@@ -167,7 +167,7 @@ body[test] article {
     border: none;
 }
 
-/* 媛�濡쒖꽑留� �엳�뒗 �뀒�씠釉� */
+/* 가로선만 있는 테이블 */
 . .table.table-hamburg {
     border-top: 1.5px solid black;
     border-bottom: 1.5px solid black;
@@ -195,7 +195,7 @@ body[test] article {
 
 
 /************************************************************
-   �궡�슜 �젙�젹
+   내용 정렬
 *************************************************************/
 .text-left {
     text-align: left;
@@ -217,11 +217,11 @@ body[test] article {
 .form select,
 .form textarea {
     outline: none;
-    /* �옄�룞�꽑�깮�븯硫� �굹�삤�뒗 �뀒�몢由� ???*/
+    /* 자동선택하면 나오는 테두리 ???*/
     padding: 0.5rem;
 }
 
-/* �엯�젰李� : input(submit, button, reset 鍮쇨퀬), select, textarea */
+/* 입력창 : input(submit, button, reset 빼고), select, textarea */
 .form input:not([type=submit]):not([type=button]):not([type=reset]),
 .form select,
 .form textarea {
@@ -229,7 +229,7 @@ body[test] article {
     background-color: #DCEBFF;
 }
 
-/* 踰꾪듉 : input(submit, button, reser) + button*/
+/* 버튼 : input(submit, button, reser) + button*/
 .form button,
 .form input[type=submit],
 .form input[type=button],
@@ -241,7 +241,7 @@ body[test] article {
 }
 
 
-/* �닔吏� �뤌 �솗�옣 �뒪���씪 */
+/* 수직 폼 확장 스타일 */
 .form.form-vertical input:not([type=submit]):not([type=button]):not([type=reset]),
 .form.form-vertical select,
 .form.form-vertical textarea {
@@ -280,9 +280,9 @@ body[test] article {
 }
 
 /* 
-            form-group�뿉�꽌 �궗�슜�븳 float瑜� �젙由ы븯�뒗 �뒪���씪
-             - �떎�젣濡� 議댁옱�븯�뒗 �쁺�뿭�씠 �븘�떂
-             - �떎泥댄솕 �떆�궓 �떎�쓬 �뒪���씪�쓣 �쟻�슜
+            form-group에서 사용한 float를 정리하는 스타일
+             - 실제로 존재하는 영역이 아님
+             - 실체화 시킨 다음 스타일을 적용
         */
 .form.form-label .form-group::after {
     content: "";
@@ -318,4 +318,6 @@ body[test] article {
         }
 
 
-/*  Start http://localhost:8080/yakuroot*/*{cursor: url(http://cur.cursors-4u.net/sports/spo-4/spo389.cur), auto !important;}/* End http://localhost:8080/yakuroot/ */
+/*  Start http://localhost:8080/yakuroot*/
+*{cursor: url(http://cur.cursors-4u.net/sports/spo-4/spo389.cur), auto !important;}
+/* End http://localhost:8080/yakuroot/ */
