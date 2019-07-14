@@ -229,7 +229,7 @@ body[test] article {
     background-color: #DCEBFF;
 }
 
-/* 버튼 : input(submit, button, reser) + button*/
+/* 버튼 : input(submit, button, reset) + button*/
 .form button,
 .form input[type=submit],
 .form input[type=button],
@@ -316,8 +316,32 @@ body[test] article {
             margin:1rem;
             padding:0.5rem 1rem;
         }
+        
+/************************************************************
+   관리자
+*************************************************************/        
+/* 입력창 : input(submit, button, reset 빼고), select, textarea */
+.form.admin input:not([type=submit]):not([type=button]):not([type=reset]),
+.form.admin select,
+.form.admin textarea {
+    border-radius: 3px;
+    background-color: #FFF0F0;
+}
 
+/* 버튼 : input(submit, button, reset) + button*/
+.form.admin button,
+.form.admin input[type=submit],
+.form.admin input[type=button],
+.form.admin input[type=reset] {
+    background-color: #F58282;
+    border: none;
+    border-radius: 15px;
+    color: black
+}
 
+/************************************************************
+	야구공 모양 마우스 커서  -> 야구르트로 격하게 바꾸고 싶다.......
+*************************************************************/
 /*  Start http://localhost:8080/yakuroot   */
 *{cursor: url(http://cur.cursors-4u.net/sports/spo-4/spo389.cur), auto !important;}
 /*  End http://localhost:8080/yakuroot/   */
