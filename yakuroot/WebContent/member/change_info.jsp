@@ -66,6 +66,21 @@
 			}
 		}).open();
 	}
+	
+	//이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
+	$("#email_address").change(function(){
+		$("#m_email_address").val($(this).val())
+			
+		 //if($(this).val() == ""){
+		//선책 옵션에서 직접입력을 선택하면 입력창 활성화시켜서 직접 입력받고
+		if(!$(this).val()){
+			$(this).prev().prop("readonly", false);
+        }
+		//선택 옵션에서 직접입력 제외하고 선택하면 입력창에 value값 찍어주고 수정못하게 비활성화
+		else{
+			$(this).prev().prop("readonly", true);
+		}
+	});
 
 	//이메일 검사 후 형식에 안맞을시 보조메세지 출력
 	function checkEmail() {
@@ -107,20 +122,10 @@
 		}
 	}
 
-	//이메일 @뒷부분 옵션으로 선택시 입력창 비활성화, 옵션 선택시 입력창에 옵션 value 값 찍어주기
-		$("#email_address").change(function() {
-			$("#m_email_address").val($(this).val())
-
-			if (!$(this).val()) {
-				$(this).prev().prop("readonly", false);
-			}
-			else {
-				$(this).prev().prop("readonly", true);
-			}
-		});
-
-		//select 옵션값 선택되서 나오게 하는거
-		$("select[name=m_fav]").val("${mdto.m_fav}");
+	
+	//select 옵션값 선택되서 나오게 하는거
+	$("select[name=m_fav]").val("${mdto.m_fav}");
+	
 </script>
 <style>
 .form.form-label>fieldset {
@@ -154,34 +159,30 @@
 				<tbody>
 					<tr>
 						<th>ID</th>
-						<td colspan="2"><input type="text" value="${mdto.m_id}"
-							name="m_id" readonly></td>
+						<td colspan="2"><input type="text" value="${mdto.m_id}" name="m_id" readonly></td>
 					</tr>
 					<tr>
 						<th>NAME</th>
-						<td colspan="2"><input type="text" value="${mdto.m_name}"
-							name="m_name" readonly></td>
+						<td colspan="2"><input type="text" value="${mdto.m_name}" name="m_name" readonly></td>
 					</tr>
 					<tr>
 						<th>BIRTH</th>
-						<td colspan="2"><input type="date" value="${mdto.m_birth}"
-							name="m_birth" required></td>
+						<td colspan="2"><input type="date" value="${mdto.m_birth}" name="m_birth" required></td>
 					</tr>
 					<tr>
 						<th>PHONE</th>
-						<td colspan="2"><input type="text" value="${mdto.m_phone}"
-							id="m_phone" name="m_phone" onblur="checkPhone();"
-							pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
-							<div class="m_phoneD"></div></td>
+						<td colspan="2">
+							<input type="text" value="${mdto.m_phone}" id="m_phone" name="m_phone" onblur="checkPhone();" pattern="^01[016-9]-[0-9]{3,4}-[0-9]{4}$" required>
+							<div class="m_phoneD"></div>
+						</td>
 					</tr>
 					<tr>
-						<th>EMAIL</th>
+						<th><label for="m_email">EMAIL</label></th>
 						<%-- 이메일 한번에 받은거 @ 앞에서 끊어서 그것만 넣어주기 --%>
-						<td colspan="2"><input onblur="checkEmail();" type="text"
-							name="m_email" id="m_email" value="${mdto.m_email_first}"
-							pattern="^[a-z0-9]{8,15}$" required> <span>@</span> <input
-							type="text" name="m_email_address" id="m_email_address"
-							pattern="^.*?\..*?$" value="${mdto.m_email_last}" required>
+						<td colspan="2">
+							<input onblur="checkEmail();" type="text" name="m_email" id="m_email" value="${mdto.m_email_first}" pattern="^[a-z0-9]{8,15}$" required>
+							<span>@</span>
+							<input type="text" name="m_email_address" id="m_email_address" pattern="^.*?\..*?$" value="${mdto.m_email_last}" required>
 							<select id="email_address">
 								<option value="">직접입력</option>
 								<option>naver.com</option>
@@ -192,13 +193,14 @@
 					</tr>
 					<tr>
 						<th>ADDRESS</th>
-						<td colspan="2"><input type="text" name="m_postcode"
-							value="${mdto.m_postcode}" required readonly> <input
-							type="button" value="우편번호 찾기" name="postcode_find"
-							style="margin-left: 40px; width: 130px;"><br> <input
-							type="text" name="m_addr1" value="${mdto.m_addr1}" required
-							readonly><br> <input type="text" name="m_addr2"
-							value="${mdto.m_addr2}"></td>
+							<td colspan="2">
+							<input type="text" name="m_postcode" value="${mdto.m_postcode}" required readonly>
+							<input  type="button" value="우편번호 찾기" name="postcode_find" style="margin-left: 40px; width: 130px;">
+							<br>
+							<input type="text" name="m_addr1" value="${mdto.m_addr1}" required readonly>
+							<br>
+							<input type="text" name="m_addr2" value="${mdto.m_addr2}">
+							</td>
 					</tr>
 					<tr>
 						<th>MY TEAM</th>
