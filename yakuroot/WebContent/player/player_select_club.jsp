@@ -21,34 +21,34 @@
 			<tbody>
 				<tr>
 					<td>
-						<a href="#"><img  src="../img/club_logo/lotte.png"></a>
+						<a href="player_position.jsp"><img  src="../img/club_logo/lotte.png"></a>
 						<br>
 						<br>
-						<a href="#">롯데 자이언츠</a>
+						<a href="player_position.jsp">롯데 자이언츠</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/samsung.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/samsung.png"></a>
 						<br>
 						<br>
-						<a href="#">삼성 라이온즈</a>
+						<a href="player_position.jsp">삼성 라이온즈</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/doosan.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/doosan.png"></a>
 						<br>
 						<br>
-						<a href="#">두산 베어스</a>
+						<a href="player_position.jsp">두산 베어스</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/kiwoom.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/kiwoom.png"></a>
 						<br>
 						<br>
-						<a href="#">키움 히어로즈</a>
+						<a href="player_position.jsp">키움 히어로즈</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/hanwha.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/hanwha.png"></a>
 						<br>
 						<br>
-						<a href="#">한화 이글스</a>
+						<a href="player_position.jsp">한화 이글스</a>
 					</td>
 				</tr>
 				<tr height = 50>
@@ -56,34 +56,34 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="#"><img src="../img/club_logo/nc.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/nc.png"></a>
 						<br>
 						<br>
-						<a href="#">NC 다이노스</a>
+						<a href="player_position.jsp">NC 다이노스</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/lg.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/lg.png"></a>
 						<br>
 						<br>
-						<a href="#">LG 트윈즈</a>
+						<a href="player_position.jsp">LG 트윈즈</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/sk.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/sk.png"></a>
 						<br>
 						<br>
-						<a href="#">SK 와이번스</a>
+						<a href="player_position.jsp">SK 와이번스</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/kt.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/kt.png"></a>
 						<br>
 						<br>
-						<a href="#">KT 위즈</a>
+						<a href="player_position.jsp">KT 위즈</a>
 					</td>
 					<td>
-						<a href="#"><img src="../img/club_logo/kia.png"></a>
+						<a href="player_position.jsp"><img src="../img/club_logo/kia.png"></a>
 						<br>
 						<br>
-						<a href="#">KIA 타이거즈</a>
+						<a href="player_position.jsp">KIA 타이거즈</a>
 					</td>
 				</tr>
 			</tbody>

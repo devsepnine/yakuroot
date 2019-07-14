@@ -3,7 +3,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 
-<!-- 선수 포지션 선택(코치) -->
+<!-- 선수 포지션 선택(스태프) -->
 
 
 <style>
