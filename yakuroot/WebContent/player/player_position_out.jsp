@@ -7,23 +7,32 @@
 
 
 <style>
-	.form #edit {
-		width : 60px;
-		padding : 0.5rem 1rem;
-	}
+.form {
+	width: 60px;
+	padding: 0.5rem 1rem;
+}
 </style>
 
 <div align="center">
-	<form action="" class="position" text-align="center"><!-- 버튼 디자인 -->
-		<a href="player_position.jsp"><input type="button" value="코치"></a>
-		<a href="player_position_staff.jsp"><input type="button" value="스테프"></a>
-		<a href="player_position_pitcher.jsp"><input type="button" value="투수"></a>
-		<a href="player_position_catcher.jsp"><input type="button" value="포수"></a>
-		<a href="player_position_in.jsp"><input type="button" value="내야"></a>
-		<a href="player_position_out.jsp"><input type="button" value="외야"></a>
+	<form class="form" text-align="center">
+		<!-- 버튼 디자인 -->
+		<table>
+			<tbody>
+				<tr>
+					<td><a href="player_position.jsp"><input type="button" value="코치"></a></td>
+					<td><a href="player_position_staff.jsp"><input type="button" value="스테프"></a></td>
+					<td><a href="player_position_pitcher.jsp"><input type="button" value="투수"></a></td>
+					<td><a href="player_position_catcher.jsp"><input type="button" value="포수"></a></td>
+					<td><a href="player_position_in.jsp"><input type="button" value="내야"></a></td>
+					<td><a href="player_position_out.jsp"><input type="button" value="외야"></a></td>
+				</tr>
+			</tbody>
+		</table>
 	</form>
 </div>
-	<br><br><br>
+<br>
+<br>
+<br>
 <div>
 	<form action="">
 		<table align="center">
