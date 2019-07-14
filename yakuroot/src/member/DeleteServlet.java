@@ -24,7 +24,7 @@ public class DeleteServlet extends HttpServlet {
 			mdao.exit(m_id);
 
 			//탈퇴 처리 후  세션 지우기
-			req.getSession().removeAttribute("login");
+			req.getSession().invalidate();
 			
 			//로그아웃 된 상태로 결과 페이지로 이동
 			resp.sendRedirect("delete.jsp");
