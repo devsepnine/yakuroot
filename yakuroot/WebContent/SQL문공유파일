@@ -3,8 +3,8 @@
 ************************************************************/
 
 /************************************************************
-						주석 필수
-						  SATRT!
+   					 주석 필수
+   					   SATRT!
 ************************************************************/
 --------------------------관리자계정-------------------------
 
@@ -22,7 +22,7 @@ grant connect, resource, create view to yakuroot;
 
 
 /************************************************************
-						  현술
+   					   현술
 ************************************************************/
 --경기일정 테이블 및 시퀀스
 
@@ -46,36 +46,85 @@ create sequence match_seq;
 /***** club 및 match 테이블 우선 필요 ***/
 
 create or replace view matchup as
-select 
-    m.match_no, m.m_date, c1.c_name as m_team1, m.m_point1, m.m_point2, c2.c_name as m_team2, m.m_stadium
+select
+	m.match_no, m.m_date, c1.c_name as m_team1, m.m_point1, m.m_point2, c2.c_name as m_team2, m.m_stadium
 from match m
-    inner join club c1 on m.m_team1 = c1.c_no
-    inner join club c2 on m.m_team2 = c2.c_no
-order by 
-    m.match_no desc;
+	inner join club c1 on m.m_team1 = c1.c_no
+	inner join club c2 on m.m_team2 = c2.c_no
+order by
+	m.match_no desc;
 
+/**************************************
+	경기장 테이블
+***************************************/
+create table stadium(
+s_no number primary key,
+s_name varchar2(60) not null unique
+);
+create sequence stadium_seq;
+/**************************************
+	경기장 내 구역 테이블
+***************************************/
+create table area(
+a_no number primary key,
+s_no constraint fk_stadium_no references stadium(s_no)
+on delete cascade,
+a_row number(3) not null,
+a_col number(3) not null,
+a_name varchar2(10) not null
+);
+create sequence area_seq;
+/**************************************
+	구역 내 좌석 테이블
+***************************************/
+create table seat(
+seat_no number primary key,
+s_no constraint seat_stadium_no references stadium(s_no)
+on delete cascade,
+a_no constraint fk_area_no references area(a_no)
+on delete cascade,
+s_x number not null,
+s_y number not null,
+s_able number(1) default 0 not null
+);
+create sequence seat_seq;
+
+/**************************************
+    	예매 내역 테이블
+***************************************/
+create table resdata(
+r_no number primary key,
+member_no constraint res_m_no references member(m_no)
+on delete cascade,
+seat_no constraint res_seat_no references seat(seat_no)
+on delete cascade,
+match_no constraint res_mat_no references match(match_no)
+on delete cascade,
+r_time date default sysdate not null
+);
+create sequence resdate_seq;
 
 /************************************************************
-						  나연
+   					   나연
 ************************************************************/
 
 --회원 테이블
 DROP TABLE MEMBER;
 CREATE TABLE member(
-m_no NUMBER PRIMARY KEY,			--회원 번호
-m_id VARCHAR2(15) NOT NULL UNIQUE,	--회원 아이디
-m_pw VARCHAR2(15) NOT NULL,			--회원 비밀번호
-m_name VARCHAR2(21) NOT NULL,		--회원 이름
-m_birth VARCHAR2(10) NOT NULL,		--회원 생일
-m_phone VARCHAR2(13) NOT NULL,		--회원 전화번호
-m_email VARCHAR2(30) NOT NULL,		--회원 이메일
-m_postcode VARCHAR2(7) NOT NULL,	--회원 우편번호
-m_addr1 VARCHAR2(60) NOT NULL,		--회원 주소
-m_addr2 VARCHAR2(60) NOT NULL,		--회원 상세주소
-m_fav VARCHAR2(30) NOT NULL,		--회원 응원팀
-m_auth VARCHAR2(9) DEFAULT '일반' NOT NULL  CHECK(m_auth IN('일반', '관리자')),		--회원 권한
-m_regist DATE DEFAULT SYSDATE NOT NULL,		--회원 가입일
-m_lasttime DATE DEFAULT SYSDATE NOT NULL	--회원 최종접속시간
+m_no NUMBER PRIMARY KEY,   		 --회원 번호
+m_id VARCHAR2(15) NOT NULL UNIQUE,    --회원 아이디
+m_pw VARCHAR2(15) NOT NULL,   		 --회원 비밀번호
+m_name VARCHAR2(21) NOT NULL,   	 --회원 이름
+m_birth VARCHAR2(10) NOT NULL,   	 --회원 생일
+m_phone VARCHAR2(13) NOT NULL,   	 --회원 전화번호
+m_email VARCHAR2(30) NOT NULL,   	 --회원 이메일
+m_postcode VARCHAR2(7) NOT NULL,    --회원 우편번호
+m_addr1 VARCHAR2(60) NOT NULL,   	 --회원 주소
+m_addr2 VARCHAR2(60) NOT NULL,   	 --회원 상세주소
+m_fav VARCHAR2(30) NOT NULL,   	 --회원 응원팀
+m_auth VARCHAR2(9) DEFAULT '일반' NOT NULL  CHECK(m_auth IN('일반', '관리자')),   	 --회원 권한
+m_regist DATE DEFAULT SYSDATE NOT NULL,   	 --회원 가입일
+m_lasttime DATE DEFAULT SYSDATE NOT NULL    --회원 최종접속시간
 );
 
 --회원 시퀀스
@@ -84,7 +133,7 @@ CREATE SEQUENCE MEMBER_SEQ;
 
 
 /************************************************************
-						  동근
+   					   동근
 ************************************************************/
 drop table n_comments;
 drop table f_comments;
@@ -201,7 +250,7 @@ origin CONSTRAINT gk_comments_board_no references g_board(g_no)on delete cascade
 --갤러리 코멘트 테이블 작성
 
 --qna관련
-create SEQUENCE q_board_seq; 
+create SEQUENCE q_board_seq;
    
 create table q_board(
 q_no number primary key,
@@ -230,7 +279,7 @@ origin CONSTRAINT qk_comments_board_no references q_board(q_no)on delete cascade
 
 
 /************************************************************
-						  도영
+   					   도영
 ************************************************************/
 
 --[선수 테이블]player
@@ -254,6 +303,7 @@ p_last_five varchar2(300) not null--선수 최근 5경기 성적
 drop sequence player_seq;
 --선수 테이블 시퀀스 생성
 create sequence player_seq;
+alter table player drop column p_last_five;--선수 최근 5경기 성적 칼럼 삭제
 
 
 ---------------------------------------------------------------------
@@ -361,3 +411,5 @@ create sequence club_season_score_seq;
 
 
 ---------------------------------------------------------------------
+
+
