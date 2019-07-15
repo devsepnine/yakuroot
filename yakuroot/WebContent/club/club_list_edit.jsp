@@ -13,6 +13,7 @@
 		padding : 0.5rem 1rem;
 		align : center;
 		margin-left: 0px;
+		color : white;
 	}
 	
 </style>
