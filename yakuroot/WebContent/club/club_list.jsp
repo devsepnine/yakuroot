@@ -7,16 +7,24 @@
 <!-- 관리자메뉴에서 구단 리스트를 보는 페이지, 수정버튼을 누르면 수정페이지로 넘어갈 수 있는 페이지 -->
 
 <style>
-	.form #edit {
+	.form.admin #edit {
 		width : 60px;
     	padding: 0.5rem 1rem;
+	}
+	
+	.form.admin > table th {
+		text-align : center;
+	}
+	
+	.form.admin > table td {
+		text-align : center;
 	}
 </style>
 
 
 <div align="center" text-align="center">
-<form class="form"><!-- 버튼 디자인 -->
-		<table border="1" align="center" text-align="center">
+<form class="form admin"><!-- 버튼 디자인 -->
+		<table border="1" align="center" text-align="center" width = 800 >
 			<thead>
 				<tr>
                     <th colspan="2">팀명</th>

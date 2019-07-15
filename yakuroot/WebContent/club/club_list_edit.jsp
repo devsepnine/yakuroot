@@ -8,14 +8,17 @@
 <!-- 관리자메뉴에서 구단 프로필을 수정할 수 있는 페이지 -->
 
 <style>
-	.form #save{
+	.form.admin #save{
 		width : 60px;
 		padding : 0.5rem 1rem;
+		align : center;
+		margin-left: 0px;
 	}
+	
 </style>
 
 <div align = "center" text-align = "center">
-	   <form action = "club_list_edit.do" method = "post" class="form"><!-- 버튼 디자인 -->
+	   <form action = "club_list_edit.do" method = "post" class="form admin"><!-- 버튼 디자인 -->
 				<table border="1" align="center" text-align="center">
 							<thead>
 								<tr>
