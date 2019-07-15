@@ -36,10 +36,15 @@
 		});
 	});
 </script>
+<style>
+	.n_table{
+		width: 1100px
+	}
+</style>
 <div align="center">
 	<div>
 		<div>
-			<table border="1">
+			<table border="1" class="n_table">
 				<tbody>
 					<tr>
 						<div align="center">
@@ -97,7 +102,7 @@
 											<form action="n_comments.do" method="post">
 												<input type="hidden" name="origin" value="${ndto.n_no}">
 												<input type="hidden" name="writer" value="${login}">
-												<textarea rows="4" cols="50" placeholder="댓글입력"
+												<textarea rows="5" cols="100" placeholder="댓글입력"
 														name="content"></textarea>
 												<button type="submit">등록</button>
 											</form>

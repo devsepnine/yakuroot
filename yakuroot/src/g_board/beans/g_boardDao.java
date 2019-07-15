@@ -213,5 +213,41 @@ public class g_boardDao {
 		con.close();
 		return gdto1;
 	}
+	
+	// 최근 7일 갤러리 게시글 수
+			public int g_board() throws Exception {
+				Connection con = this.getConnection();
+				
+				String sql = "select count(*) c from g_board WHERE g_when BETWEEN (SYSDATE-7) AND SYSDATE+1";
+				PreparedStatement ps = con.prepareStatement(sql);
+				
+				ResultSet rs = ps.executeQuery();
+				
+				rs.next();
+				
+				int g_board = rs.getInt("c");
+			         
+			    con.close();
+			        
+			    return g_board;
+			}
+			
+		// 최근 7일 갤러리 댓글 수
+			public int g_comment() throws Exception {
+				Connection con = this.getConnection();
+				
+				String sql = "select count(*) c from g_comments WHERE when BETWEEN (SYSDATE-7) AND SYSDATE+1";
+				PreparedStatement ps = con.prepareStatement(sql);
+				
+				ResultSet rs = ps.executeQuery();
+				
+				rs.next();
+				
+				int g_comment = rs.getInt("c");
+			         
+			    con.close();
+			        
+			    return g_comment;
+			}
 
 }

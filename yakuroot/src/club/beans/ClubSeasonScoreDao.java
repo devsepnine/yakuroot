@@ -1,6 +1,8 @@
 package club.beans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -29,5 +31,59 @@ public class ClubSeasonScoreDao {
 		public Connection getConnection() throws Exception{
 			return src.getConnection();
 		}
+		
+//		구단 시즌 성적 넣는 메소드
+		public void input(ClubSeasonScoreDto cssdto) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "insert into club values(club_season_score_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, cssdto.getC_game());
+			ps.setInt(2, cssdto.getC_win());
+			ps.setInt(3, cssdto.getC_loss());
+			ps.setInt(4, cssdto.getC_draw());
+			ps.setDouble(5, cssdto.getC_victory());
+			ps.setDouble(6, cssdto.getC_gap());
+			ps.setString(7, cssdto.getC_last_ten());
+			ps.setString(8, cssdto.getC_continue());
+			
+			ps.execute();
+			con.close();
+		}
+		
+//		구단 시즌 성적 불러오는 리스트
+		public ClubSeasonScoreDto get(int c_no) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "select * from club where c_no=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, c_no);
+			ResultSet rs = ps.executeQuery();
+			
+			ClubSeasonScoreDto cssdto;
+			if(rs.next()) {
+				cssdto = new ClubSeasonScoreDto();
+				cssdto.setData(rs);
+			}
+			else {
+				cssdto = null;
+			}
+			con.close();
+			return cssdto;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 }
