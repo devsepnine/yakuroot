@@ -176,7 +176,7 @@ public class MemberDao {
 		
 		Connection con = this.getConnection();
 
-		String sql = "update member set m_name = ?, m_birth = ?, m_phone = ? , m_email = ?, m_postcode = ?, m_add1 = ? , m_addr2 = ?, m_fav = ?, m_auth = ? WHERE m_id = ?";
+		String sql = "update member set m_name = ?, m_birth = ?, m_phone = ? , m_email = ?, m_postcode = ?, m_addr1 = ? , m_addr2 = ?, m_fav = ?, m_auth = ? WHERE m_id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, mdto.getM_name());
 		ps.setString(2, mdto.getM_birth());
