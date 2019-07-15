@@ -75,8 +75,8 @@
 					
 				<td>
 					<select name = "stadium">
-						<c:forEach var="cdto" items="${cdtolist}">
-							<option value="${cdto.c_stadium}">${cdto.c_stadium}</option>
+						<c:forEach var="sdto" items="${sdtolist}">
+							<option value="${sdto.s_no}">${sdto.s_name}</option>
 						</c:forEach>
 					</select>
 				</td>

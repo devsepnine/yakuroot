@@ -14,7 +14,6 @@
             //     $(this).nextAll().slideup(500);
             //     $(this)
             // })
-            
             //a태그를 클릭하면 li에 active 클래스를 추가/제거
             //active 인 li 안에 있는 서브메뉴는 화면에 표시
             $('.top_m').click(function(){
@@ -410,10 +409,8 @@ SETTINGS
                                             <li><a href="<%=request.getContextPath()%>/admin/search.do">회원 관리</a></li>
                                             <li><a href="<%=request.getContextPath()%>/club/club_list.do">팀리스트 관리</a></li>
                                             <li><a href="<%=request.getContextPath()%>/match/match_insert">경기일정 추가</a></li>
-                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴4</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">예매일정추가</a></li>
                                             <li><a href="<%=request.getContextPath()%>">관리자 메뉴5</a></li>
-                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴6</a></li>
-                                            <li><a href="<%=request.getContextPath()%>">관리자 메뉴7</a></li>
                                         </ul>
                                     </div>
                                 </li>

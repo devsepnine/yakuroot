@@ -16,6 +16,8 @@ import club.beans.ClubDao;
 import club.beans.ClubDto;
 import match.beans.MatchDao;
 import match.beans.MatchDto;
+import stadium.beans.StadiumDao;
+import stadium.beans.StadiumDto;
 
 @WebServlet(urlPatterns="/match/match_fix")
 public class Match_fix extends HttpServlet{
@@ -29,7 +31,10 @@ public class Match_fix extends HttpServlet{
 			int match_no = Integer.parseInt(req.getParameter("match_no"));
 			MatchDao matdao = new MatchDao();
 			MatchDto matdto = matdao.getMatch_one(match_no);
+			StadiumDao sdao = new StadiumDao();
+			List<StadiumDto> sdtolist = sdao.getStadium();
 			
+			req.setAttribute("sdtolist", sdtolist);
 			req.setAttribute("matdto", matdto);
 			req.setAttribute("cdtolist", cdtolist);
 			req.setAttribute("match_no", match_no);

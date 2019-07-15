@@ -1,18 +1,13 @@
-package stadium.beans;
+package resdata.beans;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class StadiumDao {
-	
+public class resdataDao {
+
 //	연결 메소드
 //	DBCP 방식 (미리 만들어두고 렌탈하는 방식)
 	//	context.xml에 있는 resource 정보를 알아야만 렌탈이가능하다.
@@ -36,18 +31,6 @@ public class StadiumDao {
 			return src.getConnection();
 		}
 		
-		public List<StadiumDto> getStadium() throws Exception{
-			Connection con = getConnection();
-			String sql = "select * from stadium";
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			List<StadiumDto> sdtolist = new ArrayList<StadiumDto>();
-			ResultSet rs = pstmt.executeQuery();
-			while(rs.next()) {
-				StadiumDto sdto = new StadiumDto(rs);
-				sdtolist.add(sdto);
-			}
-			con.close();
-			return sdtolist;
-		}
+	
 
 }
