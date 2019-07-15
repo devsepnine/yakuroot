@@ -66,4 +66,47 @@ public class MatchDao {
 			con.close();
 			return list;
 		}
+		
+		public MatchDto getMatch_one(int no) throws Exception{
+			Connection con = getConnection();
+			String sql = "select * from match where match_no = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			ResultSet rs = pstmt.executeQuery();
+			MatchDto matdto = new MatchDto();
+			if(rs.next()) {
+				matdto = new MatchDto(rs);
+			}
+			con.close();
+			return matdto;
+		}
+
+		public void fixmatch(MatchDto matdto) throws Exception {
+			Connection con = getConnection();
+			String sql = "update match set m_date = to_date(?, 'YYYY/MM/DD HH24:MI:SS'), m_point1 = ?, m_point2 = ?, m_team1 = ?, m_team2 = ?, M_STADIUM = ? where match_no =  ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, matdto.getM_date());
+			pstmt.setInt(2, matdto.getM_point1());
+			pstmt.setInt(3, matdto.getM_point2());
+			pstmt.setInt(4, matdto.getM_team1());
+			pstmt.setInt(5, matdto.getM_team2());
+			pstmt.setString(6, matdto.getM_stadium());
+			pstmt.setInt(7, matdto.getMatch_no());
+			
+			pstmt.execute();
+			con.close();
+			return;
+		}
+		
+		public void delMatch(int match_no) throws Exception{
+			Connection con = getConnection();
+			String sql = "delete match where match_no = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, match_no);
+			pstmt.execute();
+			
+			con.close();
+			return;
+			
+		}
 }

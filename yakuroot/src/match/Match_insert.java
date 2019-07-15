@@ -55,7 +55,7 @@ public class Match_insert extends HttpServlet{
 		date = date+" "+hour+":"+min;
 
 		
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd h:m");
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date d = sf.parse(date);
 		SimpleDateFormat sf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
@@ -69,7 +69,7 @@ public class Match_insert extends HttpServlet{
 		
 		matdao.setMatch(matdto);
 		
-		resp.sendRedirect(req.getContextPath()+"/match/matchup.do");
+		resp.sendRedirect(req.getContextPath()+"/match/matchup");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
