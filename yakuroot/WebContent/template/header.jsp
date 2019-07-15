@@ -362,7 +362,7 @@ SETTINGS
                         </div></td>
                         </c:otherwise>
                         </c:choose>
-                    </tr>
+                     </tr>
                     <tr>
                         <td>
                             <ul class="menubox">
