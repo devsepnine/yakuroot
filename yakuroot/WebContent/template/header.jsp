@@ -106,16 +106,19 @@
 					서브메뉴 디자인
 ********************************************************/
         .nav_subs > a{
-        	color:white;
-        	background-color: red;
+	        background-color: red;
+			color: white;
+			padding: 0.2rem;
+			box-shadow: 1px 1px 1px black;
+			font-size: 20px;
+			border-radius: 5px;
         	margin-left: 0.5rem;
-        	border-radius: 20px;
         	padding: 0.2rem;
         	padding-left: 0.5rem;
         	padding-right: 0.5rem;
         }
         .nav_subs > a:hover{
-        	background-color: #5F00FF;
+        	background-color: #F58282;
         }
         .sub_menus a{
         	font-size: 20px;
