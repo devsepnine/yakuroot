@@ -15,7 +15,7 @@ th {
 <div>
 	<div>
 		<div style="width: 1200px; margin: auto;">
-			<table border="1" style="margin: auto; width: 1100px">
+			<table border="1" style="margin: auto; width: 1100px" class="table table-stripe">
 				<thead>
 					<tr>
 						<th width="100px">번호</th>

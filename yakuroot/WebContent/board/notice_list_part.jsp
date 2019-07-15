@@ -15,7 +15,7 @@ th {
 <div>
 	<div>
 		<div style="width: 1200px; margin: auto;">
-			<table border="1" style="margin: auto; width: 1100px">
+			<table border="1" style="margin: auto; width: 1100px" class="table table-stripe">
 				<thead>
 					<tr>
 						<th width="100px">번호</th>
@@ -48,7 +48,7 @@ th {
 						<c:if test="${auth eq '관리자'}">
 						<td colspan="6" align="right">
 							<button>
-								<a href="notice_write.jsp">글쓰기</a>
+								<a href="notice_write.do">글쓰기</a>
 							</button>
 						</td>
 						</c:if>

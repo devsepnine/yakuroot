@@ -15,11 +15,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import notice_board.beans.n_boardDao;
 import notice_board.beans.n_boardDto;
-@WebServlet(urlPatterns="/board/n_write.do")
+@WebServlet(urlPatterns="/board/notice_write.do")
 public class n_board_write extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/n_write.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/notice_write.jsp");
 		dispatcher.forward(req, resp); 
 	}
 	@Override
