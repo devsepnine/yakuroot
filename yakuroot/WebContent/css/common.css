@@ -343,6 +343,30 @@ body[test] article {
 }
 
 /************************************************************
+   관리자 ver.2
+*************************************************************/        
+
+
+/* 입력창 : input(submit, button, reset 빼고), select, textarea */
+.form.admins input:not([type=submit]):not([type=button]):not([type=reset]),
+.form.admins select,
+.form.admins textarea {
+    border-radius: 3px;
+    background-color: #FFF0F0;
+}
+
+/* 버튼 : input(submit, button, reset) + button*/
+.form.admins button,
+.form.admins input[type=submit],
+.form.admins input[type=button],
+.form.admins input[type=reset] {
+    background-color: #F58282;
+    border: none;
+    border-radius: 15px;
+    color: white;
+}
+
+/************************************************************
 	야구공 모양 마우스 커서  -> 야구르트로 격하게 바꾸고 싶다.......
 *************************************************************/
 /*  Start http://localhost:8080/yakuroot   */
