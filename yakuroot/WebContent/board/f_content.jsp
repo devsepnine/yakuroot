@@ -55,7 +55,7 @@
 						<th width="10%">작성자</th>
 						<td>${bdto.f_writer}</td>
 					</tr>
-					<tr>
+					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px;">${bdto.f_content}</td>
 					</tr>

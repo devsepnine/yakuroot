@@ -23,7 +23,7 @@
 
 <!-- 공지게시판 글 쓰기 jsp -->
 <div align="center">
-	<form action="n_write.do" method="post" enctype="multipart/form-data">
+	<form action="notice_write.do" method="post" enctype="multipart/form-data">
 		말머리:<select name="n_head">
 					<option value="공지사항">공지사항</option>
 				</select> 
