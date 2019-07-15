@@ -186,7 +186,7 @@ public class f_boardDao {
 		con.close();
 	}
 
-	public f_boardDto edit(f_boardDto bdto) throws Exception {// ȸ������ �˻� �޼ҵ�
+	public f_boardDto edit(f_boardDto bdto) throws Exception {
 		Connection con = this.getConnection();
 		String sql = "update f_board set f_head = ?, f_title = ?, f_content = ? where f_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -198,6 +198,44 @@ public class f_boardDao {
 		con.close();
 		return bdto;
 	}
-
+	
+	//자유게시판 게시글 수
+		public int f_board() throws Exception {
+			Connection con = this.getConnection();
+			
+			String sql = "select count(*) c from f_board WHERE f_when BETWEEN (SYSDATE-7) AND SYSDATE+1";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			rs.next();
+			
+			int f_board = rs.getInt("c");
+		         
+		    con.close();
+		        
+		    return f_board;
+		}
+	
+	// 최근 7일 자유게시판 댓글 수
+	 	public int f_comment() throws Exception {
+			Connection con = this.getConnection();
+			
+			String sql = "select count(*) c from f_comments WHERE when BETWEEN (SYSDATE-7) AND SYSDATE+1";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			rs.next();
+			
+			int f_comment = rs.getInt("c");
+		         
+		    con.close();
+		        
+		    return f_comment;
+		}
+		
+	
+		
 	}
 

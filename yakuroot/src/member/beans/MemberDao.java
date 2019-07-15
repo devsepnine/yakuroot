@@ -289,5 +289,23 @@ public class MemberDao {
 	    return memberCount;
 	}
 	
+	//최근 7일 가입한 회원 수
+	public int member() throws Exception {
+		Connection con = this.getConnection();
+		
+		String sql = "select count(*) c from member WHERE M_REGIST BETWEEN (SYSDATE-7) AND SYSDATE+1";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		int member = rs.getInt("c");
+	         
+	    con.close();
+	        
+	    return member;
+	}
+	
 	
 }
