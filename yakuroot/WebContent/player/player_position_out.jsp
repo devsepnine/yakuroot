@@ -19,12 +19,12 @@
 		<table>
 			<tbody>
 				<tr>
-					<td><a href="player_position.jsp"><input type="button" value="코치"></a></td>
-					<td><a href="player_position_staff.jsp"><input type="button" value="스테프"></a></td>
-					<td><a href="player_position_pitcher.jsp"><input type="button" value="투수"></a></td>
-					<td><a href="player_position_catcher.jsp"><input type="button" value="포수"></a></td>
-					<td><a href="player_position_in.jsp"><input type="button" value="내야"></a></td>
-					<td><a href="player_position_out.jsp"><input type="button" value="외야"></a></td>
+					<td><a href="player_position.do"><input type="button" value="코치"></a></td>
+					<td><a href="player_position_staff.dp"><input type="button" value="스테프"></a></td>
+					<td><a href="player_position_pitcher.do"><input type="button" value="투수"></a></td>
+					<td><a href="player_position_catcher.do"><input type="button" value="포수"></a></td>
+					<td><a href="player_position_in.do"><input type="button" value="내야"></a></td>
+					<td><a href="player_position_out.do"><input type="button" value="외야"></a></td>
 				</tr>
 			</tbody>
 		</table>
