@@ -99,13 +99,14 @@ public class ClubDao {
 	public void edit(ClubDto cdto) throws Exception {
 		Connection con = getConnection();
 		
-		String sql = "update club set c_name=?, c_year=?, c_born=?, c_club=? where c_no=?";
+		String sql = "update club set c_name=?, c_year=?, c_born=?, c_club=?, c_map = ? where c_no=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, cdto.getC_name());
 		ps.setString(2, cdto.getC_year());
 		ps.setString(3, cdto.getC_born());
 		ps.setString(4, cdto.getC_club());
-		ps.setInt(5, cdto.getC_no());
+		ps.setString(5, cdto.getC_map());
+		ps.setInt(6, cdto.getC_no());
 		
 		ps.execute();
 		con.close();

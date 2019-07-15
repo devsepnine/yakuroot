@@ -56,7 +56,7 @@
 						<td>${qdto.q_writer}</td>
 					</tr>
 
-					<tr>
+					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px;">
 						<img src="q_download.do?q_savename=${qdto.q_savename}">

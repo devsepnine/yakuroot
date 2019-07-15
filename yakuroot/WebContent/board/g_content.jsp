@@ -56,7 +56,7 @@
 						<td>${gdto.g_writer}</td>
 					</tr>
 
-					<tr>
+					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px">
 						<img src="g_download.do?g_savename=${gdto.g_savename}">

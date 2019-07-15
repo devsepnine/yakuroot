@@ -55,7 +55,7 @@
 						<th width="10%">작성자</th>
 						<td>${ndto.n_writer}</td>
 					</tr>
-					<tr>
+					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px;">
 						<img src="n_download.do?n_savename=${ndto.n_savename}">
