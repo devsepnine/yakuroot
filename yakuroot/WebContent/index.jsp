@@ -5,7 +5,7 @@
     <section>
         <div style="width: 600px; margin: auto">
 
-        	<h1>관리자 페이지 빨리 만들어주세요 </h1>
+        	<h1>메인 페이지 빨리 만들어주세요. </h1>
 
         </div>
     </section>

@@ -1,6 +1,11 @@
 package stadium.beans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -31,6 +36,18 @@ public class StadiumDao {
 			return src.getConnection();
 		}
 		
-	
+		public List<StadiumDto> getStadium() throws Exception{
+			Connection con = getConnection();
+			String sql = "select * from stadium";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			List<StadiumDto> sdtolist = new ArrayList<StadiumDto>();
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				StadiumDto sdto = new StadiumDto(rs);
+				sdtolist.add(sdto);
+			}
+			con.close();
+			return sdtolist;
+		}
 
 }

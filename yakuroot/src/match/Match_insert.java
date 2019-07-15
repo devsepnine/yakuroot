@@ -17,16 +17,20 @@ import club.beans.ClubDao;
 import club.beans.ClubDto;
 import match.beans.MatchDao;
 import match.beans.MatchDto;
+import stadium.beans.StadiumDao;
+import stadium.beans.StadiumDto;
 
 @WebServlet(urlPatterns="/match/match_insert")
 public class Match_insert extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
 		ClubDao cdao = new ClubDao();
 		List<ClubDto> cdtolist;
-		try {
-			cdtolist = cdao.getClub();
-		
+		cdtolist = cdao.getClub();
+		StadiumDao sdao = new StadiumDao();
+		List<StadiumDto> sdtolist = sdao.getStadium();
+		req.setAttribute("sdtolist", sdtolist);
 		req.setAttribute("cdtolist", cdtolist);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/match/match_insert.jsp");
 		dispatcher.forward(req, resp);
