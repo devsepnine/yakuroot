@@ -286,7 +286,7 @@ a.sm-link{
 
 /* effect 1 */
 .sm-link__label:hover{
-	text-shadow: 1px 1px 2px black, 0px 0px 8px white;
+	text-shadow: 1px 1px 2px black, 0px 0px 13px white;
 }
 .sm-link1::before{
   transform: translate3d(-105%, 0, 0);
@@ -379,19 +379,9 @@ SETTINGS
                                     <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup" title="경기일정"><span class="sm-link__label">경기일정</span></a>
                                 </li>
                                 <li class="menu3">
-                                    <a class="top_m sm-link sm-link_padding-all sm-link1" title="이벤트"><span class="sm-link__label">이벤트</span></a>
-                                    <div class="sub_menus">
-                                        <ul>
-                                            <li>이벤트메뉴1</li>
-                                            <li>이벤트메뉴2</li>
-                                            <li>이벤트메뉴3</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="menu4">
                                     <a href="<%=request.getContextPath()%>/board/g_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리"><span class="sm-link__label">갤러리</span></a>
                                 </li>
-                                <li class="menu5">
+                                <li class="menu4">
                                     <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="게시판"><span class="sm-link__label">게시판</span></a>
                                     <div class="sub_menus">
                                         <ul>
@@ -401,15 +391,18 @@ SETTINGS
                                         </ul>
                                     </div>
                                 </li>
+                                <li class="menu5">
+                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup" title="예매"><span class="sm-link__label">예매</span></a>
+                                </li>
                                 <c:if test="${auth eq '관리자'}">
                                 <li class="menu6">
                                     <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="관리자메뉴"><span class="sm-link__label">관리자메뉴</span></a>
                                     <div class="sub_menus">
                                         <ul>
-                                            <li><a href="<%=request.getContextPath()%>/admin/search.do">회원 관리</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/admin/search.do">회원 검색</a></li>
                                             <li><a href="<%=request.getContextPath()%>/club/club_list.do">팀리스트 관리</a></li>
                                             <li><a href="<%=request.getContextPath()%>/match/match_insert">경기일정 추가</a></li>
-                                            <li><a href="<%=request.getContextPath()%>">예매일정추가</a></li>
+                                            <li><a href="<%=request.getContextPath()%>">예매 일정 추가</a></li>
                                             <li><a href="<%=request.getContextPath()%>">관리자 메뉴5</a></li>
                                         </ul>
                                     </div>

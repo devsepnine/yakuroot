@@ -11,6 +11,14 @@ public class MatchupDto {
 	private int m_point1;
 	private int m_point2;
 	private String m_stadium;
+	private int s_no;
+	
+	public int getS_no() {
+		return s_no;
+	}
+	public void setS_no(int s_no) {
+		this.s_no = s_no;
+	}
 	public int getMatch_no() {
 		return match_no;
 	}
@@ -56,8 +64,10 @@ public class MatchupDto {
 	@Override
 	public String toString() {
 		return "MatchupDto [match_no=" + match_no + ", m_date=" + m_date + ", m_team1=" + m_team1 + ", m_team2="
-				+ m_team2 + ", m_point1=" + m_point1 + ", m_point2=" + m_point2 + ", m_stadium=" + m_stadium + "]";
+				+ m_team2 + ", m_point1=" + m_point1 + ", m_point2=" + m_point2 + ", m_stadium=" + m_stadium + ", s_no="
+				+ s_no + "]";
 	}
+	
 	public MatchupDto() {
 		super();
 	}
@@ -70,5 +80,6 @@ public class MatchupDto {
 		this.setM_point1(rs.getInt("m_point1"));
 		this.setM_point2(rs.getInt("m_point2"));
 		this.setM_stadium(rs.getString("m_stadium"));
+		this.setS_no(rs.getInt("s_no"));
 	}
 }

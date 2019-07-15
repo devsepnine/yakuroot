@@ -41,7 +41,7 @@
 							<td>${matdto.m_point2}</td>
 							<td>${matdto.m_team2}</td>
 							<td>${matdto.m_stadium}</td>
-							<td> 예매하기 </td>
+							<td><a href="../reserve/reserve_area?match_no=${matdto.match_no}&s_no=${matdto.s_no}">예매하기</a></td>
 							<c:if test="${auth eq '관리자'}">
 								<td><a href="match_fix?match_no=${matdto.match_no}"><button>수정하기</button></a></td>
 							</c:if>
@@ -55,6 +55,5 @@
 		<a href="match_insert"><button>경기일정 추가하기</button></a>
 	</c:if>
 </div>
-
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
