@@ -4,7 +4,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <div>
-	<table>
+	<table border="1" align="center">
 		<thead>
 			<tr>
 				<th>구단 로고</th>
@@ -14,7 +14,7 @@
 				<th>무승부</th>
 				<th>승률</th>
 				<th>게임차</th>
-				<th>최근 10뎡기</th>
+				<th>최근 10경기</th>
 				<th>연속</th>
 			</tr>
 		</thead>
