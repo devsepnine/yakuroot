@@ -30,16 +30,7 @@
 	
 </script>
 <style>
-	.fix_btn{
-		background-color: #6B66FF;
-		color: white;
-		font-weight: bold;
-		padding: 0.3rem;
-		box-shadow: 1px 1px 1px black;
-		margin-right: 20px;
-		border-radius: 5px;
-		font-size: 15px;
-	}
+
 </style>
 <div style="width: 1100px; margin: auto;">
 <form action="" method="post" name="match">
@@ -101,8 +92,8 @@
 	</table>
 	<input type="hidden" name="match_no" value="${match_no}">
 	<div style="text-align: center; padding: 0.5rem;">
-	<a class="match_fix_btn fix_btn match_add_btn">경기 일정 수정</a>
-	<a href="<%=request.getContextPath()%>/match/match_delete?match_no=${match_no }" class="match_del_btn fix_btn">경기 일정 제거</a>
+	<a class="match_fix_btn cat_btn match_add_btn">경기 일정 수정</a>
+	<a href="<%=request.getContextPath()%>/match/match_delete?match_no=${match_no }" class="match_del_btn cat_btn">경기 일정 제거</a>
 	</div>
 	</form>
 </div>

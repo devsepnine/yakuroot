@@ -2,16 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <style>
-	.area_btn{
-		background-color: #6B66FF;
-		color: white;
-		font-weight: bold;
-		padding: 0.3rem;
-		box-shadow: 1px 1px 1px black;
-		margin-right: 20px;
-		font-size: 20px;
-		border-radius: 5px;
-	}
+
 	
 </style>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,7 +14,7 @@
 		<tbody>
 		<tr>
 			<c:forEach var="adto" items="${arealist}">
-				<td><a class="area_btn" href="../reserve/select_seat?match_no=${match_no}&area_no=${adto.a_no}">${adto.a_name}</a></td>
+				<td><a class="cat_btn" href="../reserve/select_seat?match_no=${match_no}&area_no=${adto.a_no}">${adto.a_name}</a></td>
 			</c:forEach>
 		</tr>
 		</tbody>

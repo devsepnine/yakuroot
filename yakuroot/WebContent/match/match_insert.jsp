@@ -25,16 +25,7 @@
 </script>
 
 <style>
-	.fix_btn{
-		background-color: #6B66FF;
-		color: white;
-		font-weight: bold;
-		padding: 0.3rem;
-		box-shadow: 1px 1px 1px black;
-		margin-right: 20px;
-		border-radius: 5px;
-		font-size: 20px;
-	}
+
 </style>
 
 
@@ -99,7 +90,7 @@
 		
 	</table>
 	<br><br>
-	<a class="match_add_btn fix_btn ">경기 일정 추가</a>
+	<a class="match_add_btn cat_btn ">경기 일정 추가</a>
 	</form>
 </div>
 

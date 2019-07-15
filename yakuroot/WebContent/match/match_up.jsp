@@ -26,7 +26,6 @@
 		font-size: 20px;
 		border-radius: 5px;
 	}
-	
 	.b_btn{
 		background-color: #6B66FF;
 		color: white;
@@ -34,7 +33,12 @@
 		box-shadow: 1px 1px 1px black;
 		border-radius: 5px;
 	}
-	
+	.b_btn:hover{
+		background-color: #F58282;
+	}
+	.a_btn:hover{
+		background-color: #F58282;
+	}
 </style>
 
 <div class="match_div" >
