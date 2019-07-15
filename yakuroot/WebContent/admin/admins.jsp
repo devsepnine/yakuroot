@@ -46,11 +46,11 @@
 								<th rowspan = "3" >회원<br><br>관리</th>
 								<td>총 회원 수 : ${memberCount} 명 </td>
 								<th rowspan = "3">게시판<br><br>관리</th>
-								<td>최근 7일 갤러리 게시글/ 댓글 수 : ${g_board} / ${g_comment} 개</td>
+								<td>최근 7일 갤러리 게시글/ 댓글 수  :  ${g_board}  /  ${g_comment} 개</td>
 					   		</tr>
 					   		<tr>
 								<td>최근 7일 가입한 회원 수 : ${member} 명 </td>
-								<td>최근 7일 자유게시판 게시글/ 댓글 수 : ${f_board} / ${f_comment} 개</td>
+								<td>최근 7일 자유게시판 게시글/ 댓글 수  :  ${f_board}  /  ${f_comment} 개</td>
 					   		</tr>
 					   		<tr>
 								<td><input type="button" value= "전체 회원 관리"></td>
