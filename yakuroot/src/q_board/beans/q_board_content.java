@@ -23,7 +23,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		q_boardDao qdao = new q_boardDao();
 		qdao.readone(no);
 		q_boardDto qdto = qdao.get(no);
-//		boolean my = qdto.getQ_writer().equals(req.getParameter("login"));
+		boolean my = qdto.getQ_writer().equals(req.getParameter("login"));
 		
 		CommentDao cdao = new CommentDao();
 		List<CommentDto> list = cdao.get(no);
@@ -31,7 +31,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		p.calculate();
 		
 		req.setAttribute("list2", list);
-//		req.setAttribute("my", my);
+		req.setAttribute("my", my);
 		req.setAttribute("qdto", qdto);
 		req.setAttribute("p", p);
 		

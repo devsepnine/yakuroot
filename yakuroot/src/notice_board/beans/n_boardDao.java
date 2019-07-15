@@ -131,7 +131,7 @@ public class n_boardDao {
 	}
 	public List<n_boardDto> list(int start, int end) throws Exception {//공지사항 리스트 출력 메소드
 		Connection con = this.getConnection();
-		String sql = "select n_no,n_head,n_title,n_writer,n_content,n_read,n_when,f_parent,f_depth,f_team,f_savename,f_uploadname,f_len,f_type,"
+		String sql = "select n_no,n_head,n_title,n_writer,n_content,n_read,n_when,f_parent,f_depth,f_team,n_savename,n_uploadname,n_len,n_type,"
 				+ "(select count(*) from n_comments where origin = n_no) as n_count "
 				+ "from (select a.*, rownum as rnum from (select * from notice_board "
 				+ "connect by prior n_no = f_parent start with f_parent is null "
