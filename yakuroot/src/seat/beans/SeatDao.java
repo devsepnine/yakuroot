@@ -1,6 +1,10 @@
 package seat.beans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -31,6 +35,20 @@ public class SeatDao {
 			return src.getConnection();
 		}
 		
-	
+		public List<SeatDto> getSeat(int a_no) throws Exception {
+			Connection con = getConnection();
+			String sql = "select * from Seat where area_no = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, a_no);
+			ResultSet rs = pstmt.executeQuery();
+			SeatDto sdto = new SeatDto();
+			List<SeatDto> seatlist = new ArrayList<SeatDto>();
+			while(rs.next()) {
+				sdto = new SeatDto(rs);
+				seatlist.add(sdto);
+			}
+			con.close();
+			return seatlist;
+		}
 
 }

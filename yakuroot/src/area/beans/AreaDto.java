@@ -63,7 +63,7 @@ public class AreaDto {
 	}
 
 	public AreaDto(ResultSet rs) throws SQLException {
-		this.setStadium_no(rs.getInt("s_no"));
+		this.setStadium_no(rs.getInt("stadium_no"));
 		this.setA_no(rs.getInt("a_no"));
 		this.setA_row(rs.getInt("a_row"));
 		this.setA_col(rs.getInt("a_col"));
