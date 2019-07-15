@@ -59,7 +59,7 @@
 </head>
 <body>
 <div height = "100"></div>
-	<div><img src="img/main/one.png" width="100%" height="290"></div>
+	<div><img src="img/main/one.png" width="100%" height="290" margin = "150"></div>
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
