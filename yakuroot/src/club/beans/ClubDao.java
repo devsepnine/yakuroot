@@ -77,7 +77,7 @@ public class ClubDao {
 	
 	
 //	등록된 구단 목록 불러오는 리스트 메소드
-	public List<ClubDto> getClub() throws Exception{
+	public List<ClubDto> getClub() throws Exception {
 		Connection con = getConnection();
 		
 		String sql = "select * from club";
@@ -107,14 +107,8 @@ public class ClubDao {
 		ps.setString(4, cdto.getC_club());
 		ps.setInt(5, cdto.getC_no());
 		
-		System.out.println(cdto);
-		
 		ps.execute();
 		con.close();
 	}
 	
-//	음 뭔지 모르겠는데 하나 더 있어야 할 것 같은 메소드
-	
-//	구단 시즌 성적 데이터 불러오는 메소드
-
 }

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -75,6 +77,42 @@ public class PlayerDao {
 		}
 		
 //		등록된 선수 목록 불러오는 리스트 메소드
+		public List<PlayerDto> getPlayer() throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "select * from player";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			PlayerDto pdto;
+			List<PlayerDto> list = new ArrayList<PlayerDto>();
+			while(rs.next()) {
+				pdto = new PlayerDto();
+				pdto.setData(rs);
+				list.add(pdto);
+			}
+			con.close();
+			return list;
+		}
+		
+//		선수 목록 수정하는 메소드
+		public void edit(PlayerDto pdto) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "update player set p_photo=?, p_name=?, p_bnum=?, p_club=?, p_birth=? p_position=?, p_height=?, p_weight=? where p_no=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, pdto.getP_photo());
+			ps.setString(2, pdto.getP_name());
+			ps.setInt(3, pdto.getP_bnum());
+			ps.setString(4, pdto.getP_club());
+			ps.setString(5, pdto.getP_birth());
+			ps.setString(6, pdto.getP_position());
+			ps.setInt(6, pdto.getP_height());
+			ps.setInt(7, pdto.getP_weight());
+			ps.setInt(8, pdto.getP_no());
+			
+			ps.execute();
+			con.close();
+		}
 		
 		
 		
