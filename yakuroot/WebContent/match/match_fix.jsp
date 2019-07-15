@@ -13,9 +13,6 @@
 		$("select[name=team2]").val("${matdto.m_team2}");
 		$("select[name=stadium]").val("${matdto.m_stadium}");
 		
-		$(".match_del_btn").click(function(){
-			location.href = ""
-		})
 		
 		$(".match_add_btn").click(function(){
 			var team1 = $("select[name=team1]").val();
@@ -30,12 +27,23 @@
 			}
 		});
 	});
+	
 </script>
-
+<style>
+	.fix_btn{
+		background-color: #6B66FF;
+		color: white;
+		font-weight: bold;
+		padding: 0.3rem;
+		box-shadow: 1px 1px 1px black;
+		margin-right: 20px;
+		border-radius: 5px;
+		font-size: 15px;
+	}
+</style>
 <div style="width: 1100px; margin: auto;">
 <form action="" method="post" name="match">
-	<table style="width: 100%;" border=1;>
-		
+	<table style="width: 100%;" class="table table-stripe table-hover">
 		<thead>
 			<tr>
 				<th width="20%">날짜</th>
@@ -92,8 +100,10 @@
 		
 	</table>
 	<input type="hidden" name="match_no" value="${match_no}">
-	<button class="match_fix_btn">경기 일정 수정</button>
-	<a href="<%=request.getContextPath()%>/match/match_delete?match_no=${match_no }" class="match_del_btn">경기 일정 제거</a>
+	<div style="text-align: center; padding: 0.5rem;">
+	<a class="match_fix_btn fix_btn match_add_btn">경기 일정 수정</a>
+	<a href="<%=request.getContextPath()%>/match/match_delete?match_no=${match_no }" class="match_del_btn fix_btn">경기 일정 제거</a>
+	</div>
 	</form>
 </div>
 

@@ -28,7 +28,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<button>예매하기</button>
+	<a class="cat_btn">예매하기</a>
 </div>
 
 

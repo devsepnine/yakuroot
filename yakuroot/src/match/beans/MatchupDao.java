@@ -48,5 +48,20 @@ public class MatchupDao {
 			con.close();
 			return list;
 		}
+		
+		//최근 4경기 가져오는 메소드
+		public List<MatchupDto> get4Matchup() throws Exception{
+			Connection con = getConnection();
+			String sql = "select * from (select a.*, rownum as rnum from (select * from matchup order by match_no desc) a)where rnum < 6";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			List<MatchupDto> list = new ArrayList<MatchupDto>();
+			while(rs.next()) {
+				MatchupDto updto = new MatchupDto(rs);
+				list.add(updto);
+			}
+			con.close();
+			return list;
+		}
 
 }

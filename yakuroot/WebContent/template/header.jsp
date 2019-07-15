@@ -61,7 +61,7 @@
             text-decoration: none;
             color: white;
 /*             font-weight:bold; */
-            font-size: 36px; 
+            font-size: 45px; 
             margin-right: 2rem;
         }
         .menu_table{
@@ -82,7 +82,7 @@
         .sub_menus ul{
             width: 1200px;
             margin: auto;
-            padding-left: 300px;
+            padding-left: 250px;
         }
         .sub_menus li{
             padding: 0.5rem;
@@ -113,6 +113,9 @@
         	padding: 0.2rem;
         	padding-left: 0.5rem;
         	padding-right: 0.5rem;
+        }
+        .nav_subs > a:hover{
+        	background-color: #5F00FF;
         }
         .sub_menus a{
         	font-size: 20px;
@@ -391,9 +394,6 @@ SETTINGS
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="menu5">
-                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup" title="예매"><span class="sm-link__label">예매</span></a>
-                                </li>
                                 <c:if test="${auth eq '관리자'}">
                                 <li class="menu6">
                                     <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="관리자메뉴"><span class="sm-link__label">관리자메뉴</span></a>
@@ -415,4 +415,4 @@ SETTINGS
             </table>
         </nav>
     </header>
-    <br><br>
+    
