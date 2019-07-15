@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import match.beans.MatchupDao;
 import match.beans.MatchupDto;
 
-@WebServlet(urlPatterns="/match/matchup.do")
+@WebServlet(urlPatterns="/match/matchup")
 public class Match_up extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

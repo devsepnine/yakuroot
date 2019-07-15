@@ -19,6 +19,9 @@
 				<th colspan="4">경기</th>
 				<th width="20%">구장</th>
 				<th>예매</th>
+				<c:if test="${auth eq '관리자'}">
+					<th>수정</th>
+				</c:if>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,14 +34,17 @@
 				<c:otherwise>
 					<c:forEach var="matdto" items="${matlist}">
 						<tr>
-							<td>${matdto.m_date}</td>
-							<td>${matdto.m_date}</td>
+							<td>${matdto.m_date.substring(0,10)}</td>
+							<td>${matdto.m_date.substring(11,19)}</td>
 							<td>${matdto.m_team1}</td>
 							<td>${matdto.m_point1}</td>
 							<td>${matdto.m_point2}</td>
 							<td>${matdto.m_team2}</td>
 							<td>${matdto.m_stadium}</td>
 							<td> 예매하기 </td>
+							<c:if test="${auth eq '관리자'}">
+								<td><a href="match_fix?match_no=${matdto.match_no}"><button>수정하기</button></a></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</c:otherwise>

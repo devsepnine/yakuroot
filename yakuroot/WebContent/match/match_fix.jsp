@@ -1,13 +1,22 @@
-<%@page import="club.beans.ClubDao"%>
-<%@page import="club.beans.ClubDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
 	$(function () {
-		document.getElementById('match_date').value = new Date().toISOString().substring(0, 10);
-		  
+		var hour = parseInt(${matdto.m_date.substring(11,13)});
+		var min = parseInt(${matdto.m_date.substring(14,16)});
+		
+		$("select[name=hour]").val(hour);
+		$("select[name=min]").val(min);
+		$("select[name=team1]").val("${matdto.m_team1}");
+		$("select[name=team2]").val("${matdto.m_team2}");
+		$("select[name=stadium]").val("${matdto.m_stadium}");
+		
+		$(".match_del_btn").click(function(){
+			location.href = ""
+		})
+		
 		$(".match_add_btn").click(function(){
 			var team1 = $("select[name=team1]").val();
 			var team2 = $("select[name=team2]").val();
@@ -20,12 +29,10 @@
 				$("form[name=match]").submit();
 			}
 		});
-		
 	});
 </script>
-	
-<div style="width: 1100px; margin: auto; text-align: center;">
-<h1> 경기 일정 추가 하기</h1>
+
+<div style="width: 1100px; margin: auto;">
 <form action="" method="post" name="match">
 	<table style="width: 100%;" border=1;>
 		
@@ -42,17 +49,17 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input type="date" name="date" id="match_date"></td>
+				<td><input type="date" name="date" id="match_date" value="${matdto.m_date.substring(0,10)}"></td>
 				<td>
 					<select name ="hour">
 						<c:forEach var="i" begin="1" end="24" step="1">
-						<option value="${i}">${i}</option>
+							<option value="${i}">${i}</option>
 						</c:forEach>
 					</select>
 					:
 					<select name ="min">
 						<c:forEach var="i" begin="0" end="60" step="1">
-						<option value="${i}">${i}</option>
+							<option value="${i}">${i}</option>
 						</c:forEach>
 					</select>
 				</td>
@@ -63,8 +70,8 @@
 					</c:forEach>
 					</select>
 				</td>
-				<td><input type="number" value="0" name="team1point" readonly></td>
-				<td><input type="number" value="0" name="team2point" readonly></td>
+				<td><input type="number" value="${matdto.m_point1 }" name="team1point" ></td>
+				<td><input type="number" value="${matdto.m_point1 }" name="team2point" ></td>
 				<td>
 				
 					<select name = "team2">
@@ -78,13 +85,14 @@
 						<c:forEach var="cdto" items="${cdtolist}">
 							<option value="${cdto.c_stadium}">${cdto.c_stadium}</option>
 						</c:forEach>
-					</select>
-				</td>
+					</select></td></td>
 			</tr>
 		</tbody>
 		
 	</table>
-	<button class="match_add_btn">경기 일정 추가</button>
+	<input type="hidden" name="match_no" value="${match_no}">
+	<button class="match_fix_btn">경기 일정 수정</button>
+	<a href="<%=request.getContextPath()%>/match/match_delete?match_no=${match_no }" class="match_del_btn">경기 일정 제거</a>
 	</form>
 </div>
 

@@ -377,7 +377,7 @@ SETTINGS
                                     </div>
                                 </li>
                                 <li class="menu2">
-                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup.do" title="경기일정"><span class="sm-link__label">경기일정</span></a>
+                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup" title="경기일정"><span class="sm-link__label">경기일정</span></a>
                                 </li>
                                 <li class="menu3">
                                     <a class="top_m sm-link sm-link_padding-all sm-link1" title="이벤트"><span class="sm-link__label">이벤트</span></a>
