@@ -4,7 +4,7 @@
 
 <style>
 
-.form.form-label>fieldset {
+.form.form-label>table {
 	width: 1200px;
 	text-align: center;
 	margin-top : 100px;
@@ -16,7 +16,7 @@
 </style>
 <div  align="center" text-align="center">
 	<form class="form form-label">
-	  <fieldset style="border:none; background-color: none;">
+	  
 		<table  width = 100% class="table table-noline">
 			<tbody>
 				<tr height = 50><!-- 구단 로고 보여주는 첫번째 줄 -->
@@ -88,7 +88,7 @@
 				</tr>
 			</tbody>
 		</table>
-		</fieldset>
+
 	</form>
 </div>
 <jsp:include page="/template/footer.jsp"></jsp:include>
