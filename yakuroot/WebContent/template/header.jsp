@@ -357,12 +357,12 @@ SETTINGS
                         <c:otherwise>
                         <td style="text-align: right;padding-top:0.5rem;"><div class="nav_subs"><a href="<%=request.getContextPath()%>/member/logout.jsp">로그아웃</a><a href = "<%=request.getContextPath()%>/member/info.do">${login }</a>
                         <c:if test="${auth eq '관리자' }">
-                        <a href = "#">관리자페이지</a>
+                        <a href = "<%=request.getContextPath()%>/admin/admin.do">관리자페이지</a>
                         </c:if>
                         </div></td>
                         </c:otherwise>
                         </c:choose>
-                    </tr>
+                     </tr>
                     <tr>
                         <td>
                             <ul class="menubox">
