@@ -10,6 +10,7 @@
 	.form.admin #edit {
 		width : 60px;
     	padding: 0.5rem 1rem;
+    	color : white;
 	}
 	
 	.form.admin > table th {
