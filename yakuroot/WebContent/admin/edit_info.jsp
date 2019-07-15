@@ -144,7 +144,7 @@
 </script>
    <style>
 
-		.form.form-label>fieldset {
+		.form.admins fieldset {
 			width: 750px;
 			text-align: left;
 			margin-top : 100px;
@@ -168,7 +168,7 @@
 	</style>
    
    <div align = "center">
-	   <form action = "edit_info.do" method = "post"class="form form-label">
+	   <form action = "edit_info.do" method = "post"class="form admins">
 			<fieldset>
 				<legend>[ ${mdto.m_id}님의 정보 수정 ]</legend>
 					<table width = 100% align = "center"  class="change_info" class="table table-noline">
