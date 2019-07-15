@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class SeatDto {
 	private int seat_no;
 	private int stadium_no;
-	private int a_no;
+	private int area_no;
 	private int s_x;
 	private int s_y;
 	private int s_able;
@@ -30,11 +30,11 @@ public class SeatDto {
 	public void setStadium_no(int stadium_no) {
 		this.stadium_no = stadium_no;
 	}
-	public int getA_no() {
-		return a_no;
+	public int getArea_no() {
+		return area_no;
 	}
-	public void setA_no(int a_no) {
-		this.a_no = a_no;
+	public void setArea_no(int a_no) {
+		this.area_no = a_no;
 	}
 	public int getS_x() {
 		return s_x;
@@ -56,7 +56,7 @@ public class SeatDto {
 	}
 	@Override
 	public String toString() {
-		return "SeatDto [seat_no=" + seat_no + ", stadium_no=" + stadium_no + ", a_no=" + a_no + ", s_x=" + s_x
+		return "SeatDto [seat_no=" + seat_no + ", stadium_no=" + stadium_no + ", a_no=" + area_no + ", s_x=" + s_x
 				+ ", s_y=" + s_y + ", s_able=" + s_able + "]";
 	}
 	public SeatDto() {
@@ -66,7 +66,7 @@ public class SeatDto {
 	public SeatDto(ResultSet rs) throws SQLException {
 		this.setSeat_no(rs.getInt("seat_no"));
 		this.setStadium_no(rs.getInt("stadium_no"));
-		this.setA_no(rs.getInt("a_no"));
+		this.setArea_no(rs.getInt("a_no"));
 		this.setS_x(rs.getInt("s_x"));
 		this.setS_y(rs.getInt("s_y"));
 		this.setS_able(rs.getInt("s_able"));

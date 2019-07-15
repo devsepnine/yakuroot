@@ -1,4 +1,4 @@
-package seat.beans;
+package resdata.beans;
 
 import java.sql.Connection;
 
@@ -6,8 +6,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class SeatDao {
-	
+public class resdataDao {
+
 //	연결 메소드
 //	DBCP 방식 (미리 만들어두고 렌탈하는 방식)
 	//	context.xml에 있는 resource 정보를 알아야만 렌탈이가능하다.
