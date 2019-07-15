@@ -57,15 +57,15 @@
 					</tr>
 
 					<tr>
-						<th width="40%">내용</th>
-						<td style="width: 500px; height: 200px;">
+						<th>내용</th>
+						<td style="width: 800px">
 						<img src="g_download.do?g_savename=${gdto.g_savename}">
 						<br>
 						${gdto.g_content}
 						</td>
 					</tr>
 					<tr>
-						<th width="20%">작성일</th>
+						<th>작성일</th>
 						<td>${gdto.g_when}</td>
 					</tr>
 					<tr>
