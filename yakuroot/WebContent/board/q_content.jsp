@@ -37,6 +37,11 @@
 		});
 	});
 </script>
+<style>
+	.q_table{
+		width: 1100px
+	}
+</style>
 <div align="center">
 	<h1>${qdto.q_title}</h1>
 </div>
@@ -44,7 +49,7 @@
 <div align="center">
 	<div>
 		<div>
-			<table border="1">
+			<table border="1" class="q_table">
 				<tbody>
 					<tr>
 						<th width="10%">작성자</th>
@@ -100,7 +105,7 @@
 											<form action="q_comment.do" method="post">
 												<input type="hidden" name="origin" value="${qdto.q_no}">
 												<input type="hidden" name="writer" value="${login}">
-												<textarea rows="4" cols="50" placeholder="댓글입력"
+												<textarea rows="5" cols="100" placeholder="댓글입력"
 													name="content"></textarea>
 												<button type="submit">등록</button>
 											</form>

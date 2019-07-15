@@ -37,6 +37,11 @@
 		});
 	});
 </script>
+<style>
+	.f_table{
+		width: 1100px
+	}
+</style>
 <div align="center">
 	<h1>${bdto.f_title}</h1>
 </div>
@@ -44,7 +49,7 @@
 <div align="center">
 	<div>
 		<div>
-			<table border="1">
+			<table border="1" class="f_table">
 				<tbody>
 					<tr>
 						<th width="10%">작성자</th>
@@ -96,7 +101,7 @@
 											<form action="f_comments.do" method="post">
 												<input type="hidden" name="origin" value="${bdto.f_no}">
 												<input type="hidden" name="writer" value="${login}">
-												<textarea rows="5" cols="80" placeholder="댓글입력"
+												<textarea rows="5" cols="100" placeholder="댓글입력"
 													name="content"></textarea>
 												<button type="submit">등록</button>
 											</form>

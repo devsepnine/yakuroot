@@ -39,9 +39,9 @@ th {
 							<td>${bdto.f_head}</td>
 							<td align="left"><c:forEach var="i" begin="1"
 									end="${bdto.f_depth}">
-									<font color="black">☞</font>
+									<font color="black">　</font>
 								</c:forEach> <c:if test="${bdto.f_depth > 0}">
-									<img src="/study/image/다운로드.jpg" width="30" height="20">
+									<img src="../img/board/icon.png" width="30" height="20">
 								</c:if>
 								<a href="f_content.do?no=${bdto.f_no}"> ${bdto.f_title}</a>
 								[${bdto.f_count}]</td>
