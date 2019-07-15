@@ -49,7 +49,7 @@
 	        </tr>
 	        <tr><!-- 홈 경기장 좌석표 -->
 	            <td colspan="5">
-	            <img style="with: 500px" alt="" src="<%=request.getContextPath() %>/img/stadium/${cdto.c_photo}.png">
+	            <img width= "700px" height="auto" alt="" src="<%=request.getContextPath() %>/img/stadium/${cdto.c_photo}.png">
 	        </tr>
 	
 	    </tbody>
