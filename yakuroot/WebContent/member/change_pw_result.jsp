@@ -29,7 +29,7 @@
 							</tr>
 							<tr>
 								<td colspan = "2">
-									비밀번호가 변경되었습니다.
+									<span style="font-size: 24px">비밀번호가 변경되었습니다.</span>
 								</td>
 							</tr>
 							<tr height = "30">
