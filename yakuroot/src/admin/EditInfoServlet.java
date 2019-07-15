@@ -49,7 +49,7 @@ public class EditInfoServlet extends HttpServlet{
 			mdto.setM_name(req.getParameter("m_name"));
 			mdto.setM_birth(req.getParameter("m_birth"));
 			mdto.setM_phone(req.getParameter("m_phone"));
-			mdto.setM_email(req.getParameter("m_email"));
+			mdto.setM_email(req.getParameter("m_email") + "@" + req.getParameter("m_email_address"));
 			mdto.setM_postcode(req.getParameter("m_postcode"));
 			mdto.setM_addr1(req.getParameter("m_addr1"));
 			mdto.setM_addr2(req.getParameter("m_addr2"));

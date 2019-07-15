@@ -18,6 +18,8 @@ public class ChangeInfoServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
+			//세션에서 본인 아이디 가져오기
 			String m_id = (String) req.getSession().getAttribute("login");
 			
 			MemberDao mdao = new MemberDao();

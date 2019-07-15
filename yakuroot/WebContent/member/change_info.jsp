@@ -67,21 +67,25 @@
 		}).open();
 	}
 	
-	//이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
-	$("#email_address").change(function(){
-		$("#m_email_address").val($(this).val())
+	$(function() {
+		//이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
+		$("#email_address").change(function(){
+			$("#m_email_address").val($(this).val())
+				
+			console.log($(this).val());
 			
-		 //if($(this).val() == ""){
-		//선책 옵션에서 직접입력을 선택하면 입력창 활성화시켜서 직접 입력받고
-		if(!$(this).val()){
-			$(this).prev().prop("readonly", false);
-        }
-		//선택 옵션에서 직접입력 제외하고 선택하면 입력창에 value값 찍어주고 수정못하게 비활성화
-		else{
-			$(this).prev().prop("readonly", true);
-		}
+			 //if($(this).val() == ""){
+			//선책 옵션에서 직접입력을 선택하면 입력창 활성화시켜서 직접 입력받고
+			if(!$(this).val()){
+				$(this).prev().prop("readonly", false);
+	        }
+			//선택 옵션에서 직접입력 제외하고 선택하면 입력창에 value값 찍어주고 수정못하게 비활성화
+			else{
+				$(this).prev().prop("readonly", true);
+			}
+		});
 	});
-
+	
 	//이메일 검사 후 형식에 안맞을시 보조메세지 출력
 	function checkEmail() {
 		var m_email = document.querySelector("#m_email").value;
@@ -121,7 +125,6 @@
 			div.innerHTML = "<font color = 'gray' size = '2'> -포함 숫자로 입력해주세요</font>"
 		}
 	}
-
 	
 	//select 옵션값 선택되서 나오게 하는거
 	$("select[name=m_fav]").val("${mdto.m_fav}");
