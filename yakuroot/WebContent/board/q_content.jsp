@@ -57,15 +57,15 @@
 					</tr>
 
 					<tr>
-						<th width="40%">내용</th>
-						<td style="width: 500px; height: 200px;">
+						<th>내용</th>
+						<td style="width: 800px;">
 						<img src="q_download.do?q_savename=${qdto.q_savename}">
 						<br>
 						${qdto.q_content}
 						</td>
 					</tr>
 					<tr>
-						<th width="20%">작성일</th>
+						<th>작성일</th>
 						<td>${qdto.q_when}</td>
 					</tr>
 					<tr>

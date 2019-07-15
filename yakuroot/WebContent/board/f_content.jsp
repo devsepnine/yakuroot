@@ -56,11 +56,11 @@
 						<td>${bdto.f_writer}</td>
 					</tr>
 					<tr>
-						<th width="20%">내용</th>
-						<td style="width: 500px; height: 200px;">${bdto.f_content}</td>
+						<th>내용</th>
+						<td style="width: 800px;">${bdto.f_content}</td>
 					</tr>
 					<tr>
-						<th width="20%">작성일</th>
+						<th>작성일</th>
 						<td>${bdto.f_when}</td>
 					</tr>
 					<tr>
