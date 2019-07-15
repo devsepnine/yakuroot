@@ -71,8 +71,6 @@
 		//이메일주소 옵션에서 선택했을때 왼쪽 입력창에 value 표시
 		$("#email_address").change(function(){
 			$("#m_email_address").val($(this).val())
-				
-			console.log($(this).val());
 			
 			 //if($(this).val() == ""){
 			//선책 옵션에서 직접입력을 선택하면 입력창 활성화시켜서 직접 입력받고

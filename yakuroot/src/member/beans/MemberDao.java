@@ -161,8 +161,6 @@ public class MemberDao {
 		ps.setString(6, mdto.getM_fav());
 		ps.setString(7, mdto.getM_id());
 		
-		
-		System.out.println(mdto);
 		ps.execute();
 
 		con.close();
@@ -271,6 +269,24 @@ public class MemberDao {
 		con.close();
 		return list;
 		
+	}
+	
+	//총 회원 수 
+	public int member_count() throws Exception {
+		Connection con = this.getConnection();
+		
+		String sql = "select count(*) c from member";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		int memberCount = rs.getInt("c");
+	         
+	    con.close();
+	        
+	    return memberCount;
 	}
 	
 	

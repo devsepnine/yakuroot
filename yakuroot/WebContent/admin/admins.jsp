@@ -13,6 +13,25 @@
 			margin-top : 100px;
 			margin-bottom : 100px;
 			padding : 20px;
+			height : 700px;
+		}
+		
+		.form.admin > fieldset th {
+			background-color: #FFF0F0;
+			width : 150px;
+			font-size : 25px;
+		}
+		
+		.form.admin > fieldset td {
+			width : 300px;
+			font-size : 17px;
+		}
+		
+		.form.admin table {
+			border : 1px solid black;
+		    display: table;
+		    border-collapse: collapse;
+		    border-color: grey;
 		}
 		
 	</style>
@@ -21,68 +40,50 @@
 	   <form class="form admin">
 			<fieldset>
 				<legend>[ ADMIN PAGE ]</legend>
-					<table width = 80% align = "center" class="table table-noline">
+					<table width = 90%  height = 90% align = "center" border = 1 >
 						<tbody>
 							<tr>
-					   		<th>NO</th>
-					   		<td><input type="text" value="${mdto.m_no}"  readonly></td>
+								<th rowspan = "3" >회원<br><br>관리</th>
+								<td>총 회원 수 : ${memberCount} 명 </td>
+								<th rowspan = "3">게시판<br><br>관리</th>
+								<td>최근 7일동안의 게시글 수 : </td>
 					   		</tr>
 					   		<tr>
-					   		<th>ID</th>
-					   		<td><input type="text" value="${mdto.m_id}"  readonly></td>
+								<td>최근 7일동안 가입한 회원 수 : </td>
+								<td>최근 7일동안의 댓글 수 : </td>
 					   		</tr>
 					   		<tr>
-					   		<th>PW</th>
-					   		<td><a href ="edit_pw.do?m_id=${mdto.m_id}"><input type="button" value="임시 비밀번호 발급" name="eidt_pw"></a></td>
+								<td><input type="button" value= "전체 회원 관리"></td>
+								<td><input type="button" value= "공지사항 작성"></td>
 					   		</tr>
 					   		<tr>
-					   		<th>NAME</th>
-					   		<td><input type="text" value="${mdto.m_name}"  readonly></td>
+								<th rowspan = "3">구단<br><br>관리</th>
+								<td>구단 리스트  <a href = "#"><input type="button" value= "추가"></a> <a href = "../club/club_list.do"><input type="button" value= "수정"></a></td>
+								<th rowspan = "3">선수<br><br>관리</th>
+								<td>선수 리스트   <a href = "#"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
 					   		</tr>
 					   		<tr>
-					   		<th>BIRTH</th>
-					   		<td><input type="text" value="${mdto.m_birth}"  readonly></td>
+								<td>구단 프로필   <a href = "#"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
+								<td>선수 프로필   <a href = "#"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
 					   		</tr>
 					   		<tr>
-					   		<th>PHONE</th>
-					   		<td><input type="text" value="${mdto.m_phone}"  readonly></td>
+								<td>업데이트 대기중</td>
+								<td>업데이트 대기중</td>
 					   		</tr>
 					   		<tr>
-					   		<th>EMAIL</th>
-					   		<td><input type="text" value="${mdto.m_email}"  readonly></td>
+								<th rowspan = "3">경기<br><br>관리</th>
+								<td>경기 일정   <a href = "../match/match_insert"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
+								<th rowspan = "3">예매<br><br>관리</th>
+								<td><input type="button" value= "예매 내역"></td>
 					   		</tr>
 					   		<tr>
-					   		<th>POST CODE</th>
-					   		<td><input type="text" value="${mdto.m_postcode}"  readonly></td>
+								<td>경기 기록    <a href = "#"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
+								<td><input type="button" value= "결제 내역"></td>
 					   		</tr>
 					   		<tr>
-					   		<th> MAIN ADDRESS</th>
-					   		<td><input type="text" value="${mdto.m_addr1}"  readonly></td>
+								<td>업데이트 대기중</td>
+								<td>업데이트 대기중</td>
 					   		</tr>
-					   		<tr>
-					   		<th>ADDRESS</th>
-					   		<td><input type="text" value="${mdto.m_addr2}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<th>MY TEAM</th>
-					   		<td><input type="text" value="${mdto.m_fav}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<th>AUTH</th>
-					   		<td><input type="text" value="${mdto.m_auth}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<th>REGIST DATE</th>
-					   		<td><input type="text" value="${mdto.m_regist}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<th>LAST TIME</th>
-					   		<td><input type="text" value="${mdto.m_lasttime}"  readonly></td>
-					   		</tr>
-					   		<tr>
-					   		<td colspan="2" height="50px"></td>
-					   		</tr>
-					   		
 						</tbody>
 					</table>
 			</fieldset>
