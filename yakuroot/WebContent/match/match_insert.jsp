@@ -14,9 +14,11 @@
 			console.log(team1, team2);
 			if(team1 === team2){
 				window.alert("팀 이름은 같을 수 없습니다");
+				return false;
 			}
-			
-			$("form[name=match]").submit();
+			else{
+				$("form[name=match]").submit();
+			}
 		});
 		
 	});
