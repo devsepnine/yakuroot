@@ -6,7 +6,7 @@
  <style>
 
 	.form.form-label>fieldset {
-		width: 330px;
+		width: 500px;
 		text-align: center;
 		margin-top : 100px;
 		margin-bottom : 100px;
