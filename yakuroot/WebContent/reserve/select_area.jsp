@@ -8,8 +8,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<div style="text-align: center; width: 900px; margin: auto;">
+<div style="text-align: center; width: 1200px; margin: auto;">
 	<h1>선택 가능한 구역</h1>
+	<center>
 	<table>
 		<tbody>
 		<tr>
@@ -19,6 +20,7 @@
 		</tr>
 		</tbody>
 	</table>
+	</center>
 </div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
