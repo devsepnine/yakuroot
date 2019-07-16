@@ -130,8 +130,8 @@ body[test] article {
    테이블
 *************************************************************/
 .table {
-/*     border: 1px solid gray; */
-/*     border-collapse: collapse; */
+    border: 1px solid black;
+    border-collapse: collapse;
     margin:auto;
 }
 
@@ -141,19 +141,21 @@ body[test] article {
 
 .table th,
 .table td {
-    border: 1px solid gray;
+    border: 1px solid black;
     padding: 0.3rem;
-}
-
-/* table hover  스타일*/
-.table.table-hover > tbody > tr:hover {
-    background-color: #EBF5FF;
 }
 
 /* 줄무늬 테이블 */
 .table.table-stripe > tbody > tr:nth-child(2n) {
     background-color: #EBF5FF;
 }
+
+/* table hover  스타일*/
+.table.table-hover > tbody > tr:hover {
+    background-color: #D5D5D5;
+}
+
+
 
 
 /* 선 없는 테이블 */
@@ -366,10 +368,23 @@ body[test] article {
     color: white;
 }
 
+/*********************그냥 버튼 디자인**************************/
+.cat_btn{
+	background-color: #6B66FF;
+	color: white;
+	font-weight: bold;
+	padding: 0.2rem;
+	box-shadow: 1px 1px 1px black;
+	font-size: 20px;
+	border-radius: 5px;
+}
+.cat_btn:hover{
+	background-color:#F58282;
+}
 /************************************************************
 	야구공 모양 마우스 커서  -> 야구르트로 격하게 바꾸고 싶다.......
 *************************************************************/
 /*  Start http://localhost:8080/yakuroot   */
 /* *{cursor: url(http://cur.cursors-4u.net/sports/spo-4/spo389.cur), auto !important;} */
-*{cursor: url(../img/cursors/cursors.png), auto !important;}
+*{cursor: url(../img/cursors/cursorss.png), auto !important;}
 /*  End http://localhost:8080/yakuroot/   */

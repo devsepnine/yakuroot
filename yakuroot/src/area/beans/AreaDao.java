@@ -1,6 +1,10 @@
 package area.beans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -30,7 +34,34 @@ public class AreaDao {
 			return src.getConnection();
 		}
 		
-	
+		public List<AreaDto> getArea(int stadium_no)throws Exception{
+			Connection con = getConnection();
+			String sql = "select * from area where stadium_no = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, stadium_no);
+			ResultSet rs = pstmt.executeQuery();
+			List<AreaDto> adtolist = new ArrayList<AreaDto>();
+			while(rs.next()) {
+				AreaDto adto = new AreaDto(rs);
+				adtolist.add(adto);
+			}
+			con.close();
+			return adtolist;
+		}
+		
+		public AreaDto getArea_n(int area_no)throws Exception{
+			Connection con = getConnection();
+			String sql = "select * from area where a_no = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, area_no);
+			ResultSet rs = pstmt.executeQuery();
+			AreaDto adto = new AreaDto();
+			if(rs.next()) {
+				adto = new AreaDto(rs);
+			}
+			con.close();
+			return adto;
+		}
 
 }
 

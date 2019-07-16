@@ -5,13 +5,45 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 <style>
 	.match_div{
-		width:900px;
+		width:1200px;
 		margin:auto;
+		text-align: center;
+	}
+	.match_table th{
+		font-size: 30px;
+		border-bottom: 3px solid black;
+	}
+	.match_table td{
+		font-size: 20px;
+	}
+	.a_btn{
+		background-color: #6B66FF;
+		color: white;
+		font-weight: bold;
+		padding: 0.3rem;
+		box-shadow: 1px 1px 1px black;
+		margin-right: 20px;
+		font-size: 20px;
+		border-radius: 5px;
+	}
+	.b_btn{
+		background-color: #6B66FF;
+		color: white;
+		padding: 2px;
+		box-shadow: 1px 1px 1px black;
+		border-radius: 5px;
+	}
+	.b_btn:hover{
+		background-color: #F58282;
+	}
+	.a_btn:hover{
+		background-color: #F58282;
 	}
 </style>
 
-<div class="match_div">
-	<table border="1" style="width:900px;">
+<div class="match_div" >
+	<h1>경기 일정</h1>
+	<table class="match_table table table-stripe table-hover" style="width:1100px;">
 		<thead>
 			<tr>
 				<th width="20%">날짜</th>
@@ -41,9 +73,9 @@
 							<td>${matdto.m_point2}</td>
 							<td>${matdto.m_team2}</td>
 							<td>${matdto.m_stadium}</td>
-							<td> 예매하기 </td>
+							<td><a class="b_btn" href="../reserve/reserve_area?match_no=${matdto.match_no}&s_no=${matdto.s_no}">예매하기</a></td>
 							<c:if test="${auth eq '관리자'}">
-								<td><a href="match_fix?match_no=${matdto.match_no}"><button>수정하기</button></a></td>
+								<td><a class="b_btn" href="match_fix?match_no=${matdto.match_no}">수정하기</a></td>
 							</c:if>
 						</tr>
 					</c:forEach>
@@ -52,9 +84,9 @@
 		</tbody>
 	</table>
 	<c:if test="${auth eq '관리자'}">
-		<a href="match_insert"><button>경기일정 추가하기</button></a>
+	<br>
+		<a class="a_btn" href="match_insert">경기일정 추가하기</a>
 	</c:if>
 </div>
-
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 	
 <jsp:include page="/template/header.jsp"></jsp:include>	
-
+<center>
+<h1>자유게시판</h1>
+</center>
 <jsp:include page="/board/listpart.jsp"></jsp:include>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

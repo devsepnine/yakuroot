@@ -10,66 +10,106 @@ public class SeatDto {
 	private int s_x;
 	private int s_y;
 	private int s_able;
-	private int s_reserve;
-	
-	public int getS_reserve() {
-		return s_reserve;
-	}
-	public void setS_reserve(int s_reserve) {
-		this.s_reserve = s_reserve;
-	}
+	private String seat_name;
+
+
 	public int getSeat_no() {
 		return seat_no;
 	}
+
 	public void setSeat_no(int seat_no) {
 		this.seat_no = seat_no;
 	}
+
 	public int getStadium_no() {
 		return stadium_no;
 	}
+
 	public void setStadium_no(int stadium_no) {
 		this.stadium_no = stadium_no;
 	}
+
 	public int getArea_no() {
 		return area_no;
 	}
-	public void setArea_no(int a_no) {
-		this.area_no = a_no;
+
+
+
+	public void setArea_no(int area_no) {
+		this.area_no = area_no;
 	}
+
+
+
 	public int getS_x() {
 		return s_x;
 	}
+
+
+
 	public void setS_x(int s_x) {
 		this.s_x = s_x;
 	}
+
+
+
 	public int getS_y() {
 		return s_y;
 	}
+
+
+
 	public void setS_y(int s_y) {
 		this.s_y = s_y;
 	}
+
+
+
 	public int getS_able() {
 		return s_able;
 	}
+
+
+
 	public void setS_able(int s_able) {
 		this.s_able = s_able;
 	}
-	@Override
-	public String toString() {
-		return "SeatDto [seat_no=" + seat_no + ", stadium_no=" + stadium_no + ", a_no=" + area_no + ", s_x=" + s_x
-				+ ", s_y=" + s_y + ", s_able=" + s_able + "]";
+
+
+
+	public String getSeat_name() {
+		return seat_name;
 	}
+
+
+
+	public void setSeat_name(String seat_name) {
+		this.seat_name = seat_name;
+	}
+	
+
+
 	public SeatDto() {
 		super();
 	}
-	
+
+
+
+	@Override
+	public String toString() {
+		return "SeatDto [seat_no=" + seat_no + ", stadium_no=" + stadium_no + ", area_no=" + area_no + ", s_x=" + s_x
+				+ ", s_y=" + s_y + ", s_able=" + s_able + ", seat_name=" + seat_name + "]";
+	}
+
+
+
 	public SeatDto(ResultSet rs) throws SQLException {
 		this.setSeat_no(rs.getInt("seat_no"));
 		this.setStadium_no(rs.getInt("stadium_no"));
-		this.setArea_no(rs.getInt("a_no"));
+		this.setArea_no(rs.getInt("area_no"));
 		this.setS_x(rs.getInt("s_x"));
 		this.setS_y(rs.getInt("s_y"));
 		this.setS_able(rs.getInt("s_able"));
-		this.setS_reserve(rs.getInt("s_reserve"));
+		this.setSeat_name(rs.getString("seat_name"));
 	}
 }
