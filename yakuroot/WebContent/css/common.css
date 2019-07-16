@@ -145,15 +145,17 @@ body[test] article {
     padding: 0.3rem;
 }
 
+/* 줄무늬 테이블 */
+.table.table-stripe > tbody > tr:nth-child(2n) {
+    background-color: #EBF5FF;
+}
+
 /* table hover  스타일*/
 .table.table-hover > tbody > tr:hover {
     background-color: #D5D5D5;
 }
 
-/* 줄무늬 테이블 */
-.table.table-stripe > tbody > tr:nth-child(2n) {
-    background-color: #EBF5FF;
-}
+
 
 
 /* 선 없는 테이블 */

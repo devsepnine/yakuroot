@@ -4,12 +4,13 @@
 <style>
 	.reserve_btn{
 		border: none;
-		background-color: navy;
-		box-shadow: 1px 1px 15px black;
-		color: white;
+		background-color: lightgrey;
+		box-shadow: 1px 1px 1px black;
+		color: black;
 		font-size: 20px;
+		width: 50px;
+		height: 30px;
 	}
-	
 	
 </style>
 
