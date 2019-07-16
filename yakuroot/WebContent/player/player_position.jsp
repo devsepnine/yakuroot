@@ -37,15 +37,21 @@
 	<form action="">
 		<table align="center">
 			<tbody>
+			
 				<!-- 5개씩 끊어서 반복하고 싶은데 어떻게 해야할 지 나는 모르겠다 -->
-				<tr>
+				<c:if test="${tt%5==0 }">
+					<tr>
+				</c:if>
 					<c:forEach var="pdto" items="${pdtolist}">
+					<c:set var="tt" value="${tt + 1}"></c:set>
 							<td>
-							<img width="50px" alt="" src="<%=request.getContextPath()%>/img/player/${pdto.p_club_no}/${pdto.p_bnum}${pdto.p_name}.png"><br>
+							<img width="150px" alt="" src="<%=request.getContextPath()%>/img/player/${pdto.p_club_no}/${pdto.p_bnum}${pdto.p_name}.png"><br>
 							<a href="#">${pdto.p_name}</a>
 							</td>
+				<c:if test="${tt%5==0}">
+					</tr>
+				</c:if>
 					</c:forEach>
-				</tr>
 			</tbody>
 		</table>
 	</form>
