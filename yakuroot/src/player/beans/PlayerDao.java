@@ -114,6 +114,25 @@ public class PlayerDao {
 			con.close();
 		}
 		
+//		구단기준 선수정보 가져오는 메소드
+		public List<PlayerDto> getPlayerC(int c_no) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "select * from player where p_club_no=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, c_no);
+			ResultSet rs = ps.executeQuery();
+			PlayerDto pdto;
+			List<PlayerDto> list = new ArrayList<PlayerDto>();
+			while(rs.next()) {
+				pdto = new PlayerDto();
+				pdto.setData(rs);
+				list.add(pdto);
+			}
+			con.close();
+			return list;
+		}
+		
 		
 		
 		
