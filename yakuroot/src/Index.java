@@ -16,12 +16,21 @@ public class Index extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+		String intro = req.getParameter("home");
+		
+		if(!(intro == null)) {
+			MatchupDao matdao = new MatchupDao();
+			List<MatchupDto> matlist = matdao.get4Matchup();
+			req.setAttribute("matlist", matlist);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("home.jsp");
+			dispatcher.forward(req, resp);
+		
 			
-		MatchupDao matdao = new MatchupDao();
-		List<MatchupDto> matlist = matdao.get4Matchup();
-		req.setAttribute("matlist", matlist);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("home.jsp");
-		dispatcher.forward(req, resp);
+		}else {
+			RequestDispatcher dispatcher = req.getRequestDispatcher("open.jsp");
+			dispatcher.forward(req, resp);
+		}
+		
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

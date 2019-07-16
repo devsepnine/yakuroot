@@ -9,8 +9,8 @@
     
     <style>
     .swiper-container {
-        width: 1190px;
-        height: 275px;
+        width: 620px;
+        height: 450px;
     }
     .match4_table{
     	border: 1px solid black;
@@ -100,15 +100,11 @@
         <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide">
-                    <img src="img/main/two.png" width="1190" height="275">
+                    <img src="img/main/A.png" width="620" height="450">
             </div>
            <div class="swiper-slide">
-                    <img src="img/main/three.png" width="1190" height="275">
+                    <img src="img/main/B.png" width="620" height="450">
             </div>
-            <div class="swiper-slide">
-                    <img src="img/main/four.png" width="1190" height="275">
-            </div>
-            ...
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>

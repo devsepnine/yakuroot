@@ -137,6 +137,7 @@ body[test] article {
 
 .table > thead > tr {
     background-color: #1E82CD;
+    
 }
 
 .table th,
@@ -219,7 +220,6 @@ body[test] article {
 .form select,
 .form textarea {
     outline: none;
-    /* 자동선택하면 나오는 테두리 ???*/
     padding: 0.5rem;
 }
 
@@ -370,7 +370,7 @@ body[test] article {
 
 /*********************그냥 버튼 디자인**************************/
 .cat_btn{
-	background-color: #6B66FF;
+	background-color: #1E82CD;
 	color: white;
 	font-weight: bold;
 	padding: 0.2rem;
