@@ -385,13 +385,13 @@ SETTINGS
                                     <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup" title="경기일정"><span class="sm-link__label">경기일정</span></a>
                                 </li>
                                 <li class="menu3">
-                                    <a href="<%=request.getContextPath()%>/board/g_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리"><span class="sm-link__label">갤러리</span></a>
+                                    <a href="<%=request.getContextPath()%>/board/notice_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리"><span class="sm-link__label">공지사항</span></a>
                                 </li>
                                 <li class="menu4">
                                     <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="게시판"><span class="sm-link__label">게시판</span></a>
                                     <div class="sub_menus">
                                         <ul>
-                                            <li><a href="<%=request.getContextPath()%>/board/notice_list.do">공지사항</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/board/g_list.do">갤러리</a></li>
                                             <li><a href="<%=request.getContextPath()%>/board/f_list.do">자유게시판</a></li>
                                             <li><a href="<%=request.getContextPath()%>/board/q_list.do">Q&A 게시판</a></li>
                                         </ul>
