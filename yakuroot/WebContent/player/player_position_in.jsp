@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 선수 포지션 선택(내야수) -->
 
 
