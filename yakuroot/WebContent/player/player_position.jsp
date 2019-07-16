@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 선수 포지션 선택(코치) -->
 
 
@@ -19,12 +19,12 @@
 		<table>
 			<tbody>
 				<tr>
-					<td><a href="player_position.do"><input type="button" value="코치"></a></td>
-					<td><a href="player_position_staff.dp"><input type="button" value="스테프"></a></td>
-					<td><a href="player_position_pitcher.do"><input type="button" value="투수"></a></td>
-					<td><a href="player_position_catcher.do"><input type="button" value="포수"></a></td>
-					<td><a href="player_position_in.do"><input type="button" value="내야"></a></td>
-					<td><a href="player_position_out.do"><input type="button" value="외야"></a></td>
+					<td><a href="player_position.do?p_no="><input type="button" value="코치"></a></td>
+					<td><a href="player_position_staff.do?p_no="><input type="button" value="스테프"></a></td>
+					<td><a href="player_position_pitcher.do?p_no="><input type="button" value="투수"></a></td>
+					<td><a href="player_position_catcher.do?p_no="><input type="button" value="포수"></a></td>
+					<td><a href="player_position_in.do?p_no="><input type="button" value="내야"></a></td>
+					<td><a href="player_position_out.do?p_no="><input type="button" value="외야"></a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -38,11 +38,9 @@
 		<table align="center">
 			<tbody>
 				<!-- 5개씩 끊어서 반복하고 싶은데 어떻게 해야할 지 나는 모르겠다 -->
-				<c:forEach var="cdto" items="${pdtolist}"><!-- pdtolist는 무엇인가...?club에서 쓰던거 보고하긴 햇ㄴ느데 이게 뭔지 모르겠다... -->
-					<!-- 반복문 이렇게 쓰는거 맞나..? -->
+				<c:forEach var="pdto" items="${pdtolist}">
 					<tr>
-						<td><a href="#"><img src="#"></a> <br>
-						<br> <a href="#">${pdto.p_name}</a></td>
+						<td><a href="#">${pdto.p_name}</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
