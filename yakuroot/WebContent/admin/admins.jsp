@@ -54,7 +54,7 @@
 					   		</tr>
 					   		<tr>
 								<td><input type="button" value= "전체 회원 관리"></td>
-								<td><input type="button" value= "공지사항 작성"></td>
+								<td><a href="../board/notice_write.do"><input type="button" value= "공지사항 작성"></a></td>
 					   		</tr>
 					   		<tr>
 								<th rowspan = "3">구단<br><br>관리</th>
@@ -72,7 +72,7 @@
 					   		</tr>
 					   		<tr>
 								<th rowspan = "3">경기<br><br>관리</th>
-								<td>경기 일정   <a href = "../match/match_insert"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
+								<td>경기 일정   <a href = "../match/match_insert"><input type="button" value= "추가"></a>  <a href = "../match/matchup"><input type="button" value= "수정"></a></td>
 								<th rowspan = "3">예매<br><br>관리</th>
 								<td><input type="button" value= "예매 내역"></td>
 					   		</tr>
