@@ -391,7 +391,7 @@ SETTINGS
                                     </div>
                                 </li>
                                 <li class="menu3">
-                                    <a href="<%=request.getContextPath()%>/board/notice_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리"><span class="sm-link__label">공지</span></a>
+                                    <a href="<%=request.getContextPath()%>/board/notice_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="공지사항"><span class="sm-link__label">공지사항</span></a>
                                 </li>
                                 <li class="menu4">
                                     <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="게시판"><span class="sm-link__label">게시판</span></a>
