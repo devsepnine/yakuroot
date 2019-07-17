@@ -77,7 +77,7 @@
 								<td><input type="button" value= "예매 내역"></td>
 					   		</tr>
 					   		<tr>
-								<td>경기 기록    <a href = "#"><input type="button" value= "추가"></a>  <a href = "#"><input type="button" value= "수정"></a></td>
+								<td>경기 기록    <a href = "#"><input type="button" value= "추가"></a>  <a href = "../match/matchdown"><input type="button" value= "수정"></a></td>
 								<td><input type="button" value= "결제 내역"></td>
 					   		</tr>
 					   		<tr>
