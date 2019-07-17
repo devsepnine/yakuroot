@@ -156,6 +156,11 @@ body[test] article {
     background-color: #D5D5D5;
 }
 
+/* table hovertwo  스타일*/
+.hovertwo > tbody > tr:hover {
+    background-color: #EBF5FF;
+}
+
 
 
 
