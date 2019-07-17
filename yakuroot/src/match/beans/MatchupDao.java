@@ -3,6 +3,7 @@ package match.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,24 @@ public class MatchupDao {
 //		경기일정 가져오는 메소드
 		public List<MatchupDto> getMatchup() throws Exception{
 			Connection con = getConnection();
-			String sql = "select * from matchup";
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			String sql = "select * from matchup where m_date > to_date('"+sdf.format(System.currentTimeMillis())+"', 'YYYY/MM/DD HH24:MI:SS') order by match_no desc";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			List<MatchupDto> list = new ArrayList<MatchupDto>();
+			while(rs.next()) {
+				MatchupDto updto = new MatchupDto(rs);
+				list.add(updto);
+			}
+			con.close();
+			return list;
+		}
+
+//		지난 경기일정 가져오는 메소드
+		public List<MatchupDto> getMatchDown() throws Exception{
+			Connection con = getConnection();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			String sql = "select * from matchup where m_date < to_date('"+sdf.format(System.currentTimeMillis())+"', 'YYYY/MM/DD HH24:MI:SS') order by match_no desc";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			List<MatchupDto> list = new ArrayList<MatchupDto>();
@@ -52,7 +70,8 @@ public class MatchupDao {
 		//최근 4경기 가져오는 메소드
 		public List<MatchupDto> get4Matchup() throws Exception{
 			Connection con = getConnection();
-			String sql = "select * from (select a.*, rownum as rnum from (select * from matchup order by match_no desc) a)where rnum < 6";
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			String sql = "select * from (select a.*, rownum as rnum from (select * from matchup where m_date > to_date('"+sdf.format(System.currentTimeMillis())+"', 'YYYY/MM/DD HH24:MI:SS') order by match_no desc) a)where rnum < 6";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			List<MatchupDto> list = new ArrayList<MatchupDto>();

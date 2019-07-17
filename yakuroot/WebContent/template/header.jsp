@@ -382,7 +382,13 @@ SETTINGS
                                     </div>
                                 </li>
                                 <li class="menu2">
-                                    <a class="sm-link sm-link_padding-all sm-link1" href="<%=request.getContextPath()%>/match/matchup" title="경기일정"><span class="sm-link__label">경기일정</span></a>
+                                    <a href="#" class="top_m sm-link sm-link_padding-all sm-link1" title="게시판"><span class="sm-link__label">경기</span></a>
+                                    <div class="sub_menus">
+                                        <ul>
+                                            <li><a href="<%=request.getContextPath()%>/match/matchup">경기 일정</a></li>
+                                            <li><a href="<%=request.getContextPath()%>/match/matchdown">경기 기록</a></li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li class="menu3">
                                     <a href="<%=request.getContextPath()%>/board/notice_list.do" class="top_m sm-link sm-link_padding-all sm-link1"  title="갤러리"><span class="sm-link__label">공지</span></a>

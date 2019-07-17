@@ -70,7 +70,7 @@
 					</select>
 				</td>
 				<td><input type="number" value="${matdto.m_point1 }" name="team1point" ></td>
-				<td><input type="number" value="${matdto.m_point1 }" name="team2point" ></td>
+				<td><input type="number" value="${matdto.m_point2 }" name="team2point" ></td>
 				<td>
 				
 					<select name = "team2">
