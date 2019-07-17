@@ -101,6 +101,7 @@
 										</tr>
 									</c:forEach>
 									<tr>
+									<c:if test="${login!=null}">
 										<td colspan="2" align="center">
 											<form action="q_comment.do" method="post">
 												<input type="hidden" name="origin" value="${qdto.q_no}">
@@ -110,6 +111,7 @@
 												<button type="submit">등록</button>
 											</form>
 										</td>
+										</c:if>
 									</tr>
 									<%--댓글 1개 표시 영역 --%>
 								</tbody>
