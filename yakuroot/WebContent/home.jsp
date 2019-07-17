@@ -72,11 +72,12 @@
 			$(".open_ani").hide();
 			
 			if(!($.cookie('open_ani'))){
-				$(".swiper-container").css("z-index", "1");
 				$(".open_ani").show();
+				$(".swiper-container").hide();
 				$.cookie('open_ani', 'yes', {expires : 1});
 				setTimeout(function() {
 					  $(".open_ani").remove();
+					  $(".swiper-container").show();
 					}, 1500);
 			}
 
