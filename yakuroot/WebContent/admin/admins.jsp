@@ -53,7 +53,7 @@
 								<td>최근 7일 자유게시판 게시글/ 댓글 수  :  ${f_board}  /  ${f_comment} 개</td>
 					   		</tr>
 					   		<tr>
-								<td><input type="button" value= "전체 회원 관리"></td>
+								<td><a href="member_list.do"><input type="button" value= "전체 회원 관리"></a></td>
 								<td><a href="../board/notice_write.do"><input type="button" value= "공지사항 작성"></a></td>
 					   		</tr>
 					   		<tr>
