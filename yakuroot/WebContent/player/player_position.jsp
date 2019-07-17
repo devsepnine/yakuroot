@@ -41,8 +41,6 @@
 	<form action="">
 		<table align="center">
 			<tbody>
-			
-				<!-- 5개씩 끊어서 반복하고 싶은데 어떻게 해야할 지 나는 모르겠다 -->
 				<c:if test="${tt%5==0 }">
 					<tr>
 				</c:if>
