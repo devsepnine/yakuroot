@@ -47,7 +47,7 @@
 					<c:forEach var="pdto" items="${pdtolist}">
 					<c:set var="tt" value="${tt + 1}"></c:set>
 							<td>
-							<img width="150px" alt="" src="<%=request.getContextPath()%>/img/player/${pdto.p_club_no}/${pdto.p_bnum}${pdto.p_name}.png"><br>
+							<img width="150px" height="157px" alt="" src="<%=request.getContextPath()%>/img/player/${pdto.p_club_no}/${pdto.p_bnum}${pdto.p_name}.png"><br>
 							<a href="#">${pdto.p_name}</a>
 							</td>
 				<c:if test="${tt%5==0}">
