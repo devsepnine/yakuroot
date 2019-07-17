@@ -97,7 +97,8 @@
 												class="su-del">삭제</a> </c:if></td>
 										</tr>
 										</c:forEach>
-					<tr>
+										<tr>
+										<c:if test= "${login!=null}">
 										<td colspan="2" align="center">
 											<form action="n_comments.do" method="post">
 												<input type="hidden" name="origin" value="${ndto.n_no}">
@@ -107,6 +108,7 @@
 												<button type="submit">등록</button>
 											</form>
 										</td>
+									</c:if>
 									</tr>
 									<%--댓글 1개 표시 영역 --%>
 								

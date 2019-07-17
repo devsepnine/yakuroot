@@ -38,9 +38,9 @@
 	});
 </script>
 <style>
-	.g_table{
-		width: 1100px
-	}
+.g_table {
+	width: 1100px
+}
 </style>
 <div align="center">
 	<h1>${gdto.g_title}</h1>
@@ -58,18 +58,17 @@
 
 					<tr style="height: 400px">
 						<th>내용</th>
-						<td style="width: 800px">
-						<img src="g_download.do?g_savename=${gdto.g_savename}">
-						<br>
-						${gdto.g_content}
-						</td>
+						<td style="width: 800px"><img
+							src="g_download.do?g_savename=${gdto.g_savename}"> <br>
+							${gdto.g_content}</td>
 					</tr>
 					<tr>
 						<th>작성일</th>
 						<td>${gdto.g_when}</td>
 					</tr>
 					<tr>
-						<th colspan="2"><h4 align="left">댓글 ${list2.size()}//조회수 ${gdto.g_read}</h4></th>
+						<th colspan="2"><h4 align="left">댓글 ${list2.size()}//조회수
+								${gdto.g_read}</h4></th>
 					</tr>
 					<%--댓글 목록 표시 --%>
 					<tr>
@@ -101,15 +100,17 @@
 										</tr>
 									</c:forEach>
 									<tr>
-										<td colspan="2" align="center">
-											<form action="g_comment.do" method="post">
-												<input type="hidden" name="origin" value="${gdto.g_no}">
-												<input type="hidden" name="writer" value="${login}">
-												<textarea rows="5" cols="100" placeholder="댓글입력"
-													name="content"></textarea>
-												<button type="submit">등록</button>
-											</form>
-										</td>
+										<c:if test="${login!=null}">
+											<td colspan="2" align="center">
+												<form action="g_comment.do" method="post">
+													<input type="hidden" name="origin" value="${gdto.g_no}">
+													<input type="hidden" name="writer" value="${login}">
+													<textarea rows="5" cols="100" placeholder="댓글입력"
+														name="content"></textarea>
+													<button type="submit">등록</button>
+												</form>
+											</td>
+										</c:if>
 									</tr>
 									<%--댓글 1개 표시 영역 --%>
 								</tbody>
