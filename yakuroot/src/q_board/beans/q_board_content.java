@@ -23,7 +23,8 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		q_boardDao qdao = new q_boardDao();
 		qdao.readone(no);
 		q_boardDto qdto = qdao.get(no);
-		boolean my = qdto.getQ_writer().equals(req.getParameter("login"));
+		String log = req.getParameter("login");	
+		boolean my = qdto.getQ_writer().equals(log);
 		
 		CommentDao cdao = new CommentDao();
 		List<CommentDto> list = cdao.get(no);

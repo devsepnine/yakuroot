@@ -178,12 +178,17 @@ public class q_boardDao {
 		}
 		public q_boardDto edit(q_boardDto qdto) throws Exception{
 			Connection con = this.getConnection();		
-			String sql="update q_board set q_head = ?, q_title = ?, q_content = ? where q_no = ?";
+			String sql="update q_board set q_head = ?, q_title = ?, q_content = ?, q_savename = ?, "
+					+ "q_uploadname=?,q_len=?,q_type=? where q_no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, qdto.getQ_head());
 			ps.setString(2, qdto.getQ_title());
 			ps.setString(3, qdto.getQ_content());
-			ps.setInt(4, qdto.getQ_no());
+			ps.setString(4, qdto.getQ_savename());
+			ps.setString(5, qdto.getQ_uploadname());
+			ps.setLong(6, qdto.getQ_len());
+			ps.setString(7, qdto.getQ_type());
+			ps.setInt(8, qdto.getQ_no());
 			ps.execute();	
 			con.close();
 			return qdto;

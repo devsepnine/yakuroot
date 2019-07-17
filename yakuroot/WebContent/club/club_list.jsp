@@ -7,6 +7,10 @@
 <!-- 관리자메뉴에서 구단 리스트를 보는 페이지, 수정버튼을 누르면 수정페이지로 넘어갈 수 있는 페이지 -->
 
 <style>
+
+	.form  {
+		margin-top : 100px;
+	}
 	.form.admin #edit {
 		width : 60px;
     	padding: 0.5rem 1rem;

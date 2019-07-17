@@ -17,7 +17,7 @@ public class g_board_edit extends HttpServlet{
 			g_boardDao gdao = new g_boardDao();
 			int no = Integer.parseInt(req.getParameter("g_no"));
 			g_boardDto gdto = gdao.get(no);
-			System.out.println(gdto);
+			
 			req.setAttribute("gdto", gdto);
 			
 		}catch (Exception e) {
@@ -41,8 +41,8 @@ public class g_board_edit extends HttpServlet{
 		gdto.setG_no(no);
 		
 		gdao.edit(gdto);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("g_content.do?no="+gdto.getG_no());
-		dispatcher.forward(req, resp);
+		resp.sendRedirect("g_content.do?no="+gdto.getG_no());
+		
 		
 		
 		

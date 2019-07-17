@@ -10,12 +10,12 @@
 			text-align: left;
 			margin-top : 100px;
 			margin-bottom : 100px;
-			padding : 20px;
+			padding : 30px;
 			padding-right: 20px;
 		}
 		
 		.table input{
-			width : 230px;
+			width : 70%;
 		}
 		
 		.table tr {
@@ -23,11 +23,15 @@
 		}
 		
 		.table th {
-			width : 150px;
+			width : 120px;
 		}
 		
 		.table td input {
 			padding-left: 20px;
+		}
+		
+		.table input[name=change_info], input[name=delete] {
+			width : 230px;
 		}
 		
 	</style>
@@ -36,7 +40,7 @@
 	   <form class="form form-label">
 			<fieldset>
 				<legend>[ ${mdto.m_id}님의 정보 ]</legend>
-					<table border = 1 width = 80% align = "center" class="table table-noline">
+					<table border = 1 width = 90% align = "center" class="table table-noline">
 						<tbody>
 					   		<tr>
 						   		<th>ID</th>
@@ -97,8 +101,8 @@
 					</table>
 					<table class = "table table-noline">
 						<tr>
-							<td><a href ="check.do?go=change_info.do"><input type="button" value="내 정보 수정" name="change_info"></a></td>
-						   	<td><a href ="check.do?go=delete.do"><input type="button" value="회원 탈퇴" name="delete"></a></td>
+							<td><a href ="check.do?go=change_info.do"><input type="button" name="change_info" value="내 정보 수정" name="change_info"></a></td>
+						   	<td><a href ="check.do?go=delete.do"><input type="button"  name = "delete" value="회원 탈퇴" name="delete"></a></td>
 						</tr>
 					</table>
 			</fieldset>

@@ -59,7 +59,9 @@
 					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px;">
+						<c:if test="${qdto.q_savename!=null}">
 						<img src="q_download.do?q_savename=${qdto.q_savename}">
+						</c:if>
 						<br>
 						${qdto.q_content}
 						</td>
@@ -122,9 +124,9 @@
 					<tr>
 						<td colspan="3" align="reft">
 							<h4>
-								<c:if test="${my eq true}">
+								<c:if test="${login eq qdto.q_writer}">
 									<button>
-										<a href="q_edit.do?f_no=${qdto.q_no}">글 수정</a>
+										<a href="q_edit.do?q_no=${qdto.q_no}">글 수정</a>
 									</button>
 									<a href="q_delete.do?no=${qdto.q_no}"><button>글 삭제</button></a>
 								</c:if>
