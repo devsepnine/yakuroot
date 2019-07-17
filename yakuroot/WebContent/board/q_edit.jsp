@@ -27,10 +27,14 @@ div {
 <div align="center">
 	<div>
 		<div>
+					<form action="q_edit.do" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="q_no" value="${qdto.q_no}">
+						<input type="hidden" name="q_savename" value="${qdto.q_savename}">
+						<input type="hidden" name="q_uploadname" value="${qdto.q_uploadname}">
+						<input type="hidden" name="q_len" value="${qdto.q_len}">
+						<input type="hidden" name="q_type" value="${qdto.q_type}">
 			<table>
 				<tbody>
-					<form action="q_edit.do" method="post">
-						<input type="hidden" name="q_no" value="${qdto.q_no}">
 						<tr>
 							<th width="20%">말머리</th>
 							<td align="center"><select name="q_head">
@@ -57,9 +61,9 @@ div {
 						</tr>
 				</tbody>
 			</table>
-			<br>
 			<button type="submit"">수정하기</button>
 			</form>
+			<br>
 
 		</div>
 	</div>
