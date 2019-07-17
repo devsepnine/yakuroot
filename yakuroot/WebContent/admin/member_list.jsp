@@ -26,7 +26,7 @@
 		<form class="form form-label">
 			<fieldset>
 				<legend>MEMBER LIST</legend>
-					<table border="1" width="900" class="table table-noline">
+					<table border="1" width="900" class="table table-noline hovertwo">
 						<thead>
 							<tr>
 								<th>NO</th>
