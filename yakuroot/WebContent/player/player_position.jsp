@@ -46,7 +46,7 @@
 				</c:if>
 					<c:forEach var="pdto" items="${pdtolist}">
 					<c:set var="tt" value="${tt + 1}"></c:set>
-							<td>
+							<td style="text-align: center; font-size: 18px;">
 							<img width="150px" height="157px" alt="" src="<%=request.getContextPath()%>/img/player/${pdto.p_club_no}/${pdto.p_bnum}${pdto.p_name}.png"><br>
 							<a href="#">${pdto.p_name}</a>
 							</td>
