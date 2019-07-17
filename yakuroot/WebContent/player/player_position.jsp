@@ -7,28 +7,32 @@
 
 
 <style>
-.form {
-	width: 60px;
-	padding: 0.5rem 1rem;
-}
+	.form {
+		width: 60px;
+		padding: 0.5rem 1rem;
+	}
+	.cat_btn{
+		display: inline-block;
+		width: 80px;
+		height: 30px;
+		vertical-align: middle;
+	}
 </style>
-
-<div align="center">
-	<form class="form" text-align="center">
+<div style="height: 40px;"></div>
+<div style="text-align: center; margin: auto; width: 1200px;">
 		<!-- 버튼 디자인 -->
-		<table>
+		<table style="width: 900px; margin: auto;">
 			<tbody>
 				<tr>
-					<td><a href="player_position.do?p_no="><input type="button" value="코치"></a></td>
-					<td><a href="player_position_staff.do?p_no="><input type="button" value="스테프"></a></td>
-					<td><a href="player_position_pitcher.do?p_no="><input type="button" value="투수"></a></td>
-					<td><a href="player_position_catcher.do?p_no="><input type="button" value="포수"></a></td>
-					<td><a href="player_position_in.do?p_no="><input type="button" value="내야"></a></td>
-					<td><a href="player_position_out.do?p_no="><input type="button" value="외야"></a></td>
+					<td><a  href="player_position.do?p_no="><span class="cat_btn">코치</span></a></td>
+					<td><a  href="player_position_staff.do?p_no="><span class="cat_btn">스태프</span></a></td>
+					<td><a  href="player_position_pitcher.do?p_no="><span class="cat_btn">투수</span></a></td>
+					<td><a  href="player_position_catcher.do?p_no="><span class="cat_btn">포수</span></a></td>
+					<td><a  href="player_position_in.do?p_no="><span class="cat_btn">내야</span></a></td>
+					<td><a  href="player_position_out.do?p_no="><span class="cat_btn">외야</span></a></td>
 				</tr>
 			</tbody>
 		</table>
-	</form>
 </div>
 <br>
 <br>

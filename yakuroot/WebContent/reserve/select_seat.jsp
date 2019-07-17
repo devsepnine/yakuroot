@@ -23,7 +23,17 @@
 		<c:forEach var="i" begin="1" end="${adto.a_col}" step="1">
 			<tr>
 				<c:forEach var="j" begin="1" end="${adto.a_row}" step="1">
-					<td style="text-align: center; padding: 0.6rem; width: 25px;"><button class="reserve_btn">${sdtolist[reserve].seat_name }</button></td>
+					<td style="text-align: center; padding: 0.6rem; width: 25px;"><button class="reserve_btn">
+					
+					<c:choose>
+						<c:when test="${sdtolist[reserve].s_able eq 0}">
+							${sdtolist[reserve].seat_name}
+						</c:when>
+						<c:otherwise>
+							X
+						</c:otherwise>
+					</c:choose>
+					</button></td>
 					<c:set var="reserve" value="${reserve + 1 }"/>
 				</c:forEach>
 			</tr>

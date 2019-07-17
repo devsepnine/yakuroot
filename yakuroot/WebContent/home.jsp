@@ -13,7 +13,6 @@
         height: 450px;
     }
     .match4_table{
-    	border: 1px solid black;
     	background-color: white;
     	margin-right: 15px;
     }
@@ -67,11 +66,12 @@
     </script>
 
 	<div><img src="img/main/one.png" width="100%" height="290" margin = "150"></div>
+	<div style="height:30px;"></div>
 	<div style="width:  1200px; margin:auto; text-align: center;">
 		<c:forEach var="matdto" items="${matlist}">
 		<table class="match4_table" style="text-align: center; display: inline-block;">
 			<thead>
-				<th colspan="3" style="background-color: #5D5D5D;color: white; font-size: 22px;">${matdto.m_stadium}</th>
+				<td colspan="3" style="background-color: #5D5D5D;color: white; font-size: 22px;">${matdto.m_stadium}</td>
 			</thead>
 			<tbody>
 				<tr>
@@ -93,7 +93,7 @@
 		</c:forEach>
 	
 	</div>
-	
+	<div style="height:40px;"></div>
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
