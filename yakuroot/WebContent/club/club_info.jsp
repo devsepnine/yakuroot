@@ -6,7 +6,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68ddd144598c5b4deebea5bf8841415f"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=46239c794a7a0438306ca21d387251c8"></script>
  <script>
         $(function(){
             var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
