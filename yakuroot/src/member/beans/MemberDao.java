@@ -271,6 +271,29 @@ public class MemberDao {
 		
 	}
 	
+	//관리자 전체 회원 리스트
+	public List<MemberDto> member_list() throws Exception {
+		Connection con = this.getConnection();
+		
+		String sql = "select * from member";
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		List<MemberDto> list = new ArrayList<MemberDto>();
+		
+		while(rs.next()) {
+			MemberDto mdto = new MemberDto(rs);
+			
+			list.add(mdto);
+		}
+		
+		con.close();
+		
+		return list;
+	
+	}
+	
 	//총 회원 수 
 	public int member_count() throws Exception {
 		Connection con = this.getConnection();
