@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/template/header.jsp"></jsp:include>
+	
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,11 +22,66 @@
     	padding: 0.2rem;
     }
     </style>
+    
+<!--     배트애니메이션 -->
+    <style>
+        .baseball-bat, .baseball-ball{
+            position:fixed;
+        }
+        .baseball-bat{
+            top:50%;
+            left:50%;
+            margin-top:-150px;
+            width:200px;
+            height:200px;
+            animation-name:bat2;
+            animation-duration: 0.1s
+        }
+        .baseball-ball{
+            top:50%;
+            left:50%;
+            margin-left:-40px;
+            margin-top: -60px;
+            width:50px;
+            height:36px;
+            animation-name: hit;
+            animation-duration: 3s;
+        }
+        @keyframes bat2{
+            from{
+                transform:rotate(0deg);
+            }
+            to{
+                transform:rotate(-45deg);
+            }
+        }
+        @keyframes hit{
+            0%{
+                transform:scale(2);
+            }
+            100%{
+                transform:scale(300);
+            }
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.cookie.js"></script>
     <script src="js/swiper.js"></script>
     <script>
         $(function(){
+			$(".open_ani").hide();
+			
+			if(!($.cookie('open_ani'))){
+				$(".swiper-container").css("z-index", "1");
+				$(".open_ani").show();
+				$.cookie('open_ani', 'yes', {expires : 1});
+				setTimeout(function() {
+					  $(".open_ani").remove();
+					}, 1500);
+			}
 
+		
+			
             var mySwiper = new Swiper ('.swiper-container', {
             // Optional parameters
             
@@ -117,5 +173,8 @@
         <div class="swiper-scrollbar"></div>
     </div>
     
-    
+    <div class="open_ani" style="z-index: 99999;">
+    <img class="baseball-bat" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkns5sWyRU8ipFrgcg6tdVnp-td1SkYwoYUJi6ABGkb9BmNKgDDQ">
+    <img class="baseball-ball" src="<%=request.getContextPath() %>/img/baseball.png">
+	</div>
 <jsp:include page="/template/footer.jsp"></jsp:include>

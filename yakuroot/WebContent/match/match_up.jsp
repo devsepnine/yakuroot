@@ -46,10 +46,10 @@
 	<table class="match_table table table-stripe table-hover" style="width:1100px;">
 		<thead>
 			<tr>
-				<th width="20%">날짜</th>
-				<th width="20%">시간</th>
+				<th width="120px">날짜</th>
+				<th width="110px">시간</th>
 				<th colspan="4">경기</th>
-				<th width="20%">구장</th>
+				<th width="200px">구장</th>
 				<th>예매</th>
 				<c:if test="${auth eq '관리자'}">
 					<th>수정</th>
