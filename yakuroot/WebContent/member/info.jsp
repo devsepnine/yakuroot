@@ -11,7 +11,7 @@
 			margin-top : 100px;
 			margin-bottom : 100px;
 			padding : 20px;
-			padding-right: 80px;
+			padding-right: 20px;
 		}
 		
 		.table input{
@@ -20,6 +20,10 @@
 		
 		.table tr {
 			text-align : center;
+		}
+		
+		.table th {
+			width : 150px;
 		}
 		
 		.table td input {
@@ -89,11 +93,13 @@
 					   		<tr>
 					   			<td colspan="2" height="50px"></td>
 					   		</tr>
-					   		<tr>
-						   		<td><a href ="check.do?go=change_info.do"><input type="button" value="내 정보 수정" name="change_info"></a></td>
-						   		<td><a href ="check.do?go=delete.do"><input type="button" value="회원 탈퇴" name="delete"></a></td>
-					   		</tr>
 						</tbody>
+					</table>
+					<table class = "table table-noline">
+						<tr>
+							<td><a href ="check.do?go=change_info.do"><input type="button" value="내 정보 수정" name="change_info"></a></td>
+						   	<td><a href ="check.do?go=delete.do"><input type="button" value="회원 탈퇴" name="delete"></a></td>
+						</tr>
 					</table>
 			</fieldset>
 		</form>
