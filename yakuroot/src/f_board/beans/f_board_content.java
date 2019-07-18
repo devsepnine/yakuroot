@@ -28,7 +28,6 @@ public class f_board_content extends HttpServlet{
 			f_boardDto bdto = bdao.get(no);
 			//글 쓴사람과 내가 동일한가를 묻는 코드
 			boolean my = bdto.getF_writer().equals(req.getSession().getAttribute("login"));
-			
 			CommentDao cdao = new CommentDao();
 			List<CommentDto> list = cdao.get(no);
 			paging p = new paging(req);
