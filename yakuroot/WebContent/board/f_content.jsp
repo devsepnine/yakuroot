@@ -128,6 +128,10 @@
 									</button>
 									<a href="f_delete.do?no=${bdto.f_no}"><button>글 삭제</button></a>
 								</c:if>
+								<c:if test="${auth eq '관리자'}">
+								
+									<a href="f_delete.do?no=${bdto.f_no}"><button>글 삭제</button></a>
+								</c:if>
 							</h4>
 						</td>
 					</tr>
