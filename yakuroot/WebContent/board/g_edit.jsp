@@ -27,10 +27,14 @@ div {
 <div align="center">
 	<div>
 		<div>
-			<table>
+			<form action="g_edit.do" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="g_no" value="${gdto.g_no}">
+				<input type="hidden" name="g_savename" value="${gdto.g_savename}">
+				<input type="hidden" name="g_uploadname" value="${gdto.g_uploadname}">
+				<input type="hidden" name="g_len" value="${gdto.g_len}">
+				<input type="hidden" name="g_type" value="${gdto.g_type}">
+				<table>
 				<tbody>
-					<form action="g_edit.do" method="post">
-						<input type="hidden" name="g_no" value="${gdto.g_no}">
 						<tr>
 							<th width="20%">말머리</th>
 							<td align="center"><select name="g_head">

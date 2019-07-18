@@ -109,12 +109,17 @@ public class n_boardDao {
 
 	public n_boardDto edit(n_boardDto ndto) throws Exception {// 공지사항 글 수정 메소드
 		Connection con = this.getConnection();
-		String sql = "update notice_board set n_head = ?, n_title = ?, n_content = ? where n_no = ?";
+		String sql = "update notice_board set n_head = ?, n_title = ?, n_content = ?,"
+				+ "n_savename=?,n_uploadname=?,n_len=?,n_type=? where n_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, ndto.getN_head());
 		ps.setString(2, ndto.getN_title());
 		ps.setString(3, ndto.getN_content());
-		ps.setInt(4, ndto.getN_no());
+		ps.setString(4, ndto.getN_savename());
+		ps.setString(5, ndto.getN_uploadname());
+		ps.setLong(6, ndto.getN_len());
+		ps.setString(7, ndto.getN_type());
+		ps.setInt(8, ndto.getN_no());
 		ps.execute();
 		con.close();
 		return ndto;

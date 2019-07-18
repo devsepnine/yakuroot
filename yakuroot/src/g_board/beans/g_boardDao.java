@@ -186,12 +186,17 @@ public class g_boardDao {
 	}
 	public g_boardDto edit(g_boardDto gdto) throws Exception{
 		Connection con = this.getConnection();		
-		String sql="update g_board set g_head = ?, g_title = ?, g_content = ? where g_no = ?";
+		String sql="update g_board set g_head = ?, g_title = ?, g_content = ?, "
+				+ "g_savename=?,g_uploadname=?,g_len=?,g_type=? where g_no = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, gdto.getG_head());
 		ps.setString(2, gdto.getG_title());
 		ps.setString(3, gdto.getG_content());
-		ps.setInt(4, gdto.getG_no());
+		ps.setString(4, gdto.getG_savename());
+		ps.setString(5, gdto.getG_uploadname());
+		ps.setLong(6, gdto.getG_len());
+		ps.setString(7, gdto.getG_type());
+		ps.setInt(8, gdto.getG_no());
 		ps.execute();	
 		con.close();
 		return gdto;

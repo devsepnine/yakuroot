@@ -58,7 +58,7 @@
 					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px;">
-						<c:if test="${qdto.n_savename!=null}">
+						<c:if test="${ndto.n_savename!=null}">
 						<img src="n_download.do?n_savename=${ndto.n_savename}">
 						</c:if>
 						${ndto.n_content}</td>
