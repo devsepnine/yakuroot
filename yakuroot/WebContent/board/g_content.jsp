@@ -59,7 +59,7 @@
 					<tr style="height: 400px">
 						<th>내용</th>
 						<td style="width: 800px">
-						<c:if test="${qdto.g_savename!=null}">
+						<c:if test="${gdto.g_savename!=null}">
 						<img src="g_download.do?g_savename=${gdto.g_savename}"> 
 						</c:if>
 						<br>
@@ -126,7 +126,7 @@
 							<h4>
 								<c:if test="${my eq true}">
 									<button>
-										<a href="g_edit.do?f_no=${gdto.g_no}">글 수정</a>
+										<a href="g_edit.do?g_no=${gdto.g_no}">글 수정</a>
 									</button>
 									<a href="g_delete.do?no=${gdto.g_no}"><button>글 삭제</button></a>
 								</c:if>

@@ -35,7 +35,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		q_boardDao qdao = new q_boardDao();
 		q_boardDto qdto = new q_boardDto();
 		
-		String path2 = "D:\\q_upload";
+		String path2 = "D:\\upload";
 		int max = 10*1024*1024;
 		String enc = "UTF-8";
 		
