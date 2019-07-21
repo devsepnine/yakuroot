@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import player.beans.PlayerDao;
 import player.beans.PlayerDto;
 
-@WebServlet(urlPatterns="/player/player_position_in")
-public class Player_position_inServlet extends HttpServlet {
+@WebServlet(urlPatterns="/player/player_position_coach")
+public class Player_position_coachServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			int c_no = Integer.parseInt(req.getParameter("c_no"));
 			PlayerDao pdao = new PlayerDao();
-			List<PlayerDto> pdtolist = pdao.getPostion(c_no, "내야수");
+			List<PlayerDto> pdtolist = pdao.getPostion(c_no, "코치");
 			req.setAttribute("c_no", c_no);
 			req.setAttribute("pdtolist", pdtolist);
 			

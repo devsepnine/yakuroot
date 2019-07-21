@@ -132,6 +132,28 @@ public class PlayerDao {
 			con.close();
 			return list;
 		}
+		//포지션별 리스트
+		public List<PlayerDto> getPostion(int c_no, String position) throws Exception {
+			Connection con = getConnection();
+			
+			String sql = "select * from player where p_club_no=? and p_position = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, c_no);
+			ps.setString(2, position);
+			ResultSet rs = ps.executeQuery();
+			PlayerDto pdto;
+			List<PlayerDto> list = new ArrayList<PlayerDto>();
+			while(rs.next()) {
+				pdto = new PlayerDto();
+				pdto.setData(rs);
+				list.add(pdto);
+			}
+			con.close();
+			return list;
+		}
+
+		
+		
 		
 		
 		

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import player.beans.PlayerDao;
 import player.beans.PlayerDto;
 
-@WebServlet(urlPatterns="/player/player_position.do")
+@WebServlet(urlPatterns="/player/player_position")
 public class Player_positionServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class Player_positionServlet extends HttpServlet {
 			int c_no = Integer.parseInt(req.getParameter("c_no"));
 			PlayerDao pdao = new PlayerDao();
 			List<PlayerDto> pdtolist = pdao.getPlayerC(c_no);
-			
+			req.setAttribute("c_no", c_no);
 			req.setAttribute("pdtolist", pdtolist);
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("player_position.jsp");

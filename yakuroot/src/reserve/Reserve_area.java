@@ -23,6 +23,7 @@ public class Reserve_area extends HttpServlet{
 			AreaDao adao = new AreaDao();
 			List<AreaDto> arealist = adao.getArea(stadium_no);
 			
+			req.setAttribute("s_no", stadium_no);
 			req.setAttribute("arealist", arealist);
 			req.setAttribute("match_no", match_no);
 			

@@ -1,6 +1,7 @@
 package player.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,19 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import player.beans.PlayerDao;
 import player.beans.PlayerDto;
 
-@WebServlet(urlPatterns="/player/player_position_out.do")
+@WebServlet(urlPatterns="/player/player_position_out")
 public class Player_position_outServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			int p_no = Integer.parseInt(req.getParameter("p_no"));
-			
+			int c_no = Integer.parseInt(req.getParameter("c_no"));
 			PlayerDao pdao = new PlayerDao();
-			PlayerDto pdto = pdao.get(p_no);
+			List<PlayerDto> pdtolist = pdao.getPostion(c_no, "외야수");
+			req.setAttribute("c_no", c_no);
+			req.setAttribute("pdtolist", pdtolist);
 			
-			req.setAttribute("pdto", pdto);
-			
-			RequestDispatcher dispatcher = req.getRequestDispatcher("player_position_out.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("player_position.jsp");
 			dispatcher.forward(req, resp);
 		}
 		catch(Exception e) {

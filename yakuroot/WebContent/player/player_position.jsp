@@ -13,8 +13,9 @@
 	}
 	.cat_btn{
 		display: inline-block;
-		width: 80px;
-		height: 30px;
+		width: 100px;
+		height: 50px;
+		padding-top:12px;
 		vertical-align: middle;
 	}
 </style>
@@ -24,12 +25,14 @@
 		<table style="width: 900px; margin: auto;">
 			<tbody>
 				<tr>
-					<td><a  href="player_position.do?p_no="><span class="cat_btn">코치</span></a></td>
-					<td><a  href="player_position_staff.do?p_no="><span class="cat_btn">스태프</span></a></td>
-					<td><a  href="player_position_pitcher.do?p_no="><span class="cat_btn">투수</span></a></td>
-					<td><a  href="player_position_catcher.do?p_no="><span class="cat_btn">포수</span></a></td>
-					<td><a  href="player_position_in.do?p_no="><span class="cat_btn">내야</span></a></td>
-					<td><a  href="player_position_out.do?p_no="><span class="cat_btn">외야</span></a></td>
+					<td><a  href="player_position?c_no=${c_no}"><span class="cat_btn">전체 보기</span></a></td>
+					<td><a  href="player_position_head?c_no=${c_no}"><span class="cat_btn">감독</span></a></td>
+					<td><a  href="player_position_coach?c_no=${c_no}"><span class="cat_btn">코치</span></a></td>
+					<td><a  href="player_position_pitcher?c_no=${c_no}"><span class="cat_btn">투수</span></a></td>
+					<td><a  href="player_position_catcher?c_no=${c_no}"><span class="cat_btn">포수</span></a></td>
+					<td><a  href="player_position_in?c_no=${c_no}"><span class="cat_btn">내야</span></a></td>
+					<td><a  href="player_position_out?c_no=${c_no}"><span class="cat_btn">외야</span></a></td>
+					<td><a  href="player_select_club.jsp"><span class="cat_btn">구단 선택</span></a></td>
 				</tr>
 			</tbody>
 		</table>

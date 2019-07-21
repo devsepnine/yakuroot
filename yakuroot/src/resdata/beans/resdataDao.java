@@ -1,6 +1,8 @@
 package resdata.beans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -31,6 +33,20 @@ public class resdataDao {
 			return src.getConnection();
 		}
 		
+		public boolean setResdata(resdataDto rdto) throws Exception {
+			String sql = "insert into resdata values(resdata_seq.nextval, ?, ?, ?, ?, ?, sysdate)";
+			Connection con = getConnection();
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rdto.getMember_id());
+			pstmt.setInt(2, rdto.getMatch_no());
+			pstmt.setInt(3, rdto.getStadium_no());
+			pstmt.setInt(4, rdto.getArea_no());
+			pstmt.setInt(5, rdto.getSeat_no());
+			
+			int r = pstmt.executeUpdate();
+			con.close();
+			return r > 0;
+		}
 	
 
 }

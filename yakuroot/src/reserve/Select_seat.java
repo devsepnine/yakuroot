@@ -30,6 +30,8 @@ public class Select_seat extends HttpServlet{
 			AreaDao adao = new AreaDao();
 			AreaDto adto = adao.getArea_n(area_no);
 			req.setAttribute("adto", adto);
+			int stadium_no = Integer.parseInt(req.getParameter("s_no"));
+			req.setAttribute("s_no", stadium_no);
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("select_seat.jsp");
 			dispatcher.forward(req, resp);
