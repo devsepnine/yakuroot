@@ -78,9 +78,9 @@
 				$.cookie('open_ani', 'yes', {expires : 1});
 				setTimeout(function() {
 					  $(".open_ani").remove();
-					  $("header").slideDown(500);
-					  $(".mainpage").slideDown(1000);
-					  $(".footer").slideDown(2000);
+					  $("header").fadeIn(1500);
+					  $(".mainpage").fadeIn(1500);
+					  $(".footer").fadeIn(1500);
 					}, 1500);
 			}else{
 				$(".mainpage").show();
