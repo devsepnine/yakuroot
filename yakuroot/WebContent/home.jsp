@@ -70,15 +70,22 @@
     <script>
         $(function(){
 			$(".open_ani").hide();
-			
+			$(".mainpage").hide();
+			$(".footer").hide();
+			$("header").hide();
 			if(!($.cookie('open_ani'))){
 				$(".open_ani").show();
-				$(".swiper-container").hide();
 				$.cookie('open_ani', 'yes', {expires : 1});
 				setTimeout(function() {
 					  $(".open_ani").remove();
-					  $(".swiper-container").show();
+					  $("header").slideDown(500);
+					  $(".mainpage").slideDown(1000);
+					  $(".footer").slideDown(2000);
 					}, 1500);
+			}else{
+				$(".mainpage").show();
+				$(".footer").show();
+				$("header").show();
 			}
 
 		
@@ -121,7 +128,7 @@
 
         });
     </script>
-
+<section class="mainpage">
 	<div><img src="img/main/one.png" width="100%" height="290" margin = "150"></div>
 	<div style="height:30px;"></div>
 	<div style="width:  1200px; margin:auto; text-align: center;">
@@ -173,9 +180,10 @@
         <!-- If we need scrollbar -->
         <div class="swiper-scrollbar"></div>
     </div>
-    
+</section>
+
     <div class="open_ani" style="z-index: 99999;">
-    <img class="baseball-bat" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkns5sWyRU8ipFrgcg6tdVnp-td1SkYwoYUJi6ABGkb9BmNKgDDQ">
+    <img class="baseball-bat" src="<%=request.getContextPath() %>/img/bat.png">
     <img class="baseball-ball" src="<%=request.getContextPath() %>/img/baseball.png">
 	</div>
 <jsp:include page="/template/footer.jsp"></jsp:include>
