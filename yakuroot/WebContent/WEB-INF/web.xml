@@ -51,6 +51,13 @@
 	 <filter-mapping>
 	 	<filter-name>login</filter-name>
 		<url-pattern>/admin/*</url-pattern>
+		<url-pattern>/reserve/*</url-pattern>
+		<url-pattern>/member/info.do</url-pattern>
+		<url-pattern>/member/change_info.do</url-pattern>
+		<url-pattern>/member/change_info.do</url-pattern>
+		<url-pattern>/board/q_write.do</url-pattern>
+		<url-pattern>/board/f_write.do</url-pattern>
+		<url-pattern>/board/g_write.do</url-pattern>
 	 </filter-mapping>
 	 
 	 
@@ -61,6 +68,11 @@
 	 <filter-mapping>
 	 	<filter-name>filteradmin</filter-name>
 	 	<url-pattern>/admin/*</url-pattern>
+	 	<url-pattern>/club/club_list.do</url-pattern>
+	 	<url-pattern>/club/club_list_edit.do</url-pattern>
+	 	<url-pattern>/match/match_insert</url-pattern>
+	 	<url-pattern>/match/match_fix</url-pattern>
+	 	<url-pattern>/board/notice_write.do</url-pattern>
 	 </filter-mapping> 
 	 
 	 

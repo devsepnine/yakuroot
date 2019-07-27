@@ -20,7 +20,6 @@ public class Login_filter implements Filter{
 			HttpServletRequest req = (HttpServletRequest) request;
 			HttpServletResponse resp = (HttpServletResponse) response;
 			String m_id = (String) req.getSession().getAttribute("login");
-			System.out.println(m_id);
 			if(m_id==null) {
 				resp.sendRedirect(req.getContextPath()+"/member/login.do");
 			} else {
