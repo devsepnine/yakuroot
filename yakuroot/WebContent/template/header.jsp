@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/yakuroot/css/common.css">
 <head>
     <title>YAKUROOT</title>
+    <meta name="viewport" content="width=device-width">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script>
         $(function(){
@@ -43,6 +44,7 @@
             background-color: rgb(16,17,47);
             border-bottom: 3px solid red;
             height: 150px;
+            min-width: 1200px;
         }
         .menubox{
             list-style: none;

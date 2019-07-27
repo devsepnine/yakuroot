@@ -129,9 +129,9 @@
         });
     </script>
 <section class="mainpage">
-	<div><img src="img/main/one.png" width="100%" height="290" margin = "150"></div>
+	<div><img style="min-width: 1200px;" src="img/main/one.png" width="100%" height="290" margin = "150"></div>
 	<div style="height:30px;"></div>
-	<div style="width:  1200px; margin:auto; text-align: center;">
+	<div style="width: 1200px; margin:auto; text-align: center;">
 		<c:forEach var="matdto" items="${matlist}">
 		<table class="match4_table" style="text-align: center; display: inline-block;">
 			<thead>
