@@ -18,6 +18,9 @@
 	.disabled_btn{
 		background-color: darkgrey;
 	}
+	.resed_btn{
+		background-color: red;
+	}
 	.hidebox{
 		display: none;
 	}
@@ -51,10 +54,10 @@
 		<c:forEach var="i" begin="1" end="${adto.a_col}" step="1">
 			<tr>
 				<c:forEach var="j" begin="1" end="${adto.a_row}" step="1">
-					<td style="text-align: center; padding: 0.6rem; width: 25px;"><label class="dBtn ${sdtolist[reserve].s_able eq 0? 'reserve_btn' : 'disabled_btn'}" for="${sdtolist[reserve].seat_no}">
-						${sdtolist[reserve].s_able eq 0? sdtolist[reserve].seat_name : 'X'}
-					<c:if test="${sdtolist[reserve].s_able eq 0}">
-					</label><input class="hidebox" type="checkbox" name="seat_no" value="${sdtolist[reserve].seat_no}" id="${sdtolist[reserve].seat_no}">
+					<td style="text-align: center; padding: 0.6rem; width: 25px;"><label class="dBtn ${rlist[reserve].s_able eq 0? (rlist[reserve].res_seat > 0 ? 'resed_btn' : 'reserve_btn') : 'disabled_btn'}" for="${rlist[reserve].seat_no}">
+						${rlist[reserve].s_able eq 0? (rlist[reserve].res_seat > 0 ? '예약' : rlist[reserve].seat_name) : 'X'}
+					<c:if test="${rlist[reserve].s_able eq 0 and rlist[reserve].res_seat eq 0}">
+					</label><input class="hidebox" type="checkbox" name="seat_no" value="${rlist[reserve].seat_no}" id="${rlist[reserve].seat_no}">
 					</c:if>
 					</td>
 					<c:set var="reserve" value="${reserve + 1 }"/>

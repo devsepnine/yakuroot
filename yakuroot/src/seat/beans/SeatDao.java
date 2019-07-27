@@ -50,5 +50,23 @@ public class SeatDao {
 			con.close();
 			return seatlist;
 		}
+		
+		public List<ResSeat> getResSeat(int a_no, int match_no) throws Exception{
+			Connection con = getConnection();
+			String sql = "select seat.*, resdata.r_no as res_seat from seat left outer join resdata on seat.seat_no = resdata.seat_no and resdata.match_no = ? where seat.area_no = ? order by seat.seat_no";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, match_no);
+			pstmt.setInt(2, a_no);
+			ResultSet rs = pstmt.executeQuery();
+			ResSeat rdto = new ResSeat();
+			List<ResSeat> rlist = new ArrayList<ResSeat>();
+			while(rs.next()) {
+				rdto = new ResSeat(rs);
+				rlist.add(rdto);
+			}
+			con.close();
+			return rlist;
+			
+		}
 
 }

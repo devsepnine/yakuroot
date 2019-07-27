@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import area.beans.AreaDao;
 import area.beans.AreaDto;
+import seat.beans.ResSeat;
 import seat.beans.SeatDao;
 import seat.beans.SeatDto;
 
@@ -25,8 +26,8 @@ public class Select_seat extends HttpServlet{
 			req.setAttribute("match_no", match_no);
 			req.setAttribute("area_no", area_no);
 			SeatDao sdao = new SeatDao();
-			List<SeatDto> sdtolist = sdao.getSeat(area_no);
-			req.setAttribute("sdtolist", sdtolist);
+			List<ResSeat> rlist = sdao.getResSeat(area_no, match_no);
+			req.setAttribute("rlist", rlist);
 			AreaDao adao = new AreaDao();
 			AreaDto adto = adao.getArea_n(area_no);
 			req.setAttribute("adto", adto);
