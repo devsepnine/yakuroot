@@ -128,9 +128,8 @@
 									<button>
 										<a href="g_edit.do?g_no=${gdto.g_no}">글 수정</a>
 									</button>
-									<a href="g_delete.do?no=${gdto.g_no}"><button>글 삭제</button></a>
 								</c:if>
-								<c:if test="${auth eq '관리자' }">
+								<c:if test="${my eq true or auth eq '관리자'}">
 									<a href="g_delete.do?no=${gdto.g_no}"><button>글 삭제</button></a>
 								</c:if>
 							</h4>
