@@ -158,6 +158,7 @@
 	
 	</div>
 	<div style="height:40px;"></div>
+	<div style="width: 1200px; margin:auto; text-align: center;">
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
@@ -179,6 +180,7 @@
     
         <!-- If we need scrollbar -->
         <div class="swiper-scrollbar"></div>
+    </div>
     </div>
 </section>
 

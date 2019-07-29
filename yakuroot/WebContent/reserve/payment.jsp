@@ -7,7 +7,7 @@
 		width: 800px;
 		text-align: center;
 		margin: auto;
-		margin-top: 30px;
+		margin-top: 100px;
 	}
 	.pay_result span{
 		font-size: 50px;
