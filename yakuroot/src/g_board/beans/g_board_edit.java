@@ -37,7 +37,7 @@ public class g_board_edit extends HttpServlet{
 		g_boardDao gdao = new g_boardDao();
 		g_boardDto gdto = new g_boardDto();
 		
-		String path2 = "D:\\upload";
+		String path2 = "D:\\g_upload";
 		int max = 10*1024*1024;
 		String enc = "UTF-8";
 		

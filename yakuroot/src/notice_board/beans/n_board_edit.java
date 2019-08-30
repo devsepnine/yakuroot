@@ -41,7 +41,7 @@ public class n_board_edit extends HttpServlet {
 			n_boardDao ndao = new n_boardDao();
 			n_boardDto ndto = new n_boardDto();
 			
-			String path2 = "D:\\upload";
+			String path2 = "D:\\n_upload";
 			int max = 10*1024*1024;
 			String enc = "UTF-8";
 			
